@@ -58,6 +58,8 @@ class Draw:
 
     @staticmethod
     def plot_convergence_data_median_variance(problem_index, episodes_tested_dir, baselines_dir, plot_dir, instance):
+
+   
         plt.figure(figsize=(10, 6))
         plt.title(f'Convergence Comparison Across Episodes, CMA-ES, and One-Fifth ES on Problem F{problem_index}')
         plt.yscale('symlog')
@@ -108,6 +110,7 @@ class Draw:
         plt.close()
 
     @staticmethod
+    # FLAGVP this is what makes the plots ive been looking at 
     def plot_convergence_data_mean_ci(problem_index, episodes_tested_dir, baselines_dir, plot_dir, instance):
         plt.figure(figsize=(10, 6))
         plt.title(f'Convergence Comparison Across Episodes, CMA-ES, and One-Fifth ES on Problem F{problem_index}')
@@ -115,6 +118,24 @@ class Draw:
         plt.xlabel('Number of Evaluations')
         plt.ylabel('Fitness Value (Mean with 95% CI)')
         plt.grid(True)
+
+
+        if problem_index == 1:
+            print(
+                "problem_index: ", problem_index,
+                "episodes_testted_dir: ", episodes_tested_dir,
+                "baselines_dir: ", baselines_dir,
+                "plot dir: ", plot_dir, 
+                "instances: ", instance
+            )
+        # else: 
+        #     print(
+        #         "problem_index: ", problem_index,
+        #         "episodes_testted_dir: ", episodes_tested_dir,
+        #         "baselines_dir: ", baselines_dir,
+        #         "plot dir: ", plot_dir, 
+        #         "instances: ", instance
+        #     )
 
         episode_colors = ['steelblue', 'sandybrown', 'firebrick']
 
@@ -156,7 +177,13 @@ class Draw:
     def standardize_data(values):
         mean_val = np.mean(values)
         std_val = np.std(values)
+        # print(mean_val)
+        # print(std_val)
+        # one of them has a 0 as a std_val, which causes the invalid warning
+        if std_val == 0:
+            std_val += .0001
         standardized = (values - mean_val) / std_val
+        # print("standerdized is: ", standardized)
         return standardized
 
     def plot_standardized_performance_boxplot(self, episodes_tested_dir, baselines_dir, plot_dir, instance):

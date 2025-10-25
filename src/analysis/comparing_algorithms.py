@@ -15,12 +15,24 @@ def comparing_algorithms(need_train=False,
                          need_test_cma_es=False,
                          need_test_one_fifth_es=False,
                          cuda_device='cuda:0'):
+    
+    """Print all comparison parameters to standard output."""
+    print("=== Algorithm Comparison Parameters ===")
+    print(f"Train: {need_train}")
+    print(f"Problem Type: {test_problem_type}")
+    print(f"Instance: {test_instance}")
+    print(f"Dimension: {test_dimension}")
+    print(f"Test Models: {need_test_models}")
+    print(f"Test CMA-ES: {need_test_cma_es}")
+    print(f"Test One-Fifth ES: {need_test_one_fifth_es}")
+    print(f"CUDA Device: {cuda_device}")
+    print("=======================================")
     base_dir = find_project_root(os.path.dirname(os.path.abspath(__file__)), 'run.py')
     results_dir = os.path.join(base_dir, 'output_data', 'results')
     os.makedirs(results_dir, exist_ok=True)
     plot_dir = os.path.join(results_dir, 'plots', f'DIM_{test_dimension}', f'instance_{test_instance}')
     os.makedirs(plot_dir, exist_ok=True)
-    ppo_es = PPO_ES(base_dir=base_dir, cuda_device=cuda_device)
+    ppo_es = PPO_ES(base_dir=base_dir, cuda_device=cuda_device) # cuda is for parallel computing 
     if need_train:
         ppo_es.train_ppo_es()
 

@@ -11,7 +11,7 @@ import os
 class ES_Env(gym.Env):
     """
     Custom Environment for CMA-ES that follows gym interface.
-    """
+    """ # FLAGVP I think this is actually the environment for PPO-ES I think 
 
     def __init__(self,
                  problem_type="bbob",
@@ -21,7 +21,7 @@ class ES_Env(gym.Env):
                  sigma_0=SIGMA_0,
                  problem_index=1,
                  seed=None):
-        super(ES_Env, self).__init__()
+        super(ES_Env, self).__init__() # inheriting the constructor 
         self.seed(seed)  # Set the seed using the inherited method
         self.suite = cocoex.Suite(problem_type,
                              "",
@@ -47,7 +47,7 @@ class ES_Env(gym.Env):
         self.observation_space = gym.spaces.Box(low=-np.ones(STATE_SIZE), high=np.ones(STATE_SIZE),
                                                 shape=(STATE_SIZE,), dtype=np.float32)
 
-    def seed(self, seed=None):
+    def seed(self, seed=None): # 
         np.random.seed(seed)
 
     def set_mode(self, mode):
@@ -85,6 +85,7 @@ class ES_Env(gym.Env):
     #     norm_sigma = (self.es.sigma - 1e-20) / (100 - 1e-20)
     #     return norm_sigma
 
+    # this is what regulates the countevals variable
     def step(self, action):
         solutions = self.es.ask()
         scaling_factor = action[0] * 0.75 + 1.25
@@ -92,7 +93,7 @@ class ES_Env(gym.Env):
         self.es.sigma = max(1e-20, min(100.0, self.es.sigma))
         self.fitness_values = np.apply_along_axis(self.problem, 1, solutions)
         self.es.tell(solutions, self.fitness_values)
-
+        # gonna have the np.min(self.fitness_values), the best of this generation 
         current_generation_best_fitness = np.min(self.fitness_values)
         if self.previous_best_fitness is not None:
             self.current_best_fitness = min(self.previous_best_fitness, current_generation_best_fitness)
@@ -116,9 +117,12 @@ class ES_Env(gym.Env):
                                 success_ratio
                                 ])
         self.previous_best_fitness = self.current_best_fitness
+        # This is the exact line that iterates countevals
+        # pop size is set to 25
         self.countevals += POP_SIZE
 
         if self.mode == 'training':
+                                        # because of this >= is why we have 41
             terminated = self.countevals >= self.fes_max
             if terminated:
                 self.current_episode += 1

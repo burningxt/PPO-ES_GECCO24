@@ -10,12 +10,25 @@ import numpy as np
 import os
 
 
+# FLAGVP: This is where the data is saved for the numply files ive been looking at 
+# this is what I need to gain a deeper understanding of 
+# this is called from the test_ppo_es below 
 def test_model(env, model_path, data_path, episode, problem_index, instance):
+
+    # ppo is an import
+    # we learn the model_path
+    # model path here is going to be one of the ones in episodes trained
     model = PPO.load(model_path, env=env)
     all_fitness_values = []
+
+    # the number of runs, set to 25 in the config
+    # the size of episodes is also dictated in the config, 1, 600,
+    # it breaks when I change the number of episodes
     for _ in range(NUM_RUN):
         obs = env.envs[0].reset()
         fitness_values = []
+        # we use hte mode created, which is in es_env.py 
+            # env is environment/es_env 
         while env.envs[0].unwrapped.countevals <= env.envs[0].unwrapped.fes_max:  # Adjust the number of steps as needed
             action, _states = model.predict(obs, deterministic=True)
             obs, rewards, dones, info = env.step(np.array([action]))
@@ -24,7 +37,12 @@ def test_model(env, model_path, data_path, episode, problem_index, instance):
                 break
             fitness_values.append(env.envs[0].unwrapped.current_best_fitness)
         all_fitness_values.append(np.array(fitness_values))
+
+
+    # this is the array that we have been looking at 
     all_fitness_values_arr = np.array(all_fitness_values)
+    # This is where it gets those names from 
+
     save_data(os.path.join(data_path, f'fitness_episode_{episode}_problem_{problem_index}_instance_{instance}.npy'), all_fitness_values_arr)
 
 
@@ -34,56 +52,113 @@ class PPO_ES:
         self.cuda_device = cuda_device
         self.seeds = [42, 123, 456, 789, 1011, 1213, 1415, 1617, 1819, 2021]
         # Initialize paths for saving results and plots
+        # we have a results dictionary 
         self.results_dir = os.path.join(base_dir, 'output_data', 'results')
         os.makedirs(self.results_dir, exist_ok=True)
 
+    # this contains the entire code for the PPO+ES training loop
+
     def train_ppo_es(self):
+        # we try for every seed
+        # we train 10 independent PPO agents (one per seed)
         for seed in self.seeds:
+            # create the environment: 
+                # make_vec_env: war4ps the ES_Env into a vectorized envionment, so it can be used by PPO
+                # ES_Env: Is the custom envrionment for the Evolution Strategies Problem 
+                # set the seed
             env = make_vec_env(lambda: ES_Env(instance=TRAIN_INSTANCE, seed=seed), n_envs=1)
             # Reset the model with the new environment to ensure it's training from scratch
             model = PPO(
                 policy='MlpPolicy',
-                env=env,
+                env=env, # passing in our environment 
                 device=self.cuda_device,
                 learning_rate=3e-4,
                 verbose=1,
                 n_steps=12 * 400,  # Number of steps to run for each environment per update
                 batch_size=64,  # Batch size for training
                 n_epochs=10,  # Number of epochs to run for each update
-                gamma=0.99,  # Discount factor
+                gamma=0.99,  # Discount factor for the reward function
                 gae_lambda=0.95,  # Factor for trade-off of bias vs variance for Generalized Advantage Estimator
-                clip_range=0.2
+                                  # Smooths advantage estimates
+                clip_range=0.2 # PPO clipping threshold for stability
             )
             episodes_trained_dir = os.path.join(self.results_dir, f'episodes_trained')
+                # make the output directory for the model directory if its not already there 
             os.makedirs(episodes_trained_dir, exist_ok=True)
+
+            # montiros the mean reward during training. if a new "best" reward is reached, saves the current model weights. 
+                # so you load the best checkpoint instead of the last one
+                # these callbacks are defined in the callbacks class of this implementation 
             callback = SaveOnBestTrainingRewardCallback(save_path=episodes_trained_dir, seed=seed)
             total_timesteps = 12 * 4000
+
+            # adjusts the learning rate linearly over time, decays from 3e-4 to 0 by the end of training 
             scheduler = linear_schedule(initial_value=3e-4)
             lr_scheduler_callback = LearningRateScheduler(
                 initial_learning_rate=3e-4,
                 scheduler=scheduler
             )
-            lr_scheduler_callback.total_timesteps = total_timesteps
-            model.learn(total_timesteps=total_timesteps, callback=[callback, lr_scheduler_callback])
 
+            lr_scheduler_callback.total_timesteps = total_timesteps
+            # model.learn 
+            # model is a PPO object, so it just learns 
+            # we import PPO from stable baseline 3
+                # the callback returns the trained model after neraling
+                # https://stable-baselines3.readthedocs.io/en/v1.0/modules/ppo.html
+                # https://spinningup.openai.com/en/latest/algorithms/ppo.html
+            # train the model 
+            # callback, lets you inject custom logic 
+            model.learn(total_timesteps=total_timesteps, callback=[callback, lr_scheduler_callback])
+            # this is just a method from stablebaselines3 
+                # runs the environment for n_steps timesteps
+                # computes advantage estimates
+                # step() is manually called inside the while loop in this file 
+                    # it is called no where else 
+            # runs in the environment we made earlier
+            # RL environments must follow the Gym API 
+            # step: just takes in action 
+                # applies action 
+                # returns the new state
+                # returns reward
+                # reutrns done if done
+                # info contains extra info 
+                # return observation, reward, terminated, truncated, {}
+
+            # can see where step is defined inside the venv/lib/python3.9/site-packages/gymnasium
+
+            
+
+    # This uses the numpy data ive been looking at 
     def test_ppo_es(self, problem_type, test_problem_dimension, problem_index, instance):
         # Randomly select one seed for testing
         seed = random.choice(self.seeds)
+        # results dir is just made as part of the PPO-ES object 
         episodes_tested_dir = os.path.join(self.results_dir, f'episodes_tested', f'DIM_{test_problem_dimension}')
+        # here is where we create the directory
         os.makedirs(episodes_tested_dir, exist_ok=True)
 
-        seed_env = make_vec_env(lambda: ES_Env(problem_type=problem_type,
+        # seed env 
+            # make_vec_env is a utility of the stable baselines library
+                # creates a vectorized, environment for training reinforcement learning agents 
+                # we create one of type ES_env 
+                # we test ppo_es in the ES_env environment 
+        seed_env = make_vec_env(lambda: ES_Env(problem_type=problem_type, 
                                                instance=instance,
                                                dim=test_problem_dimension,
                                                problem_index=problem_index,
                                                seed=seed), n_envs=1)
 
+        # generate for each of hte episodes
         for episode in EPISODES:
             model_filename = f"model_seed_{seed}_episode_{episode}.zip"
+
+            # we store our model here 
             test_model_path = os.path.join(self.results_dir, 'episodes_trained', model_filename)
 
             for single_env in seed_env.envs:
                 single_env.unwrapped.set_mode('testing')
 
+            # we have this test model 
+            # I think the env is in es_env 
             test_model(seed_env, test_model_path, episodes_tested_dir, episode, problem_index, instance)
 
