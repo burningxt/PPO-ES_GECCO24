@@ -39,7 +39,7 @@ class SaveOnBestTrainingRewardCallback(BaseCallback):
     def _on_step(self) -> bool:
         current_episode = self.training_env.envs[0].unwrapped.current_episode
 
-        # Save if it's the first episode, every 120 episodes
+        # Save if it's the first episode, then every 120 episodes
         if current_episode == 1 or current_episode % (12 * 10) == 0:
             if current_episode != self.last_episode:
                 self.last_episode = current_episode

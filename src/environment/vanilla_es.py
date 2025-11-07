@@ -21,7 +21,11 @@ class ES:
     def ask(self):
         # Generate and return lambda_ offspring
         arz = np.random.randn(self.lambda_, self.dim)
+        # 
         return self.xmean + self.sigma * (self.B @ (self.D * arz).T).T
+
+        # this returns a NumPy array of shape (lambda, dim)
+        # represents the offsprint candidate solutions (each row is one vector in the search space)
 
     def tell(self, arx, fitnesses):
         # Update the state of the CMA-ES based on evaluated solutions

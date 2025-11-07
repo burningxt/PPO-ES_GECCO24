@@ -1,5 +1,5 @@
 # Comments
-  # There are 25 of these lil boxes, corresponding to the number of independent runs I think 
+  # There are 25 of these lil boxes, corresponding to the number of independent runs (a param in the config file) 
   # these boxes roughly align with where the values are on the graph
   # so each number will be the fitness value at each iteration 
   # this has the same number of lines as the DMA 640, so I think the dimensions aren't captured here
@@ -18,6 +18,7 @@
   # inner dimension is about equal to fes__max / pop_size
 # this whole array is a "fitness values"
   # each fitness value within these arrays is the best up to that point, over all generations not just the current one
+    # so its the best out of all populations up to that point 
 [[232.68936954 223.5182813  208.32715582 195.6711389  186.07546746 # each indivudal number is a fitness value
   175.86414573 166.16399115 157.91914268 151.38435866 140.40178463
   138.62452974 119.53598765 110.86720079 110.86720079 110.12190737

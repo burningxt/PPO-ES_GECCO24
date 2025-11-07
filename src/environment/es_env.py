@@ -23,9 +23,12 @@ class ES_Env(gym.Env):
                  seed=None):
         super(ES_Env, self).__init__() # inheriting the constructor 
         self.seed(seed)  # Set the seed using the inherited method
+                                  # the problem type is just bbob by default 
         self.suite = cocoex.Suite(problem_type,
-                             "",
+                             "",# empty string for the benchmark options (we don't use any)  # instance is 1 by default
                              f"dimensions: {dim} function_indices:1-24 instance_indices:{instance}")
+        # select which problem from the suite, by index (0 based indexing is used internally)
+        # this is likely what i'll have to change to improve on space 
         self.problem = self.suite.get_problem(problem_index - 1)
         self.problem_index = problem_index
         self.es = ES(dim, sigma_0, POP_SIZE)
@@ -54,6 +57,7 @@ class ES_Env(gym.Env):
         self.mode = mode
 
     def evaluate_fitness(self, solution):
+        # just plug the solution into the problem
         return self.problem(solution)
 
     def calculate_improvement_ratio(self):
@@ -86,16 +90,28 @@ class ES_Env(gym.Env):
     #     return norm_sigma
 
     # this is what regulates the countevals variable
+    # I think this is whats used for PPO-ES, and nothing else?
     def step(self, action):
+        # self.es.ask is what returns the candidate solutions
         solutions = self.es.ask()
         scaling_factor = action[0] * 0.75 + 1.25
         self.es.sigma *= scaling_factor
         self.es.sigma = max(1e-20, min(100.0, self.es.sigma))
+        # this is where the evaluation takes place, calculates it for all the the solutions returned by ask 
+        # just calculate the fitness values for 
         self.fitness_values = np.apply_along_axis(self.problem, 1, solutions)
-        self.es.tell(solutions, self.fitness_values)
+            # each row is a candidate solution vector (so a point in the search space) 
+                # it evaluates the candidate solutions on the actual problem
+                # this will return a single number, and the lower the better
+            # 1 means that we apply it to the 1 axis in each vector
+            # solutions is a 2D NumPy array
+        self.es.tell(solutions, self.fitness_values) # 
         # gonna have the np.min(self.fitness_values), the best of this generation 
         current_generation_best_fitness = np.min(self.fitness_values)
+
+        # only do this comparrison if its not the first generation 
         if self.previous_best_fitness is not None:
+            # compare the best fitness of the previous best fitness, and the current best fitness 
             self.current_best_fitness = min(self.previous_best_fitness, current_generation_best_fitness)
         else:
             self.current_best_fitness = current_generation_best_fitness
@@ -119,11 +135,13 @@ class ES_Env(gym.Env):
         self.previous_best_fitness = self.current_best_fitness
         # This is the exact line that iterates countevals
         # pop size is set to 25
+        # this is then used for both training and testing
         self.countevals += POP_SIZE
 
         if self.mode == 'training':
                                         # because of this >= is why we have 41
             terminated = self.countevals >= self.fes_max
+            # this is used to determine when the current episode ends 
             if terminated:
                 self.current_episode += 1
                 self.episode_data.append([self.current_episode,
@@ -146,6 +164,7 @@ class ES_Env(gym.Env):
                 #     Draw().plot_episode_data(self.base_dir, self.episode_data, self.problem_index)
 
         elif self.mode == 'testing':
+            # here is where it is for testing
             terminated = self.countevals >= self.fes_max + POP_SIZE * 2
         truncated = False
         return observation, reward, terminated, truncated, {}

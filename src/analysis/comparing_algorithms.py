@@ -43,7 +43,7 @@ def comparing_algorithms(need_train=False,
     os.makedirs(baselines_dir, exist_ok=True)
     os.makedirs(plot_dir, exist_ok=True)
 
-    for problemIndex in range(1, 25):
+    for problemIndex in range(1, 25): # iterates through 1 to 24 
         if need_test_models:
             ppo_es.test_ppo_es(test_problem_type, test_dimension, problemIndex, test_instance)
         if need_test_cma_es:

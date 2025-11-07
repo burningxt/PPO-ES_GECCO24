@@ -30,6 +30,7 @@ def test_model(env, model_path, data_path, episode, problem_index, instance):
         # we use hte mode created, which is in es_env.py 
             # env is environment/es_env 
         while env.envs[0].unwrapped.countevals <= env.envs[0].unwrapped.fes_max:  # Adjust the number of steps as needed
+            # this model.predict, is where the model predicts what hte step size should be 
             action, _states = model.predict(obs, deterministic=True)
             obs, rewards, dones, info = env.step(np.array([action]))
             obs = obs[0]
@@ -43,6 +44,7 @@ def test_model(env, model_path, data_path, episode, problem_index, instance):
     all_fitness_values_arr = np.array(all_fitness_values)
     # This is where it gets those names from 
 
+    # where it writes to the numpy array 
     save_data(os.path.join(data_path, f'fitness_episode_{episode}_problem_{problem_index}_instance_{instance}.npy'), all_fitness_values_arr)
 
 
@@ -89,6 +91,7 @@ class PPO_ES:
             # montiros the mean reward during training. if a new "best" reward is reached, saves the current model weights. 
                 # so you load the best checkpoint instead of the last one
                 # these callbacks are defined in the callbacks class of this implementation 
+            # this callback is the thing that saves the model to the .zip file
             callback = SaveOnBestTrainingRewardCallback(save_path=episodes_trained_dir, seed=seed)
             total_timesteps = 12 * 4000
 
@@ -107,8 +110,8 @@ class PPO_ES:
                 # https://stable-baselines3.readthedocs.io/en/v1.0/modules/ppo.html
                 # https://spinningup.openai.com/en/latest/algorithms/ppo.html
             # train the model 
-            # callback, lets you inject custom logic 
-            model.learn(total_timesteps=total_timesteps, callback=[callback, lr_scheduler_callback])
+            # callback, lets you inject custom logic            # this callback used to save the best one             # lr_scheduler_callback is used to decrease the learning rate
+            model.learn(total_timesteps=total_timesteps, callback=[callback, lr_scheduler_callback]) # it calls the callback when training ends 
             # this is just a method from stablebaselines3 
                 # runs the environment for n_steps timesteps
                 # computes advantage estimates
@@ -149,6 +152,7 @@ class PPO_ES:
                                                seed=seed), n_envs=1)
 
         # generate for each of hte episodes
+        # here is where the number of episodes is decided 
         for episode in EPISODES:
             model_filename = f"model_seed_{seed}_episode_{episode}.zip"
 
