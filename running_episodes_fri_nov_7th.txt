@@ -1,0 +1,3314 @@
+Script started at: 2025-11-07 21:16:52 on machine: code-2
+=== Algorithm Comparison Parameters ===
+Train: True
+Problem Type: bbob
+Instance: 1
+Dimension: 40
+Test Models: True
+Test CMA-ES: True
+Test One-Fifth ES: True
+CUDA Device: cuda
+=======================================
+Using cpu device
+Saving model at episode 1, seed 42
+Saving model at episode 20, seed 42
+Saving model at episode 40, seed 42
+Saving model at episode 60, seed 42
+Saving model at episode 80, seed 42
+Saving model at episode 100, seed 42
+Saving model at episode 120, seed 42
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 40       |
+|    ep_rew_mean     | 1.41     |
+| time/              |          |
+|    fps             | 1016     |
+|    iterations      | 1        |
+|    time_elapsed    | 4        |
+|    total_timesteps | 4800     |
+---------------------------------
+Saving model at episode 140, seed 42
+Saving model at episode 160, seed 42
+Saving model at episode 180, seed 42
+Saving model at episode 200, seed 42
+Saving model at episode 220, seed 42
+Saving model at episode 240, seed 42
+----------------------------------------
+| rollout/                |            |
+|    ep_len_mean          | 40         |
+|    ep_rew_mean          | 1.5        |
+| time/                   |            |
+|    fps                  | 719        |
+|    iterations           | 2          |
+|    time_elapsed         | 13         |
+|    total_timesteps      | 9600       |
+| train/                  |            |
+|    approx_kl            | 0.00791153 |
+|    clip_fraction        | 0.098      |
+|    clip_range           | 0.2        |
+|    entropy_loss         | -1.41      |
+|    explained_variance   | -0.0374    |
+|    learning_rate        | 0.0003     |
+|    loss                 | 0.0293     |
+|    n_updates            | 10         |
+|    policy_gradient_loss | -0.00829   |
+|    std                  | 0.983      |
+|    value_loss           | 0.193      |
+----------------------------------------
+Saving model at episode 260, seed 42
+Saving model at episode 280, seed 42
+Saving model at episode 300, seed 42
+Saving model at episode 320, seed 42
+Saving model at episode 340, seed 42
+Saving model at episode 360, seed 42
+-----------------------------------------
+| rollout/                |             |
+|    ep_len_mean          | 40          |
+|    ep_rew_mean          | 2.01        |
+| time/                   |             |
+|    fps                  | 656         |
+|    iterations           | 3           |
+|    time_elapsed         | 21          |
+|    total_timesteps      | 14400       |
+| train/                  |             |
+|    approx_kl            | 0.008105886 |
+|    clip_fraction        | 0.0909      |
+|    clip_range           | 0.2         |
+|    entropy_loss         | -1.39       |
+|    explained_variance   | 0.198       |
+|    learning_rate        | 0.0003      |
+|    loss                 | 0.0475      |
+|    n_updates            | 20          |
+|    policy_gradient_loss | -0.00599    |
+|    std                  | 0.969       |
+|    value_loss           | 0.247       |
+-----------------------------------------
+Saving model at episode 380, seed 42
+Saving model at episode 400, seed 42
+Saving model at episode 420, seed 42
+Saving model at episode 440, seed 42
+Saving model at episode 460, seed 42
+Saving model at episode 480, seed 42
+-----------------------------------------
+| rollout/                |             |
+|    ep_len_mean          | 40          |
+|    ep_rew_mean          | 2.27        |
+| time/                   |             |
+|    fps                  | 628         |
+|    iterations           | 4           |
+|    time_elapsed         | 30          |
+|    total_timesteps      | 19200       |
+| train/                  |             |
+|    approx_kl            | 0.008045463 |
+|    clip_fraction        | 0.085       |
+|    clip_range           | 0.2         |
+|    entropy_loss         | -1.37       |
+|    explained_variance   | 0.102       |
+|    learning_rate        | 0.0003      |
+|    loss                 | 0.302       |
+|    n_updates            | 30          |
+|    policy_gradient_loss | -0.00646    |
+|    std                  | 0.941       |
+|    value_loss           | 0.376       |
+-----------------------------------------
+Saving model at episode 500, seed 42
+Saving model at episode 520, seed 42
+Saving model at episode 540, seed 42
+Saving model at episode 560, seed 42
+Saving model at episode 580, seed 42
+Saving model at episode 600, seed 42
+------------------------------------------
+| rollout/                |              |
+|    ep_len_mean          | 40           |
+|    ep_rew_mean          | 1.87         |
+| time/                   |              |
+|    fps                  | 613          |
+|    iterations           | 5            |
+|    time_elapsed         | 39           |
+|    total_timesteps      | 24000        |
+| train/                  |              |
+|    approx_kl            | 0.0044876216 |
+|    clip_fraction        | 0.0396       |
+|    clip_range           | 0.2          |
+|    entropy_loss         | -1.34        |
+|    explained_variance   | 0.0711       |
+|    learning_rate        | 0.0003       |
+|    loss                 | 0.265        |
+|    n_updates            | 40           |
+|    policy_gradient_loss | -0.00313     |
+|    std                  | 0.923        |
+|    value_loss           | 0.467        |
+------------------------------------------
+Saving model at episode 620, seed 42
+Saving model at episode 640, seed 42
+Saving model at episode 660, seed 42
+Saving model at episode 680, seed 42
+Saving model at episode 700, seed 42
+Saving model at episode 720, seed 42
+-----------------------------------------
+| rollout/                |             |
+|    ep_len_mean          | 40          |
+|    ep_rew_mean          | 2.12        |
+| time/                   |             |
+|    fps                  | 603         |
+|    iterations           | 6           |
+|    time_elapsed         | 47          |
+|    total_timesteps      | 28800       |
+| train/                  |             |
+|    approx_kl            | 0.006107258 |
+|    clip_fraction        | 0.0597      |
+|    clip_range           | 0.2         |
+|    entropy_loss         | -1.32       |
+|    explained_variance   | 0.0389      |
+|    learning_rate        | 0.0003      |
+|    loss                 | 0.141       |
+|    n_updates            | 50          |
+|    policy_gradient_loss | -0.00457    |
+|    std                  | 0.903       |
+|    value_loss           | 0.42        |
+-----------------------------------------
+Saving model at episode 740, seed 42
+Saving model at episode 760, seed 42
+Saving model at episode 780, seed 42
+Saving model at episode 800, seed 42
+Saving model at episode 820, seed 42
+Saving model at episode 840, seed 42
+-----------------------------------------
+| rollout/                |             |
+|    ep_len_mean          | 40          |
+|    ep_rew_mean          | 2.25        |
+| time/                   |             |
+|    fps                  | 596         |
+|    iterations           | 7           |
+|    time_elapsed         | 56          |
+|    total_timesteps      | 33600       |
+| train/                  |             |
+|    approx_kl            | 0.003008976 |
+|    clip_fraction        | 0.0138      |
+|    clip_range           | 0.2         |
+|    entropy_loss         | -1.31       |
+|    explained_variance   | -0.00213    |
+|    learning_rate        | 0.0003      |
+|    loss                 | 0.201       |
+|    n_updates            | 60          |
+|    policy_gradient_loss | -0.00054    |
+|    std                  | 0.896       |
+|    value_loss           | 0.471       |
+-----------------------------------------
+Saving model at episode 860, seed 42
+Saving model at episode 880, seed 42
+Saving model at episode 900, seed 42
+Saving model at episode 920, seed 42
+Saving model at episode 940, seed 42
+Saving model at episode 960, seed 42
+------------------------------------------
+| rollout/                |              |
+|    ep_len_mean          | 40           |
+|    ep_rew_mean          | 2.31         |
+| time/                   |              |
+|    fps                  | 591          |
+|    iterations           | 8            |
+|    time_elapsed         | 64           |
+|    total_timesteps      | 38400        |
+| train/                  |              |
+|    approx_kl            | 0.0035725236 |
+|    clip_fraction        | 0.026        |
+|    clip_range           | 0.2          |
+|    entropy_loss         | -1.29        |
+|    explained_variance   | 0.0474       |
+|    learning_rate        | 0.0003       |
+|    loss                 | 0.36         |
+|    n_updates            | 70           |
+|    policy_gradient_loss | -0.00172     |
+|    std                  | 0.87         |
+|    value_loss           | 0.529        |
+------------------------------------------
+Saving model at episode 980, seed 42
+Saving model at episode 1000, seed 42
+Saving model at episode 1020, seed 42
+Saving model at episode 1040, seed 42
+Saving model at episode 1060, seed 42
+Saving model at episode 1080, seed 42
+------------------------------------------
+| rollout/                |              |
+|    ep_len_mean          | 40           |
+|    ep_rew_mean          | 2.46         |
+| time/                   |              |
+|    fps                  | 587          |
+|    iterations           | 9            |
+|    time_elapsed         | 73           |
+|    total_timesteps      | 43200        |
+| train/                  |              |
+|    approx_kl            | 0.0034166046 |
+|    clip_fraction        | 0.0426       |
+|    clip_range           | 0.2          |
+|    entropy_loss         | -1.28        |
+|    explained_variance   | 0.075        |
+|    learning_rate        | 0.0003       |
+|    loss                 | 0.373        |
+|    n_updates            | 80           |
+|    policy_gradient_loss | -0.00314     |
+|    std                  | 0.864        |
+|    value_loss           | 0.541        |
+------------------------------------------
+Saving model at episode 1100, seed 42
+Saving model at episode 1120, seed 42
+Saving model at episode 1140, seed 42
+Saving model at episode 1160, seed 42
+Saving model at episode 1180, seed 42
+Saving model at episode 1200, seed 42
+------------------------------------------
+| rollout/                |              |
+|    ep_len_mean          | 40           |
+|    ep_rew_mean          | 2.73         |
+| time/                   |              |
+|    fps                  | 584          |
+|    iterations           | 10           |
+|    time_elapsed         | 82           |
+|    total_timesteps      | 48000        |
+| train/                  |              |
+|    approx_kl            | 0.0064133625 |
+|    clip_fraction        | 0.0409       |
+|    clip_range           | 0.2          |
+|    entropy_loss         | -1.25        |
+|    explained_variance   | 0.0735       |
+|    learning_rate        | 0.0003       |
+|    loss                 | 0.33         |
+|    n_updates            | 90           |
+|    policy_gradient_loss | -0.00284     |
+|    std                  | 0.833        |
+|    value_loss           | 0.554        |
+------------------------------------------
+Using cpu device
+Saving model at episode 1, seed 123
+Saving model at episode 20, seed 123
+Saving model at episode 40, seed 123
+Saving model at episode 60, seed 123
+Saving model at episode 80, seed 123
+Saving model at episode 100, seed 123
+Saving model at episode 120, seed 123
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 40       |
+|    ep_rew_mean     | 1.52     |
+| time/              |          |
+|    fps             | 1009     |
+|    iterations      | 1        |
+|    time_elapsed    | 4        |
+|    total_timesteps | 4800     |
+---------------------------------
+Saving model at episode 140, seed 123
+Saving model at episode 160, seed 123
+Saving model at episode 180, seed 123
+Saving model at episode 200, seed 123
+Saving model at episode 220, seed 123
+Saving model at episode 240, seed 123
+------------------------------------------
+| rollout/                |              |
+|    ep_len_mean          | 40           |
+|    ep_rew_mean          | 1.63         |
+| time/                   |              |
+|    fps                  | 719          |
+|    iterations           | 2            |
+|    time_elapsed         | 13           |
+|    total_timesteps      | 9600         |
+| train/                  |              |
+|    approx_kl            | 0.0067407703 |
+|    clip_fraction        | 0.0909       |
+|    clip_range           | 0.2          |
+|    entropy_loss         | -1.41        |
+|    explained_variance   | 0.012        |
+|    learning_rate        | 0.0003       |
+|    loss                 | 0.126        |
+|    n_updates            | 10           |
+|    policy_gradient_loss | -0.00727     |
+|    std                  | 0.996        |
+|    value_loss           | 0.217        |
+------------------------------------------
+Saving model at episode 260, seed 123
+Saving model at episode 280, seed 123
+Saving model at episode 300, seed 123
+Saving model at episode 320, seed 123
+Saving model at episode 340, seed 123
+Saving model at episode 360, seed 123
+-----------------------------------------
+| rollout/                |             |
+|    ep_len_mean          | 40          |
+|    ep_rew_mean          | 1.88        |
+| time/                   |             |
+|    fps                  | 655         |
+|    iterations           | 3           |
+|    time_elapsed         | 21          |
+|    total_timesteps      | 14400       |
+| train/                  |             |
+|    approx_kl            | 0.008350067 |
+|    clip_fraction        | 0.101       |
+|    clip_range           | 0.2         |
+|    entropy_loss         | -1.4        |
+|    explained_variance   | 0.205       |
+|    learning_rate        | 0.0003      |
+|    loss                 | 0.0697      |
+|    n_updates            | 20          |
+|    policy_gradient_loss | -0.00784    |
+|    std                  | 0.98        |
+|    value_loss           | 0.253       |
+-----------------------------------------
+Saving model at episode 380, seed 123
+Saving model at episode 400, seed 123
+Saving model at episode 420, seed 123
+Saving model at episode 440, seed 123
+Saving model at episode 460, seed 123
+Saving model at episode 480, seed 123
+-----------------------------------------
+| rollout/                |             |
+|    ep_len_mean          | 40          |
+|    ep_rew_mean          | 1.85        |
+| time/                   |             |
+|    fps                  | 628         |
+|    iterations           | 4           |
+|    time_elapsed         | 30          |
+|    total_timesteps      | 19200       |
+| train/                  |             |
+|    approx_kl            | 0.008089834 |
+|    clip_fraction        | 0.0766      |
+|    clip_range           | 0.2         |
+|    entropy_loss         | -1.38       |
+|    explained_variance   | 0.0823      |
+|    learning_rate        | 0.0003      |
+|    loss                 | 0.177       |
+|    n_updates            | 30          |
+|    policy_gradient_loss | -0.00483    |
+|    std                  | 0.955       |
+|    value_loss           | 0.368       |
+-----------------------------------------
+Saving model at episode 500, seed 123
+Saving model at episode 520, seed 123
+Saving model at episode 540, seed 123
+Saving model at episode 560, seed 123
+Saving model at episode 580, seed 123
+Saving model at episode 600, seed 123
+-----------------------------------------
+| rollout/                |             |
+|    ep_len_mean          | 40          |
+|    ep_rew_mean          | 2.18        |
+| time/                   |             |
+|    fps                  | 613         |
+|    iterations           | 5           |
+|    time_elapsed         | 39          |
+|    total_timesteps      | 24000       |
+| train/                  |             |
+|    approx_kl            | 0.004706492 |
+|    clip_fraction        | 0.0333      |
+|    clip_range           | 0.2         |
+|    entropy_loss         | -1.35       |
+|    explained_variance   | 0.0349      |
+|    learning_rate        | 0.0003      |
+|    loss                 | 0.229       |
+|    n_updates            | 40          |
+|    policy_gradient_loss | -0.00208    |
+|    std                  | 0.925       |
+|    value_loss           | 0.397       |
+-----------------------------------------
+Saving model at episode 620, seed 123
+Saving model at episode 640, seed 123
+Saving model at episode 660, seed 123
+Saving model at episode 680, seed 123
+Saving model at episode 700, seed 123
+Saving model at episode 720, seed 123
+----------------------------------------
+| rollout/                |            |
+|    ep_len_mean          | 40         |
+|    ep_rew_mean          | 2.41       |
+| time/                   |            |
+|    fps                  | 603        |
+|    iterations           | 6          |
+|    time_elapsed         | 47         |
+|    total_timesteps      | 28800      |
+| train/                  |            |
+|    approx_kl            | 0.00443245 |
+|    clip_fraction        | 0.0328     |
+|    clip_range           | 0.2        |
+|    entropy_loss         | -1.32      |
+|    explained_variance   | 0.043      |
+|    learning_rate        | 0.0003     |
+|    loss                 | 0.303      |
+|    n_updates            | 50         |
+|    policy_gradient_loss | -0.00289   |
+|    std                  | 0.894      |
+|    value_loss           | 0.491      |
+----------------------------------------
+Saving model at episode 740, seed 123
+Saving model at episode 760, seed 123
+Saving model at episode 780, seed 123
+Saving model at episode 800, seed 123
+Saving model at episode 820, seed 123
+Saving model at episode 840, seed 123
+-----------------------------------------
+| rollout/                |             |
+|    ep_len_mean          | 40          |
+|    ep_rew_mean          | 2.28        |
+| time/                   |             |
+|    fps                  | 596         |
+|    iterations           | 7           |
+|    time_elapsed         | 56          |
+|    total_timesteps      | 33600       |
+| train/                  |             |
+|    approx_kl            | 0.004525062 |
+|    clip_fraction        | 0.037       |
+|    clip_range           | 0.2         |
+|    entropy_loss         | -1.3        |
+|    explained_variance   | 0.0317      |
+|    learning_rate        | 0.0003      |
+|    loss                 | 0.273       |
+|    n_updates            | 60          |
+|    policy_gradient_loss | -0.0027     |
+|    std                  | 0.883       |
+|    value_loss           | 0.572       |
+-----------------------------------------
+Saving model at episode 860, seed 123
+Saving model at episode 880, seed 123
+Saving model at episode 900, seed 123
+Saving model at episode 920, seed 123
+Saving model at episode 940, seed 123
+Saving model at episode 960, seed 123
+-----------------------------------------
+| rollout/                |             |
+|    ep_len_mean          | 40          |
+|    ep_rew_mean          | 2.47        |
+| time/                   |             |
+|    fps                  | 592         |
+|    iterations           | 8           |
+|    time_elapsed         | 64          |
+|    total_timesteps      | 38400       |
+| train/                  |             |
+|    approx_kl            | 0.002386167 |
+|    clip_fraction        | 0.0219      |
+|    clip_range           | 0.2         |
+|    entropy_loss         | -1.28       |
+|    explained_variance   | 0.0314      |
+|    learning_rate        | 0.0003      |
+|    loss                 | 0.258       |
+|    n_updates            | 70          |
+|    policy_gradient_loss | -0.00106    |
+|    std                  | 0.864       |
+|    value_loss           | 0.563       |
+-----------------------------------------
+Saving model at episode 980, seed 123
+Saving model at episode 1000, seed 123
+Saving model at episode 1020, seed 123
+Saving model at episode 1040, seed 123
+Saving model at episode 1060, seed 123
+Saving model at episode 1080, seed 123
+-----------------------------------------
+| rollout/                |             |
+|    ep_len_mean          | 40          |
+|    ep_rew_mean          | 2.44        |
+| time/                   |             |
+|    fps                  | 587         |
+|    iterations           | 9           |
+|    time_elapsed         | 73          |
+|    total_timesteps      | 43200       |
+| train/                  |             |
+|    approx_kl            | 0.002009429 |
+|    clip_fraction        | 0.0144      |
+|    clip_range           | 0.2         |
+|    entropy_loss         | -1.26       |
+|    explained_variance   | 0.0433      |
+|    learning_rate        | 0.0003      |
+|    loss                 | 0.329       |
+|    n_updates            | 80          |
+|    policy_gradient_loss | -0.000961   |
+|    std                  | 0.843       |
+|    value_loss           | 0.61        |
+-----------------------------------------
+Saving model at episode 1100, seed 123
+Saving model at episode 1120, seed 123
+Saving model at episode 1140, seed 123
+Saving model at episode 1160, seed 123
+Saving model at episode 1180, seed 123
+Saving model at episode 1200, seed 123
+------------------------------------------
+| rollout/                |              |
+|    ep_len_mean          | 40           |
+|    ep_rew_mean          | 2.44         |
+| time/                   |              |
+|    fps                  | 584          |
+|    iterations           | 10           |
+|    time_elapsed         | 82           |
+|    total_timesteps      | 48000        |
+| train/                  |              |
+|    approx_kl            | 0.0016468803 |
+|    clip_fraction        | 0.0197       |
+|    clip_range           | 0.2          |
+|    entropy_loss         | -1.24        |
+|    explained_variance   | 0.0657       |
+|    learning_rate        | 0.0003       |
+|    loss                 | 0.383        |
+|    n_updates            | 90           |
+|    policy_gradient_loss | -0.00131     |
+|    std                  | 0.832        |
+|    value_loss           | 0.537        |
+------------------------------------------
+Using cpu device
+Saving model at episode 1, seed 456
+Saving model at episode 20, seed 456
+Saving model at episode 40, seed 456
+Saving model at episode 60, seed 456
+Saving model at episode 80, seed 456
+Saving model at episode 100, seed 456
+Saving model at episode 120, seed 456
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 40       |
+|    ep_rew_mean     | 1.37     |
+| time/              |          |
+|    fps             | 1031     |
+|    iterations      | 1        |
+|    time_elapsed    | 4        |
+|    total_timesteps | 4800     |
+---------------------------------
+Saving model at episode 140, seed 456
+Saving model at episode 160, seed 456
+Saving model at episode 180, seed 456
+Saving model at episode 200, seed 456
+Saving model at episode 220, seed 456
+Saving model at episode 240, seed 456
+-----------------------------------------
+| rollout/                |             |
+|    ep_len_mean          | 40          |
+|    ep_rew_mean          | 1.57        |
+| time/                   |             |
+|    fps                  | 723         |
+|    iterations           | 2           |
+|    time_elapsed         | 13          |
+|    total_timesteps      | 9600        |
+| train/                  |             |
+|    approx_kl            | 0.006881763 |
+|    clip_fraction        | 0.0711      |
+|    clip_range           | 0.2         |
+|    entropy_loss         | -1.42       |
+|    explained_variance   | 0.00469     |
+|    learning_rate        | 0.0003      |
+|    loss                 | 0.0387      |
+|    n_updates            | 10          |
+|    policy_gradient_loss | -0.00478    |
+|    std                  | 0.996       |
+|    value_loss           | 0.186       |
+-----------------------------------------
+Saving model at episode 260, seed 456
+Saving model at episode 280, seed 456
+Saving model at episode 300, seed 456
+Saving model at episode 320, seed 456
+Saving model at episode 340, seed 456
+Saving model at episode 360, seed 456
+-----------------------------------------
+| rollout/                |             |
+|    ep_len_mean          | 40          |
+|    ep_rew_mean          | 1.88        |
+| time/                   |             |
+|    fps                  | 656         |
+|    iterations           | 3           |
+|    time_elapsed         | 21          |
+|    total_timesteps      | 14400       |
+| train/                  |             |
+|    approx_kl            | 0.008531294 |
+|    clip_fraction        | 0.0981      |
+|    clip_range           | 0.2         |
+|    entropy_loss         | -1.4        |
+|    explained_variance   | 0.161       |
+|    learning_rate        | 0.0003      |
+|    loss                 | 0.0439      |
+|    n_updates            | 20          |
+|    policy_gradient_loss | -0.00679    |
+|    std                  | 0.978       |
+|    value_loss           | 0.289       |
+-----------------------------------------
+Saving model at episode 380, seed 456
+Saving model at episode 400, seed 456
+Saving model at episode 420, seed 456
+Saving model at episode 440, seed 456
+Saving model at episode 460, seed 456
+Saving model at episode 480, seed 456
+-----------------------------------------
+| rollout/                |             |
+|    ep_len_mean          | 40          |
+|    ep_rew_mean          | 1.94        |
+| time/                   |             |
+|    fps                  | 627         |
+|    iterations           | 4           |
+|    time_elapsed         | 30          |
+|    total_timesteps      | 19200       |
+| train/                  |             |
+|    approx_kl            | 0.008791857 |
+|    clip_fraction        | 0.105       |
+|    clip_range           | 0.2         |
+|    entropy_loss         | -1.38       |
+|    explained_variance   | 0.151       |
+|    learning_rate        | 0.0003      |
+|    loss                 | 0.185       |
+|    n_updates            | 30          |
+|    policy_gradient_loss | -0.00771    |
+|    std                  | 0.958       |
+|    value_loss           | 0.364       |
+-----------------------------------------
+Saving model at episode 500, seed 456
+Saving model at episode 520, seed 456
+Saving model at episode 540, seed 456
+Saving model at episode 560, seed 456
+Saving model at episode 580, seed 456
+Saving model at episode 600, seed 456
+------------------------------------------
+| rollout/                |              |
+|    ep_len_mean          | 40           |
+|    ep_rew_mean          | 2.04         |
+| time/                   |              |
+|    fps                  | 612          |
+|    iterations           | 5            |
+|    time_elapsed         | 39           |
+|    total_timesteps      | 24000        |
+| train/                  |              |
+|    approx_kl            | 0.0048530144 |
+|    clip_fraction        | 0.0346       |
+|    clip_range           | 0.2          |
+|    entropy_loss         | -1.36        |
+|    explained_variance   | 0.00611      |
+|    learning_rate        | 0.0003       |
+|    loss                 | 0.0978       |
+|    n_updates            | 40           |
+|    policy_gradient_loss | -0.00224     |
+|    std                  | 0.939        |
+|    value_loss           | 0.466        |
+------------------------------------------
+Saving model at episode 620, seed 456
+Saving model at episode 640, seed 456
+Saving model at episode 660, seed 456
+Saving model at episode 680, seed 456
+Saving model at episode 700, seed 456
+Saving model at episode 720, seed 456
+------------------------------------------
+| rollout/                |              |
+|    ep_len_mean          | 40           |
+|    ep_rew_mean          | 2.16         |
+| time/                   |              |
+|    fps                  | 602          |
+|    iterations           | 6            |
+|    time_elapsed         | 47           |
+|    total_timesteps      | 28800        |
+| train/                  |              |
+|    approx_kl            | 0.0020461546 |
+|    clip_fraction        | 0.0165       |
+|    clip_range           | 0.2          |
+|    entropy_loss         | -1.34        |
+|    explained_variance   | 0.0236       |
+|    learning_rate        | 0.0003       |
+|    loss                 | 0.138        |
+|    n_updates            | 50           |
+|    policy_gradient_loss | -0.000644    |
+|    std                  | 0.917        |
+|    value_loss           | 0.488        |
+------------------------------------------
+Saving model at episode 740, seed 456
+Saving model at episode 760, seed 456
+Saving model at episode 780, seed 456
+Saving model at episode 800, seed 456
+Saving model at episode 820, seed 456
+Saving model at episode 840, seed 456
+----------------------------------------
+| rollout/                |            |
+|    ep_len_mean          | 40         |
+|    ep_rew_mean          | 2.21       |
+| time/                   |            |
+|    fps                  | 595        |
+|    iterations           | 7          |
+|    time_elapsed         | 56         |
+|    total_timesteps      | 33600      |
+| train/                  |            |
+|    approx_kl            | 0.00303957 |
+|    clip_fraction        | 0.0255     |
+|    clip_range           | 0.2        |
+|    entropy_loss         | -1.32      |
+|    explained_variance   | 0.0144     |
+|    learning_rate        | 0.0003     |
+|    loss                 | 0.264      |
+|    n_updates            | 60         |
+|    policy_gradient_loss | -0.00179   |
+|    std                  | 0.895      |
+|    value_loss           | 0.482      |
+----------------------------------------
+Saving model at episode 860, seed 456
+Saving model at episode 880, seed 456
+Saving model at episode 900, seed 456
+Saving model at episode 920, seed 456
+Saving model at episode 940, seed 456
+Saving model at episode 960, seed 456
+-----------------------------------------
+| rollout/                |             |
+|    ep_len_mean          | 40          |
+|    ep_rew_mean          | 2.23        |
+| time/                   |             |
+|    fps                  | 590         |
+|    iterations           | 8           |
+|    time_elapsed         | 65          |
+|    total_timesteps      | 38400       |
+| train/                  |             |
+|    approx_kl            | 0.004609152 |
+|    clip_fraction        | 0.0375      |
+|    clip_range           | 0.2         |
+|    entropy_loss         | -1.29       |
+|    explained_variance   | 0.0106      |
+|    learning_rate        | 0.0003      |
+|    loss                 | 0.293       |
+|    n_updates            | 70          |
+|    policy_gradient_loss | -0.0032     |
+|    std                  | 0.865       |
+|    value_loss           | 0.592       |
+-----------------------------------------
+Saving model at episode 980, seed 456
+Saving model at episode 1000, seed 456
+Saving model at episode 1020, seed 456
+Saving model at episode 1040, seed 456
+Saving model at episode 1060, seed 456
+Saving model at episode 1080, seed 456
+------------------------------------------
+| rollout/                |              |
+|    ep_len_mean          | 40           |
+|    ep_rew_mean          | 2.53         |
+| time/                   |              |
+|    fps                  | 587          |
+|    iterations           | 9            |
+|    time_elapsed         | 73           |
+|    total_timesteps      | 43200        |
+| train/                  |              |
+|    approx_kl            | 0.0035872082 |
+|    clip_fraction        | 0.0213       |
+|    clip_range           | 0.2          |
+|    entropy_loss         | -1.25        |
+|    explained_variance   | 0.0266       |
+|    learning_rate        | 0.0003       |
+|    loss                 | 0.341        |
+|    n_updates            | 80           |
+|    policy_gradient_loss | -0.00133     |
+|    std                  | 0.836        |
+|    value_loss           | 0.546        |
+------------------------------------------
+Saving model at episode 1100, seed 456
+Saving model at episode 1120, seed 456
+Saving model at episode 1140, seed 456
+Saving model at episode 1160, seed 456
+Saving model at episode 1180, seed 456
+Saving model at episode 1200, seed 456
+------------------------------------------
+| rollout/                |              |
+|    ep_len_mean          | 40           |
+|    ep_rew_mean          | 2.55         |
+| time/                   |              |
+|    fps                  | 583          |
+|    iterations           | 10           |
+|    time_elapsed         | 82           |
+|    total_timesteps      | 48000        |
+| train/                  |              |
+|    approx_kl            | 0.0020840205 |
+|    clip_fraction        | 0.0149       |
+|    clip_range           | 0.2          |
+|    entropy_loss         | -1.23        |
+|    explained_variance   | 0.0461       |
+|    learning_rate        | 0.0003       |
+|    loss                 | 0.392        |
+|    n_updates            | 90           |
+|    policy_gradient_loss | -0.000528    |
+|    std                  | 0.822        |
+|    value_loss           | 0.603        |
+------------------------------------------
+Using cpu device
+Saving model at episode 1, seed 789
+Saving model at episode 20, seed 789
+Saving model at episode 40, seed 789
+Saving model at episode 60, seed 789
+Saving model at episode 80, seed 789
+Saving model at episode 100, seed 789
+Saving model at episode 120, seed 789
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 40       |
+|    ep_rew_mean     | 1.36     |
+| time/              |          |
+|    fps             | 1018     |
+|    iterations      | 1        |
+|    time_elapsed    | 4        |
+|    total_timesteps | 4800     |
+---------------------------------
+Saving model at episode 140, seed 789
+Saving model at episode 160, seed 789
+Saving model at episode 180, seed 789
+Saving model at episode 200, seed 789
+Saving model at episode 220, seed 789
+Saving model at episode 240, seed 789
+-----------------------------------------
+| rollout/                |             |
+|    ep_len_mean          | 40          |
+|    ep_rew_mean          | 1.71        |
+| time/                   |             |
+|    fps                  | 721         |
+|    iterations           | 2           |
+|    time_elapsed         | 13          |
+|    total_timesteps      | 9600        |
+| train/                  |             |
+|    approx_kl            | 0.007103138 |
+|    clip_fraction        | 0.084       |
+|    clip_range           | 0.2         |
+|    entropy_loss         | -1.41       |
+|    explained_variance   | 0.0509      |
+|    learning_rate        | 0.0003      |
+|    loss                 | 0.0781      |
+|    n_updates            | 10          |
+|    policy_gradient_loss | -0.00572    |
+|    std                  | 0.986       |
+|    value_loss           | 0.177       |
+-----------------------------------------
+Saving model at episode 260, seed 789
+Saving model at episode 280, seed 789
+Saving model at episode 300, seed 789
+Saving model at episode 320, seed 789
+Saving model at episode 340, seed 789
+Saving model at episode 360, seed 789
+-----------------------------------------
+| rollout/                |             |
+|    ep_len_mean          | 40          |
+|    ep_rew_mean          | 1.84        |
+| time/                   |             |
+|    fps                  | 657         |
+|    iterations           | 3           |
+|    time_elapsed         | 21          |
+|    total_timesteps      | 14400       |
+| train/                  |             |
+|    approx_kl            | 0.007882322 |
+|    clip_fraction        | 0.0948      |
+|    clip_range           | 0.2         |
+|    entropy_loss         | -1.4        |
+|    explained_variance   | 0.18        |
+|    learning_rate        | 0.0003      |
+|    loss                 | 0.0855      |
+|    n_updates            | 20          |
+|    policy_gradient_loss | -0.00752    |
+|    std                  | 0.974       |
+|    value_loss           | 0.28        |
+-----------------------------------------
+Saving model at episode 380, seed 789
+Saving model at episode 400, seed 789
+Saving model at episode 420, seed 789
+Saving model at episode 440, seed 789
+Saving model at episode 460, seed 789
+Saving model at episode 480, seed 789
+------------------------------------------
+| rollout/                |              |
+|    ep_len_mean          | 40           |
+|    ep_rew_mean          | 2            |
+| time/                   |              |
+|    fps                  | 629          |
+|    iterations           | 4            |
+|    time_elapsed         | 30           |
+|    total_timesteps      | 19200        |
+| train/                  |              |
+|    approx_kl            | 0.0041127433 |
+|    clip_fraction        | 0.0491       |
+|    clip_range           | 0.2          |
+|    entropy_loss         | -1.38        |
+|    explained_variance   | 0.116        |
+|    learning_rate        | 0.0003       |
+|    loss                 | 0.109        |
+|    n_updates            | 30           |
+|    policy_gradient_loss | -0.0038      |
+|    std                  | 0.96         |
+|    value_loss           | 0.332        |
+------------------------------------------
+Saving model at episode 500, seed 789
+Saving model at episode 520, seed 789
+Saving model at episode 540, seed 789
+Saving model at episode 560, seed 789
+Saving model at episode 580, seed 789
+Saving model at episode 600, seed 789
+------------------------------------------
+| rollout/                |              |
+|    ep_len_mean          | 40           |
+|    ep_rew_mean          | 2.19         |
+| time/                   |              |
+|    fps                  | 613          |
+|    iterations           | 5            |
+|    time_elapsed         | 39           |
+|    total_timesteps      | 24000        |
+| train/                  |              |
+|    approx_kl            | 0.0059642624 |
+|    clip_fraction        | 0.0549       |
+|    clip_range           | 0.2          |
+|    entropy_loss         | -1.36        |
+|    explained_variance   | 0.0953       |
+|    learning_rate        | 0.0003       |
+|    loss                 | 0.172        |
+|    n_updates            | 40           |
+|    policy_gradient_loss | -0.00428     |
+|    std                  | 0.942        |
+|    value_loss           | 0.399        |
+------------------------------------------
+Saving model at episode 620, seed 789
+Saving model at episode 640, seed 789
+Saving model at episode 660, seed 789
+Saving model at episode 680, seed 789
+Saving model at episode 700, seed 789
+Saving model at episode 720, seed 789
+------------------------------------------
+| rollout/                |              |
+|    ep_len_mean          | 40           |
+|    ep_rew_mean          | 2.19         |
+| time/                   |              |
+|    fps                  | 604          |
+|    iterations           | 6            |
+|    time_elapsed         | 47           |
+|    total_timesteps      | 28800        |
+| train/                  |              |
+|    approx_kl            | 0.0059094275 |
+|    clip_fraction        | 0.0645       |
+|    clip_range           | 0.2          |
+|    entropy_loss         | -1.34        |
+|    explained_variance   | 0.0493       |
+|    learning_rate        | 0.0003       |
+|    loss                 | 0.311        |
+|    n_updates            | 50           |
+|    policy_gradient_loss | -0.00533     |
+|    std                  | 0.918        |
+|    value_loss           | 0.541        |
+------------------------------------------
+Saving model at episode 740, seed 789
+Saving model at episode 760, seed 789
+Saving model at episode 780, seed 789
+Saving model at episode 800, seed 789
+Saving model at episode 820, seed 789
+Saving model at episode 840, seed 789
+------------------------------------------
+| rollout/                |              |
+|    ep_len_mean          | 40           |
+|    ep_rew_mean          | 2.17         |
+| time/                   |              |
+|    fps                  | 597          |
+|    iterations           | 7            |
+|    time_elapsed         | 56           |
+|    total_timesteps      | 33600        |
+| train/                  |              |
+|    approx_kl            | 0.0013621027 |
+|    clip_fraction        | 0.0186       |
+|    clip_range           | 0.2          |
+|    entropy_loss         | -1.32        |
+|    explained_variance   | 0.00989      |
+|    learning_rate        | 0.0003       |
+|    loss                 | 0.298        |
+|    n_updates            | 60           |
+|    policy_gradient_loss | -0.00106     |
+|    std                  | 0.901        |
+|    value_loss           | 0.512        |
+------------------------------------------
+Saving model at episode 860, seed 789
+Saving model at episode 880, seed 789
+Saving model at episode 900, seed 789
+Saving model at episode 920, seed 789
+Saving model at episode 940, seed 789
+Saving model at episode 960, seed 789
+------------------------------------------
+| rollout/                |              |
+|    ep_len_mean          | 40           |
+|    ep_rew_mean          | 2.5          |
+| time/                   |              |
+|    fps                  | 591          |
+|    iterations           | 8            |
+|    time_elapsed         | 64           |
+|    total_timesteps      | 38400        |
+| train/                  |              |
+|    approx_kl            | 0.0037033197 |
+|    clip_fraction        | 0.0252       |
+|    clip_range           | 0.2          |
+|    entropy_loss         | -1.3         |
+|    explained_variance   | 0.0365       |
+|    learning_rate        | 0.0003       |
+|    loss                 | 0.258        |
+|    n_updates            | 70           |
+|    policy_gradient_loss | -0.00135     |
+|    std                  | 0.883        |
+|    value_loss           | 0.539        |
+------------------------------------------
+Saving model at episode 980, seed 789
+Saving model at episode 1000, seed 789
+Saving model at episode 1020, seed 789
+Saving model at episode 1040, seed 789
+Saving model at episode 1060, seed 789
+Saving model at episode 1080, seed 789
+-----------------------------------------
+| rollout/                |             |
+|    ep_len_mean          | 40          |
+|    ep_rew_mean          | 2.4         |
+| time/                   |             |
+|    fps                  | 587         |
+|    iterations           | 9           |
+|    time_elapsed         | 73          |
+|    total_timesteps      | 43200       |
+| train/                  |             |
+|    approx_kl            | 0.004742317 |
+|    clip_fraction        | 0.0314      |
+|    clip_range           | 0.2         |
+|    entropy_loss         | -1.28       |
+|    explained_variance   | 0.0506      |
+|    learning_rate        | 0.0003      |
+|    loss                 | 0.288       |
+|    n_updates            | 80          |
+|    policy_gradient_loss | -0.00221    |
+|    std                  | 0.858       |
+|    value_loss           | 0.611       |
+-----------------------------------------
+Saving model at episode 1100, seed 789
+Saving model at episode 1120, seed 789
+Saving model at episode 1140, seed 789
+Saving model at episode 1160, seed 789
+Saving model at episode 1180, seed 789
+Saving model at episode 1200, seed 789
+------------------------------------------
+| rollout/                |              |
+|    ep_len_mean          | 40           |
+|    ep_rew_mean          | 2.66         |
+| time/                   |              |
+|    fps                  | 584          |
+|    iterations           | 10           |
+|    time_elapsed         | 82           |
+|    total_timesteps      | 48000        |
+| train/                  |              |
+|    approx_kl            | 0.0039042775 |
+|    clip_fraction        | 0.031        |
+|    clip_range           | 0.2          |
+|    entropy_loss         | -1.25        |
+|    explained_variance   | 0.0834       |
+|    learning_rate        | 0.0003       |
+|    loss                 | 0.359        |
+|    n_updates            | 90           |
+|    policy_gradient_loss | -0.00145     |
+|    std                  | 0.841        |
+|    value_loss           | 0.616        |
+------------------------------------------
+Using cpu device
+Saving model at episode 1, seed 1011
+Saving model at episode 20, seed 1011
+Saving model at episode 40, seed 1011
+Saving model at episode 60, seed 1011
+Saving model at episode 80, seed 1011
+Saving model at episode 100, seed 1011
+Saving model at episode 120, seed 1011
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 40       |
+|    ep_rew_mean     | 1.61     |
+| time/              |          |
+|    fps             | 1029     |
+|    iterations      | 1        |
+|    time_elapsed    | 4        |
+|    total_timesteps | 4800     |
+---------------------------------
+Saving model at episode 140, seed 1011
+Saving model at episode 160, seed 1011
+Saving model at episode 180, seed 1011
+Saving model at episode 200, seed 1011
+Saving model at episode 220, seed 1011
+Saving model at episode 240, seed 1011
+-----------------------------------------
+| rollout/                |             |
+|    ep_len_mean          | 40          |
+|    ep_rew_mean          | 1.6         |
+| time/                   |             |
+|    fps                  | 724         |
+|    iterations           | 2           |
+|    time_elapsed         | 13          |
+|    total_timesteps      | 9600        |
+| train/                  |             |
+|    approx_kl            | 0.008297683 |
+|    clip_fraction        | 0.104       |
+|    clip_range           | 0.2         |
+|    entropy_loss         | -1.41       |
+|    explained_variance   | 0.0118      |
+|    learning_rate        | 0.0003      |
+|    loss                 | 0.158       |
+|    n_updates            | 10          |
+|    policy_gradient_loss | -0.00807    |
+|    std                  | 0.985       |
+|    value_loss           | 0.23        |
+-----------------------------------------
+Saving model at episode 260, seed 1011
+Saving model at episode 280, seed 1011
+Saving model at episode 300, seed 1011
+Saving model at episode 320, seed 1011
+Saving model at episode 340, seed 1011
+Saving model at episode 360, seed 1011
+-----------------------------------------
+| rollout/                |             |
+|    ep_len_mean          | 40          |
+|    ep_rew_mean          | 1.8         |
+| time/                   |             |
+|    fps                  | 658         |
+|    iterations           | 3           |
+|    time_elapsed         | 21          |
+|    total_timesteps      | 14400       |
+| train/                  |             |
+|    approx_kl            | 0.008106501 |
+|    clip_fraction        | 0.101       |
+|    clip_range           | 0.2         |
+|    entropy_loss         | -1.39       |
+|    explained_variance   | 0.189       |
+|    learning_rate        | 0.0003      |
+|    loss                 | 0.172       |
+|    n_updates            | 20          |
+|    policy_gradient_loss | -0.0076     |
+|    std                  | 0.972       |
+|    value_loss           | 0.325       |
+-----------------------------------------
+Saving model at episode 380, seed 1011
+Saving model at episode 400, seed 1011
+Saving model at episode 420, seed 1011
+Saving model at episode 440, seed 1011
+Saving model at episode 460, seed 1011
+Saving model at episode 480, seed 1011
+------------------------------------------
+| rollout/                |              |
+|    ep_len_mean          | 40           |
+|    ep_rew_mean          | 2.19         |
+| time/                   |              |
+|    fps                  | 630          |
+|    iterations           | 4            |
+|    time_elapsed         | 30           |
+|    total_timesteps      | 19200        |
+| train/                  |              |
+|    approx_kl            | 0.0073141535 |
+|    clip_fraction        | 0.0821       |
+|    clip_range           | 0.2          |
+|    entropy_loss         | -1.38        |
+|    explained_variance   | 0.156        |
+|    learning_rate        | 0.0003       |
+|    loss                 | 0.131        |
+|    n_updates            | 30           |
+|    policy_gradient_loss | -0.00613     |
+|    std                  | 0.951        |
+|    value_loss           | 0.318        |
+------------------------------------------
+Saving model at episode 500, seed 1011
+Saving model at episode 520, seed 1011
+Saving model at episode 540, seed 1011
+Saving model at episode 560, seed 1011
+Saving model at episode 580, seed 1011
+Saving model at episode 600, seed 1011
+-----------------------------------------
+| rollout/                |             |
+|    ep_len_mean          | 40          |
+|    ep_rew_mean          | 1.99        |
+| time/                   |             |
+|    fps                  | 612         |
+|    iterations           | 5           |
+|    time_elapsed         | 39          |
+|    total_timesteps      | 24000       |
+| train/                  |             |
+|    approx_kl            | 0.006445917 |
+|    clip_fraction        | 0.0709      |
+|    clip_range           | 0.2         |
+|    entropy_loss         | -1.35       |
+|    explained_variance   | 0.0789      |
+|    learning_rate        | 0.0003      |
+|    loss                 | 0.275       |
+|    n_updates            | 40          |
+|    policy_gradient_loss | -0.00501    |
+|    std                  | 0.923       |
+|    value_loss           | 0.491       |
+-----------------------------------------
+Saving model at episode 620, seed 1011
+Saving model at episode 640, seed 1011
+Saving model at episode 660, seed 1011
+Saving model at episode 680, seed 1011
+Saving model at episode 700, seed 1011
+Saving model at episode 720, seed 1011
+------------------------------------------
+| rollout/                |              |
+|    ep_len_mean          | 40           |
+|    ep_rew_mean          | 2.17         |
+| time/                   |              |
+|    fps                  | 602          |
+|    iterations           | 6            |
+|    time_elapsed         | 47           |
+|    total_timesteps      | 28800        |
+| train/                  |              |
+|    approx_kl            | 0.0028571454 |
+|    clip_fraction        | 0.0138       |
+|    clip_range           | 0.2          |
+|    entropy_loss         | -1.33        |
+|    explained_variance   | 0.0217       |
+|    learning_rate        | 0.0003       |
+|    loss                 | 0.262        |
+|    n_updates            | 50           |
+|    policy_gradient_loss | -0.000611    |
+|    std                  | 0.91         |
+|    value_loss           | 0.427        |
+------------------------------------------
+Saving model at episode 740, seed 1011
+Saving model at episode 760, seed 1011
+Saving model at episode 780, seed 1011
+Saving model at episode 800, seed 1011
+Saving model at episode 820, seed 1011
+Saving model at episode 840, seed 1011
+------------------------------------------
+| rollout/                |              |
+|    ep_len_mean          | 40           |
+|    ep_rew_mean          | 2.27         |
+| time/                   |              |
+|    fps                  | 596          |
+|    iterations           | 7            |
+|    time_elapsed         | 56           |
+|    total_timesteps      | 33600        |
+| train/                  |              |
+|    approx_kl            | 0.0030311837 |
+|    clip_fraction        | 0.0227       |
+|    clip_range           | 0.2          |
+|    entropy_loss         | -1.32        |
+|    explained_variance   | -0.000786    |
+|    learning_rate        | 0.0003       |
+|    loss                 | 0.252        |
+|    n_updates            | 60           |
+|    policy_gradient_loss | -0.00177     |
+|    std                  | 0.902        |
+|    value_loss           | 0.545        |
+------------------------------------------
+Saving model at episode 860, seed 1011
+Saving model at episode 880, seed 1011
+Saving model at episode 900, seed 1011
+Saving model at episode 920, seed 1011
+Saving model at episode 940, seed 1011
+Saving model at episode 960, seed 1011
+------------------------------------------
+| rollout/                |              |
+|    ep_len_mean          | 40           |
+|    ep_rew_mean          | 2.37         |
+| time/                   |              |
+|    fps                  | 591          |
+|    iterations           | 8            |
+|    time_elapsed         | 64           |
+|    total_timesteps      | 38400        |
+| train/                  |              |
+|    approx_kl            | 0.0037103144 |
+|    clip_fraction        | 0.0269       |
+|    clip_range           | 0.2          |
+|    entropy_loss         | -1.3         |
+|    explained_variance   | 0.0333       |
+|    learning_rate        | 0.0003       |
+|    loss                 | 0.29         |
+|    n_updates            | 70           |
+|    policy_gradient_loss | -0.00178     |
+|    std                  | 0.888        |
+|    value_loss           | 0.566        |
+------------------------------------------
+Saving model at episode 980, seed 1011
+Saving model at episode 1000, seed 1011
+Saving model at episode 1020, seed 1011
+Saving model at episode 1040, seed 1011
+Saving model at episode 1060, seed 1011
+Saving model at episode 1080, seed 1011
+----------------------------------------
+| rollout/                |            |
+|    ep_len_mean          | 40         |
+|    ep_rew_mean          | 2.33       |
+| time/                   |            |
+|    fps                  | 587        |
+|    iterations           | 9          |
+|    time_elapsed         | 73         |
+|    total_timesteps      | 43200      |
+| train/                  |            |
+|    approx_kl            | 0.00356227 |
+|    clip_fraction        | 0.0366     |
+|    clip_range           | 0.2        |
+|    entropy_loss         | -1.3       |
+|    explained_variance   | 0.055      |
+|    learning_rate        | 0.0003     |
+|    loss                 | 0.313      |
+|    n_updates            | 80         |
+|    policy_gradient_loss | -0.00266   |
+|    std                  | 0.884      |
+|    value_loss           | 0.534      |
+----------------------------------------
+Saving model at episode 1100, seed 1011
+Saving model at episode 1120, seed 1011
+Saving model at episode 1140, seed 1011
+Saving model at episode 1160, seed 1011
+Saving model at episode 1180, seed 1011
+Saving model at episode 1200, seed 1011
+-----------------------------------------
+| rollout/                |             |
+|    ep_len_mean          | 40          |
+|    ep_rew_mean          | 2.34        |
+| time/                   |             |
+|    fps                  | 583         |
+|    iterations           | 10          |
+|    time_elapsed         | 82          |
+|    total_timesteps      | 48000       |
+| train/                  |             |
+|    approx_kl            | 0.003416361 |
+|    clip_fraction        | 0.0254      |
+|    clip_range           | 0.2         |
+|    entropy_loss         | -1.29       |
+|    explained_variance   | 0.0666      |
+|    learning_rate        | 0.0003      |
+|    loss                 | 0.234       |
+|    n_updates            | 90          |
+|    policy_gradient_loss | -0.00143    |
+|    std                  | 0.882       |
+|    value_loss           | 0.559       |
+-----------------------------------------
+Using cpu device
+Saving model at episode 1, seed 1213
+Saving model at episode 20, seed 1213
+Saving model at episode 40, seed 1213
+Saving model at episode 60, seed 1213
+Saving model at episode 80, seed 1213
+Saving model at episode 100, seed 1213
+Saving model at episode 120, seed 1213
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 40       |
+|    ep_rew_mean     | 1.51     |
+| time/              |          |
+|    fps             | 1032     |
+|    iterations      | 1        |
+|    time_elapsed    | 4        |
+|    total_timesteps | 4800     |
+---------------------------------
+Saving model at episode 140, seed 1213
+Saving model at episode 160, seed 1213
+Saving model at episode 180, seed 1213
+Saving model at episode 200, seed 1213
+Saving model at episode 220, seed 1213
+Saving model at episode 240, seed 1213
+------------------------------------------
+| rollout/                |              |
+|    ep_len_mean          | 40           |
+|    ep_rew_mean          | 1.64         |
+| time/                   |              |
+|    fps                  | 719          |
+|    iterations           | 2            |
+|    time_elapsed         | 13           |
+|    total_timesteps      | 9600         |
+| train/                  |              |
+|    approx_kl            | 0.0060754837 |
+|    clip_fraction        | 0.0561       |
+|    clip_range           | 0.2          |
+|    entropy_loss         | -1.41        |
+|    explained_variance   | -0.0665      |
+|    learning_rate        | 0.0003       |
+|    loss                 | 0.105        |
+|    n_updates            | 10           |
+|    policy_gradient_loss | -0.00396     |
+|    std                  | 0.991        |
+|    value_loss           | 0.215        |
+------------------------------------------
+Saving model at episode 260, seed 1213
+Saving model at episode 280, seed 1213
+Saving model at episode 300, seed 1213
+Saving model at episode 320, seed 1213
+Saving model at episode 340, seed 1213
+Saving model at episode 360, seed 1213
+-----------------------------------------
+| rollout/                |             |
+|    ep_len_mean          | 40          |
+|    ep_rew_mean          | 1.82        |
+| time/                   |             |
+|    fps                  | 656         |
+|    iterations           | 3           |
+|    time_elapsed         | 21          |
+|    total_timesteps      | 14400       |
+| train/                  |             |
+|    approx_kl            | 0.007182135 |
+|    clip_fraction        | 0.0925      |
+|    clip_range           | 0.2         |
+|    entropy_loss         | -1.4        |
+|    explained_variance   | 0.198       |
+|    learning_rate        | 0.0003      |
+|    loss                 | 0.218       |
+|    n_updates            | 20          |
+|    policy_gradient_loss | -0.00671    |
+|    std                  | 0.983       |
+|    value_loss           | 0.313       |
+-----------------------------------------
+Saving model at episode 380, seed 1213
+Saving model at episode 400, seed 1213
+Saving model at episode 420, seed 1213
+Saving model at episode 440, seed 1213
+Saving model at episode 460, seed 1213
+Saving model at episode 480, seed 1213
+-----------------------------------------
+| rollout/                |             |
+|    ep_len_mean          | 40          |
+|    ep_rew_mean          | 1.79        |
+| time/                   |             |
+|    fps                  | 626         |
+|    iterations           | 4           |
+|    time_elapsed         | 30          |
+|    total_timesteps      | 19200       |
+| train/                  |             |
+|    approx_kl            | 0.008180732 |
+|    clip_fraction        | 0.0895      |
+|    clip_range           | 0.2         |
+|    entropy_loss         | -1.39       |
+|    explained_variance   | 0.15        |
+|    learning_rate        | 0.0003      |
+|    loss                 | 0.175       |
+|    n_updates            | 30          |
+|    policy_gradient_loss | -0.00624    |
+|    std                  | 0.964       |
+|    value_loss           | 0.406       |
+-----------------------------------------
+Saving model at episode 500, seed 1213
+Saving model at episode 520, seed 1213
+Saving model at episode 540, seed 1213
+Saving model at episode 560, seed 1213
+Saving model at episode 580, seed 1213
+Saving model at episode 600, seed 1213
+------------------------------------------
+| rollout/                |              |
+|    ep_len_mean          | 40           |
+|    ep_rew_mean          | 2.16         |
+| time/                   |              |
+|    fps                  | 611          |
+|    iterations           | 5            |
+|    time_elapsed         | 39           |
+|    total_timesteps      | 24000        |
+| train/                  |              |
+|    approx_kl            | 0.0058642626 |
+|    clip_fraction        | 0.044        |
+|    clip_range           | 0.2          |
+|    entropy_loss         | -1.37        |
+|    explained_variance   | 0.0911       |
+|    learning_rate        | 0.0003       |
+|    loss                 | 0.079        |
+|    n_updates            | 40           |
+|    policy_gradient_loss | -0.0034      |
+|    std                  | 0.948        |
+|    value_loss           | 0.406        |
+------------------------------------------
+Saving model at episode 620, seed 1213
+Saving model at episode 640, seed 1213
+Saving model at episode 660, seed 1213
+Saving model at episode 680, seed 1213
+Saving model at episode 700, seed 1213
+Saving model at episode 720, seed 1213
+------------------------------------------
+| rollout/                |              |
+|    ep_len_mean          | 40           |
+|    ep_rew_mean          | 1.99         |
+| time/                   |              |
+|    fps                  | 601          |
+|    iterations           | 6            |
+|    time_elapsed         | 47           |
+|    total_timesteps      | 28800        |
+| train/                  |              |
+|    approx_kl            | 0.0035267163 |
+|    clip_fraction        | 0.0289       |
+|    clip_range           | 0.2          |
+|    entropy_loss         | -1.36        |
+|    explained_variance   | 0.0751       |
+|    learning_rate        | 0.0003       |
+|    loss                 | 0.173        |
+|    n_updates            | 50           |
+|    policy_gradient_loss | -0.00168     |
+|    std                  | 0.935        |
+|    value_loss           | 0.464        |
+------------------------------------------
+Saving model at episode 740, seed 1213
+Saving model at episode 760, seed 1213
+Saving model at episode 780, seed 1213
+Saving model at episode 800, seed 1213
+Saving model at episode 820, seed 1213
+Saving model at episode 840, seed 1213
+------------------------------------------
+| rollout/                |              |
+|    ep_len_mean          | 40           |
+|    ep_rew_mean          | 2.17         |
+| time/                   |              |
+|    fps                  | 595          |
+|    iterations           | 7            |
+|    time_elapsed         | 56           |
+|    total_timesteps      | 33600        |
+| train/                  |              |
+|    approx_kl            | 0.0055188765 |
+|    clip_fraction        | 0.0489       |
+|    clip_range           | 0.2          |
+|    entropy_loss         | -1.34        |
+|    explained_variance   | 0.103        |
+|    learning_rate        | 0.0003       |
+|    loss                 | 0.131        |
+|    n_updates            | 60           |
+|    policy_gradient_loss | -0.00328     |
+|    std                  | 0.915        |
+|    value_loss           | 0.393        |
+------------------------------------------
+Saving model at episode 860, seed 1213
+Saving model at episode 880, seed 1213
+Saving model at episode 900, seed 1213
+Saving model at episode 920, seed 1213
+Saving model at episode 940, seed 1213
+Saving model at episode 960, seed 1213
+-----------------------------------------
+| rollout/                |             |
+|    ep_len_mean          | 40          |
+|    ep_rew_mean          | 2.51        |
+| time/                   |             |
+|    fps                  | 590         |
+|    iterations           | 8           |
+|    time_elapsed         | 65          |
+|    total_timesteps      | 38400       |
+| train/                  |             |
+|    approx_kl            | 0.004246601 |
+|    clip_fraction        | 0.0343      |
+|    clip_range           | 0.2         |
+|    entropy_loss         | -1.32       |
+|    explained_variance   | 0.0191      |
+|    learning_rate        | 0.0003      |
+|    loss                 | 0.136       |
+|    n_updates            | 70          |
+|    policy_gradient_loss | -0.00227    |
+|    std                  | 0.898       |
+|    value_loss           | 0.469       |
+-----------------------------------------
+Saving model at episode 980, seed 1213
+Saving model at episode 1000, seed 1213
+Saving model at episode 1020, seed 1213
+Saving model at episode 1040, seed 1213
+Saving model at episode 1060, seed 1213
+Saving model at episode 1080, seed 1213
+------------------------------------------
+| rollout/                |              |
+|    ep_len_mean          | 40           |
+|    ep_rew_mean          | 2.47         |
+| time/                   |              |
+|    fps                  | 585          |
+|    iterations           | 9            |
+|    time_elapsed         | 73           |
+|    total_timesteps      | 43200        |
+| train/                  |              |
+|    approx_kl            | 0.0035707618 |
+|    clip_fraction        | 0.027        |
+|    clip_range           | 0.2          |
+|    entropy_loss         | -1.29        |
+|    explained_variance   | 0.0267       |
+|    learning_rate        | 0.0003       |
+|    loss                 | 0.358        |
+|    n_updates            | 80           |
+|    policy_gradient_loss | -0.00185     |
+|    std                  | 0.868        |
+|    value_loss           | 0.604        |
+------------------------------------------
+Saving model at episode 1100, seed 1213
+Saving model at episode 1120, seed 1213
+Saving model at episode 1140, seed 1213
+Saving model at episode 1160, seed 1213
+Saving model at episode 1180, seed 1213
+Saving model at episode 1200, seed 1213
+-----------------------------------------
+| rollout/                |             |
+|    ep_len_mean          | 40          |
+|    ep_rew_mean          | 2.41        |
+| time/                   |             |
+|    fps                  | 582         |
+|    iterations           | 10          |
+|    time_elapsed         | 82          |
+|    total_timesteps      | 48000       |
+| train/                  |             |
+|    approx_kl            | 0.001591306 |
+|    clip_fraction        | 0.0152      |
+|    clip_range           | 0.2         |
+|    entropy_loss         | -1.27       |
+|    explained_variance   | 0.0405      |
+|    learning_rate        | 0.0003      |
+|    loss                 | 0.431       |
+|    n_updates            | 90          |
+|    policy_gradient_loss | -0.00076    |
+|    std                  | 0.86        |
+|    value_loss           | 0.624       |
+-----------------------------------------
+Using cpu device
+Saving model at episode 1, seed 1415
+Saving model at episode 20, seed 1415
+Saving model at episode 40, seed 1415
+Saving model at episode 60, seed 1415
+Saving model at episode 80, seed 1415
+Saving model at episode 100, seed 1415
+Saving model at episode 120, seed 1415
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 40       |
+|    ep_rew_mean     | 1.42     |
+| time/              |          |
+|    fps             | 1030     |
+|    iterations      | 1        |
+|    time_elapsed    | 4        |
+|    total_timesteps | 4800     |
+---------------------------------
+Saving model at episode 140, seed 1415
+Saving model at episode 160, seed 1415
+Saving model at episode 180, seed 1415
+Saving model at episode 200, seed 1415
+Saving model at episode 220, seed 1415
+Saving model at episode 240, seed 1415
+-----------------------------------------
+| rollout/                |             |
+|    ep_len_mean          | 40          |
+|    ep_rew_mean          | 1.68        |
+| time/                   |             |
+|    fps                  | 723         |
+|    iterations           | 2           |
+|    time_elapsed         | 13          |
+|    total_timesteps      | 9600        |
+| train/                  |             |
+|    approx_kl            | 0.007515784 |
+|    clip_fraction        | 0.0912      |
+|    clip_range           | 0.2         |
+|    entropy_loss         | -1.41       |
+|    explained_variance   | 0.123       |
+|    learning_rate        | 0.0003      |
+|    loss                 | 0.0719      |
+|    n_updates            | 10          |
+|    policy_gradient_loss | -0.00713    |
+|    std                  | 0.983       |
+|    value_loss           | 0.161       |
+-----------------------------------------
+Saving model at episode 260, seed 1415
+Saving model at episode 280, seed 1415
+Saving model at episode 300, seed 1415
+Saving model at episode 320, seed 1415
+Saving model at episode 340, seed 1415
+Saving model at episode 360, seed 1415
+-----------------------------------------
+| rollout/                |             |
+|    ep_len_mean          | 40          |
+|    ep_rew_mean          | 1.73        |
+| time/                   |             |
+|    fps                  | 658         |
+|    iterations           | 3           |
+|    time_elapsed         | 21          |
+|    total_timesteps      | 14400       |
+| train/                  |             |
+|    approx_kl            | 0.009891289 |
+|    clip_fraction        | 0.114       |
+|    clip_range           | 0.2         |
+|    entropy_loss         | -1.38       |
+|    explained_variance   | 0.173       |
+|    learning_rate        | 0.0003      |
+|    loss                 | 0.153       |
+|    n_updates            | 20          |
+|    policy_gradient_loss | -0.00844    |
+|    std                  | 0.959       |
+|    value_loss           | 0.243       |
+-----------------------------------------
+Saving model at episode 380, seed 1415
+Saving model at episode 400, seed 1415
+Saving model at episode 420, seed 1415
+Saving model at episode 440, seed 1415
+Saving model at episode 460, seed 1415
+Saving model at episode 480, seed 1415
+------------------------------------------
+| rollout/                |              |
+|    ep_len_mean          | 40           |
+|    ep_rew_mean          | 1.94         |
+| time/                   |              |
+|    fps                  | 630          |
+|    iterations           | 4            |
+|    time_elapsed         | 30           |
+|    total_timesteps      | 19200        |
+| train/                  |              |
+|    approx_kl            | 0.0060297023 |
+|    clip_fraction        | 0.0601       |
+|    clip_range           | 0.2          |
+|    entropy_loss         | -1.36        |
+|    explained_variance   | 0.146        |
+|    learning_rate        | 0.0003       |
+|    loss                 | 0.0869       |
+|    n_updates            | 30           |
+|    policy_gradient_loss | -0.00478     |
+|    std                  | 0.942        |
+|    value_loss           | 0.284        |
+------------------------------------------
+Saving model at episode 500, seed 1415
+Saving model at episode 520, seed 1415
+Saving model at episode 540, seed 1415
+Saving model at episode 560, seed 1415
+Saving model at episode 580, seed 1415
+Saving model at episode 600, seed 1415
+-----------------------------------------
+| rollout/                |             |
+|    ep_len_mean          | 40          |
+|    ep_rew_mean          | 2           |
+| time/                   |             |
+|    fps                  | 614         |
+|    iterations           | 5           |
+|    time_elapsed         | 39          |
+|    total_timesteps      | 24000       |
+| train/                  |             |
+|    approx_kl            | 0.003234744 |
+|    clip_fraction        | 0.0184      |
+|    clip_range           | 0.2         |
+|    entropy_loss         | -1.35       |
+|    explained_variance   | 0.0478      |
+|    learning_rate        | 0.0003      |
+|    loss                 | 0.127       |
+|    n_updates            | 40          |
+|    policy_gradient_loss | -0.00112    |
+|    std                  | 0.935       |
+|    value_loss           | 0.453       |
+-----------------------------------------
+Saving model at episode 620, seed 1415
+Saving model at episode 640, seed 1415
+Saving model at episode 660, seed 1415
+Saving model at episode 680, seed 1415
+Saving model at episode 700, seed 1415
+Saving model at episode 720, seed 1415
+------------------------------------------
+| rollout/                |              |
+|    ep_len_mean          | 40           |
+|    ep_rew_mean          | 2.02         |
+| time/                   |              |
+|    fps                  | 603          |
+|    iterations           | 6            |
+|    time_elapsed         | 47           |
+|    total_timesteps      | 28800        |
+| train/                  |              |
+|    approx_kl            | 0.0037289953 |
+|    clip_fraction        | 0.0304       |
+|    clip_range           | 0.2          |
+|    entropy_loss         | -1.33        |
+|    explained_variance   | 0.0239       |
+|    learning_rate        | 0.0003       |
+|    loss                 | 0.178        |
+|    n_updates            | 50           |
+|    policy_gradient_loss | -0.00249     |
+|    std                  | 0.906        |
+|    value_loss           | 0.438        |
+------------------------------------------
+Saving model at episode 740, seed 1415
+Saving model at episode 760, seed 1415
+Saving model at episode 780, seed 1415
+Saving model at episode 800, seed 1415
+Saving model at episode 820, seed 1415
+Saving model at episode 840, seed 1415
+------------------------------------------
+| rollout/                |              |
+|    ep_len_mean          | 40           |
+|    ep_rew_mean          | 2.22         |
+| time/                   |              |
+|    fps                  | 596          |
+|    iterations           | 7            |
+|    time_elapsed         | 56           |
+|    total_timesteps      | 33600        |
+| train/                  |              |
+|    approx_kl            | 0.0037953425 |
+|    clip_fraction        | 0.0449       |
+|    clip_range           | 0.2          |
+|    entropy_loss         | -1.31        |
+|    explained_variance   | -0.00919     |
+|    learning_rate        | 0.0003       |
+|    loss                 | 0.331        |
+|    n_updates            | 60           |
+|    policy_gradient_loss | -0.00315     |
+|    std                  | 0.894        |
+|    value_loss           | 0.452        |
+------------------------------------------
+Saving model at episode 860, seed 1415
+Saving model at episode 880, seed 1415
+Saving model at episode 900, seed 1415
+Saving model at episode 920, seed 1415
+Saving model at episode 940, seed 1415
+Saving model at episode 960, seed 1415
+------------------------------------------
+| rollout/                |              |
+|    ep_len_mean          | 40           |
+|    ep_rew_mean          | 2.3          |
+| time/                   |              |
+|    fps                  | 591          |
+|    iterations           | 8            |
+|    time_elapsed         | 64           |
+|    total_timesteps      | 38400        |
+| train/                  |              |
+|    approx_kl            | 0.0039689546 |
+|    clip_fraction        | 0.0336       |
+|    clip_range           | 0.2          |
+|    entropy_loss         | -1.3         |
+|    explained_variance   | 0.029        |
+|    learning_rate        | 0.0003       |
+|    loss                 | 0.21         |
+|    n_updates            | 70           |
+|    policy_gradient_loss | -0.00265     |
+|    std                  | 0.887        |
+|    value_loss           | 0.561        |
+------------------------------------------
+Saving model at episode 980, seed 1415
+Saving model at episode 1000, seed 1415
+Saving model at episode 1020, seed 1415
+Saving model at episode 1040, seed 1415
+Saving model at episode 1060, seed 1415
+Saving model at episode 1080, seed 1415
+------------------------------------------
+| rollout/                |              |
+|    ep_len_mean          | 40           |
+|    ep_rew_mean          | 2.52         |
+| time/                   |              |
+|    fps                  | 588          |
+|    iterations           | 9            |
+|    time_elapsed         | 73           |
+|    total_timesteps      | 43200        |
+| train/                  |              |
+|    approx_kl            | 0.0020743727 |
+|    clip_fraction        | 0.0168       |
+|    clip_range           | 0.2          |
+|    entropy_loss         | -1.29        |
+|    explained_variance   | 0.0497       |
+|    learning_rate        | 0.0003       |
+|    loss                 | 0.195        |
+|    n_updates            | 80           |
+|    policy_gradient_loss | -0.000879    |
+|    std                  | 0.869        |
+|    value_loss           | 0.534        |
+------------------------------------------
+Saving model at episode 1100, seed 1415
+Saving model at episode 1120, seed 1415
+Saving model at episode 1140, seed 1415
+Saving model at episode 1160, seed 1415
+Saving model at episode 1180, seed 1415
+Saving model at episode 1200, seed 1415
+------------------------------------------
+| rollout/                |              |
+|    ep_len_mean          | 40           |
+|    ep_rew_mean          | 2.74         |
+| time/                   |              |
+|    fps                  | 584          |
+|    iterations           | 10           |
+|    time_elapsed         | 82           |
+|    total_timesteps      | 48000        |
+| train/                  |              |
+|    approx_kl            | 0.0044290936 |
+|    clip_fraction        | 0.0434       |
+|    clip_range           | 0.2          |
+|    entropy_loss         | -1.27        |
+|    explained_variance   | 0.0694       |
+|    learning_rate        | 0.0003       |
+|    loss                 | 0.363        |
+|    n_updates            | 90           |
+|    policy_gradient_loss | -0.0029      |
+|    std                  | 0.853        |
+|    value_loss           | 0.603        |
+------------------------------------------
+Using cpu device
+Saving model at episode 1, seed 1617
+Saving model at episode 20, seed 1617
+Saving model at episode 40, seed 1617
+Saving model at episode 60, seed 1617
+Saving model at episode 80, seed 1617
+Saving model at episode 100, seed 1617
+Saving model at episode 120, seed 1617
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 40       |
+|    ep_rew_mean     | 1.33     |
+| time/              |          |
+|    fps             | 1032     |
+|    iterations      | 1        |
+|    time_elapsed    | 4        |
+|    total_timesteps | 4800     |
+---------------------------------
+Saving model at episode 140, seed 1617
+Saving model at episode 160, seed 1617
+Saving model at episode 180, seed 1617
+Saving model at episode 200, seed 1617
+Saving model at episode 220, seed 1617
+Saving model at episode 240, seed 1617
+------------------------------------------
+| rollout/                |              |
+|    ep_len_mean          | 40           |
+|    ep_rew_mean          | 1.53         |
+| time/                   |              |
+|    fps                  | 718          |
+|    iterations           | 2            |
+|    time_elapsed         | 13           |
+|    total_timesteps      | 9600         |
+| train/                  |              |
+|    approx_kl            | 0.0065447604 |
+|    clip_fraction        | 0.0734       |
+|    clip_range           | 0.2          |
+|    entropy_loss         | -1.41        |
+|    explained_variance   | 0.0449       |
+|    learning_rate        | 0.0003       |
+|    loss                 | 0.0948       |
+|    n_updates            | 10           |
+|    policy_gradient_loss | -0.00647     |
+|    std                  | 0.99         |
+|    value_loss           | 0.154        |
+------------------------------------------
+Saving model at episode 260, seed 1617
+Saving model at episode 280, seed 1617
+Saving model at episode 300, seed 1617
+Saving model at episode 320, seed 1617
+Saving model at episode 340, seed 1617
+Saving model at episode 360, seed 1617
+-----------------------------------------
+| rollout/                |             |
+|    ep_len_mean          | 40          |
+|    ep_rew_mean          | 1.9         |
+| time/                   |             |
+|    fps                  | 656         |
+|    iterations           | 3           |
+|    time_elapsed         | 21          |
+|    total_timesteps      | 14400       |
+| train/                  |             |
+|    approx_kl            | 0.010061393 |
+|    clip_fraction        | 0.106       |
+|    clip_range           | 0.2         |
+|    entropy_loss         | -1.39       |
+|    explained_variance   | 0.172       |
+|    learning_rate        | 0.0003      |
+|    loss                 | 0.171       |
+|    n_updates            | 20          |
+|    policy_gradient_loss | -0.00777    |
+|    std                  | 0.963       |
+|    value_loss           | 0.287       |
+-----------------------------------------
+Saving model at episode 380, seed 1617
+Saving model at episode 400, seed 1617
+Saving model at episode 420, seed 1617
+Saving model at episode 440, seed 1617
+Saving model at episode 460, seed 1617
+Saving model at episode 480, seed 1617
+-----------------------------------------
+| rollout/                |             |
+|    ep_len_mean          | 40          |
+|    ep_rew_mean          | 2.19        |
+| time/                   |             |
+|    fps                  | 628         |
+|    iterations           | 4           |
+|    time_elapsed         | 30          |
+|    total_timesteps      | 19200       |
+| train/                  |             |
+|    approx_kl            | 0.006264328 |
+|    clip_fraction        | 0.0567      |
+|    clip_range           | 0.2         |
+|    entropy_loss         | -1.37       |
+|    explained_variance   | 0.125       |
+|    learning_rate        | 0.0003      |
+|    loss                 | 0.158       |
+|    n_updates            | 30          |
+|    policy_gradient_loss | -0.00451    |
+|    std                  | 0.947       |
+|    value_loss           | 0.334       |
+-----------------------------------------
+Saving model at episode 500, seed 1617
+Saving model at episode 520, seed 1617
+Saving model at episode 540, seed 1617
+Saving model at episode 560, seed 1617
+Saving model at episode 580, seed 1617
+Saving model at episode 600, seed 1617
+------------------------------------------
+| rollout/                |              |
+|    ep_len_mean          | 40           |
+|    ep_rew_mean          | 1.98         |
+| time/                   |              |
+|    fps                  | 614          |
+|    iterations           | 5            |
+|    time_elapsed         | 39           |
+|    total_timesteps      | 24000        |
+| train/                  |              |
+|    approx_kl            | 0.0061768387 |
+|    clip_fraction        | 0.0587       |
+|    clip_range           | 0.2          |
+|    entropy_loss         | -1.35        |
+|    explained_variance   | 0.11         |
+|    learning_rate        | 0.0003       |
+|    loss                 | 0.248        |
+|    n_updates            | 40           |
+|    policy_gradient_loss | -0.00388     |
+|    std                  | 0.927        |
+|    value_loss           | 0.496        |
+------------------------------------------
+Saving model at episode 620, seed 1617
+Saving model at episode 640, seed 1617
+Saving model at episode 660, seed 1617
+Saving model at episode 680, seed 1617
+Saving model at episode 700, seed 1617
+Saving model at episode 720, seed 1617
+------------------------------------------
+| rollout/                |              |
+|    ep_len_mean          | 40           |
+|    ep_rew_mean          | 2.22         |
+| time/                   |              |
+|    fps                  | 603          |
+|    iterations           | 6            |
+|    time_elapsed         | 47           |
+|    total_timesteps      | 28800        |
+| train/                  |              |
+|    approx_kl            | 0.0046647727 |
+|    clip_fraction        | 0.0351       |
+|    clip_range           | 0.2          |
+|    entropy_loss         | -1.33        |
+|    explained_variance   | 0.0246       |
+|    learning_rate        | 0.0003       |
+|    loss                 | 0.194        |
+|    n_updates            | 50           |
+|    policy_gradient_loss | -0.00237     |
+|    std                  | 0.907        |
+|    value_loss           | 0.484        |
+------------------------------------------
+Saving model at episode 740, seed 1617
+Saving model at episode 760, seed 1617
+Saving model at episode 780, seed 1617
+Saving model at episode 800, seed 1617
+Saving model at episode 820, seed 1617
+Saving model at episode 840, seed 1617
+------------------------------------------
+| rollout/                |              |
+|    ep_len_mean          | 40           |
+|    ep_rew_mean          | 2.32         |
+| time/                   |              |
+|    fps                  | 597          |
+|    iterations           | 7            |
+|    time_elapsed         | 56           |
+|    total_timesteps      | 33600        |
+| train/                  |              |
+|    approx_kl            | 0.0029762166 |
+|    clip_fraction        | 0.0197       |
+|    clip_range           | 0.2          |
+|    entropy_loss         | -1.32        |
+|    explained_variance   | 0.0308       |
+|    learning_rate        | 0.0003       |
+|    loss                 | 0.14         |
+|    n_updates            | 60           |
+|    policy_gradient_loss | -0.00179     |
+|    std                  | 0.9          |
+|    value_loss           | 0.476        |
+------------------------------------------
+Saving model at episode 860, seed 1617
+Saving model at episode 880, seed 1617
+Saving model at episode 900, seed 1617
+Saving model at episode 920, seed 1617
+Saving model at episode 940, seed 1617
+Saving model at episode 960, seed 1617
+------------------------------------------
+| rollout/                |              |
+|    ep_len_mean          | 40           |
+|    ep_rew_mean          | 2.52         |
+| time/                   |              |
+|    fps                  | 592          |
+|    iterations           | 8            |
+|    time_elapsed         | 64           |
+|    total_timesteps      | 38400        |
+| train/                  |              |
+|    approx_kl            | 0.0035309212 |
+|    clip_fraction        | 0.0192       |
+|    clip_range           | 0.2          |
+|    entropy_loss         | -1.29        |
+|    explained_variance   | 0.0444       |
+|    learning_rate        | 0.0003       |
+|    loss                 | 0.276        |
+|    n_updates            | 70           |
+|    policy_gradient_loss | -0.00105     |
+|    std                  | 0.873        |
+|    value_loss           | 0.521        |
+------------------------------------------
+Saving model at episode 980, seed 1617
+Saving model at episode 1000, seed 1617
+Saving model at episode 1020, seed 1617
+Saving model at episode 1040, seed 1617
+Saving model at episode 1060, seed 1617
+Saving model at episode 1080, seed 1617
+------------------------------------------
+| rollout/                |              |
+|    ep_len_mean          | 40           |
+|    ep_rew_mean          | 2.55         |
+| time/                   |              |
+|    fps                  | 588          |
+|    iterations           | 9            |
+|    time_elapsed         | 73           |
+|    total_timesteps      | 43200        |
+| train/                  |              |
+|    approx_kl            | 0.0042154375 |
+|    clip_fraction        | 0.0312       |
+|    clip_range           | 0.2          |
+|    entropy_loss         | -1.27        |
+|    explained_variance   | 0.0724       |
+|    learning_rate        | 0.0003       |
+|    loss                 | 0.223        |
+|    n_updates            | 80           |
+|    policy_gradient_loss | -0.00187     |
+|    std                  | 0.856        |
+|    value_loss           | 0.582        |
+------------------------------------------
+Saving model at episode 1100, seed 1617
+Saving model at episode 1120, seed 1617
+Saving model at episode 1140, seed 1617
+Saving model at episode 1160, seed 1617
+Saving model at episode 1180, seed 1617
+Saving model at episode 1200, seed 1617
+------------------------------------------
+| rollout/                |              |
+|    ep_len_mean          | 40           |
+|    ep_rew_mean          | 2.47         |
+| time/                   |              |
+|    fps                  | 585          |
+|    iterations           | 10           |
+|    time_elapsed         | 81           |
+|    total_timesteps      | 48000        |
+| train/                  |              |
+|    approx_kl            | 0.0032207773 |
+|    clip_fraction        | 0.0277       |
+|    clip_range           | 0.2          |
+|    entropy_loss         | -1.25        |
+|    explained_variance   | 0.0844       |
+|    learning_rate        | 0.0003       |
+|    loss                 | 0.367        |
+|    n_updates            | 90           |
+|    policy_gradient_loss | -0.00119     |
+|    std                  | 0.838        |
+|    value_loss           | 0.569        |
+------------------------------------------
+Using cpu device
+Saving model at episode 1, seed 1819
+Saving model at episode 20, seed 1819
+Saving model at episode 40, seed 1819
+Saving model at episode 60, seed 1819
+Saving model at episode 80, seed 1819
+Saving model at episode 100, seed 1819
+Saving model at episode 120, seed 1819
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 40       |
+|    ep_rew_mean     | 1.34     |
+| time/              |          |
+|    fps             | 1031     |
+|    iterations      | 1        |
+|    time_elapsed    | 4        |
+|    total_timesteps | 4800     |
+---------------------------------
+Saving model at episode 140, seed 1819
+Saving model at episode 160, seed 1819
+Saving model at episode 180, seed 1819
+Saving model at episode 200, seed 1819
+Saving model at episode 220, seed 1819
+Saving model at episode 240, seed 1819
+-----------------------------------------
+| rollout/                |             |
+|    ep_len_mean          | 40          |
+|    ep_rew_mean          | 1.47        |
+| time/                   |             |
+|    fps                  | 723         |
+|    iterations           | 2           |
+|    time_elapsed         | 13          |
+|    total_timesteps      | 9600        |
+| train/                  |             |
+|    approx_kl            | 0.006785729 |
+|    clip_fraction        | 0.0739      |
+|    clip_range           | 0.2         |
+|    entropy_loss         | -1.41       |
+|    explained_variance   | -0.0397     |
+|    learning_rate        | 0.0003      |
+|    loss                 | 0.136       |
+|    n_updates            | 10          |
+|    policy_gradient_loss | -0.00541    |
+|    std                  | 0.989       |
+|    value_loss           | 0.178       |
+-----------------------------------------
+Saving model at episode 260, seed 1819
+Saving model at episode 280, seed 1819
+Saving model at episode 300, seed 1819
+Saving model at episode 320, seed 1819
+Saving model at episode 340, seed 1819
+Saving model at episode 360, seed 1819
+-----------------------------------------
+| rollout/                |             |
+|    ep_len_mean          | 40          |
+|    ep_rew_mean          | 1.9         |
+| time/                   |             |
+|    fps                  | 658         |
+|    iterations           | 3           |
+|    time_elapsed         | 21          |
+|    total_timesteps      | 14400       |
+| train/                  |             |
+|    approx_kl            | 0.008754745 |
+|    clip_fraction        | 0.102       |
+|    clip_range           | 0.2         |
+|    entropy_loss         | -1.4        |
+|    explained_variance   | 0.211       |
+|    learning_rate        | 0.0003      |
+|    loss                 | 0.202       |
+|    n_updates            | 20          |
+|    policy_gradient_loss | -0.00709    |
+|    std                  | 0.984       |
+|    value_loss           | 0.274       |
+-----------------------------------------
+Saving model at episode 380, seed 1819
+Saving model at episode 400, seed 1819
+Saving model at episode 420, seed 1819
+Saving model at episode 440, seed 1819
+Saving model at episode 460, seed 1819
+Saving model at episode 480, seed 1819
+-----------------------------------------
+| rollout/                |             |
+|    ep_len_mean          | 40          |
+|    ep_rew_mean          | 1.93        |
+| time/                   |             |
+|    fps                  | 630         |
+|    iterations           | 4           |
+|    time_elapsed         | 30          |
+|    total_timesteps      | 19200       |
+| train/                  |             |
+|    approx_kl            | 0.006941972 |
+|    clip_fraction        | 0.0619      |
+|    clip_range           | 0.2         |
+|    entropy_loss         | -1.39       |
+|    explained_variance   | 0.141       |
+|    learning_rate        | 0.0003      |
+|    loss                 | 0.161       |
+|    n_updates            | 30          |
+|    policy_gradient_loss | -0.0044     |
+|    std                  | 0.967       |
+|    value_loss           | 0.37        |
+-----------------------------------------
+Saving model at episode 500, seed 1819
+Saving model at episode 520, seed 1819
+Saving model at episode 540, seed 1819
+Saving model at episode 560, seed 1819
+Saving model at episode 580, seed 1819
+Saving model at episode 600, seed 1819
+-----------------------------------------
+| rollout/                |             |
+|    ep_len_mean          | 40          |
+|    ep_rew_mean          | 2.22        |
+| time/                   |             |
+|    fps                  | 613         |
+|    iterations           | 5           |
+|    time_elapsed         | 39          |
+|    total_timesteps      | 24000       |
+| train/                  |             |
+|    approx_kl            | 0.004898054 |
+|    clip_fraction        | 0.041       |
+|    clip_range           | 0.2         |
+|    entropy_loss         | -1.38       |
+|    explained_variance   | 0.108       |
+|    learning_rate        | 0.0003      |
+|    loss                 | 0.218       |
+|    n_updates            | 40          |
+|    policy_gradient_loss | -0.0029     |
+|    std                  | 0.953       |
+|    value_loss           | 0.387       |
+-----------------------------------------
+Saving model at episode 620, seed 1819
+Saving model at episode 640, seed 1819
+Saving model at episode 660, seed 1819
+Saving model at episode 680, seed 1819
+Saving model at episode 700, seed 1819
+Saving model at episode 720, seed 1819
+------------------------------------------
+| rollout/                |              |
+|    ep_len_mean          | 40           |
+|    ep_rew_mean          | 2.23         |
+| time/                   |              |
+|    fps                  | 602          |
+|    iterations           | 6            |
+|    time_elapsed         | 47           |
+|    total_timesteps      | 28800        |
+| train/                  |              |
+|    approx_kl            | 0.0044462876 |
+|    clip_fraction        | 0.0412       |
+|    clip_range           | 0.2          |
+|    entropy_loss         | -1.36        |
+|    explained_variance   | 0.108        |
+|    learning_rate        | 0.0003       |
+|    loss                 | 0.29         |
+|    n_updates            | 50           |
+|    policy_gradient_loss | -0.00243     |
+|    std                  | 0.931        |
+|    value_loss           | 0.475        |
+------------------------------------------
+Saving model at episode 740, seed 1819
+Saving model at episode 760, seed 1819
+Saving model at episode 780, seed 1819
+Saving model at episode 800, seed 1819
+Saving model at episode 820, seed 1819
+Saving model at episode 840, seed 1819
+------------------------------------------
+| rollout/                |              |
+|    ep_len_mean          | 40           |
+|    ep_rew_mean          | 2            |
+| time/                   |              |
+|    fps                  | 595          |
+|    iterations           | 7            |
+|    time_elapsed         | 56           |
+|    total_timesteps      | 33600        |
+| train/                  |              |
+|    approx_kl            | 0.0055358633 |
+|    clip_fraction        | 0.0357       |
+|    clip_range           | 0.2          |
+|    entropy_loss         | -1.33        |
+|    explained_variance   | 0.0172       |
+|    learning_rate        | 0.0003       |
+|    loss                 | 0.181        |
+|    n_updates            | 60           |
+|    policy_gradient_loss | -0.00201     |
+|    std                  | 0.91         |
+|    value_loss           | 0.555        |
+------------------------------------------
+Saving model at episode 860, seed 1819
+Saving model at episode 880, seed 1819
+Saving model at episode 900, seed 1819
+Saving model at episode 920, seed 1819
+Saving model at episode 940, seed 1819
+Saving model at episode 960, seed 1819
+------------------------------------------
+| rollout/                |              |
+|    ep_len_mean          | 40           |
+|    ep_rew_mean          | 2.17         |
+| time/                   |              |
+|    fps                  | 590          |
+|    iterations           | 8            |
+|    time_elapsed         | 65           |
+|    total_timesteps      | 38400        |
+| train/                  |              |
+|    approx_kl            | 0.0011532159 |
+|    clip_fraction        | 0.0168       |
+|    clip_range           | 0.2          |
+|    entropy_loss         | -1.32        |
+|    explained_variance   | 0.0113       |
+|    learning_rate        | 0.0003       |
+|    loss                 | 0.167        |
+|    n_updates            | 70           |
+|    policy_gradient_loss | -0.000448    |
+|    std                  | 0.896        |
+|    value_loss           | 0.507        |
+------------------------------------------
+Saving model at episode 980, seed 1819
+Saving model at episode 1000, seed 1819
+Saving model at episode 1020, seed 1819
+Saving model at episode 1040, seed 1819
+Saving model at episode 1060, seed 1819
+Saving model at episode 1080, seed 1819
+------------------------------------------
+| rollout/                |              |
+|    ep_len_mean          | 40           |
+|    ep_rew_mean          | 2.43         |
+| time/                   |              |
+|    fps                  | 587          |
+|    iterations           | 9            |
+|    time_elapsed         | 73           |
+|    total_timesteps      | 43200        |
+| train/                  |              |
+|    approx_kl            | 0.0037617008 |
+|    clip_fraction        | 0.0296       |
+|    clip_range           | 0.2          |
+|    entropy_loss         | -1.29        |
+|    explained_variance   | 0.0324       |
+|    learning_rate        | 0.0003       |
+|    loss                 | 0.144        |
+|    n_updates            | 80           |
+|    policy_gradient_loss | -0.00193     |
+|    std                  | 0.874        |
+|    value_loss           | 0.538        |
+------------------------------------------
+Saving model at episode 1100, seed 1819
+Saving model at episode 1120, seed 1819
+Saving model at episode 1140, seed 1819
+Saving model at episode 1160, seed 1819
+Saving model at episode 1180, seed 1819
+Saving model at episode 1200, seed 1819
+------------------------------------------
+| rollout/                |              |
+|    ep_len_mean          | 40           |
+|    ep_rew_mean          | 2.43         |
+| time/                   |              |
+|    fps                  | 584          |
+|    iterations           | 10           |
+|    time_elapsed         | 82           |
+|    total_timesteps      | 48000        |
+| train/                  |              |
+|    approx_kl            | 0.0034359717 |
+|    clip_fraction        | 0.0384       |
+|    clip_range           | 0.2          |
+|    entropy_loss         | -1.26        |
+|    explained_variance   | 0.0818       |
+|    learning_rate        | 0.0003       |
+|    loss                 | 0.365        |
+|    n_updates            | 90           |
+|    policy_gradient_loss | -0.00248     |
+|    std                  | 0.843        |
+|    value_loss           | 0.581        |
+------------------------------------------
+Using cpu device
+Saving model at episode 1, seed 2021
+Saving model at episode 20, seed 2021
+Saving model at episode 40, seed 2021
+Saving model at episode 60, seed 2021
+Saving model at episode 80, seed 2021
+Saving model at episode 100, seed 2021
+Saving model at episode 120, seed 2021
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 40       |
+|    ep_rew_mean     | 1.35     |
+| time/              |          |
+|    fps             | 1011     |
+|    iterations      | 1        |
+|    time_elapsed    | 4        |
+|    total_timesteps | 4800     |
+---------------------------------
+Saving model at episode 140, seed 2021
+Saving model at episode 160, seed 2021
+Saving model at episode 180, seed 2021
+Saving model at episode 200, seed 2021
+Saving model at episode 220, seed 2021
+Saving model at episode 240, seed 2021
+------------------------------------------
+| rollout/                |              |
+|    ep_len_mean          | 40           |
+|    ep_rew_mean          | 1.53         |
+| time/                   |              |
+|    fps                  | 720          |
+|    iterations           | 2            |
+|    time_elapsed         | 13           |
+|    total_timesteps      | 9600         |
+| train/                  |              |
+|    approx_kl            | 0.0058050477 |
+|    clip_fraction        | 0.0469       |
+|    clip_range           | 0.2          |
+|    entropy_loss         | -1.41        |
+|    explained_variance   | -0.0828      |
+|    learning_rate        | 0.0003       |
+|    loss                 | 0.0252       |
+|    n_updates            | 10           |
+|    policy_gradient_loss | -0.00368     |
+|    std                  | 0.989        |
+|    value_loss           | 0.205        |
+------------------------------------------
+Saving model at episode 260, seed 2021
+Saving model at episode 280, seed 2021
+Saving model at episode 300, seed 2021
+Saving model at episode 320, seed 2021
+Saving model at episode 340, seed 2021
+Saving model at episode 360, seed 2021
+-----------------------------------------
+| rollout/                |             |
+|    ep_len_mean          | 40          |
+|    ep_rew_mean          | 1.91        |
+| time/                   |             |
+|    fps                  | 656         |
+|    iterations           | 3           |
+|    time_elapsed         | 21          |
+|    total_timesteps      | 14400       |
+| train/                  |             |
+|    approx_kl            | 0.008780484 |
+|    clip_fraction        | 0.129       |
+|    clip_range           | 0.2         |
+|    entropy_loss         | -1.4        |
+|    explained_variance   | 0.238       |
+|    learning_rate        | 0.0003      |
+|    loss                 | 0.0848      |
+|    n_updates            | 20          |
+|    policy_gradient_loss | -0.0108     |
+|    std                  | 0.981       |
+|    value_loss           | 0.249       |
+-----------------------------------------
+Saving model at episode 380, seed 2021
+Saving model at episode 400, seed 2021
+Saving model at episode 420, seed 2021
+Saving model at episode 440, seed 2021
+Saving model at episode 460, seed 2021
+Saving model at episode 480, seed 2021
+-----------------------------------------
+| rollout/                |             |
+|    ep_len_mean          | 40          |
+|    ep_rew_mean          | 1.98        |
+| time/                   |             |
+|    fps                  | 629         |
+|    iterations           | 4           |
+|    time_elapsed         | 30          |
+|    total_timesteps      | 19200       |
+| train/                  |             |
+|    approx_kl            | 0.009156174 |
+|    clip_fraction        | 0.107       |
+|    clip_range           | 0.2         |
+|    entropy_loss         | -1.38       |
+|    explained_variance   | 0.138       |
+|    learning_rate        | 0.0003      |
+|    loss                 | 0.11        |
+|    n_updates            | 30          |
+|    policy_gradient_loss | -0.00756    |
+|    std                  | 0.951       |
+|    value_loss           | 0.444       |
+-----------------------------------------
+Saving model at episode 500, seed 2021
+Saving model at episode 520, seed 2021
+Saving model at episode 540, seed 2021
+Saving model at episode 560, seed 2021
+Saving model at episode 580, seed 2021
+Saving model at episode 600, seed 2021
+------------------------------------------
+| rollout/                |              |
+|    ep_len_mean          | 40           |
+|    ep_rew_mean          | 2.31         |
+| time/                   |              |
+|    fps                  | 612          |
+|    iterations           | 5            |
+|    time_elapsed         | 39           |
+|    total_timesteps      | 24000        |
+| train/                  |              |
+|    approx_kl            | 0.0041891346 |
+|    clip_fraction        | 0.0234       |
+|    clip_range           | 0.2          |
+|    entropy_loss         | -1.36        |
+|    explained_variance   | 0.0239       |
+|    learning_rate        | 0.0003       |
+|    loss                 | 0.259        |
+|    n_updates            | 40           |
+|    policy_gradient_loss | -0.00187     |
+|    std                  | 0.939        |
+|    value_loss           | 0.41         |
+------------------------------------------
+Saving model at episode 620, seed 2021
+Saving model at episode 640, seed 2021
+Saving model at episode 660, seed 2021
+Saving model at episode 680, seed 2021
+Saving model at episode 700, seed 2021
+Saving model at episode 720, seed 2021
+------------------------------------------
+| rollout/                |              |
+|    ep_len_mean          | 40           |
+|    ep_rew_mean          | 2.36         |
+| time/                   |              |
+|    fps                  | 602          |
+|    iterations           | 6            |
+|    time_elapsed         | 47           |
+|    total_timesteps      | 28800        |
+| train/                  |              |
+|    approx_kl            | 0.0029166294 |
+|    clip_fraction        | 0.0221       |
+|    clip_range           | 0.2          |
+|    entropy_loss         | -1.35        |
+|    explained_variance   | 0.0354       |
+|    learning_rate        | 0.0003       |
+|    loss                 | 0.424        |
+|    n_updates            | 50           |
+|    policy_gradient_loss | -0.00173     |
+|    std                  | 0.932        |
+|    value_loss           | 0.609        |
+------------------------------------------
+Saving model at episode 740, seed 2021
+Saving model at episode 760, seed 2021
+Saving model at episode 780, seed 2021
+Saving model at episode 800, seed 2021
+Saving model at episode 820, seed 2021
+Saving model at episode 840, seed 2021
+-----------------------------------------
+| rollout/                |             |
+|    ep_len_mean          | 40          |
+|    ep_rew_mean          | 2.38        |
+| time/                   |             |
+|    fps                  | 596         |
+|    iterations           | 7           |
+|    time_elapsed         | 56          |
+|    total_timesteps      | 33600       |
+| train/                  |             |
+|    approx_kl            | 0.004045111 |
+|    clip_fraction        | 0.0334      |
+|    clip_range           | 0.2         |
+|    entropy_loss         | -1.34       |
+|    explained_variance   | 0.0618      |
+|    learning_rate        | 0.0003      |
+|    loss                 | 0.225       |
+|    n_updates            | 60          |
+|    policy_gradient_loss | -0.0021     |
+|    std                  | 0.919       |
+|    value_loss           | 0.558       |
+-----------------------------------------
+Saving model at episode 860, seed 2021
+Saving model at episode 880, seed 2021
+Saving model at episode 900, seed 2021
+Saving model at episode 920, seed 2021
+Saving model at episode 940, seed 2021
+Saving model at episode 960, seed 2021
+------------------------------------------
+| rollout/                |              |
+|    ep_len_mean          | 40           |
+|    ep_rew_mean          | 2.42         |
+| time/                   |              |
+|    fps                  | 591          |
+|    iterations           | 8            |
+|    time_elapsed         | 64           |
+|    total_timesteps      | 38400        |
+| train/                  |              |
+|    approx_kl            | 0.0029858015 |
+|    clip_fraction        | 0.0238       |
+|    clip_range           | 0.2          |
+|    entropy_loss         | -1.32        |
+|    explained_variance   | 0.0272       |
+|    learning_rate        | 0.0003       |
+|    loss                 | 0.319        |
+|    n_updates            | 70           |
+|    policy_gradient_loss | -0.0017      |
+|    std                  | 0.895        |
+|    value_loss           | 0.607        |
+------------------------------------------
+Saving model at episode 980, seed 2021
+Saving model at episode 1000, seed 2021
+Saving model at episode 1020, seed 2021
+Saving model at episode 1040, seed 2021
+Saving model at episode 1060, seed 2021
+Saving model at episode 1080, seed 2021
+-----------------------------------------
+| rollout/                |             |
+|    ep_len_mean          | 40          |
+|    ep_rew_mean          | 2.32        |
+| time/                   |             |
+|    fps                  | 587         |
+|    iterations           | 9           |
+|    time_elapsed         | 73          |
+|    total_timesteps      | 43200       |
+| train/                  |             |
+|    approx_kl            | 0.003798997 |
+|    clip_fraction        | 0.0297      |
+|    clip_range           | 0.2         |
+|    entropy_loss         | -1.29       |
+|    explained_variance   | 0.0362      |
+|    learning_rate        | 0.0003      |
+|    loss                 | 0.314       |
+|    n_updates            | 80          |
+|    policy_gradient_loss | -0.00208    |
+|    std                  | 0.871       |
+|    value_loss           | 0.608       |
+-----------------------------------------
+Saving model at episode 1100, seed 2021
+Saving model at episode 1120, seed 2021
+Saving model at episode 1140, seed 2021
+Saving model at episode 1160, seed 2021
+Saving model at episode 1180, seed 2021
+Saving model at episode 1200, seed 2021
+----------------------------------------
+| rollout/                |            |
+|    ep_len_mean          | 40         |
+|    ep_rew_mean          | 2.38       |
+| time/                   |            |
+|    fps                  | 584        |
+|    iterations           | 10         |
+|    time_elapsed         | 82         |
+|    total_timesteps      | 48000      |
+| train/                  |            |
+|    approx_kl            | 0.00364388 |
+|    clip_fraction        | 0.0177     |
+|    clip_range           | 0.2        |
+|    entropy_loss         | -1.27      |
+|    explained_variance   | 0.0364     |
+|    learning_rate        | 0.0003     |
+|    loss                 | 0.302      |
+|    n_updates            | 90         |
+|    policy_gradient_loss | -0.000371  |
+|    std                  | 0.851      |
+|    value_loss           | 0.594      |
+----------------------------------------
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=698170, Fri Nov  7 21:31:34 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=687601, Fri Nov  7 21:31:34 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=680879, Fri Nov  7 21:31:34 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=676225, Fri Nov  7 21:31:34 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=625175, Fri Nov  7 21:31:35 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=617872, Fri Nov  7 21:31:35 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=640254, Fri Nov  7 21:31:35 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=618359, Fri Nov  7 21:31:35 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=672354, Fri Nov  7 21:31:35 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=598627, Fri Nov  7 21:31:35 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=687053, Fri Nov  7 21:31:35 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=597526, Fri Nov  7 21:31:35 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=662725, Fri Nov  7 21:31:35 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=616807, Fri Nov  7 21:31:35 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=651194, Fri Nov  7 21:31:35 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=621517, Fri Nov  7 21:31:35 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=717329, Fri Nov  7 21:31:35 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=658593, Fri Nov  7 21:31:35 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=690320, Fri Nov  7 21:31:35 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=713349, Fri Nov  7 21:31:35 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=727188, Fri Nov  7 21:31:35 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=651371, Fri Nov  7 21:31:36 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=582063, Fri Nov  7 21:31:36 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=610060, Fri Nov  7 21:31:36 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=644259, Fri Nov  7 21:31:36 2025)
+problem_index:  1 episodes_testted_dir:  /cs/home/vap2/Documents/diss/PPO-ES_GECCO24/output_data/results/episodes_tested/DIM_40 baselines_dir:  /cs/home/vap2/Documents/diss/PPO-ES_GECCO24/output_data/results/baselines/DIM_40 plot dir:  /cs/home/vap2/Documents/diss/PPO-ES_GECCO24/output_data/results/plots/DIM_40/instance_1 instances:  1
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=685262, Fri Nov  7 21:31:54 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=722124, Fri Nov  7 21:31:54 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=647829, Fri Nov  7 21:31:55 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=586148, Fri Nov  7 21:31:55 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=666744, Fri Nov  7 21:31:55 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=658785, Fri Nov  7 21:31:55 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=676721, Fri Nov  7 21:31:55 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=645040, Fri Nov  7 21:31:55 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=684965, Fri Nov  7 21:31:55 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=627473, Fri Nov  7 21:31:55 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=667689, Fri Nov  7 21:31:55 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=664738, Fri Nov  7 21:31:55 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=656364, Fri Nov  7 21:31:55 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=644729, Fri Nov  7 21:31:55 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=704186, Fri Nov  7 21:31:55 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=658593, Fri Nov  7 21:31:55 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=654530, Fri Nov  7 21:31:55 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=652140, Fri Nov  7 21:31:55 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=596770, Fri Nov  7 21:31:56 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=606966, Fri Nov  7 21:31:56 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=642720, Fri Nov  7 21:31:56 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=627020, Fri Nov  7 21:31:56 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=623549, Fri Nov  7 21:31:56 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=603200, Fri Nov  7 21:31:56 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=614804, Fri Nov  7 21:31:56 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=654671, Fri Nov  7 21:32:16 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=612824, Fri Nov  7 21:32:16 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=634551, Fri Nov  7 21:32:16 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=669287, Fri Nov  7 21:32:16 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=623023, Fri Nov  7 21:32:16 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=679338, Fri Nov  7 21:32:16 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=612373, Fri Nov  7 21:32:16 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=683036, Fri Nov  7 21:32:16 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=664660, Fri Nov  7 21:32:16 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=658409, Fri Nov  7 21:32:16 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=634152, Fri Nov  7 21:32:16 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=696818, Fri Nov  7 21:32:16 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=667717, Fri Nov  7 21:32:16 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=728395, Fri Nov  7 21:32:16 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=607425, Fri Nov  7 21:32:17 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=581676, Fri Nov  7 21:32:17 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=649074, Fri Nov  7 21:32:17 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=574043, Fri Nov  7 21:32:17 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=578795, Fri Nov  7 21:32:17 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=635979, Fri Nov  7 21:32:17 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=630731, Fri Nov  7 21:32:17 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=607611, Fri Nov  7 21:32:17 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=606718, Fri Nov  7 21:32:17 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=655255, Fri Nov  7 21:32:17 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=645200, Fri Nov  7 21:32:17 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=684889, Fri Nov  7 21:32:36 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=615975, Fri Nov  7 21:32:37 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=632804, Fri Nov  7 21:32:37 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=664265, Fri Nov  7 21:32:37 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=648812, Fri Nov  7 21:32:37 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=587163, Fri Nov  7 21:32:37 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=681770, Fri Nov  7 21:32:37 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=631812, Fri Nov  7 21:32:37 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=659498, Fri Nov  7 21:32:37 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=612858, Fri Nov  7 21:32:37 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=703839, Fri Nov  7 21:32:37 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=624774, Fri Nov  7 21:32:37 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=661924, Fri Nov  7 21:32:37 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=707968, Fri Nov  7 21:32:37 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=659911, Fri Nov  7 21:32:37 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=723489, Fri Nov  7 21:32:37 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=589511, Fri Nov  7 21:32:38 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=624981, Fri Nov  7 21:32:38 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=604289, Fri Nov  7 21:32:38 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=577849, Fri Nov  7 21:32:38 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=619737, Fri Nov  7 21:32:38 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=675951, Fri Nov  7 21:32:38 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=690973, Fri Nov  7 21:32:38 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=685788, Fri Nov  7 21:32:38 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=696974, Fri Nov  7 21:32:38 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=630060, Fri Nov  7 21:32:54 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=645998, Fri Nov  7 21:32:54 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=629433, Fri Nov  7 21:32:54 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=659713, Fri Nov  7 21:32:54 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=696402, Fri Nov  7 21:32:54 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=700985, Fri Nov  7 21:32:54 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=631845, Fri Nov  7 21:32:54 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=632772, Fri Nov  7 21:32:54 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=727610, Fri Nov  7 21:32:54 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=673300, Fri Nov  7 21:32:54 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=658393, Fri Nov  7 21:32:54 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=711343, Fri Nov  7 21:32:54 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=596014, Fri Nov  7 21:32:55 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=630739, Fri Nov  7 21:32:55 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=626126, Fri Nov  7 21:32:55 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=633098, Fri Nov  7 21:32:55 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=626380, Fri Nov  7 21:32:55 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=611592, Fri Nov  7 21:32:55 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=651743, Fri Nov  7 21:32:55 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=631491, Fri Nov  7 21:32:55 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=691117, Fri Nov  7 21:32:55 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=633891, Fri Nov  7 21:32:55 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=659595, Fri Nov  7 21:32:55 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=666315, Fri Nov  7 21:32:55 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=669730, Fri Nov  7 21:32:55 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=684179, Fri Nov  7 21:33:12 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=669243, Fri Nov  7 21:33:12 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=734855, Fri Nov  7 21:33:12 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=731103, Fri Nov  7 21:33:12 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=739684, Fri Nov  7 21:33:12 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=583940, Fri Nov  7 21:33:13 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=610089, Fri Nov  7 21:33:13 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=605751, Fri Nov  7 21:33:13 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=610665, Fri Nov  7 21:33:13 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=580664, Fri Nov  7 21:33:13 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=666001, Fri Nov  7 21:33:13 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=603299, Fri Nov  7 21:33:13 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=638389, Fri Nov  7 21:33:13 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=667796, Fri Nov  7 21:33:13 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=681739, Fri Nov  7 21:33:13 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=663775, Fri Nov  7 21:33:13 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=642243, Fri Nov  7 21:33:13 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=698684, Fri Nov  7 21:33:13 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=669811, Fri Nov  7 21:33:13 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=730566, Fri Nov  7 21:33:13 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=683700, Fri Nov  7 21:33:13 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=629519, Fri Nov  7 21:33:14 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=629183, Fri Nov  7 21:33:14 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=637071, Fri Nov  7 21:33:14 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=630033, Fri Nov  7 21:33:14 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=673181, Fri Nov  7 21:33:32 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=725584, Fri Nov  7 21:33:32 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=665541, Fri Nov  7 21:33:32 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=711073, Fri Nov  7 21:33:32 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=660775, Fri Nov  7 21:33:32 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=608438, Fri Nov  7 21:33:33 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=601275, Fri Nov  7 21:33:33 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=567545, Fri Nov  7 21:33:33 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=668765, Fri Nov  7 21:33:33 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=631880, Fri Nov  7 21:33:33 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=666278, Fri Nov  7 21:33:33 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=675509, Fri Nov  7 21:33:33 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=647147, Fri Nov  7 21:33:33 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=609563, Fri Nov  7 21:33:33 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=620926, Fri Nov  7 21:33:33 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=643775, Fri Nov  7 21:33:33 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=680549, Fri Nov  7 21:33:33 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=670125, Fri Nov  7 21:33:33 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=730423, Fri Nov  7 21:33:33 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=717043, Fri Nov  7 21:33:33 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=739671, Fri Nov  7 21:33:33 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=590027, Fri Nov  7 21:33:34 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=632966, Fri Nov  7 21:33:34 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=665140, Fri Nov  7 21:33:34 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=599643, Fri Nov  7 21:33:34 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=660400, Fri Nov  7 21:33:49 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=691240, Fri Nov  7 21:33:49 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=717169, Fri Nov  7 21:33:49 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=733210, Fri Nov  7 21:33:49 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=696013, Fri Nov  7 21:33:49 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=645370, Fri Nov  7 21:33:50 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=624650, Fri Nov  7 21:33:50 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=566078, Fri Nov  7 21:33:50 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=577740, Fri Nov  7 21:33:50 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=663257, Fri Nov  7 21:33:50 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=604158, Fri Nov  7 21:33:50 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=597687, Fri Nov  7 21:33:50 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=644464, Fri Nov  7 21:33:50 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=610080, Fri Nov  7 21:33:50 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=704801, Fri Nov  7 21:33:50 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=691835, Fri Nov  7 21:33:50 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=655669, Fri Nov  7 21:33:50 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=654087, Fri Nov  7 21:33:50 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=706862, Fri Nov  7 21:33:50 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=645501, Fri Nov  7 21:33:50 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=648690, Fri Nov  7 21:33:50 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=727673, Fri Nov  7 21:33:50 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=623693, Fri Nov  7 21:33:51 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=580049, Fri Nov  7 21:33:51 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=585936, Fri Nov  7 21:33:51 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=606025, Fri Nov  7 21:34:07 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=590239, Fri Nov  7 21:34:07 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=590727, Fri Nov  7 21:34:07 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=669419, Fri Nov  7 21:34:07 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=608830, Fri Nov  7 21:34:07 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=601450, Fri Nov  7 21:34:07 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=633432, Fri Nov  7 21:34:07 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=638764, Fri Nov  7 21:34:07 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=632293, Fri Nov  7 21:34:07 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=675947, Fri Nov  7 21:34:07 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=714648, Fri Nov  7 21:34:07 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=684207, Fri Nov  7 21:34:07 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=659577, Fri Nov  7 21:34:07 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=644944, Fri Nov  7 21:34:07 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=700597, Fri Nov  7 21:34:07 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=562457, Fri Nov  7 21:34:08 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=646720, Fri Nov  7 21:34:08 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=566741, Fri Nov  7 21:34:08 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=612776, Fri Nov  7 21:34:08 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=600876, Fri Nov  7 21:34:08 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=635505, Fri Nov  7 21:34:08 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=653024, Fri Nov  7 21:34:08 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=615252, Fri Nov  7 21:34:08 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=618496, Fri Nov  7 21:34:08 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=667242, Fri Nov  7 21:34:08 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=640732, Fri Nov  7 21:34:27 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=744284, Fri Nov  7 21:34:27 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=719938, Fri Nov  7 21:34:27 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=641355, Fri Nov  7 21:34:28 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=606439, Fri Nov  7 21:34:28 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=630385, Fri Nov  7 21:34:28 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=649912, Fri Nov  7 21:34:28 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=630381, Fri Nov  7 21:34:28 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=681541, Fri Nov  7 21:34:28 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=678800, Fri Nov  7 21:34:28 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=618468, Fri Nov  7 21:34:28 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=680294, Fri Nov  7 21:34:28 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=708827, Fri Nov  7 21:34:28 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=676359, Fri Nov  7 21:34:28 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=728121, Fri Nov  7 21:34:28 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=663572, Fri Nov  7 21:34:28 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=685084, Fri Nov  7 21:34:28 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=705494, Fri Nov  7 21:34:28 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=575334, Fri Nov  7 21:34:29 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=598186, Fri Nov  7 21:34:29 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=617827, Fri Nov  7 21:34:29 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=632231, Fri Nov  7 21:34:29 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=586364, Fri Nov  7 21:34:29 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=668769, Fri Nov  7 21:34:29 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=673881, Fri Nov  7 21:34:29 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=601664, Fri Nov  7 21:34:48 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=676123, Fri Nov  7 21:34:48 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=693188, Fri Nov  7 21:34:48 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=701963, Fri Nov  7 21:34:48 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=707884, Fri Nov  7 21:34:48 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=682820, Fri Nov  7 21:34:48 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=655280, Fri Nov  7 21:34:48 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=723731, Fri Nov  7 21:34:48 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=674220, Fri Nov  7 21:34:48 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=629560, Fri Nov  7 21:34:49 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=591628, Fri Nov  7 21:34:49 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=570701, Fri Nov  7 21:34:49 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=583068, Fri Nov  7 21:34:49 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=630545, Fri Nov  7 21:34:49 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=613764, Fri Nov  7 21:34:49 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=651088, Fri Nov  7 21:34:49 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=675838, Fri Nov  7 21:34:49 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=681436, Fri Nov  7 21:34:49 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=692039, Fri Nov  7 21:34:49 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=675743, Fri Nov  7 21:34:49 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=718670, Fri Nov  7 21:34:49 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=690177, Fri Nov  7 21:34:49 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=655396, Fri Nov  7 21:34:49 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=716928, Fri Nov  7 21:34:49 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=657378, Fri Nov  7 21:34:49 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=708541, Fri Nov  7 21:35:07 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=691092, Fri Nov  7 21:35:07 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=686741, Fri Nov  7 21:35:07 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=606663, Fri Nov  7 21:35:08 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=603463, Fri Nov  7 21:35:08 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=586356, Fri Nov  7 21:35:08 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=653904, Fri Nov  7 21:35:08 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=595623, Fri Nov  7 21:35:08 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=659421, Fri Nov  7 21:35:08 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=683422, Fri Nov  7 21:35:08 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=661422, Fri Nov  7 21:35:08 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=636576, Fri Nov  7 21:35:08 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=670165, Fri Nov  7 21:35:08 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=676536, Fri Nov  7 21:35:08 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=659817, Fri Nov  7 21:35:08 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=719347, Fri Nov  7 21:35:08 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=677342, Fri Nov  7 21:35:08 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=729453, Fri Nov  7 21:35:08 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=674560, Fri Nov  7 21:35:08 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=559846, Fri Nov  7 21:35:09 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=595623, Fri Nov  7 21:35:09 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=613892, Fri Nov  7 21:35:09 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=581676, Fri Nov  7 21:35:09 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=595272, Fri Nov  7 21:35:09 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=685056, Fri Nov  7 21:35:09 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=651574, Fri Nov  7 21:35:25 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=648938, Fri Nov  7 21:35:25 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=716159, Fri Nov  7 21:35:25 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=696933, Fri Nov  7 21:35:25 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=705881, Fri Nov  7 21:35:25 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=723130, Fri Nov  7 21:35:25 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=693492, Fri Nov  7 21:35:25 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=610527, Fri Nov  7 21:35:26 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=579974, Fri Nov  7 21:35:26 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=571489, Fri Nov  7 21:35:26 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=647544, Fri Nov  7 21:35:26 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=659812, Fri Nov  7 21:35:26 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=625495, Fri Nov  7 21:35:26 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=588663, Fri Nov  7 21:35:26 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=655333, Fri Nov  7 21:35:26 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=617509, Fri Nov  7 21:35:26 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=611672, Fri Nov  7 21:35:26 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=678273, Fri Nov  7 21:35:26 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=654576, Fri Nov  7 21:35:26 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=673764, Fri Nov  7 21:35:26 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=689586, Fri Nov  7 21:35:26 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=689358, Fri Nov  7 21:35:26 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=656958, Fri Nov  7 21:35:26 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=665661, Fri Nov  7 21:35:26 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=647104, Fri Nov  7 21:35:27 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=643744, Fri Nov  7 21:35:44 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=588225, Fri Nov  7 21:35:44 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=622809, Fri Nov  7 21:35:44 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=602726, Fri Nov  7 21:35:44 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=678828, Fri Nov  7 21:35:44 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=639492, Fri Nov  7 21:35:44 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=660365, Fri Nov  7 21:35:44 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=604256, Fri Nov  7 21:35:44 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=624139, Fri Nov  7 21:35:44 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=691884, Fri Nov  7 21:35:44 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=648056, Fri Nov  7 21:35:44 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=715684, Fri Nov  7 21:35:44 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=725529, Fri Nov  7 21:35:44 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=711735, Fri Nov  7 21:35:44 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=729607, Fri Nov  7 21:35:44 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=675110, Fri Nov  7 21:35:44 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=583898, Fri Nov  7 21:35:45 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=642308, Fri Nov  7 21:35:45 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=651896, Fri Nov  7 21:35:45 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=587518, Fri Nov  7 21:35:45 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=611717, Fri Nov  7 21:35:45 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=595857, Fri Nov  7 21:35:45 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=670689, Fri Nov  7 21:35:45 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=694508, Fri Nov  7 21:35:45 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=682307, Fri Nov  7 21:35:45 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=620086, Fri Nov  7 21:36:06 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=610657, Fri Nov  7 21:36:06 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=637876, Fri Nov  7 21:36:06 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=637110, Fri Nov  7 21:36:06 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=631523, Fri Nov  7 21:36:06 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=707274, Fri Nov  7 21:36:06 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=631197, Fri Nov  7 21:36:06 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=702918, Fri Nov  7 21:36:06 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=667628, Fri Nov  7 21:36:06 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=678504, Fri Nov  7 21:36:06 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=689975, Fri Nov  7 21:36:06 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=643820, Fri Nov  7 21:36:07 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=652909, Fri Nov  7 21:36:07 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=574215, Fri Nov  7 21:36:07 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=626503, Fri Nov  7 21:36:07 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=630217, Fri Nov  7 21:36:07 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=682217, Fri Nov  7 21:36:07 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=621889, Fri Nov  7 21:36:07 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=689447, Fri Nov  7 21:36:07 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=631053, Fri Nov  7 21:36:07 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=684416, Fri Nov  7 21:36:07 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=642123, Fri Nov  7 21:36:07 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=674829, Fri Nov  7 21:36:07 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=690386, Fri Nov  7 21:36:07 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=687356, Fri Nov  7 21:36:07 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=589452, Fri Nov  7 21:36:33 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=591848, Fri Nov  7 21:36:33 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=584771, Fri Nov  7 21:36:33 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=688792, Fri Nov  7 21:36:33 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=640473, Fri Nov  7 21:36:33 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=702931, Fri Nov  7 21:36:33 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=711932, Fri Nov  7 21:36:33 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=661595, Fri Nov  7 21:36:33 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=713846, Fri Nov  7 21:36:33 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=703124, Fri Nov  7 21:36:33 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=663912, Fri Nov  7 21:36:33 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=634015, Fri Nov  7 21:36:34 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=645825, Fri Nov  7 21:36:34 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=656932, Fri Nov  7 21:36:34 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=648654, Fri Nov  7 21:36:34 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=624313, Fri Nov  7 21:36:34 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=620179, Fri Nov  7 21:36:34 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=660800, Fri Nov  7 21:36:34 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=651444, Fri Nov  7 21:36:34 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=694702, Fri Nov  7 21:36:34 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=662472, Fri Nov  7 21:36:34 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=722698, Fri Nov  7 21:36:34 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=681177, Fri Nov  7 21:36:34 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=672647, Fri Nov  7 21:36:34 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=614675, Fri Nov  7 21:36:35 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=638738, Fri Nov  7 21:36:55 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=584303, Fri Nov  7 21:36:55 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=616229, Fri Nov  7 21:36:55 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=652724, Fri Nov  7 21:36:55 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=582607, Fri Nov  7 21:36:55 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=603917, Fri Nov  7 21:36:55 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=649185, Fri Nov  7 21:36:55 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=623910, Fri Nov  7 21:36:55 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=655556, Fri Nov  7 21:36:55 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=658961, Fri Nov  7 21:36:55 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=632122, Fri Nov  7 21:36:55 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=669946, Fri Nov  7 21:36:55 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=639131, Fri Nov  7 21:36:55 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=675128, Fri Nov  7 21:36:55 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=741797, Fri Nov  7 21:36:55 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=626902, Fri Nov  7 21:36:56 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=640647, Fri Nov  7 21:36:56 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=567731, Fri Nov  7 21:36:56 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=590120, Fri Nov  7 21:36:56 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=587417, Fri Nov  7 21:36:56 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=640011, Fri Nov  7 21:36:56 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=679829, Fri Nov  7 21:36:56 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=676881, Fri Nov  7 21:36:56 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=664127, Fri Nov  7 21:36:56 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=662861, Fri Nov  7 21:36:56 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=685725, Fri Nov  7 21:37:15 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=570991, Fri Nov  7 21:37:16 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=620556, Fri Nov  7 21:37:16 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=658081, Fri Nov  7 21:37:16 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=657971, Fri Nov  7 21:37:16 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=643218, Fri Nov  7 21:37:16 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=651966, Fri Nov  7 21:37:16 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=652443, Fri Nov  7 21:37:16 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=694282, Fri Nov  7 21:37:16 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=659931, Fri Nov  7 21:37:16 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=648520, Fri Nov  7 21:37:16 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=713756, Fri Nov  7 21:37:16 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=717626, Fri Nov  7 21:37:16 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=655625, Fri Nov  7 21:37:16 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=689336, Fri Nov  7 21:37:16 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=679153, Fri Nov  7 21:37:16 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=574994, Fri Nov  7 21:37:17 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=567491, Fri Nov  7 21:37:17 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=637560, Fri Nov  7 21:37:17 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=596448, Fri Nov  7 21:37:17 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=598173, Fri Nov  7 21:37:17 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=616778, Fri Nov  7 21:37:17 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=618710, Fri Nov  7 21:37:17 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=617216, Fri Nov  7 21:37:17 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=636775, Fri Nov  7 21:37:17 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=709827, Fri Nov  7 21:37:34 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=718770, Fri Nov  7 21:37:34 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=637334, Fri Nov  7 21:37:34 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=723153, Fri Nov  7 21:37:34 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=726644, Fri Nov  7 21:37:34 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=697512, Fri Nov  7 21:37:34 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=556751, Fri Nov  7 21:37:35 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=601593, Fri Nov  7 21:37:35 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=653088, Fri Nov  7 21:37:35 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=646325, Fri Nov  7 21:37:35 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=596011, Fri Nov  7 21:37:35 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=635143, Fri Nov  7 21:37:35 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=642696, Fri Nov  7 21:37:35 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=628993, Fri Nov  7 21:37:35 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=642811, Fri Nov  7 21:37:35 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=644931, Fri Nov  7 21:37:35 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=687580, Fri Nov  7 21:37:35 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=720810, Fri Nov  7 21:37:35 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=650464, Fri Nov  7 21:37:35 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=696437, Fri Nov  7 21:37:35 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=720557, Fri Nov  7 21:37:35 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=682156, Fri Nov  7 21:37:35 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=580317, Fri Nov  7 21:37:36 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=603411, Fri Nov  7 21:37:36 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=653387, Fri Nov  7 21:37:36 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=621739, Fri Nov  7 21:37:54 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=589883, Fri Nov  7 21:37:54 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=596160, Fri Nov  7 21:37:54 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=593202, Fri Nov  7 21:37:54 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=687739, Fri Nov  7 21:37:54 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=648923, Fri Nov  7 21:37:54 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=645951, Fri Nov  7 21:37:54 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=681125, Fri Nov  7 21:37:54 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=710743, Fri Nov  7 21:37:54 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=677966, Fri Nov  7 21:37:54 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=699651, Fri Nov  7 21:37:54 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=644521, Fri Nov  7 21:37:54 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=684705, Fri Nov  7 21:37:54 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=701314, Fri Nov  7 21:37:54 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=572960, Fri Nov  7 21:37:55 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=582417, Fri Nov  7 21:37:55 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=630084, Fri Nov  7 21:37:55 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=654878, Fri Nov  7 21:37:55 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=650303, Fri Nov  7 21:37:55 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=594504, Fri Nov  7 21:37:55 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=631867, Fri Nov  7 21:37:55 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=614733, Fri Nov  7 21:37:55 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=626166, Fri Nov  7 21:37:55 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=623630, Fri Nov  7 21:37:55 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=672374, Fri Nov  7 21:37:55 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=699425, Fri Nov  7 21:38:15 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=683793, Fri Nov  7 21:38:15 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=631383, Fri Nov  7 21:38:15 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=636813, Fri Nov  7 21:38:15 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=738959, Fri Nov  7 21:38:15 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=743794, Fri Nov  7 21:38:15 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=572139, Fri Nov  7 21:38:16 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=579068, Fri Nov  7 21:38:16 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=574707, Fri Nov  7 21:38:16 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=620650, Fri Nov  7 21:38:16 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=601480, Fri Nov  7 21:38:16 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=588782, Fri Nov  7 21:38:16 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=596458, Fri Nov  7 21:38:16 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=686778, Fri Nov  7 21:38:16 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=614354, Fri Nov  7 21:38:16 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=702068, Fri Nov  7 21:38:16 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=697720, Fri Nov  7 21:38:16 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=692158, Fri Nov  7 21:38:16 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=728665, Fri Nov  7 21:38:16 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=684537, Fri Nov  7 21:38:16 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=725257, Fri Nov  7 21:38:16 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=574980, Fri Nov  7 21:38:17 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=607120, Fri Nov  7 21:38:17 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=613078, Fri Nov  7 21:38:17 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=626052, Fri Nov  7 21:38:17 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=643973, Fri Nov  7 21:38:34 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=627373, Fri Nov  7 21:38:34 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=684324, Fri Nov  7 21:38:34 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=655599, Fri Nov  7 21:38:34 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=666033, Fri Nov  7 21:38:34 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=648813, Fri Nov  7 21:38:34 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=718488, Fri Nov  7 21:38:34 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=655201, Fri Nov  7 21:38:34 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=653020, Fri Nov  7 21:38:34 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=660059, Fri Nov  7 21:38:34 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=621536, Fri Nov  7 21:38:35 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=644782, Fri Nov  7 21:38:35 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=602561, Fri Nov  7 21:38:35 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=623365, Fri Nov  7 21:38:35 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=597330, Fri Nov  7 21:38:35 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=608194, Fri Nov  7 21:38:35 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=630048, Fri Nov  7 21:38:35 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=664063, Fri Nov  7 21:38:35 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=690842, Fri Nov  7 21:38:35 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=642198, Fri Nov  7 21:38:35 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=651001, Fri Nov  7 21:38:35 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=707901, Fri Nov  7 21:38:35 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=669053, Fri Nov  7 21:38:35 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=707620, Fri Nov  7 21:38:35 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=710765, Fri Nov  7 21:38:35 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=685989, Fri Nov  7 21:39:09 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=566265, Fri Nov  7 21:39:10 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=586090, Fri Nov  7 21:39:10 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=641512, Fri Nov  7 21:39:10 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=602795, Fri Nov  7 21:39:10 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=620739, Fri Nov  7 21:39:10 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=662281, Fri Nov  7 21:39:10 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=669775, Fri Nov  7 21:39:10 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=667551, Fri Nov  7 21:39:10 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=672093, Fri Nov  7 21:39:10 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=688725, Fri Nov  7 21:39:10 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=655712, Fri Nov  7 21:39:10 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=616869, Fri Nov  7 21:39:11 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=635179, Fri Nov  7 21:39:11 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=585062, Fri Nov  7 21:39:11 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=646517, Fri Nov  7 21:39:11 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=689659, Fri Nov  7 21:39:11 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=698651, Fri Nov  7 21:39:11 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=701902, Fri Nov  7 21:39:11 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=723636, Fri Nov  7 21:39:11 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=654315, Fri Nov  7 21:39:11 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=720213, Fri Nov  7 21:39:11 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=553348, Fri Nov  7 21:39:12 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=593831, Fri Nov  7 21:39:12 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=594976, Fri Nov  7 21:39:12 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=615391, Fri Nov  7 21:39:31 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=614068, Fri Nov  7 21:39:31 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=643872, Fri Nov  7 21:39:31 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=662527, Fri Nov  7 21:39:31 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=661354, Fri Nov  7 21:39:31 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=646456, Fri Nov  7 21:39:31 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=721920, Fri Nov  7 21:39:31 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=643980, Fri Nov  7 21:39:31 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=730331, Fri Nov  7 21:39:31 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=684077, Fri Nov  7 21:39:31 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=740141, Fri Nov  7 21:39:31 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=614735, Fri Nov  7 21:39:32 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=645508, Fri Nov  7 21:39:32 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=646497, Fri Nov  7 21:39:32 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=665231, Fri Nov  7 21:39:32 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=601273, Fri Nov  7 21:39:32 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=631619, Fri Nov  7 21:39:32 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=617109, Fri Nov  7 21:39:32 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=651672, Fri Nov  7 21:39:32 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=629681, Fri Nov  7 21:39:32 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=711736, Fri Nov  7 21:39:32 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=679070, Fri Nov  7 21:39:32 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=724711, Fri Nov  7 21:39:32 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=721538, Fri Nov  7 21:39:32 2025)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=684291, Fri Nov  7 21:39:32 2025)
+Script finished at: 2025-11-07 21:39:34 on machine: code-2
+Total runtime: 1362 seconds

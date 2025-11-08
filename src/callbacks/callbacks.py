@@ -40,7 +40,8 @@ class SaveOnBestTrainingRewardCallback(BaseCallback):
         current_episode = self.training_env.envs[0].unwrapped.current_episode
 
         # Save if it's the first episode, then every 120 episodes
-        if current_episode == 1 or current_episode % (12 * 10) == 0:
+        # changed to 60 
+        if current_episode == 1 or current_episode % (20) == 0:
             if current_episode != self.last_episode:
                 self.last_episode = current_episode
                 if self.verbose > 0:
@@ -54,3 +55,30 @@ class SaveOnBestTrainingRewardCallback(BaseCallback):
                     print(f"Error saving model at episode {current_episode}: {e}")
 
         return True
+
+# class SaveOnEpisodes(BaseCallback):
+#     def __init__(self, save_path: str, seed: int, verbose=1):
+#         super(SaveOnBestTrainingRewardCallback, self).__init__(verbose)
+#         self.save_path = save_path
+#         self.seed = seed
+#         self.last_episode = 0
+
+#     def _on_step(self) -> bool:
+#         current_episode = self.training_env.envs[0].unwrapped.current_episode
+
+#         # Save if it's the first episode, then every 120 episodes
+#         if current_episode == 1 or current_episode % (12 * 10) == 0:
+#             if current_episode != self.last_episode:
+#                 self.last_episode = current_episode
+#                 if self.verbose > 0:
+#                     print(f"Saving model at episode {current_episode}, seed {self.seed}")
+#                 model_filename = f"model_seed_{self.seed}_episode_{current_episode}.zip"
+#                 save_path = os.path.join(self.save_path, model_filename)
+#                 os.makedirs(self.save_path, exist_ok=True)
+#                 try:
+#                     self.model.save(save_path)
+#                 except Exception as e:
+#                     print(f"Error saving model at episode {current_episode}: {e}")
+
+#         return True
+
