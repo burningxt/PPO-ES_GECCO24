@@ -154,6 +154,7 @@ class ES_Env(gym.Env):
                 #       f'Best Fitness Value: {self.current_best_fitness}')
 
                 self.problem_index += 1
+                # FLAGVP this is what dictates that its only trained on the first 12 problems over and over again 
                 if self.problem_index % 12 == 0:
                     self.problem_index = 12
                 else:
