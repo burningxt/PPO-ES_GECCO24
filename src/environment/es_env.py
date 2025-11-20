@@ -43,7 +43,7 @@ class ES_Env(gym.Env):
         self.es = ES(dim, sigma_0, POP_SIZE)
 
         # 
-        self.dim = self.pr
+        self.dim = dim
         self.fes_max = fes_max
         self.countevals = 0
         self.current_episode = 0
@@ -195,7 +195,7 @@ class ES_Env(gym.Env):
         first_solution = self.es.xmean.copy()       # this is the "center" at generation 0
         # the xmean is the object used for the solutions
         first_value = self.problem(first_solution)
-        print("FIRST POINT:", first_solution)
-        print("FIRST VALUE:", first_value)
+        # print("FIRST POINT:", first_solution)
+        # print("FIRST VALUE:", first_value)
 
         return np.zeros(STATE_SIZE), first_value

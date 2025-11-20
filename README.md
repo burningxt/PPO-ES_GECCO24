@@ -15,6 +15,10 @@ start:
 
 python run.py --instance 1 --dim 40 --type bbob --train --test_models --test_cma_es --test_one_fifth_es
 
+
+## for running with just the PPO-ES
+python run.py --instance 1 --dim 40 --type bbob --test_models
+
 # For training models for my new things
 - this will train a model for all the episodes specified in the config on the first 12 problems
 python run.py --instance 1 --dim 40 --type bbob --train 

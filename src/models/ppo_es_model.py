@@ -57,8 +57,17 @@ def test_model(env, model_path, data_path, episode, problem_index, instance):
     all_fitness_values_arr = np.array(all_fitness_values)
     # This is where it gets those names from 
 
-    # where it writes to the numpy array 
-    save_data(os.path.join(data_path, f'fitness_episode_{episode}_problem_{problem_index}_instance_{instance}.npy'), all_fitness_values_arr)
+    # Construct the file path
+    save_path = os.path.join(
+        data_path,
+        f'fitness_episode_{episode}_problem_{problem_index}_instance_{instance}.npy'
+    )
+
+    # Save the file
+    save_data(save_path, all_fitness_values_arr)
+
+    # Print the path to standard output
+    print(f"Saved fitness data to: {save_path}")
 
 
 class PPO_ES:
