@@ -31,8 +31,19 @@ class ES_Env(gym.Env):
         # this is likely what i'll have to change to improve on space 
         self.problem = self.suite.get_problem(problem_index - 1)
         self.problem_index = problem_index
+        # self.problem_optimum_value = self.problem.final_target_f
+        # print("*************** abvout to print optimal value***********")
+        # print("GLOBAL OPTIMA OF ", problem_index, " is : ", self.problem_optimum_value)
+
+
+        # we make the ES here 
+        # this is what the initial solution will be based on 
+        # sigma 0 is 0.5
+        # so the first evaluated population is POP_SIZE 25 samples drawn from a normal distribution sampled at sigma_0 which is .5
         self.es = ES(dim, sigma_0, POP_SIZE)
-        self.dim = dim
+
+        # 
+        self.dim = self.pr
         self.fes_max = fes_max
         self.countevals = 0
         self.current_episode = 0
@@ -179,4 +190,12 @@ class ES_Env(gym.Env):
         self.countevals = 0
         self.cumulative_reward = 0
         self.improvement_ratios = []
-        return np.zeros(STATE_SIZE)
+
+        ## Data Handling, evaluating the very first solution manually
+        first_solution = self.es.xmean.copy()       # this is the "center" at generation 0
+        # the xmean is the object used for the solutions
+        first_value = self.problem(first_solution)
+        print("FIRST POINT:", first_solution)
+        print("FIRST VALUE:", first_value)
+
+        return np.zeros(STATE_SIZE), first_value

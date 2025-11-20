@@ -19,6 +19,7 @@ def test_cma_es(results_dir, problem_type, test_problem_dimension, problemIndex,
     all_fitness_values = []
 
     for _ in range(NUM_RUN):
+        # TODO may want to add a similar thing here for printing the initial solution/vector before any evaluation
         cma_es = cma.CMAEvolutionStrategy(test_problem_dimension * [0], SIGMA_0, {'popsize': POP_SIZE})
         lst_fitness_values = []
         fes = 0
