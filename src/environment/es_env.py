@@ -28,7 +28,8 @@ class ES_Env(gym.Env):
                              "",# empty string for the benchmark options (we don't use any)  # instance is 1 by default
                              f"dimensions: {dim} function_indices:1-24 instance_indices:{instance}")
         # select which problem from the suite, by index (0 based indexing is used internally)
-        # this is likely what i'll have to change to improve on space 
+        # this is likely what i'll have to change to improve on space, getting the next problem 
+        # it just trains on problem
         self.problem = self.suite.get_problem(problem_index - 1)
         self.problem_index = problem_index
         # self.problem_optimum_value = self.problem.final_target_f
@@ -102,6 +103,7 @@ class ES_Env(gym.Env):
 
     # this is what regulates the countevals variable
     # I think this is whats used for PPO-ES, and nothing else?
+    # I believe it is called from gym itself, which is why this is annoying to find
     def step(self, action):
         # self.es.ask is what returns the candidate solutions
         solutions = self.es.ask()
@@ -150,7 +152,7 @@ class ES_Env(gym.Env):
         self.countevals += POP_SIZE
 
         if self.mode == 'training':
-                                        # because of this >= is why we have 41
+                                        # because of this >= is why we have 41 in each data file
             terminated = self.countevals >= self.fes_max
             # this is used to determine when the current episode ends 
             if terminated:
@@ -164,12 +166,22 @@ class ES_Env(gym.Env):
                 #       f'Problem: F{self.problem_index}',
                 #       f'Best Fitness Value: {self.current_best_fitness}')
 
-                self.problem_index += 1
-                # FLAGVP this is what dictates that its only trained on the first 12 problems over and over again 
+                # get_problem_space()
+                # will probably want to delete this logic, and instead have a function call in learn()
+                # incrementing hte problem index
+                self.problem_index += 1 
+
+                # this is what dictates that its only trained on the first 12 problems over and over again 
                 if self.problem_index % 12 == 0:
                     self.problem_index = 12
                 else:
+                    # just looping through it
                     self.problem_index = self.problem_index % 12
+
+
+                    # FLAGVP this is I believe the function call that dictates what problem it trains on
+                    # why is this problem_index - 1
+                    # """ only get a new problem once that episode ends  """
                 self.problem = self.suite.get_problem(self.problem_index - 1)
 
                 # if self.current_episode % 1200 == 0:

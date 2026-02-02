@@ -18,6 +18,7 @@ def test_model(env, model_path, data_path, episode, problem_index, instance):
     # ppo is an import
     # we learn the model_path
     # model path here is going to be one of the ones in episodes trained
+    # this is described ni the spinningup.openai docs, this load method
     model = PPO.load(model_path, env=env)
     all_fitness_values = []
 
@@ -87,14 +88,22 @@ class PPO_ES:
         # we try for every seed
         # we train 10 independent PPO agents (one per seed)
         # for seed in self.seeds:
-        for _ in range(self.num_models_to_gen):
+        for _ in range(self.num_models_to_gen): # just generates 5 differnet random models with different seeds for now
             # using a different random seed on each run instead
+
+            """ 
+            need to plan how im going to call each training step with each instance here 
+            """
             seed = random.randint(1,9999)
             # create the environment: 
                 # make_vec_env: war4ps the ES_Env into a vectorized envionment, so it can be used by PPO
                 # ES_Env: Is the custom envrionment for the Evolution Strategies Problem 
                 # set the seed
+                                                    # right now we only train on instance 1 as outlined by config
+            
+            # THIS CALLS THE CONSTRUCTOR WHICH STARTS THE TRAINING, THIS IS WHERE I'LL NEED FOR SPACE
             env = make_vec_env(lambda: ES_Env(instance=TRAIN_INSTANCE, seed=seed), n_envs=1)
+                                                # train instance is always 1 for their experiments
             # Reset the model with the new environment to ensure it's training from scratch
             model = PPO(
                 policy='MlpPolicy',
@@ -171,6 +180,7 @@ class PPO_ES:
                 # creates a vectorized, environment for training reinforcement learning agents 
                 # we create one of type ES_env 
                 # we test ppo_es in the ES_env environment 
+
         seed_env = make_vec_env(lambda: ES_Env(problem_type=problem_type, 
                                                instance=instance,
                                                dim=test_problem_dimension,

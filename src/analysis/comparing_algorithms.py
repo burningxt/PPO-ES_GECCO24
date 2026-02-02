@@ -33,6 +33,9 @@ def comparing_algorithms(need_train=False,
     plot_dir = os.path.join(results_dir, 'plots', f'DIM_{test_dimension}', f'instance_{test_instance}')
     os.makedirs(plot_dir, exist_ok=True)
     ppo_es = PPO_ES(base_dir=base_dir, cuda_device=cuda_device) # cuda is for parallel computing 
+
+    # training called here and here alone
+    # its only trained on the first 12 I believe 
     if need_train:
         ppo_es.train_ppo_es()
 

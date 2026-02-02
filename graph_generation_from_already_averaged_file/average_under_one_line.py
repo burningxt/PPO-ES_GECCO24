@@ -18,12 +18,12 @@ def plot_csv(csv_path, output_path="plot.png"):
 
     # Label each point with its value
     for i, val in enumerate(values):
-        plt.text(i, val, f"{val:.2e}", ha='center', va='bottom', fontsize=8, rotation=45)
+        plt.text(i, val, f"{val:.2f}", ha='center', va='bottom', fontsize=8, rotation=45)
 
     # Labels and title
     plt.title("Average (Across 25 different runs of every problem) Area Under Graph per Episode", fontsize=14)
     plt.xlabel("Episodes", fontsize=12)
-    plt.ylabel("Average Value", fontsize=12)
+    plt.ylabel("Area Under Graph", fontsize=12)
     plt.xticks(rotation=45)
     plt.grid(True, linestyle='--', alpha=0.6)
 
