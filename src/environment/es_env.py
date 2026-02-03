@@ -24,12 +24,16 @@ class ES_Env(gym.Env):
         super(ES_Env, self).__init__() # inheriting the constructor 
         self.seed(seed)  # Set the seed using the inherited method
                                   # the problem type is just bbob by default 
+
+        # create a new cocoex suite
         self.suite = cocoex.Suite(problem_type,
                              "",# empty string for the benchmark options (we don't use any)  # instance is 1 by default
                              f"dimensions: {dim} function_indices:1-24 instance_indices:{instance}")
         # select which problem from the suite, by index (0 based indexing is used internally)
         # this is likely what i'll have to change to improve on space, getting the next problem 
         # it just trains on problem
+
+        # 
         self.problem = self.suite.get_problem(problem_index - 1)
         self.problem_index = problem_index
         # self.problem_optimum_value = self.problem.final_target_f
@@ -70,6 +74,7 @@ class ES_Env(gym.Env):
 
     def evaluate_fitness(self, solution):
         # just plug the solution into the problem
+        # because once you plug the solution into the problem, it'll give you the fitness 
         return self.problem(solution)
 
     def calculate_improvement_ratio(self):
@@ -167,6 +172,9 @@ class ES_Env(gym.Env):
                 #       f'Best Fitness Value: {self.current_best_fitness}')
 
                 # get_problem_space()
+
+                # this literally just changes what the next problem is based on round robin, usually starts on instance 1 and goes through all 1
+                
                 # will probably want to delete this logic, and instead have a function call in learn()
                 # incrementing hte problem index
                 self.problem_index += 1 
@@ -182,6 +190,19 @@ class ES_Env(gym.Env):
                     # FLAGVP this is I believe the function call that dictates what problem it trains on
                     # why is this problem_index - 1
                     # """ only get a new problem once that episode ends  """
+
+
+                    # this get problem function is a part of the COCOEX suite,and is used to get a problem from that 
+                    # I just need to decide which of the ones I should use, which one has the best value function 
+
+                # you only get a new problem once per episode 
+                # its the final thing you do at the end of training an episode 
+
+                # problem selector
+                # next_problem = space_predictor(self.problem_index - 1)
+
+                # keeping the trend of 1 indexed code vs 0 indexed coco problems
+                # self.problem = self.suite.get_problem(next_problem - 1)
                 self.problem = self.suite.get_problem(self.problem_index - 1)
 
                 # if self.current_episode % 1200 == 0:
@@ -192,6 +213,22 @@ class ES_Env(gym.Env):
             terminated = self.countevals >= self.fes_max + POP_SIZE * 2
         truncated = False
         return observation, reward, terminated, truncated, {}
+
+    # def space_predictor(self) -> List(int):
+
+
+    #     new_inst_num = 0
+    #     print("dummy")
+
+        # this is going to return a list of the entires that we want to train on in the next episode 
+
+
+
+
+        
+
+
+    
 
 
     def reset(self, **kwargs):
