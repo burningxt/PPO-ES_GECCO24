@@ -26,6 +26,9 @@ def test_model(env, model_path, data_path, episode, problem_index, instance):
     # the size of episodes is also dictated in the config, 1, 600,
     # it breaks when I change the number of episodes
     starting_values = []
+    # number of times we run each one 
+
+    # do everything 20 times 
     for _ in range(NUM_RUN):
         # the only call to .reset()
         temp = env.envs[0].reset()
@@ -94,6 +97,7 @@ class PPO_ES:
             """ 
             need to plan how im going to call each training step with each instance here 
             """
+            # added to make the seeds random values
             seed = random.randint(1,9999)
             # create the environment: 
                 # make_vec_env: war4ps the ES_Env into a vectorized envionment, so it can be used by PPO
@@ -104,6 +108,7 @@ class PPO_ES:
             # THIS CALLS THE CONSTRUCTOR WHICH STARTS THE TRAINING, THIS IS WHERE I'LL NEED FOR SPACE
             env = make_vec_env(lambda: ES_Env(instance=TRAIN_INSTANCE, seed=seed), n_envs=1)
                                                 # train instance is always 1 for their experiments
+
             # Reset the model with the new environment to ensure it's training from scratch
             model = PPO(
                 policy='MlpPolicy',
@@ -119,6 +124,7 @@ class PPO_ES:
                                   # Smooths advantage estimates
                 clip_range=0.2 # PPO clipping threshold for stability
             )
+
             episodes_trained_dir = os.path.join(self.results_dir, f'episodes_trained')
                 # make the output directory for the model directory if its not already there 
             os.makedirs(episodes_trained_dir, exist_ok=True)

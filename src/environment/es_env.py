@@ -161,6 +161,7 @@ class ES_Env(gym.Env):
             terminated = self.countevals >= self.fes_max
             # this is used to determine when the current episode ends 
             if terminated:
+                # we increment the episodes here 
                 self.current_episode += 1
                 self.episode_data.append([self.current_episode,
                                           self.current_best_fitness,
