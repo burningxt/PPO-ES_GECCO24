@@ -33,6 +33,13 @@ class ES_Env(gym.Env):
         # this is likely what i'll have to change to improve on space, getting the next problem 
         # it just trains on problem
 
+        # starting with the one provided 
+        self.curriculum = [problem_index]
+        # can either remove them from the list, but may want that information later so will index for now
+        # it is ordered
+        self.curriculum_index = 0
+
+
         # 
         self.problem = self.suite.get_problem(problem_index - 1)
         self.problem_index = problem_index
@@ -65,6 +72,22 @@ class ES_Env(gym.Env):
 
         self.observation_space = gym.spaces.Box(low=-np.ones(STATE_SIZE), high=np.ones(STATE_SIZE),
                                                 shape=(STATE_SIZE,), dtype=np.float32)
+
+    def set_problem_index(self, problem_index: int):
+        self.problem_index = problem_index
+        self.problem = self.suite.get_problem(self.problem_index - 1) # for the correct indesxing
+
+    def set_curriculum(self, problem_list):
+        self.curriculum = problem_list
+        self.current_index = 0
+
+    def next_problem_from_curriculum(self):
+        self.curriculum_index = (self.curriculum_index + 1) % len(self.curriculum)
+        # sets the problem index to whatever is held in the curriculum array 
+        self.set_problem_index(self.curriculum[self.curriculum_index])
+
+
+    
 
     def seed(self, seed=None): # 
         np.random.seed(seed)
@@ -161,6 +184,7 @@ class ES_Env(gym.Env):
             terminated = self.countevals >= self.fes_max
             # this is used to determine when the current episode ends 
             if terminated:
+                episode_end = True
                 # we increment the episodes here 
                 self.current_episode += 1
                 self.episode_data.append([self.current_episode,
@@ -168,52 +192,22 @@ class ES_Env(gym.Env):
 
                                           self.cumulative_reward])
 
-                # print(f'Episode: {self.current_episode}',
-                #       f'Problem: F{self.problem_index}',
-                #       f'Best Fitness Value: {self.current_best_fitness}')
-
-                # get_problem_space()
-
-                # this literally just changes what the next problem is based on round robin, usually starts on instance 1 and goes through all 1
-                
-                # will probably want to delete this logic, and instead have a function call in learn()
-                # incrementing hte problem index
-                self.problem_index += 1 
-
-                # this is what dictates that its only trained on the first 12 problems over and over again 
-                if self.problem_index % 12 == 0:
-                    self.problem_index = 12
-                else:
-                    # just looping through it
-                    self.problem_index = self.problem_index % 12
-
-
-                    # FLAGVP this is I believe the function call that dictates what problem it trains on
-                    # why is this problem_index - 1
-                    # """ only get a new problem once that episode ends  """
-
-
-                    # this get problem function is a part of the COCOEX suite,and is used to get a problem from that 
-                    # I just need to decide which of the ones I should use, which one has the best value function 
-
-                # you only get a new problem once per episode 
-                # its the final thing you do at the end of training an episode 
-
-                # problem selector
-                # next_problem = space_predictor(self.problem_index - 1)
-
-                # keeping the trend of 1 indexed code vs 0 indexed coco problems
-                # self.problem = self.suite.get_problem(next_problem - 1)
-                self.problem = self.suite.get_problem(self.problem_index - 1)
+           
+                # self.next_problem_from_curriculum()
 
                 # if self.current_episode % 1200 == 0:
                 #     Draw().plot_episode_data(self.base_dir, self.episode_data, self.problem_index)
+
+            # don't need to pass in the self.curruculum because that's already saved I think
+            infos = {"episode_end": episode_end}
+
 
         elif self.mode == 'testing':
             # here is where it is for testing
             terminated = self.countevals >= self.fes_max + POP_SIZE * 2
         truncated = False
-        return observation, reward, terminated, truncated, {}
+
+        return observation, reward, terminated, truncated, infos
 
     # def space_predictor(self) -> List(int):
 
@@ -227,7 +221,20 @@ class ES_Env(gym.Env):
 
 
         
-
+    def get_mean_q(self, model, algo):
+        qs = []
+        n_insts = model.env.env_method("get_instance_size")[0]
+        env = model.env
+        for i in range(n_insts):
+            obs = env.reset()
+            if algo == "trpo":
+                val = model.policy_pi.value([obs])
+            # this is for PPO 
+            else:
+                val = model.value(obs)
+            qs.append(val)
+            # its over a flattened array 
+        return np.mean(qs)
 
     
 

@@ -29,6 +29,7 @@ def test_model(env, model_path, data_path, episode, problem_index, instance):
     # number of times we run each one 
 
     # do everything 20 times 
+    # this is just for testing
     for _ in range(NUM_RUN):
         # the only call to .reset()
         temp = env.envs[0].reset()
@@ -153,11 +154,13 @@ class PPO_ES:
             # train the model 
             # callback, lets you inject custom logic            # this callback used to save the best one             # lr_scheduler_callback is used to decrease the learning rate
             model.learn(total_timesteps=total_timesteps, callback=[callback, lr_scheduler_callback]) # it calls the callback when training ends 
+            """
             # this is just a method from stablebaselines3 
                 # runs the environment for n_steps timesteps
                 # computes advantage estimates
                 # step() is manually called inside the while loop in this file 
                     # it is called no where else 
+            
             # runs in the environment we made earlier
             # RL environments must follow the Gym API 
             # step: just takes in action 
@@ -167,6 +170,7 @@ class PPO_ES:
                 # reutrns done if done
                 # info contains extra info 
                 # return observation, reward, terminated, truncated, {}
+            """
 
             # can see where step is defined inside the venv/lib/python3.9/site-packages/gymnasium
 
