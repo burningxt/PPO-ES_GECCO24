@@ -66,6 +66,9 @@ class UpdateEnvCallback(BaseCallback):
         self.algo_name = algo_name
         self.last_q = 0.0
         curriculum_size = 0
+        curriculum = []
+        # for now just 12 total instances
+        self.total_instances = 12
 
     # is called on step, but only triggers on a particular step 
     def _on_step(self) -> bool:
@@ -85,6 +88,7 @@ class UpdateEnvCallback(BaseCallback):
             # would want to update the policy explicitly here if not done already
             # to match the space code exactly, here is where I would consume the rollout buffer with train 
             self.update_curriculum_size(curriculum)
+            # updates the curriculum based off the curriculum size which was just updated
             self.update_curriculum()
 
         return True
@@ -94,17 +98,67 @@ class UpdateEnvCallback(BaseCallback):
         delta_q = np.abs(np.abs(mean_q) - np.abs(self.last_q))
         self.last_q = mean_q
 
-        if (delta_q <= args.eta * np.abs(last_q) and len(curriculum) < total_instances):
+
+        # temp will change later
+        # space had it implemented as an argument: args.eta, default set to .1
+        eta_const = .1
+        
+        if (delta_q <= eta_const * np.abs(self.last_q) and len(curriculum) < self.total_instances):
             print("increasing instance set size")
             # just need to set it here, we use the curricluum list itself to keep track in the actual env
 
 
             """TODO: fix, it isn't supposed to just increase by 1 """
+            # should I do this with a setter instead of just accessing it directl
             temp = self.curriculum_size
             self.curriculum_size = temp + 1
 
 
     def update_curriculum(self):
+        # this is going to be about setting the actual curriculum, don't need to do a size, will just be like
+        temp_list = []
+
+        eval_env = self.training_env.envs[0].unwrapped # do I need unwrapped here?
+        current_index = eval_env.curriculum_index
+        curriculum = eval_env.curriculum
+
+        temp_list = self.order_instances_qvals(self.model, eval_env, len(curriculum))
+        self.curriculum.append("squigdame")
+        self.curriculum_size = len(self.curriculum)
+
+        # just going to set as a list of problem indexes
+        self.training_env.envs[0].unwrapped.set_curriculum(self.curriculum)
+    
+
+    # returns indices in ascending order, used for "absolute"
+    # def order_instances_qvals(self,learner, env, num_instances, algo):
+    def order_instances_qvals(self,learner, env, num_instances):
+        evals = self.get_instance_evals(learner, env, num_instances)
+        return np.argsort(evals)
+
+
+    # returns a numpy array of value estimates 
+    def get_instance_evals(self,learner, env, num_instances):
+        evals = []
+        cur_set, _ = env.get_instance_set()
+        # we do it for all instances
+        for i in range(num_instances):
+            env.set_instance_set([i])
+            # we reset and get the starting state on that instance
+            obs = env.reset()
+            # if algo == "trpo":
+            if self.algo_name == "trpo":
+                # value is the network's estimate of the expected discounted return from that initial state 
+                val = learner.policy_pi.value([obs])
+            else:
+                # this is whats used for PPO
+                val = learner.value([obs])
+
+            # I believe that val[0] here is just a single number
+            evals.append(val[0])
+        env.set_instance_set(cur_set)
+        return np.array(evals)
+
 
 
     def get_mean_q(self, curriculum):

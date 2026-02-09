@@ -199,6 +199,7 @@ class ES_Env(gym.Env):
                 #     Draw().plot_episode_data(self.base_dir, self.episode_data, self.problem_index)
 
             # don't need to pass in the self.curruculum because that's already saved I think
+            # the infos is passed every time to detemrine when the callback should be triggered
             infos = {"episode_end": episode_end}
 
 
@@ -220,6 +221,7 @@ class ES_Env(gym.Env):
 
 
 
+        
         
     def get_mean_q(self, model, algo):
         qs = []
