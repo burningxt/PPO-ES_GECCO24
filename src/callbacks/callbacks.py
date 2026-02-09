@@ -1,6 +1,7 @@
 from stable_baselines3.common.callbacks import BaseCallback
 import numpy as np
 import os
+from stable_baselines3.common.utils import obs_as_tensor
 
 
 class LearningRateScheduler(BaseCallback):
@@ -58,15 +59,15 @@ class SaveOnBestTrainingRewardCallback(BaseCallback):
         return True
 
 # used to update the enavironment based on the info dict returned from the step each time
-"""TODO move the helpers into another function its stupid to ahve this here"""
+"""TODO move the helpers into another file its stupid to ahve this here"""
 class UpdateEnvCallback(BaseCallback):
     def __init__(self, algo_name: str):
         super().__init__()
         # matching from the get_mean_q from SPACE
         self.algo_name = algo_name
         self.last_q = 0.0
-        curriculum_size = 0
-        curriculum = []
+        self.curriculum_size = 0
+        self.curriculum = []
         # for now just 12 total instances
         self.total_instances = 12
 
@@ -82,7 +83,7 @@ class UpdateEnvCallback(BaseCallback):
         self.curriculum_size = len(curriculum)
 
         # this means that the current curriculum has been exhausted, need to reset
-        if current_index <= len(curriculum) - 1:
+        if current_index >= len(curriculum) - 1:
 
             
             # would want to update the policy explicitly here if not done already
@@ -116,14 +117,13 @@ class UpdateEnvCallback(BaseCallback):
 
     def update_curriculum(self):
         # this is going to be about setting the actual curriculum, don't need to do a size, will just be like
-        temp_list = []
+        # TODO watch out for if I need to change the reset part of the environment
 
         eval_env = self.training_env.envs[0].unwrapped # do I need unwrapped here?
         current_index = eval_env.curriculum_index
         curriculum = eval_env.curriculum
 
-        temp_list = self.order_instances_qvals(self.model, eval_env, len(curriculum))
-        self.curriculum.append("squigdame")
+        self.curriculum = self.order_instances_qvals(self.model, eval_env, len(curriculum))
         self.curriculum_size = len(self.curriculum)
 
         # just going to set as a list of problem indexes
@@ -149,10 +149,12 @@ class UpdateEnvCallback(BaseCallback):
             # if algo == "trpo":
             if self.algo_name == "trpo":
                 # value is the network's estimate of the expected discounted return from that initial state 
-                val = learner.policy_pi.value([obs])
+                # val = learner.policy_pi.value([obs_as_tensor(obs)])
+                val = learner.policy_pi.predict_values([obs_as_tensor(obs)])
             else:
                 # this is whats used for PPO
-                val = learner.value([obs])
+                val = learner.predict_values(obs_as_tensor(obs))
+                # val = learner.value([obs])
 
             # I believe that val[0] here is just a single number
             evals.append(val[0])
@@ -174,17 +176,18 @@ class UpdateEnvCallback(BaseCallback):
             Will the reset method work correctly, will it return all the info I need?
         
         """
-        env = self.model.env
+        # env = self.model.env
+        env = self.training_env
 
         for i in range(n_insts):
             obs = env.reset()
             if self.algo_name == "trpo":
                 # val = self.model.policy_pi.value([obs])
-                val = self.model.predict_values(obs)
+                val = self.model.predict_values(obs_as_tensor(obs))
             # this is for PPO 
             elif self.algo_name == "ppo":
                 # val = self.model.value(obs)
-                val = self.model.predict_values(obs)
+                val = self.model.predict_values(obs_as_tensor(obs))
             else:
                 print("Algo name not recognized")
             qs.append(val)
