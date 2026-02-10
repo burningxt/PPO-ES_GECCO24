@@ -1,7 +1,7 @@
 import random
 
 from src.environment.es_env import ES_Env
-from src.callbacks.callbacks import LearningRateScheduler, SaveOnBestTrainingRewardCallback
+from src.callbacks.callbacks import LearningRateScheduler, SaveOnBestTrainingRewardCallback, UpdateEnvCallback
 from src.config.config import NUM_RUN, TRAIN_INSTANCE, EPISODES
 from src.utilities.tools import linear_schedule, save_data
 from stable_baselines3 import PPO
@@ -80,7 +80,8 @@ class PPO_ES:
         self.base_dir = base_dir
         self.cuda_device = cuda_device
         self.seeds = [42, 123, 456, 789, 1011, 1213, 1415, 1617, 1819, 2021]
-        self.num_models_to_gen = 5; # generating 5 models
+        # self.num_models_to_gen = 5; # generating 5 models
+        self.num_models_to_gen = 1
         # Initialize paths for saving results and plots
         # we have a results dictionary 
         self.results_dir = os.path.join(base_dir, 'output_data', 'results')
@@ -145,6 +146,8 @@ class PPO_ES:
             )
 
             lr_scheduler_callback.total_timesteps = total_timesteps
+            # only takes PPO for now
+            space_callback = UpdateEnvCallback("ppo")
             # model.learn 
             # model is a PPO object, so it just learns 
             # we import PPO from stable baseline 3
@@ -153,7 +156,7 @@ class PPO_ES:
                 # https://spinningup.openai.com/en/latest/algorithms/ppo.html
             # train the model 
             # callback, lets you inject custom logic            # this callback used to save the best one             # lr_scheduler_callback is used to decrease the learning rate
-            model.learn(total_timesteps=total_timesteps, callback=[callback, lr_scheduler_callback]) # it calls the callback when training ends 
+            model.learn(total_timesteps=total_timesteps, callback=[callback, lr_scheduler_callback, space_callback]) # it calls the callback when training ends 
             """
             # this is just a method from stablebaselines3 
                 # runs the environment for n_steps timesteps

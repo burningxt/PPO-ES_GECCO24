@@ -86,6 +86,10 @@ class ES_Env(gym.Env):
         # sets the problem index to whatever is held in the curriculum array 
         self.set_problem_index(self.curriculum[self.curriculum_index])
 
+    def get_curriculum(self):
+
+        return self.curriculum.copy()
+
 
     
 
@@ -134,6 +138,8 @@ class ES_Env(gym.Env):
     # I believe it is called from gym itself, which is why this is annoying to find
     def step(self, action):
         # self.es.ask is what returns the candidate solutions
+        # print("CURRENTLY IN STEP, TRAINING ON INSATNCE: ")
+        # print(self.curriculum)
         solutions = self.es.ask()
         scaling_factor = action[0] * 0.75 + 1.25
         self.es.sigma *= scaling_factor
@@ -178,10 +184,12 @@ class ES_Env(gym.Env):
         # pop size is set to 25
         # this is then used for both training and testing
         self.countevals += POP_SIZE
+        infos = {}
 
         if self.mode == 'training':
                                         # because of this >= is why we have 41 in each data file
             terminated = self.countevals >= self.fes_max
+            episode_end = False
             # this is used to determine when the current episode ends 
             if terminated:
                 episode_end = True
@@ -223,23 +231,25 @@ class ES_Env(gym.Env):
 
         
         
-    def get_mean_q(self, model, algo):
-        qs = []
-        n_insts = model.env.env_method("get_instance_size")[0]
-        env = model.env
-        for i in range(n_insts):
-            obs = env.reset()
-            if algo == "trpo":
-                val = model.policy_pi.value([obs])
-            # this is for PPO 
-            else:
-                val = model.value(obs)
-            qs.append(val)
-            # its over a flattened array 
-        return np.mean(qs)
+    # def get_mean_q(self, model, algo):
+    #     qs = []
+    #     n_insts = model.env.env_method("get_instance_size")[0]
+    #     env = model.env
+    #     for i in range(n_insts):
+    #         obs = env.reset()
+    #         if algo == "trpo":
+    #             val = model.policy_pi.value([obs])
+    #         # this is for PPO 
+    #         else:
+    #             val = model.value(obs)
+    #         qs.append(val)
+    #         # its over a flattened array 
+    #     return np.mean(qs)
 
     
 
+
+# the env in space returns obs[observation]
 
     def reset(self, **kwargs):
         self.es = ES(self.dim, SIGMA_0, POP_SIZE)
@@ -257,4 +267,18 @@ class ES_Env(gym.Env):
         # print("FIRST POINT:", first_solution)
         # print("FIRST VALUE:", first_value)
 
+        # which of these is the obs
         return np.zeros(STATE_SIZE), first_value
+
+
+
+
+
+
+
+
+
+
+
+
+

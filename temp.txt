@@ -1,0 +1,21 @@
+Script started at: 2026-02-09 22:52:45 on machine: pc2-018-l
+=== Algorithm Comparison Parameters ===
+Train: True
+Problem Type: bbob
+Instance: 1
+Dimension: 40
+Test Models: True
+Test CMA-ES: True
+Test One-Fifth ES: True
+CUDA Device: cuda
+=======================================
+Using cpu device
+initiating update env
+in save on best training reward callback
+in update env callback !
+printing for first time
+[1]
+THIS IS UPDATING THE CURRICLUMU SIZE OMG
+increasing instance set size
+Script finished at: 2026-02-09 22:52:48 on machine: pc2-018-l
+Total runtime: 3 seconds

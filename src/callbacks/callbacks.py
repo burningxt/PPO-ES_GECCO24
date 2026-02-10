@@ -2,6 +2,7 @@ from stable_baselines3.common.callbacks import BaseCallback
 import numpy as np
 import os
 from stable_baselines3.common.utils import obs_as_tensor
+import torch as th
 
 
 class LearningRateScheduler(BaseCallback):
@@ -39,11 +40,14 @@ class SaveOnBestTrainingRewardCallback(BaseCallback):
         self.last_episode = 0
 
     def _on_step(self) -> bool:
+        print("in save on best training reward callback")
         current_episode = self.training_env.envs[0].unwrapped.current_episode
 
         # Save if it's the first episode, then every 120 episodes
         # changed to 60 
-        if current_episode == 1 or current_episode % (20) == 0:
+        # if current_episode == 1 or current_episode % (20) == 0:
+
+        if current_episode == 1 or current_episode % (300) == 0:
             if current_episode != self.last_episode:
                 self.last_episode = current_episode
                 if self.verbose > 0:
@@ -70,16 +74,22 @@ class UpdateEnvCallback(BaseCallback):
         self.curriculum = []
         # for now just 12 total instances
         self.total_instances = 12
+        print("initiating update env")
 
     # is called on step, but only triggers on a particular step 
     def _on_step(self) -> bool:
+        print("in update env callback !")
         # should be a list of dicts? 
         # episode_ended = self.locals.get("infos", None)
         
         # if the episode ended, then check for if the index has reached the end of the instance set
         # if episode_ended:
+        print("printing for first time")
+
+        # this prints the right value, stuff is plugged in right
+        print(self.training_env.envs[0].unwrapped.curriculum)
         current_index = self.training_env.envs[0].unwrapped.curriculum_index
-        curriculum = self.training_env.envs[0].unwrapped.curriculum.curriculum
+        curriculum = self.training_env.envs[0].unwrapped.curriculum
         self.curriculum_size = len(curriculum)
 
         # this means that the current curriculum has been exhausted, need to reset
@@ -95,6 +105,7 @@ class UpdateEnvCallback(BaseCallback):
         return True
 
     def update_curriculum_size(self, curriculum):
+        print("THIS IS UPDATING THE CURRICLUMU SIZE OMG")
         mean_q = self.get_mean_q(curriculum)
         delta_q = np.abs(np.abs(mean_q) - np.abs(self.last_q))
         self.last_q = mean_q
@@ -140,25 +151,42 @@ class UpdateEnvCallback(BaseCallback):
     # returns a numpy array of value estimates 
     def get_instance_evals(self,learner, env, num_instances):
         evals = []
-        cur_set, _ = env.get_instance_set()
+        # cur_set, _ = env.get_instance_set()
+        prev_set = env.get_curriculum()
         # we do it for all instances
         for i in range(num_instances):
-            env.set_instance_set([i])
+            # env.set_instance_set([i])
+            env.set_curriculum([i])
             # we reset and get the starting state on that instance
-            obs = env.reset()
+            obs, info = env.reset()
+            obs_t = obs_as_tensor(obs, learner.device)
+            if obs_t.ndim == 1:
+                obs_t = obs_t.unsqueeze(0)
+            val = 0
+
+
             # if algo == "trpo":
             if self.algo_name == "trpo":
                 # value is the network's estimate of the expected discounted return from that initial state 
-                # val = learner.policy_pi.value([obs_as_tensor(obs)])
-                val = learner.policy_pi.predict_values([obs_as_tensor(obs)])
+                # val = learner.policy_pi.value([obs_as_tensor(obs, self.model.device)])
+                val = learner.policy_pi.policy.predict_values([obs_as_tensor(obs, self.model.device)])
             else:
                 # this is whats used for PPO
-                val = learner.predict_values(obs_as_tensor(obs))
+                # this is throwing an error because its returning an observation of type tuple 
+                # why is obs here of type tuple, why doesn't obs_as_tensor take it
+                # so env.reset() returns a tuple for this? 
+                print("the obs as tensor value is: ")
+                print(obs[0])
+                # val = learner.policy.predict_values(obs_as_tensor(obs[0], self.model.device))
+                val_t = learner.policy.predict_values(obs_t)
+                val = float(val_t.detach().cpu().numpy().squeeze())
                 # val = learner.value([obs])
 
             # I believe that val[0] here is just a single number
-            evals.append(val[0])
-        env.set_instance_set(cur_set)
+            # evals.append(val[0])
+            evals.append(val)
+        # env.set_instance_set(cur_set)
+        env.set_curriculum(prev_set)
         return np.array(evals)
 
 
@@ -166,7 +194,7 @@ class UpdateEnvCallback(BaseCallback):
     def get_mean_q(self, curriculum):
         # average value over instances
         """TODO does model in SB3 have a .value method
-            don't think so, I think it instead might use predict_values instead?
+            don't think so, I think it instead might use policy.predict_values instead?
         
         """
         qs = []
@@ -183,11 +211,16 @@ class UpdateEnvCallback(BaseCallback):
             obs = env.reset()
             if self.algo_name == "trpo":
                 # val = self.model.policy_pi.value([obs])
-                val = self.model.predict_values(obs_as_tensor(obs))
+                # I made it not have gradients since its evaluating not training here
+                with th.no_grad():
+                    val = self.model.policy.predict_values(obs_as_tensor(obs, self.model.device))
+                val = val.cpu().numpy()
             # this is for PPO 
             elif self.algo_name == "ppo":
                 # val = self.model.value(obs)
-                val = self.model.predict_values(obs_as_tensor(obs))
+                with th.no_grad():
+                    val = self.model.policy.predict_values(obs_as_tensor(obs, self.model.device))
+                val = val.cpu().numpy()
             else:
                 print("Algo name not recognized")
             qs.append(val)
