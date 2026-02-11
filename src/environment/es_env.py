@@ -11,7 +11,7 @@ import os
 class ES_Env(gym.Env):
     """
     Custom Environment for CMA-ES that follows gym interface.
-    """ # FLAGVP I think this is actually the environment for PPO-ES I think 
+    """  
 
     def __init__(self,
                  problem_type="bbob",
@@ -25,38 +25,25 @@ class ES_Env(gym.Env):
         self.seed(seed)  # Set the seed using the inherited method
                                   # the problem type is just bbob by default 
 
-        # create a new cocoex suite
+        # Create a new cocoex suite
         self.suite = cocoex.Suite(problem_type,
                              "",# empty string for the benchmark options (we don't use any)  # instance is 1 by default
                              f"dimensions: {dim} function_indices:1-24 instance_indices:{instance}")
-        # select which problem from the suite, by index (0 based indexing is used internally)
-        # this is likely what i'll have to change to improve on space, getting the next problem 
-        # it just trains on problem
+        # Select which problem from the suite, by index (0 based indexing is used internally)
 
-        # starting with the one provided 
+        # Initialize curriculum to the one provided 
         self.curriculum = [problem_index]
-        # can either remove them from the list, but may want that information later so will index for now
-        # it is ordered
-        self.curriculum_index = 0
-        # default value
         self.curriculum_size = 1
+        self.curriculum_index = 0
 
-
-        # 
+        # Setting the initial problem 
         self.problem = self.suite.get_problem(problem_index - 1)
         self.problem_index = problem_index
-        # self.problem_optimum_value = self.problem.final_target_f
-        # #print("*************** abvout to print optimal value***********")
-        # #print("GLOBAL OPTIMA OF ", problem_index, " is : ", self.problem_optimum_value)
-
 
         # we make the ES here 
-        # this is what the initial solution will be based on 
-        # sigma 0 is 0.5
         # so the first evaluated population is POP_SIZE 25 samples drawn from a normal distribution sampled at sigma_0 which is .5
         self.es = ES(dim, sigma_0, POP_SIZE)
 
-        # 
         self.dim = dim
         self.fes_max = fes_max
         self.countevals = 0
@@ -81,38 +68,30 @@ class ES_Env(gym.Env):
 
     def set_curriculum(self, problem_list):
         self.curriculum = problem_list
+        # Always sets the curriculum index to be 
         self.current_index = 0
-        # always does the first entry in the curriculum at the start. 
-        # this helps with the instance estimates as well 
-        # the actual problem index in cocoex is just 1 higher than what it is in the curriculum
         self.problem = self.suite.get_problem(self.curriculum[0])
-        print("problem in environment set to: ")
-        print(self.problem)
 
     def set_curriculum_size(self, size: int):
         self.curriculum_size = size
 
     def next_problem_from_curriculum(self):
         self.curriculum_index = (self.curriculum_index + 1) % len(self.curriculum)
-        # sets the problem index to whatever is held in the curriculum array 
+        # Sets the problem index to whatever is held in the curriculum array 
         self.set_problem_index(self.curriculum[self.curriculum_index])
 
     def get_curriculum(self):
-
+        # Returns a copy of the curriculum list
         return self.curriculum.copy()
 
 
-    
-
-    def seed(self, seed=None): # 
+    def seed(self, seed=None): 
         np.random.seed(seed)
 
     def set_mode(self, mode):
         self.mode = mode
 
     def evaluate_fitness(self, solution):
-        # just plug the solution into the problem
-        # because once you plug the solution into the problem, it'll give you the fitness 
         return self.problem(solution)
 
     def calculate_improvement_ratio(self):
@@ -140,28 +119,19 @@ class ES_Env(gym.Env):
         norm_sigma = (log_sigma + 0.1 * leading_sigma + 20) / 22.1
         return norm_sigma
 
-    # def norm_input(self):
-    #     norm_sigma = (self.es.sigma - 1e-20) / (100 - 1e-20)
-    #     return norm_sigma
 
-    # this is what regulates the countevals variable
-    # I think this is whats used for PPO-ES, and nothing else?
-    # I believe it is called from gym itself, which is why this is annoying to find
+    # Called from the Gym environment itself
     def step(self, action):
-        # self.es.ask is what returns the candidate solutions
-        print("CURRENTLY IN STEP, TRAINING ON INSATNCE: ")
-        print(self.problem)
-        #print(self.curriculum)
+
         solutions = self.es.ask()
         scaling_factor = action[0] * 0.75 + 1.25
         self.es.sigma *= scaling_factor
         self.es.sigma = max(1e-20, min(100.0, self.es.sigma))
-        # this is where the evaluation takes place, calculates it for all the the solutions returned by ask 
-        # just calculate the fitness values for 
+
+        # Calculate fitness values for solutions returned by ask
         self.fitness_values = np.apply_along_axis(self.problem, 1, solutions)
-            # each row is a candidate solution vector (so a point in the search space) 
-                # it evaluates the candidate solutions on the actual problem
-                # this will return a single number, and the lower the better
+            # Each row is a candidate solution vector (point in the search space) 
+                # Evaluates the candidate solutions on the actual problem
             # 1 means that we apply it to the 1 axis in each vector
             # solutions is a 2D NumPy array
         self.es.tell(solutions, self.fitness_values) # 
@@ -192,38 +162,25 @@ class ES_Env(gym.Env):
                                 success_ratio
                                 ])
         self.previous_best_fitness = self.current_best_fitness
-        # This is the exact line that iterates countevals
-        # pop size is set to 25
-        # this is then used for both training and testing
-        self.countevals += POP_SIZE
+        self.countevals += POP_SIZE # Track total number of evaluations
+
+        # Added for potentially needed additional information
         infos = {}
 
         if self.mode == 'training':
-                                        # because of this >= is why we have 41 in each data file
-            terminated = self.countevals >= self.fes_max
-            episode_end = False
-            # this is used to determine when the current episode ends 
+                                        
+            terminated = self.countevals >= self.fes_max # Why we have 41 (best evals) in each data file
+
             if terminated:
-                episode_end = True
-                # we increment the episodes here 
                 self.current_episode += 1
                 self.episode_data.append([self.current_episode,
                                           self.current_best_fitness,
                                           self.cumulative_reward])
 
+                # Gets the next problem from the current curriculum
                 self.problem = self.suite.get_problem(self.curriculum[self.curriculum_index-1])
                 self.curriculum_index += 1
 
-
-           
-                # self.next_problem_from_curriculum()
-
-                # if self.current_episode % 1200 == 0:
-                #     Draw().plot_episode_data(self.base_dir, self.episode_data, self.problem_index)
-
-            # don't need to pass in the self.curruculum because that's already saved I think
-            # the infos is passed every time to detemrine when the callback should be triggered
-            infos = {"episode_end": episode_end}
 
 
         elif self.mode == 'testing':
@@ -232,36 +189,6 @@ class ES_Env(gym.Env):
         truncated = False
 
         return observation, reward, terminated, truncated, infos
-
-    # def space_predictor(self) -> List(int):
-
-
-    #     new_inst_num = 0
-    #     #print("dummy")
-
-        # this is going to return a list of the entires that we want to train on in the next episode 
-
-
-
-
-        
-        
-    # def get_mean_q(self, model, algo):
-    #     qs = []
-    #     n_insts = model.env.env_method("get_instance_size")[0]
-    #     env = model.env
-    #     for i in range(n_insts):
-    #         obs = env.reset()
-    #         if algo == "trpo":
-    #             val = model.policy_pi.value([obs])
-    #         # this is for PPO 
-    #         else:
-    #             val = model.value(obs)
-    #         qs.append(val)
-    #         # its over a flattened array 
-    #     return np.mean(qs)
-
-    
 
 
 # the env in space returns obs[observation]
@@ -291,19 +218,23 @@ class ES_Env(gym.Env):
         self.previous_best_fitness = None
         self.current_best_fitness = None
 
-        # choose current problem from curriculum
-        # pid = self.curriculum[self.curriculum_index]
-        # self.set_problem_index(pid)
+        # Sets it to be the current first problem in the curriculum
         self.problem = self.suite.get_problem(self.curriculum[0])
-        first_solution = self.es.xmean.copy()
+
+        # Same as prev reset()
+        first_solution = self.es.xmean.copy() # Get the center of the ES distribution at generation 0
         first_value = float(self.problem(first_solution))
 
-        # observation should not be constant across problems
+        # Creates an observation vector of fixed size
         obs = np.zeros(STATE_SIZE, dtype=np.float32)
+        # The current step size
         obs[0] = self.norm_input()                   # sigma-related
-        obs[1] = np.tanh(first_value / 100.0)        # some scaled signal about problem difficulty
+        # obs[0] = first_value
 
-        # return obs, {"first_value": first_value, "problem_index": int(pid)}
+        # Problem Difficulty Signal
+        # obs[1] = np.tanh(first_value / 100.0)        # trying with some normalizing 
+        obs[1] = first_value
+
         return obs, first_value
 
 
