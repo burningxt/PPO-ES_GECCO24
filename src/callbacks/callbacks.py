@@ -70,10 +70,12 @@ class UpdateEnvCallback(BaseCallback):
         # matching from the get_mean_q from SPACE
         self.algo_name = algo_name
         self.last_q = 0.0
-        self.curriculum_size = 0
+        self.curriculum_size = 1
         self.curriculum = []
         # for now just 12 total instances
         self.total_instances = 12
+
+        # this is only called once so why doesn't it get updated
         print("initiating update env")
 
     # is called on step, but only triggers on a particular step 
@@ -90,7 +92,7 @@ class UpdateEnvCallback(BaseCallback):
         print(self.training_env.envs[0].unwrapped.curriculum)
         current_index = self.training_env.envs[0].unwrapped.curriculum_index
         curriculum = self.training_env.envs[0].unwrapped.curriculum
-        self.curriculum_size = len(curriculum)
+        # self.curriculum_size = len(curriculum)
 
         # this means that the current curriculum has been exhausted, need to reset
         if current_index >= len(curriculum) - 1:
@@ -105,7 +107,7 @@ class UpdateEnvCallback(BaseCallback):
         return True
 
     def update_curriculum_size(self, curriculum):
-        print("THIS IS UPDATING THE CURRICLUMU SIZE OMG")
+        print("in update curriculum size call")
         mean_q = self.get_mean_q(curriculum)
         delta_q = np.abs(np.abs(mean_q) - np.abs(self.last_q))
         self.last_q = mean_q
@@ -123,7 +125,9 @@ class UpdateEnvCallback(BaseCallback):
             """TODO: fix, it isn't supposed to just increase by 1 """
             # should I do this with a setter instead of just accessing it directl
             temp = self.curriculum_size
+            print("was: " + str(self.curriculum_size))
             self.curriculum_size = temp + 1
+            print("now going to: " + str(self.curriculum_size))
 
 
     def update_curriculum(self):
@@ -132,19 +136,31 @@ class UpdateEnvCallback(BaseCallback):
 
         eval_env = self.training_env.envs[0].unwrapped # do I need unwrapped here?
         current_index = eval_env.curriculum_index
+
         curriculum = eval_env.curriculum
 
-        self.curriculum = self.order_instances_qvals(self.model, eval_env, len(curriculum))
-        self.curriculum_size = len(self.curriculum)
+        # just on those first 12 for now training
+        temp = self.order_instances_qvals(self.model, eval_env, 12)
+        self.curriculum = temp
+        
 
+        print("curriculum in this method is: ")
+        print(self.curriculum)
+        # self.curriculum_size = len(self.curriculum)
+
+        print("setting curriculum to size: ")
+        print(self.curriculum_size)
+        self.training_env.envs[0].unwrapped.set_curriculum_size(self.curriculum_size)
         # just going to set as a list of problem indexes
-        self.training_env.envs[0].unwrapped.set_curriculum(self.curriculum)
+        self.training_env.envs[0].unwrapped.set_curriculum(self.curriculum[:self.curriculum_size])
     
 
     # returns indices in ascending order, used for "absolute"
     # def order_instances_qvals(self,learner, env, num_instances, algo):
     def order_instances_qvals(self,learner, env, num_instances):
         evals = self.get_instance_evals(learner, env, num_instances)
+        print("evals pre sorting: ")
+        print(evals)
         return np.argsort(evals)
 
 
@@ -156,6 +172,8 @@ class UpdateEnvCallback(BaseCallback):
         # we do it for all instances
         for i in range(num_instances):
             # env.set_instance_set([i])
+            print("setting curriculum to:")
+            print([i])
             env.set_curriculum([i])
             # we reset and get the starting state on that instance
             obs, info = env.reset()
@@ -175,8 +193,8 @@ class UpdateEnvCallback(BaseCallback):
                 # this is throwing an error because its returning an observation of type tuple 
                 # why is obs here of type tuple, why doesn't obs_as_tensor take it
                 # so env.reset() returns a tuple for this? 
-                print("the obs as tensor value is: ")
-                print(obs[0])
+                # print("the obs as tensor value is: ")
+                # print(obs[0])
                 # val = learner.policy.predict_values(obs_as_tensor(obs[0], self.model.device))
                 val_t = learner.policy.predict_values(obs_t)
                 val = float(val_t.detach().cpu().numpy().squeeze())
@@ -187,6 +205,13 @@ class UpdateEnvCallback(BaseCallback):
             evals.append(val)
         # env.set_instance_set(cur_set)
         env.set_curriculum(prev_set)
+        print("the evals are:")
+        # TODO why are all the evals 0
+        print(evals)
+
+
+        print("i:", i, "problem_index:", env.problem_index, "obs_sum:", float(np.sum(obs)))
+
         return np.array(evals)
 
 

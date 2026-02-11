@@ -38,14 +38,16 @@ class ES_Env(gym.Env):
         # can either remove them from the list, but may want that information later so will index for now
         # it is ordered
         self.curriculum_index = 0
+        # default value
+        self.curriculum_size = 1
 
 
         # 
         self.problem = self.suite.get_problem(problem_index - 1)
         self.problem_index = problem_index
         # self.problem_optimum_value = self.problem.final_target_f
-        # print("*************** abvout to print optimal value***********")
-        # print("GLOBAL OPTIMA OF ", problem_index, " is : ", self.problem_optimum_value)
+        # #print("*************** abvout to print optimal value***********")
+        # #print("GLOBAL OPTIMA OF ", problem_index, " is : ", self.problem_optimum_value)
 
 
         # we make the ES here 
@@ -80,6 +82,15 @@ class ES_Env(gym.Env):
     def set_curriculum(self, problem_list):
         self.curriculum = problem_list
         self.current_index = 0
+        # always does the first entry in the curriculum at the start. 
+        # this helps with the instance estimates as well 
+        # the actual problem index in cocoex is just 1 higher than what it is in the curriculum
+        self.problem = self.suite.get_problem(self.curriculum[0])
+        print("problem in environment set to: ")
+        print(self.problem)
+
+    def set_curriculum_size(self, size: int):
+        self.curriculum_size = size
 
     def next_problem_from_curriculum(self):
         self.curriculum_index = (self.curriculum_index + 1) % len(self.curriculum)
@@ -138,8 +149,9 @@ class ES_Env(gym.Env):
     # I believe it is called from gym itself, which is why this is annoying to find
     def step(self, action):
         # self.es.ask is what returns the candidate solutions
-        # print("CURRENTLY IN STEP, TRAINING ON INSATNCE: ")
-        # print(self.curriculum)
+        print("CURRENTLY IN STEP, TRAINING ON INSATNCE: ")
+        print(self.problem)
+        #print(self.curriculum)
         solutions = self.es.ask()
         scaling_factor = action[0] * 0.75 + 1.25
         self.es.sigma *= scaling_factor
@@ -197,8 +209,11 @@ class ES_Env(gym.Env):
                 self.current_episode += 1
                 self.episode_data.append([self.current_episode,
                                           self.current_best_fitness,
-
                                           self.cumulative_reward])
+
+                self.problem = self.suite.get_problem(self.curriculum[self.curriculum_index-1])
+                self.curriculum_index += 1
+
 
            
                 # self.next_problem_from_curriculum()
@@ -222,7 +237,7 @@ class ES_Env(gym.Env):
 
 
     #     new_inst_num = 0
-    #     print("dummy")
+    #     #print("dummy")
 
         # this is going to return a list of the entires that we want to train on in the next episode 
 
@@ -251,24 +266,46 @@ class ES_Env(gym.Env):
 
 # the env in space returns obs[observation]
 
+    # reset for PPO-ES
+    # def reset(self, **kwargs):
+    #     self.es = ES(self.dim, SIGMA_0, POP_SIZE)
+    #     self.fitness_values = None
+    #     self.current_best_fitness = None
+    #     self.previous_best_fitness = None
+    #     self.countevals = 0
+    #     self.cumulative_reward = 0
+    #     self.improvement_ratios = []
+
+    #     ## Data Handling, evaluating the very first solution manually
+    #     first_solution = self.es.xmean.copy()       # this is the "center" at generation 0
+    #     # the xmean is the object used for the solutions
+    #     first_value = self.problem(first_solution)
+    #     return np.zeros(STATE_SIZE), first_value
+
+# trying new reset function 
     def reset(self, **kwargs):
         self.es = ES(self.dim, SIGMA_0, POP_SIZE)
-        self.fitness_values = None
-        self.current_best_fitness = None
-        self.previous_best_fitness = None
         self.countevals = 0
         self.cumulative_reward = 0
         self.improvement_ratios = []
+        self.previous_best_fitness = None
+        self.current_best_fitness = None
 
-        ## Data Handling, evaluating the very first solution manually
-        first_solution = self.es.xmean.copy()       # this is the "center" at generation 0
-        # the xmean is the object used for the solutions
-        first_value = self.problem(first_solution)
-        # print("FIRST POINT:", first_solution)
-        # print("FIRST VALUE:", first_value)
+        # choose current problem from curriculum
+        # pid = self.curriculum[self.curriculum_index]
+        # self.set_problem_index(pid)
+        self.problem = self.suite.get_problem(self.curriculum[0])
+        first_solution = self.es.xmean.copy()
+        first_value = float(self.problem(first_solution))
 
-        # which of these is the obs
-        return np.zeros(STATE_SIZE), first_value
+        # observation should not be constant across problems
+        obs = np.zeros(STATE_SIZE, dtype=np.float32)
+        obs[0] = self.norm_input()                   # sigma-related
+        obs[1] = np.tanh(first_value / 100.0)        # some scaled signal about problem difficulty
+
+        # return obs, {"first_value": first_value, "problem_index": int(pid)}
+        return obs, first_value
+
 
 
 
