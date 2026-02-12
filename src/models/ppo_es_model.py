@@ -10,15 +10,10 @@ import numpy as np
 import os
 
 
-# FLAGVP: This is where the data is saved for the numply files ive been looking at 
-# this is what I need to gain a deeper understanding of 
-# this is called from the test_ppo_es below 
+                  #data path  # episodes tested dir
 def test_model(env, model_path, data_path, episode, problem_index, instance):
 
-    # ppo is an import
-    # we learn the model_path
-    # model path here is going to be one of the ones in episodes trained
-    # this is described ni the spinningup.openai docs, this load method
+    # Loading one of the saved models
     model = PPO.load(model_path, env=env)
     all_fitness_values = []
 
@@ -26,30 +21,20 @@ def test_model(env, model_path, data_path, episode, problem_index, instance):
     # the size of episodes is also dictated in the config, 1, 600,
     # it breaks when I change the number of episodes
     starting_values = []
-    # number of times we run each one 
 
-    # do everything 20 times 
-    # this is just for testing
+
     for _ in range(NUM_RUN):
-        # the only call to .reset()
         temp = env.envs[0].reset()
         obs = temp[0]
         first_value = temp[1]
         
         fitness_values = []
-        # adds the starting value to all the output data, so that way data will be more accurate
         fitness_values.append(first_value)
-        # starting_values.append(first_value)
 
-        # we use hte mode created, which is in es_env.py 
-            # env is environment/es_env 
         while env.envs[0].unwrapped.countevals <= env.envs[0].unwrapped.fes_max:  # Adjust the number of steps as needed
-            # this model.predict, is where the model predicts what hte step size should be 
+
             action, _states = model.predict(obs, deterministic=True)
 
-            # we do the step function, which moves it forward
-                # sets the current_best_fitness to the min of prev and current 
-                # current generation best fitness is just the minimum of the current fitness values
             obs, rewards, dones, info = env.step(np.array([action]))
             obs = obs[0]
             if dones:
@@ -58,9 +43,7 @@ def test_model(env, model_path, data_path, episode, problem_index, instance):
         all_fitness_values.append(np.array(fitness_values))
 
 
-    # this is the array that we have been looking at 
     all_fitness_values_arr = np.array(all_fitness_values)
-    # This is where it gets those names from 
 
     # Construct the file path
     save_path = os.path.join(
@@ -68,10 +51,7 @@ def test_model(env, model_path, data_path, episode, problem_index, instance):
         f'fitness_episode_{episode}_problem_{problem_index}_instance_{instance}.npy'
     )
 
-    # Save the file
     save_data(save_path, all_fitness_values_arr)
-
-    # Print the path to standard output
     print(f"Saved fitness data to: {save_path}")
 
 
@@ -82,8 +62,6 @@ class PPO_ES:
         self.seeds = [42, 123, 456, 789, 1011, 1213, 1415, 1617, 1819, 2021]
         # self.num_models_to_gen = 5; # generating 5 models
         self.num_models_to_gen = 1
-        # Initialize paths for saving results and plots
-        # we have a results dictionary 
         self.results_dir = os.path.join(base_dir, 'output_data', 'results')
         os.makedirs(self.results_dir, exist_ok=True)
 
@@ -211,7 +189,6 @@ class PPO_ES:
             for single_env in seed_env.envs:
                 single_env.unwrapped.set_mode('testing')
 
-            # we have this test model 
-            # I think the env is in es_env 
+
             test_model(seed_env, test_model_path, episodes_tested_dir, episode, problem_index, instance)
 
