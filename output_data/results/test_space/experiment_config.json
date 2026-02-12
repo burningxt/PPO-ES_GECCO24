@@ -1,0 +1,14 @@
+{
+    "timestamp": "2026-02-12 15:14:22",
+    "need_train": true,
+    "test_problem_type": "bbob",
+    "test_instance": 1,
+    "test_dimension": 40,
+    "need_test_models": true,
+    "need_test_cma_es": true,
+    "need_test_one_fifth_es": true,
+    "cuda_device": "cuda",
+    "experiment_name": "test_space",
+    "use_space": 1,
+    "num_training_instances": 12
+}

@@ -20,7 +20,8 @@ class ES_Env(gym.Env):
                  fes_max=FES_MAX,
                  sigma_0=SIGMA_0,
                  problem_index=1,
-                 seed=None):
+                 seed=None, 
+                 space_logger=None):
         super(ES_Env, self).__init__() # inheriting the constructor 
         self.seed(seed)  # Set the seed using the inherited method
                                   # the problem type is just bbob by default 
@@ -35,6 +36,7 @@ class ES_Env(gym.Env):
         self.curriculum = [problem_index]
         self.curriculum_size = 1
         self.curriculum_index = 0
+        self.space_logger = space_logger
 
         # Setting the initial problem 
         self.problem = self.suite.get_problem(problem_index - 1)
@@ -62,9 +64,18 @@ class ES_Env(gym.Env):
         self.observation_space = gym.spaces.Box(low=-np.ones(STATE_SIZE), high=np.ones(STATE_SIZE),
                                                 shape=(STATE_SIZE,), dtype=np.float32)
 
+    # def set_curriculum_index(self, curriculum_index: int):
+    #     self.curriculum_index = curriculum_index 
+
     def set_problem_index(self, problem_index: int):
         self.problem_index = problem_index
         self.problem = self.suite.get_problem(self.problem_index - 1) # for the correct indesxing
+        self.space_logger.info("Just set problem index to: %d", problem_index)
+        self.space_logger.info("Which corresponds to: %s", self.problem)
+
+
+    def reset_curriculum_index(self):
+        self.curriculum_index = 1 
 
     def set_curriculum(self, problem_list):
         self.curriculum = problem_list
@@ -168,17 +179,27 @@ class ES_Env(gym.Env):
         infos = {}
 
         if self.mode == 'training':
+
                                         
             terminated = self.countevals >= self.fes_max # Why we have 41 (best evals) in each data file
 
             if terminated:
+                # current switching system is accurate, but this number is one below what it really is
+                self.space_logger.info(f"Episode [%d] completed on function [%d], total countevals currently [%d], switching to function [%d].", (self.problem_index+1),self.current_episode, self.countevals, (self.curriculum[self.curriculum_index-1])+1)
+                self.space_logger.info(f"That being: %s", self.problem)
                 self.current_episode += 1
                 self.episode_data.append([self.current_episode,
                                           self.current_best_fitness,
                                           self.cumulative_reward])
 
                 # Gets the next problem from the current curriculum
+                    # curriculum index is 1 indexed even though curriculum is 0 indexed
+                    # the BBOB functions themselves are 0 indexed, so shouldn't need a -1 here 
                 self.problem = self.suite.get_problem(self.curriculum[self.curriculum_index-1])
+
+                self.space_logger.info(f"Testing: %s", self.curriculum)
+                self.space_logger.info(f"Curr Problem: %s", self.problem)
+
                 self.curriculum_index += 1
 
 
@@ -222,13 +243,13 @@ class ES_Env(gym.Env):
         self.problem = self.suite.get_problem(self.curriculum[0])
 
         # Same as prev reset()
-        first_solution = self.es.xmean.copy() # Get the center of the ES distribution at generation 0
+        first_solution = self.es.xmean.copy() # iss the 'center' of the ES distribution at generation 0
         first_value = float(self.problem(first_solution))
 
         # Creates an observation vector of fixed size
         obs = np.zeros(STATE_SIZE, dtype=np.float32)
-        # The current step size
-        obs[0] = self.norm_input()                   # sigma-related
+        # The current normalized step size
+        obs[0] = self.norm_input()                   #sigma 
         # obs[0] = first_value
 
         # Problem Difficulty Signal

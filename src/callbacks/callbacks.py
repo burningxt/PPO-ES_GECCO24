@@ -3,6 +3,7 @@ import numpy as np
 import os
 from stable_baselines3.common.utils import obs_as_tensor
 import torch as th
+import logging  
 
 
 class LearningRateScheduler(BaseCallback):
@@ -33,27 +34,31 @@ class LearningRateScheduler(BaseCallback):
 
 
 class SaveOnBestTrainingRewardCallback(BaseCallback):
-    def __init__(self, save_path: str, seed: int, verbose=1):
+    def __init__(self, save_path: str, seed: int, verbose=1, space_logger=None):
         super(SaveOnBestTrainingRewardCallback, self).__init__(verbose)
         self.save_path = save_path
         self.seed = seed
         self.last_episode = 0
+        self.space_logger = space_logger
 
     def _on_step(self) -> bool:
-        print("in save on best training reward callback")
+        # print("in save on best training reward callback")
         current_episode = self.training_env.envs[0].unwrapped.current_episode
 
         # Save if it's the first episode, then every 120 episodes
         # changed to 60 
         # if current_episode == 1 or current_episode % (20) == 0:
 
-        if current_episode == 1 or current_episode % (300) == 0:
+        # saves it every 100 episodes
+        if current_episode == 1 or current_episode % (100) == 0:
             if current_episode != self.last_episode:
                 self.last_episode = current_episode
                 if self.verbose > 0:
                     print(f"Saving model at episode {current_episode}, seed {self.seed}")
                 model_filename = f"model_seed_{self.seed}_episode_{current_episode}.zip"
                 save_path = os.path.join(self.save_path, model_filename)
+                print("saving at: ", save_path)
+                self.space_logger.modellog.info(f"Saved model seed=%d episode=%d path=%s", self.seed, current_episode, save_path)
                 os.makedirs(self.save_path, exist_ok=True)
                 try:
                     self.model.save(save_path)
@@ -64,12 +69,13 @@ class SaveOnBestTrainingRewardCallback(BaseCallback):
 
 # Used to update the environment curriculum at each step 
 class UpdateEnvCallback(BaseCallback):
-    def __init__(self, algo_name: str):
+    def __init__(self, algo_name: str, space_logger):
         super().__init__()
         self.algo_name = algo_name
         self.last_q = 0.0
         self.curriculum_size = 1
         self.curriculum = []
+        self.space_logger = space_logger
 
         # For now just training on 12 total instances
         self.total_instances = 12
@@ -96,7 +102,8 @@ class UpdateEnvCallback(BaseCallback):
         curriculum = self.training_env.envs[0].unwrapped.curriculum
 
         # This means that the current curriculum has been exhausted, need to reset
-        if current_index >= len(curriculum) - 1:
+        if current_index > len(curriculum):
+            self.space_logger.info("Current Curriculum exhausted, transitioning...")
 
             # Update the curriculum size
             self.update_curriculum_size(curriculum)
@@ -127,6 +134,7 @@ class UpdateEnvCallback(BaseCallback):
         if (delta_q <= eta_const * np.abs(self.last_q) and len(curriculum) < self.total_instances):
             temp = self.curriculum_size
             self.curriculum_size = temp + STEP_SIZE_CONST
+            self.space_logger.info(f"Updating size from: [%d] to [%d]", temp, self.curriculum_size)
 
 
     def update_curriculum(self):
@@ -139,10 +147,16 @@ class UpdateEnvCallback(BaseCallback):
         eval_env = self.training_env.envs[0].unwrapped 
         temp = self.order_instances_qvals(self.model, eval_env, NUM_FUNCTIONS)
         self.curriculum = temp
+        new_curriculum = self.curriculum[:self.curriculum_size]
         
         # Set the updated size, and the updated curriculum
         self.training_env.envs[0].unwrapped.set_curriculum_size(self.curriculum_size)
-        self.training_env.envs[0].unwrapped.set_curriculum(self.curriculum[:self.curriculum_size])
+        self.training_env.envs[0].unwrapped.set_curriculum(new_curriculum)
+        self.training_env.envs[0].unwrapped.reset_curriculum_index()
+        self.space_logger.info(f"Updating curriculum to: %s", new_curriculum)
+
+        # This is so that it ignores the first one, which is already set as callbacks run after the step
+        self.training_env.envs[0].unwrapped.set_problem_index(1) 
     
 
     # Returns indices in ascending order, used for "absolute"
@@ -165,9 +179,16 @@ class UpdateEnvCallback(BaseCallback):
             obs, info = env.reset()
 
             # TODO not entirely sure
+            # trying to fix shape mismatch
+            # I kept getting dimension out of range errors 
             obs_t = obs_as_tensor(obs, learner.device)
-            if obs_t.ndim == 1:
-                obs_t = obs_t.unsqueeze(0)
+            # if obs_t.ndim == 1:
+            # This is needed to fix the out of range eror 
+            obs_t = obs_t.unsqueeze(0)
+
+            # else:
+
+                # print("THIS IS BEING TRIGGERED ITS STILL NEEDED")
             val = 0
 
             if self.algo_name == "trpo":
@@ -180,8 +201,11 @@ class UpdateEnvCallback(BaseCallback):
                 val = float(val_t.detach().cpu().numpy().squeeze())
 
             evals.append(val)
+
+        # set the environment back to what it was before
         env.set_curriculum(prev_set)
 
+        self.space_logger.info("Collected instance evals: %s", evals)
         return np.array(evals)
 
 

@@ -2,6 +2,8 @@
 # https://github.com/github/gitignore/blob/main/Python.gitignore
 
 temp.txt
+training.log
+*.log
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
