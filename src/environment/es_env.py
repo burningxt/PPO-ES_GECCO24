@@ -194,28 +194,17 @@ class ES_Env(gym.Env):
 
         if self.mode == 'training':
 
-                                        
             terminated = self.countevals >= self.fes_max # Why we have 41 (best evals) in each data file
 
             if terminated:
                 # current switching system is accurate, but this number is one below what it really is
 
-                ############### Logging ###################
-                self.space_logger.info(f"-----------")
-                # self.space_logger.info(f"#")
-                # self.space_logger.info(f"Curriculm is currently %s", self.curriculum)
-                # self.space_logger.info(f"Curriclum index is currently %s", self.curriculum_index)
-                # self.space_logger.info(f"Curriclum at that index is currently %s", self.curriculum[self.curriculum_index-1])
-                # self.space_logger.info(f"#")
-                self.space_logger.info(f"Problem just trained on was %s", self.problem)
-                # self.space_logger.info(f"Episode [%d] completed, switching to function [%d].", self.current_episode,(self.curriculum[self.curriculum_index-1]))
-                # self.space_logger.info(f"That being: %s", self.problem)
-
-
+                self.space_logger.info(f"Completed episode [%d], trained on was %s", self.current_episode, self.problem)
                 self.current_episode += 1
                 self.episode_data.append([self.current_episode,
                                           self.current_best_fitness,
                                           self.cumulative_reward])
+
 
                 # Maintain backwards compatibility for default behavior (no space)
                 if not self.use_space:
@@ -230,32 +219,23 @@ class ES_Env(gym.Env):
                     
                     self.problem = self.suite.get_problem(self.problem_index -1)
 
+                # Ordering for SPACE
                 else:
 
                     # Gets the next problem from the current curriculum
-                        # curriculum index is 1 indexed even though curriculum is 0 indexed
-                        # the BBOB functions themselves are 0 indexed, so shouldn't need a -1 here 
-                    # 
                     if self.curriculum_index >= len(self.curriculum):
-                        self.space_logger.info("Curriclum now empty in ES.env, going to be changed soon ")
-                        self.space_logger.info(f"--------------")
+                        self.space_logger.info("es.env curriculum empty, going to be changed soon...")
                     else:
 
                         self.problem = self.suite.get_problem(self.curriculum[self.curriculum_index]) # don't need a -1 at the end because BBOB is already 0 indexed
-                        # self.space_logger.info(f"Testing: %s", self.curriculum)
-                        self.space_logger.info("now about to train on: ")
-                        self.space_logger.info(f"Curr Problem: %s", self.problem)
+                        self.space_logger.info(f"Selected next problem: %s", self.problem)
 
-                        self.space_logger.info(f"--------------")
-
-
-
+                    self.space_logger.info(f"--------------")
                     self.curriculum_index += 1
 
 
 
         elif self.mode == 'testing':
-            # here is where it is for testing
             terminated = self.countevals >= self.fes_max + POP_SIZE * 2
         truncated = False
 
