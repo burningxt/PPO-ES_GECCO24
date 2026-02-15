@@ -226,6 +226,8 @@ class ES_Env(gym.Env):
 
                     else:
                         self.problem_index = self.problem_index % self.num_training_instances 
+
+                    
                     self.problem = self.suite.get_problem(self.problem_index -1)
 
                 else:
