@@ -52,11 +52,10 @@ def test_model(env, model_path, data_path, episode, problem_index, instance):
     )
 
     save_data(save_path, all_fitness_values_arr)
-    print(f"Saved fitness data to: {save_path}")
 
 
 class PPO_ES:
-    def __init__(self, base_dir, cuda_device, logger=None):
+    def __init__(self, base_dir, cuda_device, logger=None, config_info=None):
         self.base_dir = base_dir
         self.cuda_device = cuda_device
         self.space_logger = logger
@@ -68,6 +67,8 @@ class PPO_ES:
         # self.results_dir = os.path.join(base_dir, 'output_data', 'results')
         self.results_dir = os.path.join(base_dir)
         os.makedirs(self.results_dir, exist_ok=True)
+        print(config_info)
+        self.config_info = config_info
 
     # this contains the entire code for the PPO+ES training loop
 
@@ -91,9 +92,18 @@ class PPO_ES:
                 # ES_Env: Is the custom envrionment for the Evolution Strategies Problem 
                 # set the seed
                                                     # right now we only train on instance 1 as outlined by config
-            
+                    
+            print(self.config_info)
             # THIS CALLS THE CONSTRUCTOR WHICH STARTS THE TRAINING, THIS IS WHERE I'LL NEED FOR SPACE
-            env = make_vec_env(lambda: ES_Env(instance=TRAIN_INSTANCE, seed=seed, space_logger=self.space_logger ), n_envs=1)
+            env = make_vec_env(lambda: ES_Env( 
+                                              seed=seed, 
+                                              space_logger=self.space_logger,
+                                              dim=self.config_info["test_dimension"], 
+                                              use_space=self.config_info["use_space"], 
+                                              num_training_instances=self.config_info["num_training_instances"], 
+                                              instance=self.config_info["test_instance"]), # Instance used to just always be instance 1, no more
+                               
+                                            n_envs=1)
                                                 # train instance is always 1 for their experiments
 
             # Reset the model with the new environment to ensure it's training from scratch
@@ -130,9 +140,11 @@ class PPO_ES:
                 scheduler=scheduler
             )
 
+            
+
             lr_scheduler_callback.total_timesteps = total_timesteps
             # only takes PPO for now
-            space_callback = UpdateEnvCallback("ppo", space_logger=self.space_logger)
+            space_callback = UpdateEnvCallback("ppo", space_logger=self.space_logger, use_space=self.config_info["use_space"])
             # model.learn 
             # model is a PPO object, so it just learns 
             # we import PPO from stable baseline 3

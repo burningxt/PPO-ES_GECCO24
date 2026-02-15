@@ -21,22 +21,33 @@ class ES_Env(gym.Env):
                  sigma_0=SIGMA_0,
                  problem_index=1,
                  seed=None, 
-                 space_logger=None):
+                 space_logger=None,
+
+                 use_space=1, # use space by default
+                 num_training_instances=12, # use first 12 instances for training by default
+                 ):
         super(ES_Env, self).__init__() # inheriting the constructor 
         self.seed(seed)  # Set the seed using the inherited method
                                   # the problem type is just bbob by default 
 
+# instance=TRAIN_INSTANCE, seed=seed, space_logger=self.space_logger,dim=self.config_info.test_dimension, space=self.config_info.use_space, num_training_instances=self.config.num_training_instances), n_envs=1)
         # Create a new cocoex suite
         self.suite = cocoex.Suite(problem_type,
                              "",# empty string for the benchmark options (we don't use any)  # instance is 1 by default
                              f"dimensions: {dim} function_indices:1-24 instance_indices:{instance}")
         # Select which problem from the suite, by index (0 based indexing is used internally)
 
-        # Initialize curriculum to the one provided 
+        # Initialize and set basic default value to curriculum
         self.curriculum = [problem_index]
+
         self.curriculum_size = 1
         self.curriculum_index = 0
         self.space_logger = space_logger
+
+
+        # Initial Things Added
+        self.use_space = use_space
+        self.num_training_instances = num_training_instances
 
         # Setting the initial problem 
         self.problem = self.suite.get_problem(problem_index - 1)
@@ -67,10 +78,11 @@ class ES_Env(gym.Env):
     # def set_curriculum_index(self, curriculum_index: int):
     #     self.curriculum_index = curriculum_index 
 
-    def set_problem_index(self, problem_index: int):
-        self.problem_index = problem_index
-        self.problem = self.suite.get_problem(self.problem_index - 1) # for the correct indesxing
-        self.space_logger.info("Just set problem index to: %d", problem_index)
+# Should never be setting problem index
+    def set_curriculum_index(self, curriculum_index: int):
+        self.curriculum_index = curriculum_index
+        self.problem = self.suite.get_problem(self.curriculum[curriculum_index-1]) # for the correct indesxing
+        self.space_logger.info("Just set problem to: %d in (set_curriculum_index)", self.curriculum[curriculum_index-1])
         self.space_logger.info("Which corresponds to: %s", self.problem)
 
 
@@ -89,7 +101,7 @@ class ES_Env(gym.Env):
     def next_problem_from_curriculum(self):
         self.curriculum_index = (self.curriculum_index + 1) % len(self.curriculum)
         # Sets the problem index to whatever is held in the curriculum array 
-        self.set_problem_index(self.curriculum[self.curriculum_index])
+        self.set_curriculum_index(self.curriculum[self.curriculum_index])
 
     def get_curriculum(self):
         # Returns a copy of the curriculum list
@@ -133,6 +145,8 @@ class ES_Env(gym.Env):
 
     # Called from the Gym environment itself
     def step(self, action):
+
+        # self.space_logger.info(f"Curriculm is currently %s", self.curriculum)
 
         solutions = self.es.ask()
         scaling_factor = action[0] * 0.75 + 1.25
@@ -185,22 +199,56 @@ class ES_Env(gym.Env):
 
             if terminated:
                 # current switching system is accurate, but this number is one below what it really is
-                self.space_logger.info(f"Episode [%d] completed on function [%d], total countevals currently [%d], switching to function [%d].", (self.problem_index+1),self.current_episode, self.countevals, (self.curriculum[self.curriculum_index-1])+1)
-                self.space_logger.info(f"That being: %s", self.problem)
+
+                ############### Logging ###################
+                self.space_logger.info(f"-----------")
+                # self.space_logger.info(f"#")
+                # self.space_logger.info(f"Curriculm is currently %s", self.curriculum)
+                # self.space_logger.info(f"Curriclum index is currently %s", self.curriculum_index)
+                # self.space_logger.info(f"Curriclum at that index is currently %s", self.curriculum[self.curriculum_index-1])
+                # self.space_logger.info(f"#")
+                self.space_logger.info(f"Problem just trained on was %s", self.problem)
+                # self.space_logger.info(f"Episode [%d] completed, switching to function [%d].", self.current_episode,(self.curriculum[self.curriculum_index-1]))
+                # self.space_logger.info(f"That being: %s", self.problem)
+
+
                 self.current_episode += 1
                 self.episode_data.append([self.current_episode,
                                           self.current_best_fitness,
                                           self.cumulative_reward])
 
-                # Gets the next problem from the current curriculum
-                    # curriculum index is 1 indexed even though curriculum is 0 indexed
-                    # the BBOB functions themselves are 0 indexed, so shouldn't need a -1 here 
-                self.problem = self.suite.get_problem(self.curriculum[self.curriculum_index-1])
+                # Maintain backwards compatibility for default behavior (no space)
+                if not self.use_space:
+                    self.problem_index += 1
 
-                self.space_logger.info(f"Testing: %s", self.curriculum)
-                self.space_logger.info(f"Curr Problem: %s", self.problem)
+                    if self.problem_index % self.num_training_instances == 0:
+                        self.problem_index = self.num_training_instances 
 
-                self.curriculum_index += 1
+                    else:
+                        self.problem_index = self.problem_index % self.num_training_instances 
+                    self.problem = self.suite.get_problem(self.problem_index -1)
+
+                else:
+
+                    # Gets the next problem from the current curriculum
+                        # curriculum index is 1 indexed even though curriculum is 0 indexed
+                        # the BBOB functions themselves are 0 indexed, so shouldn't need a -1 here 
+                    # 
+                    if self.curriculum_index >= len(self.curriculum):
+                        self.space_logger.info("Curriclum now empty in ES.env, going to be changed soon ")
+                        self.space_logger.info(f"--------------")
+                    else:
+
+                        self.problem = self.suite.get_problem(self.curriculum[self.curriculum_index]) # don't need a -1 at the end because BBOB is already 0 indexed
+                        # self.space_logger.info(f"Testing: %s", self.curriculum)
+                        self.space_logger.info("now about to train on: ")
+                        self.space_logger.info(f"Curr Problem: %s", self.problem)
+
+                        self.space_logger.info(f"--------------")
+
+
+
+                    self.curriculum_index += 1
 
 
 
@@ -215,6 +263,7 @@ class ES_Env(gym.Env):
 # the env in space returns obs[observation]
 
     # reset for PPO-ES
+    # have reset back to original 
     # def reset(self, **kwargs):
     #     self.es = ES(self.dim, SIGMA_0, POP_SIZE)
     #     self.fitness_values = None
@@ -239,6 +288,8 @@ class ES_Env(gym.Env):
         self.previous_best_fitness = None
         self.current_best_fitness = None
 
+        prev_problem = self.problem
+
         # Sets it to be the current first problem in the curriculum
         self.problem = self.suite.get_problem(self.curriculum[0])
 
@@ -255,6 +306,8 @@ class ES_Env(gym.Env):
         # Problem Difficulty Signal
         # obs[1] = np.tanh(first_value / 100.0)        # trying with some normalizing 
         obs[1] = first_value
+
+        self.problem = prev_problem
 
         return obs, first_value
 

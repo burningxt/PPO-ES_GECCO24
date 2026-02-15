@@ -8,12 +8,23 @@ fi
 
 EXPERIMENT_BASE="$1"
 
+RESULTS_DIR="output_data/results"
+
+SPACE_DIR="${RESULTS_DIR}/${EXPERIMENT_BASE}_space"
+DEFAULT_DIR="${RESULTS_DIR}/${EXPERIMENT_BASE}_default"
+
 # Get hostname and start time
 hostname=$(hostname)
 start_time=$(date +"%Y-%m-%d %H:%M:%S")
 
 echo "Script started at: $start_time on machine: $hostname"
 echo "Experiment base name: $EXPERIMENT_BASE"
+
+
+
+rm -rf "$SPACE_DIR" "$DEFAULT_DIR"
+mkdir -p "$SPACE_DIR" "$DEFAULT_DIR"
+
 
 
 # Run the Python command for using SPACE
@@ -55,10 +66,7 @@ duration=$(( $(date -d "$end_time" +%s) - $(date -d "$start_time" +%s) ))
 echo "Script finished at: $end_time on machine: $hostname"
 echo "Total runtime: ${duration} seconds"
 
-RESULTS_DIR="output_data/results"
 
-SPACE_DIR="${RESULTS_DIR}/${EXPERIMENT_BASE}_space"
-DEFAULT_DIR="${RESULTS_DIR}/${EXPERIMENT_BASE}_default"
 
 mv "${EXPERIMENT_BASE}_output_space.txt" "$SPACE_DIR/"
 mv "${EXPERIMENT_BASE}_output_default.txt" "$DEFAULT_DIR/"

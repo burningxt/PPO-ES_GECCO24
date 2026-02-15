@@ -1,0 +1,16 @@
+{
+    "timestamp": "2026-02-15 13:30:22",
+    "need_train": true,
+    "test_problem_type": "bbob",
+    "test_instance": 1,
+    "test_dimension": 40,
+    "need_test_models": true,
+    "need_test_cma_es": true,
+    "need_test_one_fifth_es": true,
+    "cuda_device": "cuda",
+    "experiment_name": "testing_sequencing_space",
+    "use_space": 1,
+    "num_training_instances": 12,
+    "end_timestamp": "2026-02-15 13:35:45",
+    "total_runtime_seconds": 322.38
+}

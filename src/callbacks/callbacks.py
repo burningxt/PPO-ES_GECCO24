@@ -69,7 +69,7 @@ class SaveOnBestTrainingRewardCallback(BaseCallback):
 
 # Used to update the environment curriculum at each step 
 class UpdateEnvCallback(BaseCallback):
-    def __init__(self, algo_name: str, space_logger):
+    def __init__(self, algo_name: str, space_logger, use_space=1):
         super().__init__()
         self.algo_name = algo_name
         self.last_q = 0.0
@@ -78,13 +78,21 @@ class UpdateEnvCallback(BaseCallback):
         self.space_logger = space_logger
 
         # For now just training on 12 total instances
-        self.total_instances = 12
+        self.num_training_instances = 12
+
+    
+        self.use_space=use_space
+
 
 
     def _on_training_start(self):
         """
         At the start of training, ensure that curriculum is already set.
         """
+        # Just do nothing
+        if not self.use_space:
+            return True
+
         # On training start, initialize the curriculum
         self.update_curriculum()
 
@@ -96,6 +104,9 @@ class UpdateEnvCallback(BaseCallback):
         :param self: Description
         :return: If the function completed successfully
         """
+        if not self.use_space:
+            # Just don't do anything if space isn't being used
+            return True
 
         # Retrieve the current index and curriculum
         current_index = self.training_env.envs[0].unwrapped.curriculum_index
@@ -131,7 +142,7 @@ class UpdateEnvCallback(BaseCallback):
         eta_const = .1
 
         # If condition passes, then increase size by 1
-        if (delta_q <= eta_const * np.abs(self.last_q) and len(curriculum) < self.total_instances):
+        if (delta_q <= eta_const * np.abs(self.last_q) and len(curriculum) < self.num_training_instances):
             temp = self.curriculum_size
             self.curriculum_size = temp + STEP_SIZE_CONST
             self.space_logger.info(f"Updating size from: [%d] to [%d]", temp, self.curriculum_size)
@@ -145,7 +156,7 @@ class UpdateEnvCallback(BaseCallback):
 
         # Set the env
         eval_env = self.training_env.envs[0].unwrapped 
-        temp = self.order_instances_qvals(self.model, eval_env, NUM_FUNCTIONS)
+        temp = self.order_instances_qvals(self.model, eval_env, self.num_training_instances)
         self.curriculum = temp
         new_curriculum = self.curriculum[:self.curriculum_size]
         
@@ -156,7 +167,7 @@ class UpdateEnvCallback(BaseCallback):
         self.space_logger.info(f"Updating curriculum to: %s", new_curriculum)
 
         # This is so that it ignores the first one, which is already set as callbacks run after the step
-        self.training_env.envs[0].unwrapped.set_problem_index(1) 
+        self.training_env.envs[0].unwrapped.set_curriculum_index(1) 
     
 
     # Returns indices in ascending order, used for "absolute"

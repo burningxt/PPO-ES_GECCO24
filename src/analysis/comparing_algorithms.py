@@ -58,6 +58,8 @@ def comparing_algorithms(need_train=False,
         "need_test_one_fifth_es": need_test_one_fifth_es,
         "cuda_device": str(cuda_device),
         "experiment_name": experiment_name,
+
+
         "use_space": use_space,
         "num_training_instances": num_training_instances
     }
@@ -72,7 +74,7 @@ def comparing_algorithms(need_train=False,
     experiment_logger = build_logger(results_dir)
 
     # changed from being base_dir passsed, will this be a problem? 
-    ppo_es = PPO_ES(base_dir=results_dir, cuda_device=cuda_device, logger=experiment_logger) # cuda is for parallel computing 
+    ppo_es = PPO_ES(base_dir=results_dir, cuda_device=cuda_device, logger=experiment_logger, config_info=config) # cuda is for parallel computing 
     start_time = time.time()
 
     # training called here and here alone
