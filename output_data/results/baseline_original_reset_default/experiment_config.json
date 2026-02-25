@@ -1,0 +1,20 @@
+{
+    "system_info": {
+        "hostname": "pc1-034-l",
+        "platform": "Linux",
+        "platform_version": "#1 SMP PREEMPT_DYNAMIC Wed Feb 4 04:40:11 EST 2026",
+        "processor": "x86_64"
+    },
+    "timestamp": "2026-02-19 11:29:49",
+    "need_train": true,
+    "test_problem_type": "bbob",
+    "test_instance": 1,
+    "test_dimension": 40,
+    "need_test_models": true,
+    "need_test_cma_es": true,
+    "need_test_one_fifth_es": true,
+    "cuda_device": "cuda",
+    "experiment_name": "final_60_model_default",
+    "use_space": 0,
+    "num_training_instances": 12
+}

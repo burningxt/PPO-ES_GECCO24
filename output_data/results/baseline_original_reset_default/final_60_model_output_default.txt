@@ -1,0 +1,1875 @@
+=== Algorithm Comparison Parameters ===
+Train: True
+Problem Type: bbob
+Instance: 1
+Dimension: 40
+Test Models: True
+Test CMA-ES: True
+Test One-Fifth ES: True
+CUDA Device: cuda
+=======================================
+Saved experiment configuration to: /cs/home/vap2/Documents/diss/PPO-ES_GECCO24/output_data/results/final_60_model_default/experiment_config.json
+{'system_info': {'hostname': 'pc1-034-l', 'platform': 'Linux', 'platform_version': '#1 SMP PREEMPT_DYNAMIC Wed Feb 4 04:40:11 EST 2026', 'processor': 'x86_64'}, 'timestamp': '2026-02-19 11:29:49', 'need_train': True, 'test_problem_type': 'bbob', 'test_instance': 1, 'test_dimension': 40, 'need_test_models': True, 'need_test_cma_es': True, 'need_test_one_fifth_es': True, 'cuda_device': 'cuda', 'experiment_name': 'final_60_model_default', 'use_space': 0, 'num_training_instances': 12}
+{'system_info': {'hostname': 'pc1-034-l', 'platform': 'Linux', 'platform_version': '#1 SMP PREEMPT_DYNAMIC Wed Feb 4 04:40:11 EST 2026', 'processor': 'x86_64'}, 'timestamp': '2026-02-19 11:29:49', 'need_train': True, 'test_problem_type': 'bbob', 'test_instance': 1, 'test_dimension': 40, 'need_test_models': True, 'need_test_cma_es': True, 'need_test_one_fifth_es': True, 'cuda_device': 'cuda', 'experiment_name': 'final_60_model_default', 'use_space': 0, 'num_training_instances': 12}
+Using cpu device
+Saving model at episode 1, seed 42
+saving at:  /cs/home/vap2/Documents/diss/PPO-ES_GECCO24/output_data/results/final_60_model_default/episodes_trained/model_seed_42_episode_1.zip
+Saving model at episode 60, seed 42
+saving at:  /cs/home/vap2/Documents/diss/PPO-ES_GECCO24/output_data/results/final_60_model_default/episodes_trained/model_seed_42_episode_60.zip
+Saving model at episode 120, seed 42
+saving at:  /cs/home/vap2/Documents/diss/PPO-ES_GECCO24/output_data/results/final_60_model_default/episodes_trained/model_seed_42_episode_120.zip
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 40       |
+|    ep_rew_mean     | 1.4      |
+| time/              |          |
+|    fps             | 1995     |
+|    iterations      | 1        |
+|    time_elapsed    | 2        |
+|    total_timesteps | 4800     |
+---------------------------------
+Saving model at episode 180, seed 42
+saving at:  /cs/home/vap2/Documents/diss/PPO-ES_GECCO24/output_data/results/final_60_model_default/episodes_trained/model_seed_42_episode_180.zip
+Saving model at episode 240, seed 42
+saving at:  /cs/home/vap2/Documents/diss/PPO-ES_GECCO24/output_data/results/final_60_model_default/episodes_trained/model_seed_42_episode_240.zip
+------------------------------------------
+| rollout/                |              |
+|    ep_len_mean          | 40           |
+|    ep_rew_mean          | 1.65         |
+| time/                   |              |
+|    fps                  | 1557         |
+|    iterations           | 2            |
+|    time_elapsed         | 6            |
+|    total_timesteps      | 9600         |
+| train/                  |              |
+|    approx_kl            | 0.0072167055 |
+|    clip_fraction        | 0.0858       |
+|    clip_range           | 0.2          |
+|    entropy_loss         | -1.42        |
+|    explained_variance   | 0.0188       |
+|    learning_rate        | 0.0003       |
+|    loss                 | 0.0447       |
+|    n_updates            | 10           |
+|    policy_gradient_loss | -0.00739     |
+|    std                  | 0.997        |
+|    value_loss           | 0.194        |
+------------------------------------------
+Saving model at episode 300, seed 42
+saving at:  /cs/home/vap2/Documents/diss/PPO-ES_GECCO24/output_data/results/final_60_model_default/episodes_trained/model_seed_42_episode_300.zip
+Saving model at episode 360, seed 42
+saving at:  /cs/home/vap2/Documents/diss/PPO-ES_GECCO24/output_data/results/final_60_model_default/episodes_trained/model_seed_42_episode_360.zip
+-----------------------------------------
+| rollout/                |             |
+|    ep_len_mean          | 40          |
+|    ep_rew_mean          | 1.74        |
+| time/                   |             |
+|    fps                  | 1363        |
+|    iterations           | 3           |
+|    time_elapsed         | 10          |
+|    total_timesteps      | 14400       |
+| train/                  |             |
+|    approx_kl            | 0.008638502 |
+|    clip_fraction        | 0.102       |
+|    clip_range           | 0.2         |
+|    entropy_loss         | -1.4        |
+|    explained_variance   | 0.202       |
+|    learning_rate        | 0.0003      |
+|    loss                 | 0.0392      |
+|    n_updates            | 20          |
+|    policy_gradient_loss | -0.0067     |
+|    std                  | 0.982       |
+|    value_loss           | 0.295       |
+-----------------------------------------
+Saving model at episode 420, seed 42
+saving at:  /cs/home/vap2/Documents/diss/PPO-ES_GECCO24/output_data/results/final_60_model_default/episodes_trained/model_seed_42_episode_420.zip
+Saving model at episode 480, seed 42
+saving at:  /cs/home/vap2/Documents/diss/PPO-ES_GECCO24/output_data/results/final_60_model_default/episodes_trained/model_seed_42_episode_480.zip
+------------------------------------------
+| rollout/                |              |
+|    ep_len_mean          | 40           |
+|    ep_rew_mean          | 1.94         |
+| time/                   |              |
+|    fps                  | 1346         |
+|    iterations           | 4            |
+|    time_elapsed         | 14           |
+|    total_timesteps      | 19200        |
+| train/                  |              |
+|    approx_kl            | 0.0076519833 |
+|    clip_fraction        | 0.0832       |
+|    clip_range           | 0.2          |
+|    entropy_loss         | -1.4         |
+|    explained_variance   | 0.188        |
+|    learning_rate        | 0.0003       |
+|    loss                 | 0.16         |
+|    n_updates            | 30           |
+|    policy_gradient_loss | -0.00579     |
+|    std                  | 0.981        |
+|    value_loss           | 0.334        |
+------------------------------------------
+Saving model at episode 540, seed 42
+saving at:  /cs/home/vap2/Documents/diss/PPO-ES_GECCO24/output_data/results/final_60_model_default/episodes_trained/model_seed_42_episode_540.zip
+Saving model at episode 600, seed 42
+saving at:  /cs/home/vap2/Documents/diss/PPO-ES_GECCO24/output_data/results/final_60_model_default/episodes_trained/model_seed_42_episode_600.zip
+------------------------------------------
+| rollout/                |              |
+|    ep_len_mean          | 40           |
+|    ep_rew_mean          | 2.22         |
+| time/                   |              |
+|    fps                  | 1339         |
+|    iterations           | 5            |
+|    time_elapsed         | 17           |
+|    total_timesteps      | 24000        |
+| train/                  |              |
+|    approx_kl            | 0.0075215213 |
+|    clip_fraction        | 0.07         |
+|    clip_range           | 0.2          |
+|    entropy_loss         | -1.39        |
+|    explained_variance   | 0.139        |
+|    learning_rate        | 0.0003       |
+|    loss                 | 0.195        |
+|    n_updates            | 40           |
+|    policy_gradient_loss | -0.00537     |
+|    std                  | 0.961        |
+|    value_loss           | 0.43         |
+------------------------------------------
+Saving model at episode 660, seed 42
+saving at:  /cs/home/vap2/Documents/diss/PPO-ES_GECCO24/output_data/results/final_60_model_default/episodes_trained/model_seed_42_episode_660.zip
+Saving model at episode 720, seed 42
+saving at:  /cs/home/vap2/Documents/diss/PPO-ES_GECCO24/output_data/results/final_60_model_default/episodes_trained/model_seed_42_episode_720.zip
+-----------------------------------------
+| rollout/                |             |
+|    ep_len_mean          | 40          |
+|    ep_rew_mean          | 2           |
+| time/                   |             |
+|    fps                  | 1321        |
+|    iterations           | 6           |
+|    time_elapsed         | 21          |
+|    total_timesteps      | 28800       |
+| train/                  |             |
+|    approx_kl            | 0.004612121 |
+|    clip_fraction        | 0.0449      |
+|    clip_range           | 0.2         |
+|    entropy_loss         | -1.36       |
+|    explained_variance   | 0.0786      |
+|    learning_rate        | 0.0003      |
+|    loss                 | 0.185       |
+|    n_updates            | 50          |
+|    policy_gradient_loss | -0.00329    |
+|    std                  | 0.938       |
+|    value_loss           | 0.493       |
+-----------------------------------------
+Saving model at episode 780, seed 42
+saving at:  /cs/home/vap2/Documents/diss/PPO-ES_GECCO24/output_data/results/final_60_model_default/episodes_trained/model_seed_42_episode_780.zip
+Saving model at episode 840, seed 42
+saving at:  /cs/home/vap2/Documents/diss/PPO-ES_GECCO24/output_data/results/final_60_model_default/episodes_trained/model_seed_42_episode_840.zip
+------------------------------------------
+| rollout/                |              |
+|    ep_len_mean          | 40           |
+|    ep_rew_mean          | 2.12         |
+| time/                   |              |
+|    fps                  | 1322         |
+|    iterations           | 7            |
+|    time_elapsed         | 25           |
+|    total_timesteps      | 33600        |
+| train/                  |              |
+|    approx_kl            | 0.0028958549 |
+|    clip_fraction        | 0.0242       |
+|    clip_range           | 0.2          |
+|    entropy_loss         | -1.34        |
+|    explained_variance   | -0.0242      |
+|    learning_rate        | 0.0003       |
+|    loss                 | 0.236        |
+|    n_updates            | 60           |
+|    policy_gradient_loss | -0.00142     |
+|    std                  | 0.923        |
+|    value_loss           | 0.487        |
+------------------------------------------
+Saving model at episode 900, seed 42
+saving at:  /cs/home/vap2/Documents/diss/PPO-ES_GECCO24/output_data/results/final_60_model_default/episodes_trained/model_seed_42_episode_900.zip
+Saving model at episode 960, seed 42
+saving at:  /cs/home/vap2/Documents/diss/PPO-ES_GECCO24/output_data/results/final_60_model_default/episodes_trained/model_seed_42_episode_960.zip
+------------------------------------------
+| rollout/                |              |
+|    ep_len_mean          | 40           |
+|    ep_rew_mean          | 2.33         |
+| time/                   |              |
+|    fps                  | 1305         |
+|    iterations           | 8            |
+|    time_elapsed         | 29           |
+|    total_timesteps      | 38400        |
+| train/                  |              |
+|    approx_kl            | 0.0033035278 |
+|    clip_fraction        | 0.0224       |
+|    clip_range           | 0.2          |
+|    entropy_loss         | -1.33        |
+|    explained_variance   | 0.0287       |
+|    learning_rate        | 0.0003       |
+|    loss                 | 0.226        |
+|    n_updates            | 70           |
+|    policy_gradient_loss | -0.000848    |
+|    std                  | 0.912        |
+|    value_loss           | 0.446        |
+------------------------------------------
+Saving model at episode 1020, seed 42
+saving at:  /cs/home/vap2/Documents/diss/PPO-ES_GECCO24/output_data/results/final_60_model_default/episodes_trained/model_seed_42_episode_1020.zip
+Saving model at episode 1080, seed 42
+saving at:  /cs/home/vap2/Documents/diss/PPO-ES_GECCO24/output_data/results/final_60_model_default/episodes_trained/model_seed_42_episode_1080.zip
+-----------------------------------------
+| rollout/                |             |
+|    ep_len_mean          | 40          |
+|    ep_rew_mean          | 2.51        |
+| time/                   |             |
+|    fps                  | 1291        |
+|    iterations           | 9           |
+|    time_elapsed         | 33          |
+|    total_timesteps      | 43200       |
+| train/                  |             |
+|    approx_kl            | 0.003958446 |
+|    clip_fraction        | 0.0441      |
+|    clip_range           | 0.2         |
+|    entropy_loss         | -1.32       |
+|    explained_variance   | 0.0515      |
+|    learning_rate        | 0.0003      |
+|    loss                 | 0.3         |
+|    n_updates            | 80          |
+|    policy_gradient_loss | -0.00293    |
+|    std                  | 0.901       |
+|    value_loss           | 0.523       |
+-----------------------------------------
+Saving model at episode 1140, seed 42
+saving at:  /cs/home/vap2/Documents/diss/PPO-ES_GECCO24/output_data/results/final_60_model_default/episodes_trained/model_seed_42_episode_1140.zip
+Saving model at episode 1200, seed 42
+saving at:  /cs/home/vap2/Documents/diss/PPO-ES_GECCO24/output_data/results/final_60_model_default/episodes_trained/model_seed_42_episode_1200.zip
+------------------------------------------
+| rollout/                |              |
+|    ep_len_mean          | 40           |
+|    ep_rew_mean          | 2.52         |
+| time/                   |              |
+|    fps                  | 1276         |
+|    iterations           | 10           |
+|    time_elapsed         | 37           |
+|    total_timesteps      | 48000        |
+| train/                  |              |
+|    approx_kl            | 0.0029044042 |
+|    clip_fraction        | 0.017        |
+|    clip_range           | 0.2          |
+|    entropy_loss         | -1.31        |
+|    explained_variance   | 0.0432       |
+|    learning_rate        | 0.0003       |
+|    loss                 | 0.274        |
+|    n_updates            | 90           |
+|    policy_gradient_loss | -0.00112     |
+|    std                  | 0.894        |
+|    value_loss           | 0.579        |
+------------------------------------------
+{'system_info': {'hostname': 'pc1-034-l', 'platform': 'Linux', 'platform_version': '#1 SMP PREEMPT_DYNAMIC Wed Feb 4 04:40:11 EST 2026', 'processor': 'x86_64'}, 'timestamp': '2026-02-19 11:29:49', 'need_train': True, 'test_problem_type': 'bbob', 'test_instance': 1, 'test_dimension': 40, 'need_test_models': True, 'need_test_cma_es': True, 'need_test_one_fifth_es': True, 'cuda_device': 'cuda', 'experiment_name': 'final_60_model_default', 'use_space': 0, 'num_training_instances': 12}
+Using cpu device
+Saving model at episode 1, seed 789
+saving at:  /cs/home/vap2/Documents/diss/PPO-ES_GECCO24/output_data/results/final_60_model_default/episodes_trained/model_seed_789_episode_1.zip
+Saving model at episode 60, seed 789
+saving at:  /cs/home/vap2/Documents/diss/PPO-ES_GECCO24/output_data/results/final_60_model_default/episodes_trained/model_seed_789_episode_60.zip
+Saving model at episode 120, seed 789
+saving at:  /cs/home/vap2/Documents/diss/PPO-ES_GECCO24/output_data/results/final_60_model_default/episodes_trained/model_seed_789_episode_120.zip
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 40       |
+|    ep_rew_mean     | 1.32     |
+| time/              |          |
+|    fps             | 1545     |
+|    iterations      | 1        |
+|    time_elapsed    | 3        |
+|    total_timesteps | 4800     |
+---------------------------------
+Saving model at episode 180, seed 789
+saving at:  /cs/home/vap2/Documents/diss/PPO-ES_GECCO24/output_data/results/final_60_model_default/episodes_trained/model_seed_789_episode_180.zip
+Saving model at episode 240, seed 789
+saving at:  /cs/home/vap2/Documents/diss/PPO-ES_GECCO24/output_data/results/final_60_model_default/episodes_trained/model_seed_789_episode_240.zip
+------------------------------------------
+| rollout/                |              |
+|    ep_len_mean          | 40           |
+|    ep_rew_mean          | 1.76         |
+| time/                   |              |
+|    fps                  | 1280         |
+|    iterations           | 2            |
+|    time_elapsed         | 7            |
+|    total_timesteps      | 9600         |
+| train/                  |              |
+|    approx_kl            | 0.0062201163 |
+|    clip_fraction        | 0.077        |
+|    clip_range           | 0.2          |
+|    entropy_loss         | -1.41        |
+|    explained_variance   | -0.00164     |
+|    learning_rate        | 0.0003       |
+|    loss                 | 0.0966       |
+|    n_updates            | 10           |
+|    policy_gradient_loss | -0.00573     |
+|    std                  | 0.995        |
+|    value_loss           | 0.164        |
+------------------------------------------
+Saving model at episode 300, seed 789
+saving at:  /cs/home/vap2/Documents/diss/PPO-ES_GECCO24/output_data/results/final_60_model_default/episodes_trained/model_seed_789_episode_300.zip
+Saving model at episode 360, seed 789
+saving at:  /cs/home/vap2/Documents/diss/PPO-ES_GECCO24/output_data/results/final_60_model_default/episodes_trained/model_seed_789_episode_360.zip
+-----------------------------------------
+| rollout/                |             |
+|    ep_len_mean          | 40          |
+|    ep_rew_mean          | 1.98        |
+| time/                   |             |
+|    fps                  | 1247        |
+|    iterations           | 3           |
+|    time_elapsed         | 11          |
+|    total_timesteps      | 14400       |
+| train/                  |             |
+|    approx_kl            | 0.008136561 |
+|    clip_fraction        | 0.103       |
+|    clip_range           | 0.2         |
+|    entropy_loss         | -1.41       |
+|    explained_variance   | 0.191       |
+|    learning_rate        | 0.0003      |
+|    loss                 | 0.0892      |
+|    n_updates            | 20          |
+|    policy_gradient_loss | -0.00884    |
+|    std                  | 0.981       |
+|    value_loss           | 0.306       |
+-----------------------------------------
+Saving model at episode 420, seed 789
+saving at:  /cs/home/vap2/Documents/diss/PPO-ES_GECCO24/output_data/results/final_60_model_default/episodes_trained/model_seed_789_episode_420.zip
+Saving model at episode 480, seed 789
+saving at:  /cs/home/vap2/Documents/diss/PPO-ES_GECCO24/output_data/results/final_60_model_default/episodes_trained/model_seed_789_episode_480.zip
+------------------------------------------
+| rollout/                |              |
+|    ep_len_mean          | 40           |
+|    ep_rew_mean          | 2.04         |
+| time/                   |              |
+|    fps                  | 1219         |
+|    iterations           | 4            |
+|    time_elapsed         | 15           |
+|    total_timesteps      | 19200        |
+| train/                  |              |
+|    approx_kl            | 0.0048370725 |
+|    clip_fraction        | 0.0396       |
+|    clip_range           | 0.2          |
+|    entropy_loss         | -1.39        |
+|    explained_variance   | 0.11         |
+|    learning_rate        | 0.0003       |
+|    loss                 | 0.196        |
+|    n_updates            | 30           |
+|    policy_gradient_loss | -0.00292     |
+|    std                  | 0.97         |
+|    value_loss           | 0.417        |
+------------------------------------------
+Saving model at episode 540, seed 789
+saving at:  /cs/home/vap2/Documents/diss/PPO-ES_GECCO24/output_data/results/final_60_model_default/episodes_trained/model_seed_789_episode_540.zip
+Saving model at episode 600, seed 789
+saving at:  /cs/home/vap2/Documents/diss/PPO-ES_GECCO24/output_data/results/final_60_model_default/episodes_trained/model_seed_789_episode_600.zip
+-----------------------------------------
+| rollout/                |             |
+|    ep_len_mean          | 40          |
+|    ep_rew_mean          | 2.08        |
+| time/                   |             |
+|    fps                  | 1126        |
+|    iterations           | 5           |
+|    time_elapsed         | 21          |
+|    total_timesteps      | 24000       |
+| train/                  |             |
+|    approx_kl            | 0.004519012 |
+|    clip_fraction        | 0.0338      |
+|    clip_range           | 0.2         |
+|    entropy_loss         | -1.37       |
+|    explained_variance   | 0.0774      |
+|    learning_rate        | 0.0003      |
+|    loss                 | 0.362       |
+|    n_updates            | 40          |
+|    policy_gradient_loss | -0.002      |
+|    std                  | 0.944       |
+|    value_loss           | 0.496       |
+-----------------------------------------
+Saving model at episode 660, seed 789
+saving at:  /cs/home/vap2/Documents/diss/PPO-ES_GECCO24/output_data/results/final_60_model_default/episodes_trained/model_seed_789_episode_660.zip
+Saving model at episode 720, seed 789
+saving at:  /cs/home/vap2/Documents/diss/PPO-ES_GECCO24/output_data/results/final_60_model_default/episodes_trained/model_seed_789_episode_720.zip
+------------------------------------------
+| rollout/                |              |
+|    ep_len_mean          | 40           |
+|    ep_rew_mean          | 2.29         |
+| time/                   |              |
+|    fps                  | 1123         |
+|    iterations           | 6            |
+|    time_elapsed         | 25           |
+|    total_timesteps      | 28800        |
+| train/                  |              |
+|    approx_kl            | 0.0040226025 |
+|    clip_fraction        | 0.021        |
+|    clip_range           | 0.2          |
+|    entropy_loss         | -1.35        |
+|    explained_variance   | 0.0477       |
+|    learning_rate        | 0.0003       |
+|    loss                 | 0.221        |
+|    n_updates            | 50           |
+|    policy_gradient_loss | -0.00111     |
+|    std                  | 0.931        |
+|    value_loss           | 0.499        |
+------------------------------------------
+Saving model at episode 780, seed 789
+saving at:  /cs/home/vap2/Documents/diss/PPO-ES_GECCO24/output_data/results/final_60_model_default/episodes_trained/model_seed_789_episode_780.zip
+Saving model at episode 840, seed 789
+saving at:  /cs/home/vap2/Documents/diss/PPO-ES_GECCO24/output_data/results/final_60_model_default/episodes_trained/model_seed_789_episode_840.zip
+-----------------------------------------
+| rollout/                |             |
+|    ep_len_mean          | 40          |
+|    ep_rew_mean          | 1.83        |
+| time/                   |             |
+|    fps                  | 1067        |
+|    iterations           | 7           |
+|    time_elapsed         | 31          |
+|    total_timesteps      | 33600       |
+| train/                  |             |
+|    approx_kl            | 0.005138922 |
+|    clip_fraction        | 0.0461      |
+|    clip_range           | 0.2         |
+|    entropy_loss         | -1.35       |
+|    explained_variance   | 0.0194      |
+|    learning_rate        | 0.0003      |
+|    loss                 | 0.235       |
+|    n_updates            | 60          |
+|    policy_gradient_loss | -0.00416    |
+|    std                  | 0.929       |
+|    value_loss           | 0.523       |
+-----------------------------------------
+Saving model at episode 900, seed 789
+saving at:  /cs/home/vap2/Documents/diss/PPO-ES_GECCO24/output_data/results/final_60_model_default/episodes_trained/model_seed_789_episode_900.zip
+Saving model at episode 960, seed 789
+saving at:  /cs/home/vap2/Documents/diss/PPO-ES_GECCO24/output_data/results/final_60_model_default/episodes_trained/model_seed_789_episode_960.zip
+-----------------------------------------
+| rollout/                |             |
+|    ep_len_mean          | 40          |
+|    ep_rew_mean          | 2.44        |
+| time/                   |             |
+|    fps                  | 1037        |
+|    iterations           | 8           |
+|    time_elapsed         | 37          |
+|    total_timesteps      | 38400       |
+| train/                  |             |
+|    approx_kl            | 0.005546231 |
+|    clip_fraction        | 0.0479      |
+|    clip_range           | 0.2         |
+|    entropy_loss         | -1.33       |
+|    explained_variance   | 0.0088      |
+|    learning_rate        | 0.0003      |
+|    loss                 | 0.244       |
+|    n_updates            | 70          |
+|    policy_gradient_loss | -0.0037     |
+|    std                  | 0.917       |
+|    value_loss           | 0.455       |
+-----------------------------------------
+Saving model at episode 1020, seed 789
+saving at:  /cs/home/vap2/Documents/diss/PPO-ES_GECCO24/output_data/results/final_60_model_default/episodes_trained/model_seed_789_episode_1020.zip
+Saving model at episode 1080, seed 789
+saving at:  /cs/home/vap2/Documents/diss/PPO-ES_GECCO24/output_data/results/final_60_model_default/episodes_trained/model_seed_789_episode_1080.zip
+------------------------------------------
+| rollout/                |              |
+|    ep_len_mean          | 40           |
+|    ep_rew_mean          | 2.73         |
+| time/                   |              |
+|    fps                  | 1031         |
+|    iterations           | 9            |
+|    time_elapsed         | 41           |
+|    total_timesteps      | 43200        |
+| train/                  |              |
+|    approx_kl            | 0.0047876993 |
+|    clip_fraction        | 0.0305       |
+|    clip_range           | 0.2          |
+|    entropy_loss         | -1.32        |
+|    explained_variance   | 0.0456       |
+|    learning_rate        | 0.0003       |
+|    loss                 | 0.224        |
+|    n_updates            | 80           |
+|    policy_gradient_loss | -0.00227     |
+|    std                  | 0.897        |
+|    value_loss           | 0.565        |
+------------------------------------------
+Saving model at episode 1140, seed 789
+saving at:  /cs/home/vap2/Documents/diss/PPO-ES_GECCO24/output_data/results/final_60_model_default/episodes_trained/model_seed_789_episode_1140.zip
+Saving model at episode 1200, seed 789
+saving at:  /cs/home/vap2/Documents/diss/PPO-ES_GECCO24/output_data/results/final_60_model_default/episodes_trained/model_seed_789_episode_1200.zip
+-----------------------------------------
+| rollout/                |             |
+|    ep_len_mean          | 40          |
+|    ep_rew_mean          | 2.56        |
+| time/                   |             |
+|    fps                  | 1010        |
+|    iterations           | 10          |
+|    time_elapsed         | 47          |
+|    total_timesteps      | 48000       |
+| train/                  |             |
+|    approx_kl            | 0.004027109 |
+|    clip_fraction        | 0.0306      |
+|    clip_range           | 0.2         |
+|    entropy_loss         | -1.28       |
+|    explained_variance   | 0.0714      |
+|    learning_rate        | 0.0003      |
+|    loss                 | 0.289       |
+|    n_updates            | 90          |
+|    policy_gradient_loss | -0.00217    |
+|    std                  | 0.861       |
+|    value_loss           | 0.674       |
+-----------------------------------------
+{'system_info': {'hostname': 'pc1-034-l', 'platform': 'Linux', 'platform_version': '#1 SMP PREEMPT_DYNAMIC Wed Feb 4 04:40:11 EST 2026', 'processor': 'x86_64'}, 'timestamp': '2026-02-19 11:29:49', 'need_train': True, 'test_problem_type': 'bbob', 'test_instance': 1, 'test_dimension': 40, 'need_test_models': True, 'need_test_cma_es': True, 'need_test_one_fifth_es': True, 'cuda_device': 'cuda', 'experiment_name': 'final_60_model_default', 'use_space': 0, 'num_training_instances': 12}
+Using cpu device
+Saving model at episode 1, seed 1011
+saving at:  /cs/home/vap2/Documents/diss/PPO-ES_GECCO24/output_data/results/final_60_model_default/episodes_trained/model_seed_1011_episode_1.zip
+Saving model at episode 60, seed 1011
+saving at:  /cs/home/vap2/Documents/diss/PPO-ES_GECCO24/output_data/results/final_60_model_default/episodes_trained/model_seed_1011_episode_60.zip
+Saving model at episode 120, seed 1011
+saving at:  /cs/home/vap2/Documents/diss/PPO-ES_GECCO24/output_data/results/final_60_model_default/episodes_trained/model_seed_1011_episode_120.zip
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 40       |
+|    ep_rew_mean     | 1.38     |
+| time/              |          |
+|    fps             | 1693     |
+|    iterations      | 1        |
+|    time_elapsed    | 2        |
+|    total_timesteps | 4800     |
+---------------------------------
+Saving model at episode 180, seed 1011
+saving at:  /cs/home/vap2/Documents/diss/PPO-ES_GECCO24/output_data/results/final_60_model_default/episodes_trained/model_seed_1011_episode_180.zip
+Saving model at episode 240, seed 1011
+saving at:  /cs/home/vap2/Documents/diss/PPO-ES_GECCO24/output_data/results/final_60_model_default/episodes_trained/model_seed_1011_episode_240.zip
+-----------------------------------------
+| rollout/                |             |
+|    ep_len_mean          | 40          |
+|    ep_rew_mean          | 1.58        |
+| time/                   |             |
+|    fps                  | 1364        |
+|    iterations           | 2           |
+|    time_elapsed         | 7           |
+|    total_timesteps      | 9600        |
+| train/                  |             |
+|    approx_kl            | 0.006365569 |
+|    clip_fraction        | 0.0738      |
+|    clip_range           | 0.2         |
+|    entropy_loss         | -1.42       |
+|    explained_variance   | -0.066      |
+|    learning_rate        | 0.0003      |
+|    loss                 | 0.104       |
+|    n_updates            | 10          |
+|    policy_gradient_loss | -0.00542    |
+|    std                  | 1           |
+|    value_loss           | 0.221       |
+-----------------------------------------
+Saving model at episode 300, seed 1011
+saving at:  /cs/home/vap2/Documents/diss/PPO-ES_GECCO24/output_data/results/final_60_model_default/episodes_trained/model_seed_1011_episode_300.zip
+Saving model at episode 360, seed 1011
+saving at:  /cs/home/vap2/Documents/diss/PPO-ES_GECCO24/output_data/results/final_60_model_default/episodes_trained/model_seed_1011_episode_360.zip
+------------------------------------------
+| rollout/                |              |
+|    ep_len_mean          | 40           |
+|    ep_rew_mean          | 1.88         |
+| time/                   |              |
+|    fps                  | 1157         |
+|    iterations           | 3            |
+|    time_elapsed         | 12           |
+|    total_timesteps      | 14400        |
+| train/                  |              |
+|    approx_kl            | 0.0068397364 |
+|    clip_fraction        | 0.0777       |
+|    clip_range           | 0.2          |
+|    entropy_loss         | -1.41        |
+|    explained_variance   | 0.204        |
+|    learning_rate        | 0.0003       |
+|    loss                 | 0.25         |
+|    n_updates            | 20           |
+|    policy_gradient_loss | -0.00543     |
+|    std                  | 0.983        |
+|    value_loss           | 0.308        |
+------------------------------------------
+Saving model at episode 420, seed 1011
+saving at:  /cs/home/vap2/Documents/diss/PPO-ES_GECCO24/output_data/results/final_60_model_default/episodes_trained/model_seed_1011_episode_420.zip
+Saving model at episode 480, seed 1011
+saving at:  /cs/home/vap2/Documents/diss/PPO-ES_GECCO24/output_data/results/final_60_model_default/episodes_trained/model_seed_1011_episode_480.zip
+------------------------------------------
+| rollout/                |              |
+|    ep_len_mean          | 40           |
+|    ep_rew_mean          | 1.97         |
+| time/                   |              |
+|    fps                  | 1058         |
+|    iterations           | 4            |
+|    time_elapsed         | 18           |
+|    total_timesteps      | 19200        |
+| train/                  |              |
+|    approx_kl            | 0.0055771163 |
+|    clip_fraction        | 0.0589       |
+|    clip_range           | 0.2          |
+|    entropy_loss         | -1.39        |
+|    explained_variance   | 0.13         |
+|    learning_rate        | 0.0003       |
+|    loss                 | 0.12         |
+|    n_updates            | 30           |
+|    policy_gradient_loss | -0.00486     |
+|    std                  | 0.972        |
+|    value_loss           | 0.428        |
+------------------------------------------
+Saving model at episode 540, seed 1011
+saving at:  /cs/home/vap2/Documents/diss/PPO-ES_GECCO24/output_data/results/final_60_model_default/episodes_trained/model_seed_1011_episode_540.zip
+Saving model at episode 600, seed 1011
+saving at:  /cs/home/vap2/Documents/diss/PPO-ES_GECCO24/output_data/results/final_60_model_default/episodes_trained/model_seed_1011_episode_600.zip
+------------------------------------------
+| rollout/                |              |
+|    ep_len_mean          | 40           |
+|    ep_rew_mean          | 2            |
+| time/                   |              |
+|    fps                  | 1016         |
+|    iterations           | 5            |
+|    time_elapsed         | 23           |
+|    total_timesteps      | 24000        |
+| train/                  |              |
+|    approx_kl            | 0.0055003753 |
+|    clip_fraction        | 0.0701       |
+|    clip_range           | 0.2          |
+|    entropy_loss         | -1.38        |
+|    explained_variance   | 0.0443       |
+|    learning_rate        | 0.0003       |
+|    loss                 | 0.283        |
+|    n_updates            | 40           |
+|    policy_gradient_loss | -0.00471     |
+|    std                  | 0.953        |
+|    value_loss           | 0.466        |
+------------------------------------------
+Saving model at episode 660, seed 1011
+saving at:  /cs/home/vap2/Documents/diss/PPO-ES_GECCO24/output_data/results/final_60_model_default/episodes_trained/model_seed_1011_episode_660.zip
+Saving model at episode 720, seed 1011
+saving at:  /cs/home/vap2/Documents/diss/PPO-ES_GECCO24/output_data/results/final_60_model_default/episodes_trained/model_seed_1011_episode_720.zip
+------------------------------------------
+| rollout/                |              |
+|    ep_len_mean          | 40           |
+|    ep_rew_mean          | 2.25         |
+| time/                   |              |
+|    fps                  | 1051         |
+|    iterations           | 6            |
+|    time_elapsed         | 27           |
+|    total_timesteps      | 28800        |
+| train/                  |              |
+|    approx_kl            | 0.0041482174 |
+|    clip_fraction        | 0.0322       |
+|    clip_range           | 0.2          |
+|    entropy_loss         | -1.35        |
+|    explained_variance   | 0.0631       |
+|    learning_rate        | 0.0003       |
+|    loss                 | 0.236        |
+|    n_updates            | 50           |
+|    policy_gradient_loss | -0.00206     |
+|    std                  | 0.927        |
+|    value_loss           | 0.436        |
+------------------------------------------
+Saving model at episode 780, seed 1011
+saving at:  /cs/home/vap2/Documents/diss/PPO-ES_GECCO24/output_data/results/final_60_model_default/episodes_trained/model_seed_1011_episode_780.zip
+Saving model at episode 840, seed 1011
+saving at:  /cs/home/vap2/Documents/diss/PPO-ES_GECCO24/output_data/results/final_60_model_default/episodes_trained/model_seed_1011_episode_840.zip
+-----------------------------------------
+| rollout/                |             |
+|    ep_len_mean          | 40          |
+|    ep_rew_mean          | 2.44        |
+| time/                   |             |
+|    fps                  | 1075        |
+|    iterations           | 7           |
+|    time_elapsed         | 31          |
+|    total_timesteps      | 33600       |
+| train/                  |             |
+|    approx_kl            | 0.003623147 |
+|    clip_fraction        | 0.0232      |
+|    clip_range           | 0.2         |
+|    entropy_loss         | -1.33       |
+|    explained_variance   | 0.0406      |
+|    learning_rate        | 0.0003      |
+|    loss                 | 0.181       |
+|    n_updates            | 60          |
+|    policy_gradient_loss | -0.00151    |
+|    std                  | 0.916       |
+|    value_loss           | 0.55        |
+-----------------------------------------
+Saving model at episode 900, seed 1011
+saving at:  /cs/home/vap2/Documents/diss/PPO-ES_GECCO24/output_data/results/final_60_model_default/episodes_trained/model_seed_1011_episode_900.zip
+Saving model at episode 960, seed 1011
+saving at:  /cs/home/vap2/Documents/diss/PPO-ES_GECCO24/output_data/results/final_60_model_default/episodes_trained/model_seed_1011_episode_960.zip
+-----------------------------------------
+| rollout/                |             |
+|    ep_len_mean          | 40          |
+|    ep_rew_mean          | 2.55        |
+| time/                   |             |
+|    fps                  | 1100        |
+|    iterations           | 8           |
+|    time_elapsed         | 34          |
+|    total_timesteps      | 38400       |
+| train/                  |             |
+|    approx_kl            | 0.002970048 |
+|    clip_fraction        | 0.0278      |
+|    clip_range           | 0.2         |
+|    entropy_loss         | -1.32       |
+|    explained_variance   | 0.0545      |
+|    learning_rate        | 0.0003      |
+|    loss                 | 0.277       |
+|    n_updates            | 70          |
+|    policy_gradient_loss | -0.00207    |
+|    std                  | 0.909       |
+|    value_loss           | 0.583       |
+-----------------------------------------
+Saving model at episode 1020, seed 1011
+saving at:  /cs/home/vap2/Documents/diss/PPO-ES_GECCO24/output_data/results/final_60_model_default/episodes_trained/model_seed_1011_episode_1020.zip
+Saving model at episode 1080, seed 1011
+saving at:  /cs/home/vap2/Documents/diss/PPO-ES_GECCO24/output_data/results/final_60_model_default/episodes_trained/model_seed_1011_episode_1080.zip
+-----------------------------------------
+| rollout/                |             |
+|    ep_len_mean          | 40          |
+|    ep_rew_mean          | 2.75        |
+| time/                   |             |
+|    fps                  | 1112        |
+|    iterations           | 9           |
+|    time_elapsed         | 38          |
+|    total_timesteps      | 43200       |
+| train/                  |             |
+|    approx_kl            | 0.004422893 |
+|    clip_fraction        | 0.0379      |
+|    clip_range           | 0.2         |
+|    entropy_loss         | -1.31       |
+|    explained_variance   | 0.0791      |
+|    learning_rate        | 0.0003      |
+|    loss                 | 0.264       |
+|    n_updates            | 80          |
+|    policy_gradient_loss | -0.0027     |
+|    std                  | 0.891       |
+|    value_loss           | 0.6         |
+-----------------------------------------
+Saving model at episode 1140, seed 1011
+saving at:  /cs/home/vap2/Documents/diss/PPO-ES_GECCO24/output_data/results/final_60_model_default/episodes_trained/model_seed_1011_episode_1140.zip
+Saving model at episode 1200, seed 1011
+saving at:  /cs/home/vap2/Documents/diss/PPO-ES_GECCO24/output_data/results/final_60_model_default/episodes_trained/model_seed_1011_episode_1200.zip
+-----------------------------------------
+| rollout/                |             |
+|    ep_len_mean          | 40          |
+|    ep_rew_mean          | 2.61        |
+| time/                   |             |
+|    fps                  | 1125        |
+|    iterations           | 10          |
+|    time_elapsed         | 42          |
+|    total_timesteps      | 48000       |
+| train/                  |             |
+|    approx_kl            | 0.005288188 |
+|    clip_fraction        | 0.0465      |
+|    clip_range           | 0.2         |
+|    entropy_loss         | -1.29       |
+|    explained_variance   | 0.0716      |
+|    learning_rate        | 0.0003      |
+|    loss                 | 0.266       |
+|    n_updates            | 90          |
+|    policy_gradient_loss | -0.00374    |
+|    std                  | 0.88        |
+|    value_loss           | 0.684       |
+-----------------------------------------
+{'system_info': {'hostname': 'pc1-034-l', 'platform': 'Linux', 'platform_version': '#1 SMP PREEMPT_DYNAMIC Wed Feb 4 04:40:11 EST 2026', 'processor': 'x86_64'}, 'timestamp': '2026-02-19 11:29:49', 'need_train': True, 'test_problem_type': 'bbob', 'test_instance': 1, 'test_dimension': 40, 'need_test_models': True, 'need_test_cma_es': True, 'need_test_one_fifth_es': True, 'cuda_device': 'cuda', 'experiment_name': 'final_60_model_default', 'use_space': 0, 'num_training_instances': 12}
+Using cpu device
+Saving model at episode 1, seed 1617
+saving at:  /cs/home/vap2/Documents/diss/PPO-ES_GECCO24/output_data/results/final_60_model_default/episodes_trained/model_seed_1617_episode_1.zip
+Saving model at episode 60, seed 1617
+saving at:  /cs/home/vap2/Documents/diss/PPO-ES_GECCO24/output_data/results/final_60_model_default/episodes_trained/model_seed_1617_episode_60.zip
+Saving model at episode 120, seed 1617
+saving at:  /cs/home/vap2/Documents/diss/PPO-ES_GECCO24/output_data/results/final_60_model_default/episodes_trained/model_seed_1617_episode_120.zip
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 40       |
+|    ep_rew_mean     | 1.4      |
+| time/              |          |
+|    fps             | 1956     |
+|    iterations      | 1        |
+|    time_elapsed    | 2        |
+|    total_timesteps | 4800     |
+---------------------------------
+Saving model at episode 180, seed 1617
+saving at:  /cs/home/vap2/Documents/diss/PPO-ES_GECCO24/output_data/results/final_60_model_default/episodes_trained/model_seed_1617_episode_180.zip
+Saving model at episode 240, seed 1617
+saving at:  /cs/home/vap2/Documents/diss/PPO-ES_GECCO24/output_data/results/final_60_model_default/episodes_trained/model_seed_1617_episode_240.zip
+-----------------------------------------
+| rollout/                |             |
+|    ep_len_mean          | 40          |
+|    ep_rew_mean          | 1.7         |
+| time/                   |             |
+|    fps                  | 1222        |
+|    iterations           | 2           |
+|    time_elapsed         | 7           |
+|    total_timesteps      | 9600        |
+| train/                  |             |
+|    approx_kl            | 0.005868574 |
+|    clip_fraction        | 0.0588      |
+|    clip_range           | 0.2         |
+|    entropy_loss         | -1.42       |
+|    explained_variance   | -0.095      |
+|    learning_rate        | 0.0003      |
+|    loss                 | 0.106       |
+|    n_updates            | 10          |
+|    policy_gradient_loss | -0.00534    |
+|    std                  | 0.996       |
+|    value_loss           | 0.204       |
+-----------------------------------------
+Saving model at episode 300, seed 1617
+saving at:  /cs/home/vap2/Documents/diss/PPO-ES_GECCO24/output_data/results/final_60_model_default/episodes_trained/model_seed_1617_episode_300.zip
+Saving model at episode 360, seed 1617
+saving at:  /cs/home/vap2/Documents/diss/PPO-ES_GECCO24/output_data/results/final_60_model_default/episodes_trained/model_seed_1617_episode_360.zip
+----------------------------------------
+| rollout/                |            |
+|    ep_len_mean          | 40         |
+|    ep_rew_mean          | 1.84       |
+| time/                   |            |
+|    fps                  | 1070       |
+|    iterations           | 3          |
+|    time_elapsed         | 13         |
+|    total_timesteps      | 14400      |
+| train/                  |            |
+|    approx_kl            | 0.00942514 |
+|    clip_fraction        | 0.111      |
+|    clip_range           | 0.2        |
+|    entropy_loss         | -1.4       |
+|    explained_variance   | 0.19       |
+|    learning_rate        | 0.0003     |
+|    loss                 | 0.153      |
+|    n_updates            | 20         |
+|    policy_gradient_loss | -0.00944   |
+|    std                  | 0.971      |
+|    value_loss           | 0.309      |
+----------------------------------------
+Saving model at episode 420, seed 1617
+saving at:  /cs/home/vap2/Documents/diss/PPO-ES_GECCO24/output_data/results/final_60_model_default/episodes_trained/model_seed_1617_episode_420.zip
+Saving model at episode 480, seed 1617
+saving at:  /cs/home/vap2/Documents/diss/PPO-ES_GECCO24/output_data/results/final_60_model_default/episodes_trained/model_seed_1617_episode_480.zip
+------------------------------------------
+| rollout/                |              |
+|    ep_len_mean          | 40           |
+|    ep_rew_mean          | 1.86         |
+| time/                   |              |
+|    fps                  | 1123         |
+|    iterations           | 4            |
+|    time_elapsed         | 17           |
+|    total_timesteps      | 19200        |
+| train/                  |              |
+|    approx_kl            | 0.0056954497 |
+|    clip_fraction        | 0.0577       |
+|    clip_range           | 0.2          |
+|    entropy_loss         | -1.38        |
+|    explained_variance   | 0.126        |
+|    learning_rate        | 0.0003       |
+|    loss                 | 0.23         |
+|    n_updates            | 30           |
+|    policy_gradient_loss | -0.00415     |
+|    std                  | 0.958        |
+|    value_loss           | 0.377        |
+------------------------------------------
+Saving model at episode 540, seed 1617
+saving at:  /cs/home/vap2/Documents/diss/PPO-ES_GECCO24/output_data/results/final_60_model_default/episodes_trained/model_seed_1617_episode_540.zip
+Saving model at episode 600, seed 1617
+saving at:  /cs/home/vap2/Documents/diss/PPO-ES_GECCO24/output_data/results/final_60_model_default/episodes_trained/model_seed_1617_episode_600.zip
+------------------------------------------
+| rollout/                |              |
+|    ep_len_mean          | 40           |
+|    ep_rew_mean          | 2.01         |
+| time/                   |              |
+|    fps                  | 1069         |
+|    iterations           | 5            |
+|    time_elapsed         | 22           |
+|    total_timesteps      | 24000        |
+| train/                  |              |
+|    approx_kl            | 0.0048338273 |
+|    clip_fraction        | 0.0499       |
+|    clip_range           | 0.2          |
+|    entropy_loss         | -1.36        |
+|    explained_variance   | 0.0621       |
+|    learning_rate        | 0.0003       |
+|    loss                 | 0.197        |
+|    n_updates            | 40           |
+|    policy_gradient_loss | -0.0029      |
+|    std                  | 0.938        |
+|    value_loss           | 0.425        |
+------------------------------------------
+Saving model at episode 660, seed 1617
+saving at:  /cs/home/vap2/Documents/diss/PPO-ES_GECCO24/output_data/results/final_60_model_default/episodes_trained/model_seed_1617_episode_660.zip
+Saving model at episode 720, seed 1617
+saving at:  /cs/home/vap2/Documents/diss/PPO-ES_GECCO24/output_data/results/final_60_model_default/episodes_trained/model_seed_1617_episode_720.zip
+------------------------------------------
+| rollout/                |              |
+|    ep_len_mean          | 40           |
+|    ep_rew_mean          | 2.14         |
+| time/                   |              |
+|    fps                  | 1038         |
+|    iterations           | 6            |
+|    time_elapsed         | 27           |
+|    total_timesteps      | 28800        |
+| train/                  |              |
+|    approx_kl            | 0.0031021766 |
+|    clip_fraction        | 0.0283       |
+|    clip_range           | 0.2          |
+|    entropy_loss         | -1.35        |
+|    explained_variance   | -0.00287     |
+|    learning_rate        | 0.0003       |
+|    loss                 | 0.183        |
+|    n_updates            | 50           |
+|    policy_gradient_loss | -0.00212     |
+|    std                  | 0.924        |
+|    value_loss           | 0.444        |
+------------------------------------------
+Saving model at episode 780, seed 1617
+saving at:  /cs/home/vap2/Documents/diss/PPO-ES_GECCO24/output_data/results/final_60_model_default/episodes_trained/model_seed_1617_episode_780.zip
+Saving model at episode 840, seed 1617
+saving at:  /cs/home/vap2/Documents/diss/PPO-ES_GECCO24/output_data/results/final_60_model_default/episodes_trained/model_seed_1617_episode_840.zip
+------------------------------------------
+| rollout/                |              |
+|    ep_len_mean          | 40           |
+|    ep_rew_mean          | 2.47         |
+| time/                   |              |
+|    fps                  | 1013         |
+|    iterations           | 7            |
+|    time_elapsed         | 33           |
+|    total_timesteps      | 33600        |
+| train/                  |              |
+|    approx_kl            | 0.0037300119 |
+|    clip_fraction        | 0.0277       |
+|    clip_range           | 0.2          |
+|    entropy_loss         | -1.33        |
+|    explained_variance   | 0.0133       |
+|    learning_rate        | 0.0003       |
+|    loss                 | 0.238        |
+|    n_updates            | 60           |
+|    policy_gradient_loss | -0.00161     |
+|    std                  | 0.909        |
+|    value_loss           | 0.464        |
+------------------------------------------
+Saving model at episode 900, seed 1617
+saving at:  /cs/home/vap2/Documents/diss/PPO-ES_GECCO24/output_data/results/final_60_model_default/episodes_trained/model_seed_1617_episode_900.zip
+Saving model at episode 960, seed 1617
+saving at:  /cs/home/vap2/Documents/diss/PPO-ES_GECCO24/output_data/results/final_60_model_default/episodes_trained/model_seed_1617_episode_960.zip
+-----------------------------------------
+| rollout/                |             |
+|    ep_len_mean          | 40          |
+|    ep_rew_mean          | 2.4         |
+| time/                   |             |
+|    fps                  | 1044        |
+|    iterations           | 8           |
+|    time_elapsed         | 36          |
+|    total_timesteps      | 38400       |
+| train/                  |             |
+|    approx_kl            | 0.002060979 |
+|    clip_fraction        | 0.0239      |
+|    clip_range           | 0.2         |
+|    entropy_loss         | -1.32       |
+|    explained_variance   | 0.0309      |
+|    learning_rate        | 0.0003      |
+|    loss                 | 0.268       |
+|    n_updates            | 70          |
+|    policy_gradient_loss | -0.00153    |
+|    std                  | 0.904       |
+|    value_loss           | 0.595       |
+-----------------------------------------
+Saving model at episode 1020, seed 1617
+saving at:  /cs/home/vap2/Documents/diss/PPO-ES_GECCO24/output_data/results/final_60_model_default/episodes_trained/model_seed_1617_episode_1020.zip
+Saving model at episode 1080, seed 1617
+saving at:  /cs/home/vap2/Documents/diss/PPO-ES_GECCO24/output_data/results/final_60_model_default/episodes_trained/model_seed_1617_episode_1080.zip
+------------------------------------------
+| rollout/                |              |
+|    ep_len_mean          | 40           |
+|    ep_rew_mean          | 2.4          |
+| time/                   |              |
+|    fps                  | 1067         |
+|    iterations           | 9            |
+|    time_elapsed         | 40           |
+|    total_timesteps      | 43200        |
+| train/                  |              |
+|    approx_kl            | 0.0050042565 |
+|    clip_fraction        | 0.0402       |
+|    clip_range           | 0.2          |
+|    entropy_loss         | -1.31        |
+|    explained_variance   | 0.0713       |
+|    learning_rate        | 0.0003       |
+|    loss                 | 0.189        |
+|    n_updates            | 80           |
+|    policy_gradient_loss | -0.00307     |
+|    std                  | 0.895        |
+|    value_loss           | 0.524        |
+------------------------------------------
+Saving model at episode 1140, seed 1617
+saving at:  /cs/home/vap2/Documents/diss/PPO-ES_GECCO24/output_data/results/final_60_model_default/episodes_trained/model_seed_1617_episode_1140.zip
+Saving model at episode 1200, seed 1617
+saving at:  /cs/home/vap2/Documents/diss/PPO-ES_GECCO24/output_data/results/final_60_model_default/episodes_trained/model_seed_1617_episode_1200.zip
+------------------------------------------
+| rollout/                |              |
+|    ep_len_mean          | 40           |
+|    ep_rew_mean          | 2.65         |
+| time/                   |              |
+|    fps                  | 1071         |
+|    iterations           | 10           |
+|    time_elapsed         | 44           |
+|    total_timesteps      | 48000        |
+| train/                  |              |
+|    approx_kl            | 0.0055484236 |
+|    clip_fraction        | 0.0337       |
+|    clip_range           | 0.2          |
+|    entropy_loss         | -1.3         |
+|    explained_variance   | 0.113        |
+|    learning_rate        | 0.0003       |
+|    loss                 | 0.31         |
+|    n_updates            | 90           |
+|    policy_gradient_loss | -0.0019      |
+|    std                  | 0.884        |
+|    value_loss           | 0.551        |
+------------------------------------------
+{'system_info': {'hostname': 'pc1-034-l', 'platform': 'Linux', 'platform_version': '#1 SMP PREEMPT_DYNAMIC Wed Feb 4 04:40:11 EST 2026', 'processor': 'x86_64'}, 'timestamp': '2026-02-19 11:29:49', 'need_train': True, 'test_problem_type': 'bbob', 'test_instance': 1, 'test_dimension': 40, 'need_test_models': True, 'need_test_cma_es': True, 'need_test_one_fifth_es': True, 'cuda_device': 'cuda', 'experiment_name': 'final_60_model_default', 'use_space': 0, 'num_training_instances': 12}
+Using cpu device
+Saving model at episode 1, seed 2021
+saving at:  /cs/home/vap2/Documents/diss/PPO-ES_GECCO24/output_data/results/final_60_model_default/episodes_trained/model_seed_2021_episode_1.zip
+Saving model at episode 60, seed 2021
+saving at:  /cs/home/vap2/Documents/diss/PPO-ES_GECCO24/output_data/results/final_60_model_default/episodes_trained/model_seed_2021_episode_60.zip
+Saving model at episode 120, seed 2021
+saving at:  /cs/home/vap2/Documents/diss/PPO-ES_GECCO24/output_data/results/final_60_model_default/episodes_trained/model_seed_2021_episode_120.zip
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 40       |
+|    ep_rew_mean     | 1.33     |
+| time/              |          |
+|    fps             | 1941     |
+|    iterations      | 1        |
+|    time_elapsed    | 2        |
+|    total_timesteps | 4800     |
+---------------------------------
+Saving model at episode 180, seed 2021
+saving at:  /cs/home/vap2/Documents/diss/PPO-ES_GECCO24/output_data/results/final_60_model_default/episodes_trained/model_seed_2021_episode_180.zip
+Saving model at episode 240, seed 2021
+saving at:  /cs/home/vap2/Documents/diss/PPO-ES_GECCO24/output_data/results/final_60_model_default/episodes_trained/model_seed_2021_episode_240.zip
+------------------------------------------
+| rollout/                |              |
+|    ep_len_mean          | 40           |
+|    ep_rew_mean          | 1.76         |
+| time/                   |              |
+|    fps                  | 1229         |
+|    iterations           | 2            |
+|    time_elapsed         | 7            |
+|    total_timesteps      | 9600         |
+| train/                  |              |
+|    approx_kl            | 0.0066624866 |
+|    clip_fraction        | 0.0845       |
+|    clip_range           | 0.2          |
+|    entropy_loss         | -1.41        |
+|    explained_variance   | 0.011        |
+|    learning_rate        | 0.0003       |
+|    loss                 | 0.0847       |
+|    n_updates            | 10           |
+|    policy_gradient_loss | -0.00681     |
+|    std                  | 0.992        |
+|    value_loss           | 0.178        |
+------------------------------------------
+Saving model at episode 300, seed 2021
+saving at:  /cs/home/vap2/Documents/diss/PPO-ES_GECCO24/output_data/results/final_60_model_default/episodes_trained/model_seed_2021_episode_300.zip
+Saving model at episode 360, seed 2021
+saving at:  /cs/home/vap2/Documents/diss/PPO-ES_GECCO24/output_data/results/final_60_model_default/episodes_trained/model_seed_2021_episode_360.zip
+-----------------------------------------
+| rollout/                |             |
+|    ep_len_mean          | 40          |
+|    ep_rew_mean          | 2.04        |
+| time/                   |             |
+|    fps                  | 1265        |
+|    iterations           | 3           |
+|    time_elapsed         | 11          |
+|    total_timesteps      | 14400       |
+| train/                  |             |
+|    approx_kl            | 0.009390521 |
+|    clip_fraction        | 0.114       |
+|    clip_range           | 0.2         |
+|    entropy_loss         | -1.4        |
+|    explained_variance   | 0.184       |
+|    learning_rate        | 0.0003      |
+|    loss                 | 0.225       |
+|    n_updates            | 20          |
+|    policy_gradient_loss | -0.00958    |
+|    std                  | 0.973       |
+|    value_loss           | 0.324       |
+-----------------------------------------
+Saving model at episode 420, seed 2021
+saving at:  /cs/home/vap2/Documents/diss/PPO-ES_GECCO24/output_data/results/final_60_model_default/episodes_trained/model_seed_2021_episode_420.zip
+Saving model at episode 480, seed 2021
+saving at:  /cs/home/vap2/Documents/diss/PPO-ES_GECCO24/output_data/results/final_60_model_default/episodes_trained/model_seed_2021_episode_480.zip
+------------------------------------------
+| rollout/                |              |
+|    ep_len_mean          | 40           |
+|    ep_rew_mean          | 1.78         |
+| time/                   |              |
+|    fps                  | 1204         |
+|    iterations           | 4            |
+|    time_elapsed         | 15           |
+|    total_timesteps      | 19200        |
+| train/                  |              |
+|    approx_kl            | 0.0066432315 |
+|    clip_fraction        | 0.0693       |
+|    clip_range           | 0.2          |
+|    entropy_loss         | -1.38        |
+|    explained_variance   | 0.117        |
+|    learning_rate        | 0.0003       |
+|    loss                 | 0.13         |
+|    n_updates            | 30           |
+|    policy_gradient_loss | -0.00567     |
+|    std                  | 0.96         |
+|    value_loss           | 0.377        |
+------------------------------------------
+Saving model at episode 540, seed 2021
+saving at:  /cs/home/vap2/Documents/diss/PPO-ES_GECCO24/output_data/results/final_60_model_default/episodes_trained/model_seed_2021_episode_540.zip
+Saving model at episode 600, seed 2021
+saving at:  /cs/home/vap2/Documents/diss/PPO-ES_GECCO24/output_data/results/final_60_model_default/episodes_trained/model_seed_2021_episode_600.zip
+------------------------------------------
+| rollout/                |              |
+|    ep_len_mean          | 40           |
+|    ep_rew_mean          | 2.02         |
+| time/                   |              |
+|    fps                  | 1211         |
+|    iterations           | 5            |
+|    time_elapsed         | 19           |
+|    total_timesteps      | 24000        |
+| train/                  |              |
+|    approx_kl            | 0.0040554474 |
+|    clip_fraction        | 0.0255       |
+|    clip_range           | 0.2          |
+|    entropy_loss         | -1.37        |
+|    explained_variance   | 0.0657       |
+|    learning_rate        | 0.0003       |
+|    loss                 | 0.269        |
+|    n_updates            | 40           |
+|    policy_gradient_loss | -0.000967    |
+|    std                  | 0.954        |
+|    value_loss           | 0.39         |
+------------------------------------------
+Saving model at episode 660, seed 2021
+saving at:  /cs/home/vap2/Documents/diss/PPO-ES_GECCO24/output_data/results/final_60_model_default/episodes_trained/model_seed_2021_episode_660.zip
+Saving model at episode 720, seed 2021
+saving at:  /cs/home/vap2/Documents/diss/PPO-ES_GECCO24/output_data/results/final_60_model_default/episodes_trained/model_seed_2021_episode_720.zip
+------------------------------------------
+| rollout/                |              |
+|    ep_len_mean          | 40           |
+|    ep_rew_mean          | 2.1          |
+| time/                   |              |
+|    fps                  | 1222         |
+|    iterations           | 6            |
+|    time_elapsed         | 23           |
+|    total_timesteps      | 28800        |
+| train/                  |              |
+|    approx_kl            | 0.0032276749 |
+|    clip_fraction        | 0.0199       |
+|    clip_range           | 0.2          |
+|    entropy_loss         | -1.35        |
+|    explained_variance   | 0.0235       |
+|    learning_rate        | 0.0003       |
+|    loss                 | 0.239        |
+|    n_updates            | 50           |
+|    policy_gradient_loss | -0.00228     |
+|    std                  | 0.922        |
+|    value_loss           | 0.539        |
+------------------------------------------
+Saving model at episode 780, seed 2021
+saving at:  /cs/home/vap2/Documents/diss/PPO-ES_GECCO24/output_data/results/final_60_model_default/episodes_trained/model_seed_2021_episode_780.zip
+Saving model at episode 840, seed 2021
+saving at:  /cs/home/vap2/Documents/diss/PPO-ES_GECCO24/output_data/results/final_60_model_default/episodes_trained/model_seed_2021_episode_840.zip
+------------------------------------------
+| rollout/                |              |
+|    ep_len_mean          | 40           |
+|    ep_rew_mean          | 2.17         |
+| time/                   |              |
+|    fps                  | 1233         |
+|    iterations           | 7            |
+|    time_elapsed         | 27           |
+|    total_timesteps      | 33600        |
+| train/                  |              |
+|    approx_kl            | 0.0035560206 |
+|    clip_fraction        | 0.0341       |
+|    clip_range           | 0.2          |
+|    entropy_loss         | -1.33        |
+|    explained_variance   | -0.00914     |
+|    learning_rate        | 0.0003       |
+|    loss                 | 0.336        |
+|    n_updates            | 60           |
+|    policy_gradient_loss | -0.00238     |
+|    std                  | 0.914        |
+|    value_loss           | 0.448        |
+------------------------------------------
+Saving model at episode 900, seed 2021
+saving at:  /cs/home/vap2/Documents/diss/PPO-ES_GECCO24/output_data/results/final_60_model_default/episodes_trained/model_seed_2021_episode_900.zip
+Saving model at episode 960, seed 2021
+saving at:  /cs/home/vap2/Documents/diss/PPO-ES_GECCO24/output_data/results/final_60_model_default/episodes_trained/model_seed_2021_episode_960.zip
+-----------------------------------------
+| rollout/                |             |
+|    ep_len_mean          | 40          |
+|    ep_rew_mean          | 2.54        |
+| time/                   |             |
+|    fps                  | 1215        |
+|    iterations           | 8           |
+|    time_elapsed         | 31          |
+|    total_timesteps      | 38400       |
+| train/                  |             |
+|    approx_kl            | 0.004805621 |
+|    clip_fraction        | 0.0476      |
+|    clip_range           | 0.2         |
+|    entropy_loss         | -1.31       |
+|    explained_variance   | 0.0207      |
+|    learning_rate        | 0.0003      |
+|    loss                 | 0.269       |
+|    n_updates            | 70          |
+|    policy_gradient_loss | -0.0036     |
+|    std                  | 0.884       |
+|    value_loss           | 0.504       |
+-----------------------------------------
+Saving model at episode 1020, seed 2021
+saving at:  /cs/home/vap2/Documents/diss/PPO-ES_GECCO24/output_data/results/final_60_model_default/episodes_trained/model_seed_2021_episode_1020.zip
+Saving model at episode 1080, seed 2021
+saving at:  /cs/home/vap2/Documents/diss/PPO-ES_GECCO24/output_data/results/final_60_model_default/episodes_trained/model_seed_2021_episode_1080.zip
+-----------------------------------------
+| rollout/                |             |
+|    ep_len_mean          | 40          |
+|    ep_rew_mean          | 2.7         |
+| time/                   |             |
+|    fps                  | 1226        |
+|    iterations           | 9           |
+|    time_elapsed         | 35          |
+|    total_timesteps      | 43200       |
+| train/                  |             |
+|    approx_kl            | 0.003962655 |
+|    clip_fraction        | 0.0276      |
+|    clip_range           | 0.2         |
+|    entropy_loss         | -1.28       |
+|    explained_variance   | 0.0395      |
+|    learning_rate        | 0.0003      |
+|    loss                 | 0.285       |
+|    n_updates            | 80          |
+|    policy_gradient_loss | -0.00183    |
+|    std                  | 0.856       |
+|    value_loss           | 0.597       |
+-----------------------------------------
+Saving model at episode 1140, seed 2021
+saving at:  /cs/home/vap2/Documents/diss/PPO-ES_GECCO24/output_data/results/final_60_model_default/episodes_trained/model_seed_2021_episode_1140.zip
+Saving model at episode 1200, seed 2021
+saving at:  /cs/home/vap2/Documents/diss/PPO-ES_GECCO24/output_data/results/final_60_model_default/episodes_trained/model_seed_2021_episode_1200.zip
+------------------------------------------
+| rollout/                |              |
+|    ep_len_mean          | 40           |
+|    ep_rew_mean          | 2.71         |
+| time/                   |              |
+|    fps                  | 1180         |
+|    iterations           | 10           |
+|    time_elapsed         | 40           |
+|    total_timesteps      | 48000        |
+| train/                  |              |
+|    approx_kl            | 0.0015880549 |
+|    clip_fraction        | 0.0162       |
+|    clip_range           | 0.2          |
+|    entropy_loss         | -1.27        |
+|    explained_variance   | 0.0501       |
+|    learning_rate        | 0.0003       |
+|    loss                 | 0.364        |
+|    n_updates            | 90           |
+|    policy_gradient_loss | -0.000586    |
+|    std                  | 0.86         |
+|    value_loss           | 0.709        |
+------------------------------------------
+creating episodes_tested_dir
+/cs/home/vap2/Documents/diss/PPO-ES_GECCO24/output_data/results/final_60_model_default/episodes_tested/DIM_40
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=606786, Thu Feb 19 11:35:19 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=571598, Thu Feb 19 11:35:20 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=506940, Thu Feb 19 11:35:20 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=556800, Thu Feb 19 11:35:20 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=580688, Thu Feb 19 11:35:20 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=525449, Thu Feb 19 11:35:20 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=597452, Thu Feb 19 11:35:20 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=542260, Thu Feb 19 11:35:20 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=600100, Thu Feb 19 11:35:20 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=564529, Thu Feb 19 11:35:20 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=565865, Thu Feb 19 11:35:20 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=597444, Thu Feb 19 11:35:20 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=559420, Thu Feb 19 11:35:20 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=637576, Thu Feb 19 11:35:20 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=625151, Thu Feb 19 11:35:20 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=556810, Thu Feb 19 11:35:20 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=652394, Thu Feb 19 11:35:20 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=629034, Thu Feb 19 11:35:20 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=607144, Thu Feb 19 11:35:20 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=580225, Thu Feb 19 11:35:20 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=609205, Thu Feb 19 11:35:20 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=620721, Thu Feb 19 11:35:20 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=610642, Thu Feb 19 11:35:20 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=628470, Thu Feb 19 11:35:20 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=634023, Thu Feb 19 11:35:20 2026)
+problem_index:  1 episodes_testted_dir:  /cs/home/vap2/Documents/diss/PPO-ES_GECCO24/output_data/results/final_60_model_default/episodes_tested/DIM_40 baselines_dir:  /cs/home/vap2/Documents/diss/PPO-ES_GECCO24/output_data/results/final_60_model_default/baselines/DIM_40 plot dir:  /cs/home/vap2/Documents/diss/PPO-ES_GECCO24/output_data/results/final_60_model_default/plots/DIM_40/instance_1 instances:  1
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=651840, Thu Feb 19 11:37:12 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=650112, Thu Feb 19 11:37:12 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=579024, Thu Feb 19 11:37:12 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=641043, Thu Feb 19 11:37:12 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=611133, Thu Feb 19 11:37:12 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=620486, Thu Feb 19 11:37:12 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=646845, Thu Feb 19 11:37:12 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=643033, Thu Feb 19 11:37:12 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=615835, Thu Feb 19 11:37:12 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=602444, Thu Feb 19 11:37:12 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=638445, Thu Feb 19 11:37:12 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=679487, Thu Feb 19 11:37:12 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=607591, Thu Feb 19 11:37:12 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=591475, Thu Feb 19 11:37:13 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=538269, Thu Feb 19 11:37:13 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=603252, Thu Feb 19 11:37:13 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=605185, Thu Feb 19 11:37:13 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=602921, Thu Feb 19 11:37:13 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=597461, Thu Feb 19 11:37:13 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=543296, Thu Feb 19 11:37:13 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=628140, Thu Feb 19 11:37:13 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=598882, Thu Feb 19 11:37:13 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=542113, Thu Feb 19 11:37:13 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=585344, Thu Feb 19 11:37:13 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=574487, Thu Feb 19 11:37:13 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=676052, Thu Feb 19 11:39:09 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=634501, Thu Feb 19 11:39:09 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=636279, Thu Feb 19 11:39:09 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=655294, Thu Feb 19 11:39:09 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=659191, Thu Feb 19 11:39:09 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=633445, Thu Feb 19 11:39:09 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=532484, Thu Feb 19 11:39:10 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=536679, Thu Feb 19 11:39:10 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=573059, Thu Feb 19 11:39:10 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=545786, Thu Feb 19 11:39:10 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=562740, Thu Feb 19 11:39:10 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=597323, Thu Feb 19 11:39:10 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=624542, Thu Feb 19 11:39:10 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=598454, Thu Feb 19 11:39:10 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=616679, Thu Feb 19 11:39:10 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=593098, Thu Feb 19 11:39:10 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=618540, Thu Feb 19 11:39:10 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=564229, Thu Feb 19 11:39:10 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=585642, Thu Feb 19 11:39:10 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=561585, Thu Feb 19 11:39:10 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=619242, Thu Feb 19 11:39:10 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=646151, Thu Feb 19 11:39:10 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=600377, Thu Feb 19 11:39:10 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=629559, Thu Feb 19 11:39:10 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=578184, Thu Feb 19 11:39:10 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=550038, Thu Feb 19 11:41:05 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=604656, Thu Feb 19 11:41:05 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=568920, Thu Feb 19 11:41:05 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=557585, Thu Feb 19 11:41:05 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=542426, Thu Feb 19 11:41:05 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=532028, Thu Feb 19 11:41:05 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=591634, Thu Feb 19 11:41:05 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=603945, Thu Feb 19 11:41:05 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=538078, Thu Feb 19 11:41:05 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=574305, Thu Feb 19 11:41:05 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=628154, Thu Feb 19 11:41:05 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=601096, Thu Feb 19 11:41:05 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=601691, Thu Feb 19 11:41:05 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=632474, Thu Feb 19 11:41:05 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=606287, Thu Feb 19 11:41:05 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=592784, Thu Feb 19 11:41:05 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=616021, Thu Feb 19 11:41:05 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=607113, Thu Feb 19 11:41:05 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=597752, Thu Feb 19 11:41:05 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=667503, Thu Feb 19 11:41:05 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=602966, Thu Feb 19 11:41:05 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=615006, Thu Feb 19 11:41:05 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=643521, Thu Feb 19 11:41:05 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=691757, Thu Feb 19 11:41:05 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=659586, Thu Feb 19 11:41:05 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=632234, Thu Feb 19 11:43:03 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=644960, Thu Feb 19 11:43:03 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=596808, Thu Feb 19 11:43:03 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=671391, Thu Feb 19 11:43:03 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=617917, Thu Feb 19 11:43:03 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=654529, Thu Feb 19 11:43:03 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=573327, Thu Feb 19 11:43:04 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=547499, Thu Feb 19 11:43:04 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=516185, Thu Feb 19 11:43:04 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=530718, Thu Feb 19 11:43:04 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=566439, Thu Feb 19 11:43:04 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=527966, Thu Feb 19 11:43:04 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=532172, Thu Feb 19 11:43:04 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=543206, Thu Feb 19 11:43:04 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=622481, Thu Feb 19 11:43:04 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=553022, Thu Feb 19 11:43:04 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=590885, Thu Feb 19 11:43:04 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=603844, Thu Feb 19 11:43:04 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=554108, Thu Feb 19 11:43:04 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=591498, Thu Feb 19 11:43:04 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=621806, Thu Feb 19 11:43:04 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=593012, Thu Feb 19 11:43:04 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=640119, Thu Feb 19 11:43:04 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=611318, Thu Feb 19 11:43:04 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=648480, Thu Feb 19 11:43:04 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=620802, Thu Feb 19 11:44:59 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=576692, Thu Feb 19 11:44:59 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=655631, Thu Feb 19 11:44:59 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=654721, Thu Feb 19 11:44:59 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=630514, Thu Feb 19 11:44:59 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=607884, Thu Feb 19 11:44:59 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=653930, Thu Feb 19 11:44:59 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=610008, Thu Feb 19 11:44:59 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=682062, Thu Feb 19 11:44:59 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=646854, Thu Feb 19 11:44:59 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=663186, Thu Feb 19 11:44:59 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=555193, Thu Feb 19 11:45:00 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=568271, Thu Feb 19 11:45:00 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=599837, Thu Feb 19 11:45:00 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=531833, Thu Feb 19 11:45:00 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=558708, Thu Feb 19 11:45:00 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=614405, Thu Feb 19 11:45:00 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=570423, Thu Feb 19 11:45:00 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=598456, Thu Feb 19 11:45:00 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=543844, Thu Feb 19 11:45:00 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=566833, Thu Feb 19 11:45:00 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=565121, Thu Feb 19 11:45:00 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=547715, Thu Feb 19 11:45:00 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=601427, Thu Feb 19 11:45:00 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=638400, Thu Feb 19 11:45:00 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=675450, Thu Feb 19 11:46:53 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=580693, Thu Feb 19 11:46:53 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=591977, Thu Feb 19 11:46:54 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=532910, Thu Feb 19 11:46:54 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=521063, Thu Feb 19 11:46:54 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=590318, Thu Feb 19 11:46:54 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=558353, Thu Feb 19 11:46:54 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=623665, Thu Feb 19 11:46:54 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=599597, Thu Feb 19 11:46:54 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=596038, Thu Feb 19 11:46:54 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=624053, Thu Feb 19 11:46:54 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=553470, Thu Feb 19 11:46:54 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=621938, Thu Feb 19 11:46:54 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=559617, Thu Feb 19 11:46:54 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=636692, Thu Feb 19 11:46:54 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=596469, Thu Feb 19 11:46:54 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=637880, Thu Feb 19 11:46:54 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=661028, Thu Feb 19 11:46:54 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=579414, Thu Feb 19 11:46:54 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=651782, Thu Feb 19 11:46:54 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=603670, Thu Feb 19 11:46:54 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=599047, Thu Feb 19 11:46:54 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=602383, Thu Feb 19 11:46:54 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=610520, Thu Feb 19 11:46:54 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=648290, Thu Feb 19 11:46:54 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=597656, Thu Feb 19 11:48:54 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=589178, Thu Feb 19 11:48:54 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=568178, Thu Feb 19 11:48:54 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=616950, Thu Feb 19 11:48:54 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=575194, Thu Feb 19 11:48:54 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=607388, Thu Feb 19 11:48:54 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=586317, Thu Feb 19 11:48:54 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=596100, Thu Feb 19 11:48:54 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=631128, Thu Feb 19 11:48:54 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=642087, Thu Feb 19 11:48:54 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=630764, Thu Feb 19 11:48:54 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=651038, Thu Feb 19 11:48:54 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=613157, Thu Feb 19 11:48:54 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=612877, Thu Feb 19 11:48:54 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=601582, Thu Feb 19 11:48:54 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=602379, Thu Feb 19 11:48:54 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=581916, Thu Feb 19 11:48:54 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=585495, Thu Feb 19 11:48:54 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=593157, Thu Feb 19 11:48:54 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=617410, Thu Feb 19 11:48:54 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=596368, Thu Feb 19 11:48:54 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=688563, Thu Feb 19 11:48:54 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=631422, Thu Feb 19 11:48:54 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=632334, Thu Feb 19 11:48:54 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=567433, Thu Feb 19 11:48:55 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=673294, Thu Feb 19 11:50:48 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=617645, Thu Feb 19 11:50:48 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=696055, Thu Feb 19 11:50:48 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=554935, Thu Feb 19 11:50:49 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=536158, Thu Feb 19 11:50:49 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=546574, Thu Feb 19 11:50:49 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=521244, Thu Feb 19 11:50:49 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=607433, Thu Feb 19 11:50:49 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=599983, Thu Feb 19 11:50:49 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=585351, Thu Feb 19 11:50:49 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=578169, Thu Feb 19 11:50:49 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=559650, Thu Feb 19 11:50:49 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=550201, Thu Feb 19 11:50:49 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=634033, Thu Feb 19 11:50:49 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=576849, Thu Feb 19 11:50:49 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=606449, Thu Feb 19 11:50:49 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=619154, Thu Feb 19 11:50:49 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=621194, Thu Feb 19 11:50:49 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=626461, Thu Feb 19 11:50:49 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=560840, Thu Feb 19 11:50:49 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=603826, Thu Feb 19 11:50:49 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=570804, Thu Feb 19 11:50:49 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=624792, Thu Feb 19 11:50:49 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=662594, Thu Feb 19 11:50:49 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=660072, Thu Feb 19 11:50:49 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=627758, Thu Feb 19 11:52:43 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=624507, Thu Feb 19 11:52:43 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=594619, Thu Feb 19 11:52:43 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=649638, Thu Feb 19 11:52:43 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=675642, Thu Feb 19 11:52:43 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=519276, Thu Feb 19 11:52:44 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=589379, Thu Feb 19 11:52:44 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=563619, Thu Feb 19 11:52:44 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=604929, Thu Feb 19 11:52:44 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=523172, Thu Feb 19 11:52:44 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=567048, Thu Feb 19 11:52:44 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=620975, Thu Feb 19 11:52:44 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=620543, Thu Feb 19 11:52:44 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=579923, Thu Feb 19 11:52:44 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=552108, Thu Feb 19 11:52:44 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=620120, Thu Feb 19 11:52:44 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=573741, Thu Feb 19 11:52:44 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=629436, Thu Feb 19 11:52:44 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=609992, Thu Feb 19 11:52:44 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=630953, Thu Feb 19 11:52:44 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=614644, Thu Feb 19 11:52:44 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=587648, Thu Feb 19 11:52:44 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=581265, Thu Feb 19 11:52:44 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=648964, Thu Feb 19 11:52:44 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=595847, Thu Feb 19 11:52:44 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=560024, Thu Feb 19 11:54:38 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=549470, Thu Feb 19 11:54:38 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=566255, Thu Feb 19 11:54:38 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=636887, Thu Feb 19 11:54:38 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=561987, Thu Feb 19 11:54:38 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=608042, Thu Feb 19 11:54:38 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=650669, Thu Feb 19 11:54:38 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=630318, Thu Feb 19 11:54:38 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=610273, Thu Feb 19 11:54:38 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=593727, Thu Feb 19 11:54:38 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=646489, Thu Feb 19 11:54:38 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=655530, Thu Feb 19 11:54:38 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=615077, Thu Feb 19 11:54:38 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=689515, Thu Feb 19 11:54:38 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=689679, Thu Feb 19 11:54:38 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=692826, Thu Feb 19 11:54:38 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=545848, Thu Feb 19 11:54:39 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=532849, Thu Feb 19 11:54:39 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=606902, Thu Feb 19 11:54:39 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=598591, Thu Feb 19 11:54:39 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=613264, Thu Feb 19 11:54:39 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=562721, Thu Feb 19 11:54:39 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=618227, Thu Feb 19 11:54:39 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=532263, Thu Feb 19 11:54:39 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=616948, Thu Feb 19 11:54:39 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=649487, Thu Feb 19 11:56:28 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=608863, Thu Feb 19 11:56:28 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=668678, Thu Feb 19 11:56:28 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=600350, Thu Feb 19 11:56:28 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=644387, Thu Feb 19 11:56:28 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=652741, Thu Feb 19 11:56:28 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=653009, Thu Feb 19 11:56:28 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=669640, Thu Feb 19 11:56:28 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=687902, Thu Feb 19 11:56:28 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=548195, Thu Feb 19 11:56:29 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=557576, Thu Feb 19 11:56:29 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=513639, Thu Feb 19 11:56:29 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=521590, Thu Feb 19 11:56:29 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=586484, Thu Feb 19 11:56:29 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=568785, Thu Feb 19 11:56:29 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=564273, Thu Feb 19 11:56:29 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=569789, Thu Feb 19 11:56:29 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=607538, Thu Feb 19 11:56:29 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=590408, Thu Feb 19 11:56:29 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=583994, Thu Feb 19 11:56:29 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=573265, Thu Feb 19 11:56:29 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=571591, Thu Feb 19 11:56:29 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=637433, Thu Feb 19 11:56:29 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=627211, Thu Feb 19 11:56:29 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=561562, Thu Feb 19 11:56:29 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=625752, Thu Feb 19 11:58:25 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=602783, Thu Feb 19 11:58:25 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=603756, Thu Feb 19 11:58:25 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=631476, Thu Feb 19 11:58:25 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=591256, Thu Feb 19 11:58:25 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=578463, Thu Feb 19 11:58:25 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=581200, Thu Feb 19 11:58:25 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=663136, Thu Feb 19 11:58:25 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=610931, Thu Feb 19 11:58:25 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=614415, Thu Feb 19 11:58:25 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=611327, Thu Feb 19 11:58:25 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=609370, Thu Feb 19 11:58:25 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=671703, Thu Feb 19 11:58:25 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=664221, Thu Feb 19 11:58:25 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=681127, Thu Feb 19 11:58:25 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=669341, Thu Feb 19 11:58:25 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=675543, Thu Feb 19 11:58:25 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=527447, Thu Feb 19 11:58:26 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=575620, Thu Feb 19 11:58:26 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=529326, Thu Feb 19 11:58:26 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=529558, Thu Feb 19 11:58:26 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=570967, Thu Feb 19 11:58:26 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=562246, Thu Feb 19 11:58:26 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=534429, Thu Feb 19 11:58:26 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=617388, Thu Feb 19 11:58:26 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=573762, Thu Feb 19 12:00:22 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=624424, Thu Feb 19 12:00:22 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=610399, Thu Feb 19 12:00:22 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=633934, Thu Feb 19 12:00:22 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=547646, Thu Feb 19 12:00:22 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=617435, Thu Feb 19 12:00:22 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=630431, Thu Feb 19 12:00:22 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=635933, Thu Feb 19 12:00:22 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=601379, Thu Feb 19 12:00:22 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=574427, Thu Feb 19 12:00:22 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=631484, Thu Feb 19 12:00:22 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=570344, Thu Feb 19 12:00:22 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=597763, Thu Feb 19 12:00:22 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=642692, Thu Feb 19 12:00:22 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=599738, Thu Feb 19 12:00:22 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=644909, Thu Feb 19 12:00:22 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=646451, Thu Feb 19 12:00:22 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=616652, Thu Feb 19 12:00:22 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=650303, Thu Feb 19 12:00:22 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=600043, Thu Feb 19 12:00:22 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=626478, Thu Feb 19 12:00:22 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=657888, Thu Feb 19 12:00:22 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=677131, Thu Feb 19 12:00:22 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=537133, Thu Feb 19 12:00:23 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=574586, Thu Feb 19 12:00:23 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=651661, Thu Feb 19 12:02:13 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=609836, Thu Feb 19 12:02:13 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=655432, Thu Feb 19 12:02:13 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=641731, Thu Feb 19 12:02:13 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=621144, Thu Feb 19 12:02:13 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=654755, Thu Feb 19 12:02:13 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=642967, Thu Feb 19 12:02:13 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=587120, Thu Feb 19 12:02:14 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=522030, Thu Feb 19 12:02:14 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=525934, Thu Feb 19 12:02:14 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=528742, Thu Feb 19 12:02:14 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=602868, Thu Feb 19 12:02:14 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=576208, Thu Feb 19 12:02:14 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=627232, Thu Feb 19 12:02:14 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=588265, Thu Feb 19 12:02:14 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=551990, Thu Feb 19 12:02:14 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=565389, Thu Feb 19 12:02:14 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=600151, Thu Feb 19 12:02:14 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=564527, Thu Feb 19 12:02:14 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=604248, Thu Feb 19 12:02:14 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=572667, Thu Feb 19 12:02:14 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=660774, Thu Feb 19 12:02:14 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=610111, Thu Feb 19 12:02:14 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=622798, Thu Feb 19 12:02:14 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=603339, Thu Feb 19 12:02:14 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=594688, Thu Feb 19 12:04:05 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=559940, Thu Feb 19 12:04:05 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=557980, Thu Feb 19 12:04:05 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=644351, Thu Feb 19 12:04:05 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=579041, Thu Feb 19 12:04:05 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=658158, Thu Feb 19 12:04:05 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=617326, Thu Feb 19 12:04:05 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=632458, Thu Feb 19 12:04:05 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=641220, Thu Feb 19 12:04:05 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=589702, Thu Feb 19 12:04:05 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=627277, Thu Feb 19 12:04:05 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=638262, Thu Feb 19 12:04:05 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=684724, Thu Feb 19 12:04:05 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=605287, Thu Feb 19 12:04:06 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=513806, Thu Feb 19 12:04:06 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=564758, Thu Feb 19 12:04:06 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=531142, Thu Feb 19 12:04:06 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=623754, Thu Feb 19 12:04:06 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=582146, Thu Feb 19 12:04:06 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=556190, Thu Feb 19 12:04:06 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=576960, Thu Feb 19 12:04:06 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=547393, Thu Feb 19 12:04:06 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=633937, Thu Feb 19 12:04:06 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=603819, Thu Feb 19 12:04:06 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=640796, Thu Feb 19 12:04:06 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=573075, Thu Feb 19 12:06:01 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=541323, Thu Feb 19 12:06:01 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=535615, Thu Feb 19 12:06:01 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=546765, Thu Feb 19 12:06:01 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=618263, Thu Feb 19 12:06:01 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=610426, Thu Feb 19 12:06:01 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=565867, Thu Feb 19 12:06:01 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=570937, Thu Feb 19 12:06:01 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=607623, Thu Feb 19 12:06:01 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=606966, Thu Feb 19 12:06:01 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=556938, Thu Feb 19 12:06:01 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=628947, Thu Feb 19 12:06:01 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=625855, Thu Feb 19 12:06:01 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=659580, Thu Feb 19 12:06:01 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=615747, Thu Feb 19 12:06:01 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=608064, Thu Feb 19 12:06:01 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=655906, Thu Feb 19 12:06:01 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=661427, Thu Feb 19 12:06:01 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=586357, Thu Feb 19 12:06:01 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=676327, Thu Feb 19 12:06:01 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=613961, Thu Feb 19 12:06:01 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=691848, Thu Feb 19 12:06:01 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=666570, Thu Feb 19 12:06:01 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=653419, Thu Feb 19 12:06:01 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=569164, Thu Feb 19 12:06:02 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=588991, Thu Feb 19 12:07:53 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=563696, Thu Feb 19 12:07:53 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=604092, Thu Feb 19 12:07:53 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=556761, Thu Feb 19 12:07:53 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=623040, Thu Feb 19 12:07:53 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=610476, Thu Feb 19 12:07:53 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=606828, Thu Feb 19 12:07:53 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=572110, Thu Feb 19 12:07:53 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=599644, Thu Feb 19 12:07:53 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=597817, Thu Feb 19 12:07:53 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=652299, Thu Feb 19 12:07:53 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=596817, Thu Feb 19 12:07:53 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=661422, Thu Feb 19 12:07:53 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=598682, Thu Feb 19 12:07:53 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=653195, Thu Feb 19 12:07:53 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=608463, Thu Feb 19 12:07:53 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=667428, Thu Feb 19 12:07:53 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=635095, Thu Feb 19 12:07:53 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=605869, Thu Feb 19 12:07:53 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=669528, Thu Feb 19 12:07:53 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=620930, Thu Feb 19 12:07:53 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=674945, Thu Feb 19 12:07:53 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=585366, Thu Feb 19 12:07:54 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=550898, Thu Feb 19 12:07:54 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=552117, Thu Feb 19 12:07:54 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=647110, Thu Feb 19 12:09:48 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=649630, Thu Feb 19 12:09:48 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=569049, Thu Feb 19 12:09:49 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=580254, Thu Feb 19 12:09:49 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=516213, Thu Feb 19 12:09:49 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=567416, Thu Feb 19 12:09:49 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=566291, Thu Feb 19 12:09:49 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=595341, Thu Feb 19 12:09:49 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=606266, Thu Feb 19 12:09:49 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=549497, Thu Feb 19 12:09:49 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=566158, Thu Feb 19 12:09:49 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=603085, Thu Feb 19 12:09:49 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=623658, Thu Feb 19 12:09:49 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=606828, Thu Feb 19 12:09:49 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=609398, Thu Feb 19 12:09:49 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=574137, Thu Feb 19 12:09:49 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=654095, Thu Feb 19 12:09:49 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=659377, Thu Feb 19 12:09:49 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=613718, Thu Feb 19 12:09:49 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=668773, Thu Feb 19 12:09:49 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=633641, Thu Feb 19 12:09:49 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=626085, Thu Feb 19 12:09:49 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=675659, Thu Feb 19 12:09:49 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=678271, Thu Feb 19 12:09:49 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=632084, Thu Feb 19 12:09:49 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=554617, Thu Feb 19 12:11:46 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=609476, Thu Feb 19 12:11:46 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=589005, Thu Feb 19 12:11:46 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=618083, Thu Feb 19 12:11:46 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=624550, Thu Feb 19 12:11:46 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=570090, Thu Feb 19 12:11:46 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=617943, Thu Feb 19 12:11:46 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=627335, Thu Feb 19 12:11:46 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=577551, Thu Feb 19 12:11:46 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=626347, Thu Feb 19 12:11:46 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=618312, Thu Feb 19 12:11:46 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=579878, Thu Feb 19 12:11:46 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=607674, Thu Feb 19 12:11:46 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=615419, Thu Feb 19 12:11:46 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=658069, Thu Feb 19 12:11:46 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=644094, Thu Feb 19 12:11:46 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=648603, Thu Feb 19 12:11:46 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=608200, Thu Feb 19 12:11:46 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=629948, Thu Feb 19 12:11:46 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=674353, Thu Feb 19 12:11:46 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=641325, Thu Feb 19 12:11:46 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=625943, Thu Feb 19 12:11:46 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=672410, Thu Feb 19 12:11:46 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=634274, Thu Feb 19 12:11:46 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=546804, Thu Feb 19 12:11:47 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=605619, Thu Feb 19 12:13:39 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=553708, Thu Feb 19 12:13:39 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=583288, Thu Feb 19 12:13:39 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=583493, Thu Feb 19 12:13:39 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=603014, Thu Feb 19 12:13:39 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=602487, Thu Feb 19 12:13:39 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=553177, Thu Feb 19 12:13:39 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=633964, Thu Feb 19 12:13:39 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=596601, Thu Feb 19 12:13:39 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=579039, Thu Feb 19 12:13:39 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=567966, Thu Feb 19 12:13:39 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=660931, Thu Feb 19 12:13:39 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=646486, Thu Feb 19 12:13:39 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=642246, Thu Feb 19 12:13:39 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=673833, Thu Feb 19 12:13:39 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=587783, Thu Feb 19 12:13:39 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=667128, Thu Feb 19 12:13:39 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=611153, Thu Feb 19 12:13:39 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=626179, Thu Feb 19 12:13:39 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=609163, Thu Feb 19 12:13:39 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=587265, Thu Feb 19 12:13:40 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=592975, Thu Feb 19 12:13:40 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=533996, Thu Feb 19 12:13:40 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=602783, Thu Feb 19 12:13:40 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=584238, Thu Feb 19 12:13:40 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=698642, Thu Feb 19 12:15:34 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=643231, Thu Feb 19 12:15:34 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=522755, Thu Feb 19 12:15:35 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=568326, Thu Feb 19 12:15:35 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=549538, Thu Feb 19 12:15:35 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=598205, Thu Feb 19 12:15:35 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=611405, Thu Feb 19 12:15:35 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=594883, Thu Feb 19 12:15:35 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=582846, Thu Feb 19 12:15:35 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=577587, Thu Feb 19 12:15:35 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=549859, Thu Feb 19 12:15:35 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=563134, Thu Feb 19 12:15:35 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=611656, Thu Feb 19 12:15:35 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=555611, Thu Feb 19 12:15:35 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=622394, Thu Feb 19 12:15:35 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=606750, Thu Feb 19 12:15:35 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=658512, Thu Feb 19 12:15:35 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=638603, Thu Feb 19 12:15:35 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=582569, Thu Feb 19 12:15:35 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=635890, Thu Feb 19 12:15:35 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=603480, Thu Feb 19 12:15:35 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=591834, Thu Feb 19 12:15:35 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=639160, Thu Feb 19 12:15:35 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=655756, Thu Feb 19 12:15:35 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=597303, Thu Feb 19 12:15:35 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=665622, Thu Feb 19 12:17:29 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=584941, Thu Feb 19 12:17:29 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=632845, Thu Feb 19 12:17:29 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=628395, Thu Feb 19 12:17:29 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=596169, Thu Feb 19 12:17:29 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=650716, Thu Feb 19 12:17:29 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=567515, Thu Feb 19 12:17:30 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=604362, Thu Feb 19 12:17:30 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=536145, Thu Feb 19 12:17:30 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=541817, Thu Feb 19 12:17:30 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=616648, Thu Feb 19 12:17:30 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=550795, Thu Feb 19 12:17:30 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=558972, Thu Feb 19 12:17:30 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=608725, Thu Feb 19 12:17:30 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=583195, Thu Feb 19 12:17:30 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=609074, Thu Feb 19 12:17:30 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=637693, Thu Feb 19 12:17:30 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=620595, Thu Feb 19 12:17:30 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=656236, Thu Feb 19 12:17:30 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=627914, Thu Feb 19 12:17:30 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=619984, Thu Feb 19 12:17:30 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=627312, Thu Feb 19 12:17:30 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=679161, Thu Feb 19 12:17:30 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=685603, Thu Feb 19 12:17:30 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=573438, Thu Feb 19 12:17:31 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=592928, Thu Feb 19 12:19:28 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=567930, Thu Feb 19 12:19:28 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=632441, Thu Feb 19 12:19:28 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=575700, Thu Feb 19 12:19:28 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=592297, Thu Feb 19 12:19:28 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=621169, Thu Feb 19 12:19:28 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=616653, Thu Feb 19 12:19:28 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=636379, Thu Feb 19 12:19:28 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=614463, Thu Feb 19 12:19:28 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=679793, Thu Feb 19 12:19:28 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=605943, Thu Feb 19 12:19:28 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=634237, Thu Feb 19 12:19:28 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=687480, Thu Feb 19 12:19:28 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=579890, Thu Feb 19 12:19:29 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=587359, Thu Feb 19 12:19:29 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=550580, Thu Feb 19 12:19:29 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=533466, Thu Feb 19 12:19:29 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=607467, Thu Feb 19 12:19:29 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=598668, Thu Feb 19 12:19:29 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=603571, Thu Feb 19 12:19:29 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=540456, Thu Feb 19 12:19:29 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=570869, Thu Feb 19 12:19:29 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=615645, Thu Feb 19 12:19:29 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=600321, Thu Feb 19 12:19:29 2026)
+(12_w,25)-aCMA-ES (mu_w=7.3,w_1=23%) in dimension 40 (seed=637355, Thu Feb 19 12:19:29 2026)
