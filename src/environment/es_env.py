@@ -25,6 +25,7 @@ class ES_Env(gym.Env):
 
                  use_space=1, # use space by default
                  num_training_instances=12, # use first 12 instances for training by default
+                 debug_logger=None,
                  ):
         super(ES_Env, self).__init__() # inheriting the constructor 
         self.seed(seed)  # Set the seed using the inherited method
@@ -39,6 +40,7 @@ class ES_Env(gym.Env):
 
         # Initialize and set basic default value to curriculum
         self.curriculum = [problem_index]
+        self.debug_logger = debug_logger
 
         self.curriculum_size = 1
         self.curriculum_index = 0
@@ -83,7 +85,7 @@ class ES_Env(gym.Env):
         self.curriculum_index = curriculum_index
         self.problem = self.suite.get_problem(self.curriculum[curriculum_index-1]) # for the correct indesxing
         self.space_logger.info("Just set problem to: %d in (set_curriculum_index)", self.curriculum[curriculum_index-1])
-        self.space_logger.info("Which corresponds to: %s", self.problem)
+        self.space_logger.info("        Which corresponds to: %s", self.problem)
 
 
     def reset_curriculum_index(self):
@@ -236,6 +238,12 @@ class ES_Env(gym.Env):
 
 
         elif self.mode == 'testing':
+
+            
+            self.debug_logger.debug(f"Executing test step inside es_env on problem index: %d ", self.problem_index)
+
+
+        
             terminated = self.countevals >= self.fes_max + POP_SIZE * 2
         truncated = False
 
@@ -244,9 +252,12 @@ class ES_Env(gym.Env):
 
 # the env in space returns obs[observation]
 
-    # reset for PPO-ES
-    # have reset back to original 
+    # original reset for PPO-ES
     # def reset(self, **kwargs):
+
+    #     # we are creating anew environment just for resteing
+    #     # we call reset every time when we do the instance evaluations. 
+    #     # or we call it before each experiment, for the NUM_RUNs, which is currently 25 in hte config 
     #     self.es = ES(self.dim, SIGMA_0, POP_SIZE)
     #     self.fitness_values = None
     #     self.current_best_fitness = None
@@ -254,6 +265,9 @@ class ES_Env(gym.Env):
     #     self.countevals = 0
     #     self.cumulative_reward = 0
     #     self.improvement_ratios = []
+    #     # are there any other curriculum values I need to add
+    #     # I don't really think so, out of hte new params I added all seem fine
+    #     # Even stuff about the problem or fitness_values, like dim fes_max etc don't really bmatter
 
     #     ## Data Handling, evaluating the very first solution manually
     #     first_solution = self.es.xmean.copy()       # this is the "center" at generation 0
@@ -261,48 +275,98 @@ class ES_Env(gym.Env):
     #     first_value = self.problem(first_solution)
     #     return np.zeros(STATE_SIZE), first_value
 
-# trying new reset function 
+# only trying with the improvement ratio and the sigma
     def reset(self, **kwargs):
+
+        # we are creating anew environment just for resteing
+        # we call reset every time when we do the instance evaluations. 
+        # or we call it before each experiment, for the NUM_RUNs, which is currently 25 in hte config 
         self.es = ES(self.dim, SIGMA_0, POP_SIZE)
+        self.fitness_values = None
+        self.current_best_fitness = None
+        self.previous_best_fitness = None
         self.countevals = 0
         self.cumulative_reward = 0
         self.improvement_ratios = []
-        self.previous_best_fitness = None
-        self.current_best_fitness = None
+        # are there any other curriculum values I need to add
+        # I don't really think so, out of hte new params I added all seem fine
+        # Even stuff about the problem or fitness_values, like dim fes_max etc don't really bmatter
 
-        prev_problem = self.problem
+        ## Data Handling, evaluating the very first solution manually
+        first_solution = self.es.xmean.copy()       # this is the "center" at generation 0
+        
+        # the xmean is the object used for the solutions
+        first_value = self.problem(first_solution)
+        state = np.zeros(STATE_SIZE)
+        state[0] = self.norm_input()
+        # state[1] = self.get_reward()
+        # Printing confirmed its just all zeros
+        self.space_logger.info(f"First solution: ", first_solution)
+        return state, first_value
 
-        # Sets it to be the current first problem in the curriculum
-        self.problem = self.suite.get_problem(self.curriculum[0])
+        # new one
+#     def reset(self, **kwargs):
+#         # re-instantiate ES and zero internal trackers
+#         self.es = ES(self.dim, SIGMA_0, POP_SIZE)
+#         self.fitness_values = None
+#         self.current_best_fitness = None
+#         self.previous_best_fitness = None
+#         self.countevals = 0
+#         self.cumulative_reward = 0
+#         self.improvement_ratios = []
 
-        # Same as prev reset()
-        first_solution = self.es.xmean.copy() # iss the 'center' of the ES distribution at generation 0
-        first_value = float(self.problem(first_solution))
-
-        # Creates an observation vector of fixed size
-        obs = np.zeros(STATE_SIZE, dtype=np.float32)
-        # The current normalized step size
-        obs[0] = self.norm_input()                   #sigma 
-        # obs[0] = first_value
-
-        # Problem Difficulty Signal
-        # obs[1] = np.tanh(first_value / 100.0)        # trying with some normalizing 
-        obs[1] = first_value
-
-        self.problem = prev_problem
-
-        return obs, first_value
-
-
-
-
-
-
-
-
+#         # evaluate the center (xmean) once to expose an initial achieved_goal value
+#         # The solution is initialy set to just be all 0s for a new ES 
+#         first_solution = self.es.xmean.copy()
+#         first_value = self.problem(first_solution)   # fitness from plugging in the solution
 
 
+#         norm_sigma = float(self.norm_input())   # normalise the current ES steps size into a stable bounded scalar 
+#         success_ratio = 0.0                     # setting back to default
+
+#         # build a state vector of length STATE_SIZE (which is 2)
+#         state = np.zeros(STATE_SIZE)
+#         # Setting the first part of state to the norm_sigma 
+#         # the paper says that the state space is norm sigma and success ratio of offspring generation
+#         state[0] = norm_sigma
+#         state[1] = success_ratio
+
+#         # leave remaining entries as zeros (or fill with other signals you want)
+#         obs_dict = {
+#             'observation': state.copy().astype(np.float32),
+#             'achieved_goal': np.array([first_value], dtype=np.float32),
+#             'desired_goal': np.array([0.0], dtype=np.float32),   # placeholder target (no real 'goal' in ES)
+#             'extra_info': None,
+#             'controllable_achieved_goal': np.array([norm_sigma, success_ratio], dtype=np.float32) if STATE_SIZE >= 2 else np.array([norm_sigma, 0.0], dtype=np.float32),
+#             'full_positional_state': state.copy().astype(np.float32)
+#         }
+
+#         # Gymnasium API: return (obs, info)
+#         return obs_dict, {}
+
+# one that kinda worked before
+# # trying new reset function 
+#     def reset(self, **kwargs):
+#         self.es = ES(self.dim, SIGMA_0, POP_SIZE)
+#         self.countevals = 0
+#         self.cumulative_reward = 0
+#         self.improvement_ratios = []
+#         self.previous_best_fitness = None
+#         self.current_best_fitness = None
 
 
+#         # Same as prev reset()
+#         first_solution = self.es.xmean.copy() # iss the 'center' of the ES distribution at generation 0
+#         first_value = float(self.problem(first_solution))
 
+#         # Creates an observation vector of fixed size
+#         obs = np.zeros(STATE_SIZE, dtype=np.float32)
+#         # The current normalized step size
+#         obs[0] = self.norm_input()                   #sigma 
+#         # obs[0] = first_value
 
+#         # Problem Difficulty Signal
+#         # obs[1] = np.tanh(first_value / 100.0)        # trying with some normalizing 
+#         obs[1] = first_value
+
+#         return obs, first_value
