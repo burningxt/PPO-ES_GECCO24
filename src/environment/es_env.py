@@ -144,14 +144,84 @@ class ES_Env(gym.Env):
         norm_sigma = (log_sigma + 0.1 * leading_sigma + 20) / 22.1
         return norm_sigma
 
+    def step(self, action):
+        success_ratio, improvement_ratio, norm_sigma, observation, reward = self._one_generation(action=action)
+
+        # Added for potentially needed additional information
+        infos = {}
+
+        if self.mode == 'training':
+
+            terminated = self.countevals >= self.fes_max # Why we have 41 (best evals) in each data file
+
+            if terminated:
+                # current switching system is accurate, but this number is one below what it really is
+
+                self.space_logger.info(f"Completed episode [%d], trained on was %s", self.current_episode, self.problem)
+                self.current_episode += 1
+                self.episode_data.append([self.current_episode,
+                                          self.current_best_fitness,
+                                          self.cumulative_reward])
+
+
+                # Maintain backwards compatibility for default behavior (no space)
+                if not self.use_space:
+                    self.problem_index += 1
+
+                    if self.problem_index % self.num_training_instances == 0:
+                        self.problem_index = self.num_training_instances 
+
+                    else:
+                        self.problem_index = self.problem_index % self.num_training_instances 
+
+                    
+                    self.problem = self.suite.get_problem(self.problem_index -1)
+
+                # Ordering for SPACE
+                else:
+
+                    # Gets the next problem from the current curriculum
+                    if self.curriculum_index >= len(self.curriculum):
+                        self.space_logger.info("es.env curriculum empty, going to be changed soon...")
+                    else:
+
+                        self.problem = self.suite.get_problem(self.curriculum[self.curriculum_index]) # don't need a -1 at the end because BBOB is already 0 indexed
+                        self.space_logger.info(f"Selected next problem: %s", self.problem)
+
+                    self.space_logger.info(f"--------------")
+                    self.curriculum_index += 1
+
+
+
+        elif self.mode == 'testing':
+
+            
+            self.debug_logger.debug(f"Executing test step inside es_env on problem index: %d ", self.problem_index)
+
+
+        
+            terminated = self.countevals >= self.fes_max + POP_SIZE * 2
+        truncated = False
+
+        return observation, reward, terminated, truncated, infos
+
+
+
+        
 
     # Called from the Gym environment itself
-    def step(self, action):
+    def _one_generation(self, action):
 
         # self.space_logger.info(f"Curriculm is currently %s", self.curriculum)
 
         solutions = self.es.ask()
-        scaling_factor = action[0] * 0.75 + 1.25
+
+        if action is None:
+            # The default for if nothing is being changed by PPO
+            scaling_factor = 1.0
+        else:
+            scaling_factor = action[0] * 0.75 + 1.25
+
         self.es.sigma *= scaling_factor
         self.es.sigma = max(1e-20, min(100.0, self.es.sigma))
 
@@ -190,6 +260,8 @@ class ES_Env(gym.Env):
                                 ])
         self.previous_best_fitness = self.current_best_fitness
         self.countevals += POP_SIZE # Track total number of evaluations
+
+        return success_ratio, improvement_ratio, norm_sigma, observation, reward
 
         # Added for potentially needed additional information
         infos = {}
@@ -294,15 +366,29 @@ class ES_Env(gym.Env):
 
         ## Data Handling, evaluating the very first solution manually
         first_solution = self.es.xmean.copy()       # this is the "center" at generation 0
-        
         # the xmean is the object used for the solutions
+
+        # Is just always here to be used as a baseline, to ensure hte success ratio is different 
         first_value = self.problem(first_solution)
-        state = np.zeros(STATE_SIZE)
-        state[0] = self.norm_input()
+        self.previous_best_fitness = first_value
+
+
+        success_ratio, improvement_ratio, norm_sigma, observation, reward = self._one_generation(action=None)
+
+        obs = np.zeros(STATE_SIZE)
+        obs[0] = norm_sigma
+        obs[1] = success_ratio
         # state[1] = self.get_reward()
         # Printing confirmed its just all zeros
-        self.space_logger.info(f"First solution: ", first_solution)
-        return state, first_value
+        # Is no longer just all 0s, becuase its now after one generation
+        # self.space_logger.info(f"First solution: ", first_solution)
+
+        # TODO Therese a bug because the success ratio is always 0.2 which is the default because there is no previous generation
+
+        self.space_logger.info(f"Success Ratio: ")
+        self.space_logger.info(success_ratio)
+
+        return obs, first_value
 
         # new one
 #     def reset(self, **kwargs):
