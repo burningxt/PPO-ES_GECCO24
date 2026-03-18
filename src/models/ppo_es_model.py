@@ -11,7 +11,11 @@ import os
 
 
                   #data path  # episodes tested dir
-def test_model(env, model_path, data_path, episode, problem_index, instance):
+def test_model(env, model_path, data_path, episode, problem_index, instance, experiment_logger):
+
+
+    experiment_logger.debug(f"About to run tests inside test_model on %d ", problem_index)
+
 
     # Loading one of the saved models
     model = PPO.load(model_path, env=env)
@@ -20,12 +24,17 @@ def test_model(env, model_path, data_path, episode, problem_index, instance):
     # the number of runs, set to 25 in the config
     # the size of episodes is also dictated in the config, 1, 600,
     # it breaks when I change the number of episodes
-    starting_values = []
 
 
-    for _ in range(NUM_RUN):
+    for num in range(NUM_RUN):
+
+        experiment_logger.debug(f"Attempting problem run: %d", num)
         temp = env.envs[0].reset()
+    
+
         obs = temp[0]
+        # Making it not have an instance in the observation for this prediction 
+        obs[2] = 0.0
         first_value = temp[1]
         
         fitness_values = []
@@ -86,7 +95,10 @@ class PPO_ES:
             """
             # added to make the seeds random values
             # seed = random.randint(1,9999)
-            self.space_logger.info(f"Starting training with seed: %d", seed)
+            self.space_logger.info("------------------------------")
+            self.space_logger.info(f"STARTING TO TRAIN A NEW MODEL")
+            self.space_logger.info(f"   training with seed: %d", seed)
+            self.space_logger.info("------------------------------")
             # create the environment: 
                 # make_vec_env: war4ps the ES_Env into a vectorized envionment, so it can be used by PPO
                 # ES_Env: Is the custom envrionment for the Evolution Strategies Problem 
@@ -106,6 +118,7 @@ class PPO_ES:
                                             n_envs=1)
                                                 # train instance is always 1 for their experiments
 
+            N_STEPS = 12 * 400
             # Reset the model with the new environment to ensure it's training from scratch
             model = PPO(
                 policy='MlpPolicy',
@@ -113,7 +126,8 @@ class PPO_ES:
                 device=self.cuda_device,
                 learning_rate=3e-4,
                 verbose=1,
-                n_steps=12 * 400,  # Number of steps to run for each environment per update
+                # n_steps=12 * 400,  # Number of steps to run for each environment per update
+                n_steps=N_STEPS, 
                 batch_size=64,  # Batch size for training
                 n_epochs=10,  # Number of epochs to run for each update
                 gamma=0.99,  # Discount factor for the reward function
@@ -177,7 +191,7 @@ class PPO_ES:
             
 
     # This uses the numpy data ive been looking at 
-    def test_ppo_es(self, problem_type, test_problem_dimension, problem_index, instance):
+    def test_ppo_es(self, problem_type, test_problem_dimension, problem_index, instance, experiment_logger):
         # Randomly select one seed for testing
         # I cant randomly select one seed if my seeds are random
         seed = random.choice(self.seeds)
@@ -196,8 +210,13 @@ class PPO_ES:
                                                instance=instance,
                                                dim=test_problem_dimension,
                                                problem_index=problem_index,
-                                               seed=seed), n_envs=1)
+                                               seed=seed, debug_logger=experiment_logger
 
+                                            #   space_logger=self.space_logger,
+                                               ), n_envs=1)
+
+
+        experiment_logger.debug(f"About to run all episodes for %d problem inside test_ppo_es", problem_index)
         # generate for each of hte episodes
         # here is where the number of episodes is decided 
         for episode in EPISODES:
@@ -210,5 +229,6 @@ class PPO_ES:
                 single_env.unwrapped.set_mode('testing')
 
 
-            test_model(seed_env, test_model_path, episodes_tested_dir, episode, problem_index, instance)
+
+            test_model(seed_env, test_model_path, episodes_tested_dir, episode, problem_index, instance, experiment_logger)
 

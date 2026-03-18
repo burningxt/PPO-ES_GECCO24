@@ -10,6 +10,9 @@ from datetime import datetime
 import time
 import logging
 
+import platform
+import socket
+
 def comparing_algorithms(need_train=False,
                          test_problem_type='bbob',
                          test_instance=1,
@@ -45,9 +48,17 @@ def comparing_algorithms(need_train=False,
     os.makedirs(plot_dir, exist_ok=True)
 
 
+    machine_info = {
+        "hostname": socket.gethostname(),
+        "platform": platform.system(),
+        "platform_version": platform.version(),
+        "processor": platform.processor()
+    }
+
 
 
     config = {
+        "system_info": machine_info,
         "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
         "need_train": need_train,
         "test_problem_type": test_problem_type,
@@ -87,7 +98,7 @@ def comparing_algorithms(need_train=False,
     baselines_dir = os.path.join(results_dir, f'baselines', f'DIM_{test_dimension}')
 
 
-    print("creating episodes_tesated_dir")
+    print("creating episodes_tested_dir")
     print(episodes_tested_dir)
     os.makedirs(episodes_tested_dir, exist_ok=True)
     os.makedirs(baselines_dir, exist_ok=True)
@@ -98,7 +109,9 @@ def comparing_algorithms(need_train=False,
 
     for problemIndex in range(1, 25): # iterates through 1 to 24 
         if need_test_models:
-            ppo_es.test_ppo_es(test_problem_type, test_dimension, problemIndex, test_instance)
+            
+            experiment_logger.debug(f"Calling test_ppo_es on problem_index: %d", problemIndex)
+            ppo_es.test_ppo_es(test_problem_type, test_dimension, problemIndex, test_instance, experiment_logger)
         if need_test_cma_es:
             test_cma_es(results_dir, test_problem_type, test_dimension, problemIndex, test_instance)
         if need_test_one_fifth_es:
@@ -130,46 +143,111 @@ def comparing_algorithms(need_train=False,
 
 
 
+
 def build_logger(experiment_dir: str):
     os.makedirs(experiment_dir, exist_ok=True)
 
     training_log_path = os.path.join(experiment_dir, "training.log")
+    debug_log_path = os.path.join(experiment_dir, "debug.log")
     models_log_path = os.path.join(experiment_dir, "models.log")
 
+    # Main logger
     logger = logging.getLogger("ppo_es_training")
-    logger.setLevel(logging.INFO)
+    logger.setLevel(logging.DEBUG)  # allow debug through the logger itself
 
-    if not logger.handlers:
+    # If you run this multiple times in the same process, avoid duplicate handlers
+    logger.handlers.clear()
 
-        formatter = logging.Formatter(
-            "%(asctime)s | %(levelname)s | %(name)s | %(message)s"
-        )
+    formatter = logging.Formatter(
+        "%(asctime)s | %(levelname)s | %(name)s | %(message)s"
+    )
 
-    # main log
-        training_handler = logging.FileHandler(training_log_path)
-        training_handler.setLevel(logging.INFO)
-        training_handler.setFormatter(formatter)
-        training_handler.set_name("training_file")
+    # --- training.log: INFO+ ---
+    training_handler = logging.FileHandler(training_log_path)
+    training_handler.setLevel(logging.INFO)
+    training_handler.setFormatter(formatter)
+    training_handler.set_name("training_file")
+    logger.addHandler(training_handler)
 
-        logger.addHandler(training_handler)
+    # --- debug.log: DEBUG only (no INFO duplication) ---
+    debug_handler = logging.FileHandler(debug_log_path)
+    debug_handler.setLevel(logging.DEBUG)
+    debug_handler.setFormatter(formatter)
+    debug_handler.set_name("debug_file")
+    debug_handler.addFilter(lambda record: record.levelno == logging.DEBUG)
+    logger.addHandler(debug_handler)
 
-    # child log
-        models_logger = logger.getChild("modellog")
-        models_logger.setLevel(logging.INFO)
+    # --- child logger for models ---
+    models_logger = logger.getChild("modellog")
+    models_logger.setLevel(logging.INFO)
 
-        models_handler = logging.FileHandler(models_log_path)
-        models_handler.setLevel(logging.INFO)
-        models_handler.setFormatter(formatter)
-        models_handler.set_name("models_file")
+    # Important: models_logger is its own logger object, clear its handlers too
+    models_logger.handlers.clear()
 
-        models_logger.addHandler(models_handler)
+    models_handler = logging.FileHandler(models_log_path)
+    models_handler.setLevel(logging.INFO)
+    models_handler.setFormatter(formatter)
+    models_handler.set_name("models_file")
+    models_logger.addHandler(models_handler)
 
-        # Important:
-        # Prevent models logger from ALSO writing to training.log
-        models_logger.propagate = False
+    # Prevent modellog from also writing into training.log/debug.log via propagation
+    models_logger.propagate = False
 
-        # Attach as attribute for convenience
-        logger.modellog = models_logger
+    # Attach for convenience
+    logger.modellog = models_logger
 
+    # Prevent main logger from propagating to root logger (avoids console duplicates)
     logger.propagate = False
+
     return logger
+
+# def build_logger(experiment_dir: str):
+#     os.makedirs(experiment_dir, exist_ok=True)
+
+#     training_log_path = os.path.join(experiment_dir, "training.log")
+#     models_log_path = os.path.join(experiment_dir, "models.log")
+#     debug_log_path = os.path.join(experiment_dir, "debug.log")
+
+#     logger = logging.getLogger("ppo_es_training")
+#     logger.setLevel(logging.INFO)
+
+#     if not logger.handlers:
+
+#         formatter = logging.Formatter(
+#             "%(asctime)s | %(levelname)s | %(name)s | %(message)s"
+#         )
+
+#     # main log
+#         training_handler = logging.FileHandler(training_log_path)
+#         training_handler.setLevel(logging.INFO)
+#         training_handler.setFormatter(formatter)
+#         training_handler.set_name("training_file")
+
+#         logger.addHandler(training_handler)
+    
+#     # debug log file
+#         debug_handler = logging.FileHandler(debug_log_path)
+#         debug_handler.setLevel(logging.DEBUG)
+#         debug_handler.setFormatter(formatter)
+#         logger.addHandler(debug_handler)
+
+#     # child log
+#         models_logger = logger.getChild("modellog")
+#         models_logger.setLevel(logging.INFO)
+
+#         models_handler = logging.FileHandler(models_log_path)
+#         models_handler.setLevel(logging.INFO)
+#         models_handler.setFormatter(formatter)
+#         models_handler.set_name("models_file")
+
+#         models_logger.addHandler(models_handler)
+
+#         # Important:
+#         # Prevent models logger from ALSO writing to training.log
+#         models_logger.propagate = False
+
+#         # Attach as attribute for convenience
+#         logger.modellog = models_logger
+
+#     logger.propagate = False
+#     return logger

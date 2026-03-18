@@ -82,6 +82,13 @@ class UpdateEnvCallback(BaseCallback):
         self.num_training_instances = 12
         self.use_space=use_space
         self.update_counter=0
+        # self.last_evals = [0] * self.num_training_instances
+
+        # Need to use a dictionary to preserve information on ordering. 
+        self.last_evals = {}
+        for i in range(self.num_training_instances):
+            self.last_evals[i] = 0
+
 
 
 
@@ -122,9 +129,9 @@ class UpdateEnvCallback(BaseCallback):
 
             sigma_val = self.training_env.envs[0].unwrapped.es.sigma
 
-            self.space_logger.info(sigma_val)
+            # self.space_logger.info(sigma_val)
 
-            self.space_logger.info("Second Sigma Val:")
+            # self.space_logger.info("Second Sigma Val:")
 
 
             self.space_logger.info(self.training_env.envs[0].unwrapped.get_sigma())
@@ -181,9 +188,24 @@ class UpdateEnvCallback(BaseCallback):
         """
         NUM_FUNCTIONS  = 12 # TODO make this not hard coded
 
+
         # Set the env
         eval_env = self.training_env.envs[0].unwrapped 
-        temp = self.order_instances_qvals(self.model, eval_env, self.num_training_instances)
+        temp = []
+
+        if self.use_space == 1: # absolute ordering
+            temp = self.order_instances_qvals(self.model, eval_env, self.num_training_instances)
+
+        elif self.use_space == 2: 
+            temp = self.order_instances_improvement(self.model, eval_env, self.num_training_instances, self.last_evals)
+        
+        elif self.use_space == 3:
+            temp = self.order_instances_relative_improvement(self.model, eval_env, self.num_training_instances, self.last_evals)
+
+        
+        self.space_logger.info(f"Temp is: ")
+        self.space_logger.info(temp)
+
         self.curriculum = temp
         new_curriculum = self.curriculum[:self.curriculum_size]
         
@@ -201,7 +223,41 @@ class UpdateEnvCallback(BaseCallback):
     def order_instances_qvals(self,learner, env, num_instances):
         # Order the instances by q value
         evals = self.get_instance_evals(learner, env, num_instances)
+        self.last_evals = evals
         return np.argsort(evals)
+    
+    # computes absolute improvement in value since last time, used for "improvement"
+    def order_instances_improvement(self, learner, env, num_instances, last_evals):
+        evals = self.get_instance_evals(learner, env, num_instances)
+        self.space_logger.info(f"In order instances improvement, old evals are: {last_evals}")
+        self.space_logger.info(f"In order instances improvement, current evals are: {evals}")
+        # improvement = [0] * self.num_training_instances
+        improvement = {}
+        evals_dict = {}
+
+        for i in range(len(evals)):
+            improvement[i] = evals[i] - self.last_evals[i]
+            evals_dict[i] = evals[i]
+
+        
+        self.space_logger.info(f"improvements are: {improvement}")
+
+        ordered_instances = sorted(improvement, key=improvement.get, reverse=True)
+        self.last_evals = evals_dict
+
+        
+        return ordered_instances
+
+    # ordering by relative improvement, used for "rel-improvement"
+    # TODO need to do the same things as above
+    def order_instances_relative_improvement(
+        self, learner, env, num_instances, last_evals
+    ):
+        evals = self.get_instance_evals(learner, env, num_instances)
+        absolute_improvement = evals - last_evals
+        relative_improvement = absolute_improvement / last_evals
+        self.last_evals = evals
+        return np.argsort(relative_improvement)[::-1]
 
 
     # Returns a numpy array of value estimates 
@@ -218,13 +274,13 @@ class UpdateEnvCallback(BaseCallback):
             # When you set the curriculum in the environment, it correctly sets its own problem as the first item in that curriclumu
             env.set_curriculum([i])
             # Rest and go to starting state for this instance
-            # obs, info = env.reset()
-            obs, info = env.poll_env()
+            obs, info = env.reset()
+            # obs, info = env.poll_env()]
                 
             # obs, info = env.env_method("poll_env", indices=0)[0] # indices refer to the environment, we only hav e1
 
-            self.space_logger.info(f"Collected observation for instance: [%d]", i)
-            self.space_logger.info(obs)
+            # self.space_logger.info(f"Collected observation for instance: [%d]", i)
+            # self.space_logger.info(obs)
 
             # TODO not entirely sure
             # trying to fix shape mismatch
@@ -271,13 +327,18 @@ class UpdateEnvCallback(BaseCallback):
         n_insts = len(curriculum)
         # env = self.model.env
 
+        # self.space_logger.info("")
+        self.space_logger.info("Call to get_mean_q to potentially adjust size")
+        # self.space_logger.info("")
+
         env = self.training_env.envs[0].unwrapped 
         # env = self.training_env
 
 
         for i in range(n_insts):
             # obs = env.reset()
-            obs, first_val  = env.poll_env()
+            # obs, first_val  = env.poll_env()
+            obs, first_val = env.reset()
             # obs, info = env.env_method("poll_env", indices=0)[0]
             val = 0
             obs_t = obs_as_tensor(obs, learner.device)
@@ -307,6 +368,8 @@ class UpdateEnvCallback(BaseCallback):
                 print("Algo name not recognized")
             qs.append(val)
             # its over a flattened array 
+
+        
         return np.mean(qs)
 
 
