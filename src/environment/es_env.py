@@ -84,8 +84,8 @@ class ES_Env(gym.Env):
     def set_curriculum_index(self, curriculum_index: int):
         self.curriculum_index = curriculum_index
         self.problem = self.suite.get_problem(self.curriculum[curriculum_index-1]) # for the correct indesxing
-        self.space_logger.info("Just set problem to: %d in (set_curriculum_index)", self.curriculum[curriculum_index-1])
-        self.space_logger.info("        Which corresponds to: %s", self.problem)
+        # self.space_logger.info("Set problem to: %d in (set_curriculum_index)", self.curriculum[curriculum_index-1])
+        # self.space_logger.info("        Which corresponds to: %s", self.problem)
 
 
     def reset_curriculum_index(self):
@@ -167,7 +167,7 @@ class ES_Env(gym.Env):
             if terminated:
                 # current switching system is accurate, but this number is one below what it really is
 
-                self.space_logger.info(f"Completed episode [%d], trained on was %s", self.current_episode, self.problem)
+                self.space_logger.info(f"Completed episode %d, trained on %s", self.current_episode, self.problem)
                 self.current_episode += 1
                 self.episode_data.append([self.current_episode,
                                           self.current_best_fitness,
@@ -192,16 +192,14 @@ class ES_Env(gym.Env):
 
                     # Gets the next problem from the current curriculum
                     if self.curriculum_index >= len(self.curriculum):
-                        self.space_logger.info("es.env curriculum empty, going to be changed soon...")
-                        self.space_logger.info(f"Problem just done: %s", self.problem)
-                        self.space_logger.info(f"Here the ES Sigma is: ")
-                        self.space_logger.info(self.es.sigma)
+                        self.space_logger.info("ES environment curriculum empty, going to be changed soon...")
+                        # self.space_logger.info(self.es.sigma)
                     else:
 
                         self.problem = self.suite.get_problem(self.curriculum[self.curriculum_index]) # don't need a -1 at the end because BBOB is already 0 indexed
 
 
-                    self.space_logger.info(f"--------------")
+                    # self.space_logger.info(f"--------------")
                     self.curriculum_index += 1
 
 
@@ -367,249 +365,3 @@ class ES_Env(gym.Env):
         if 0 <= problem_idx < self.num_training_instances:
             one_hot[problem_idx] = 1.0
         return one_hot
-
-
-
-
-
-# only trying with the improvement ratio and the sigma
-    # def poll_env(self, **kwargs):
-
-    #     # we are creating anew environment just for resteing
-    #     # we call reset every time when we do the instance evaluations. 
-    #     # or we call it before each experiment, for the NUM_RUNs, which is currently 25 in hte config 
-
-    #     # self.space_logger.info(f"Old ES Sigma is: ")
-    #     # self.space_logger.info(self.es.sigma)
-
-    #     # Theres no point to even saving the state anymore, or reseting anything. It was already just reset
-    #     # just call reset at the end of this 
-    #     # old_state = self.save_state()
-    #     # self.es = ES(self.dim, SIGMA_0, POP_SIZE)
-    #     # self.fitness_values = None
-    #     # self.current_best_fitness = None
-    #     # self.previous_best_fitness = None
-    #     # self.countevals = 0
-    #     # self.cumulative_reward = 0
-    #     # self.improvement_ratios = []
-
-    #     # setting sigma back as part of the environment
-    #     # self.es.sigma = old_state["es"].sigma
-
-    #     # self.space_logger.info(f"Old ES Sigma  in save is: ")
-    #     # self.space_logger.info(self.es.sigma)
-    #     # are there any other curriculum values I need to add
-    #     # I don't really think so, out of hte new params I added all seem fine
-    #     # Even stuff about the problem or fitness_values, like dim fes_max etc don't really bmatter
-
-    #     ## Data Handling, evaluating the very first solution manually
-    #     first_solution = self.es.xmean.copy()       # this is the "center" at generation 0
-    #     # the xmean is the object used for the solutions
-
-    #     # Is just always here to be used as a baseline, to ensure hte success ratio is different 
-    #     first_value = self.problem(first_solution)
-    #     # This will always be the same, as it is different for each instance. 
-    #     # is this going to be different as its part of the context. I guess we're measuring the improvement vs the last one, so its fine
-    #     self.previous_best_fitness = first_value
-    #     self.space_logger.info("First value on problem: ")
-
-    #     self.space_logger.info(self.problem)
-    #     self.space_logger.info(first_value)
-
-    #     success_ratio, improvement_ratio, norm_sigma, observation, reward = self._one_generation(action=None)
-
-    #     obs = np.zeros(STATE_SIZE)
-    #     obs[0] = norm_sigma
-    #     obs[1] = success_ratio
-    #     # state[1] = self.get_reward()
-    #     # Printing confirmed its just all zeros
-    #     # Is no longer just all 0s, becuase its now after one generation
-    #     # self.space_logger.info(f"First solution: ", first_solution)
-
-    #     # TODO Therese a bug because the success ratio is always 0.2 which is the default because there is no previous generation
-    #     self.space_logger.info(f"Success Ratio: ")
-    #     self.space_logger.info(success_ratio)
-        
-
-    #     # self.set_state(old_state)
-    #     # Reset again after because don't want any problems
-    #     self.reset()
-
-
-    #     return obs, first_value
-# only trying with the improvement ratio and the sigma
-    # def poll_env(self, **kwargs):
-
-    #     # we are creating anew environment just for resteing
-    #     # we call reset every time when we do the instance evaluations. 
-    #     # or we call it before each experiment, for the NUM_RUNs, which is currently 25 in hte config 
-
-    #     # self.space_logger.info(f"Old ES Sigma is: ")
-    #     # self.space_logger.info(self.es.sigma)
-
-    #     # Theres no point to even saving the state anymore, or reseting anything. It was already just reset
-    #     # just call reset at the end of this 
-    #     # old_state = self.save_state()
-    #     # self.es = ES(self.dim, SIGMA_0, POP_SIZE)
-    #     # self.fitness_values = None
-    #     # self.current_best_fitness = None
-    #     # self.previous_best_fitness = None
-    #     # self.countevals = 0
-    #     # self.cumulative_reward = 0
-    #     # self.improvement_ratios = []
-
-    #     # setting sigma back as part of the environment
-    #     # self.es.sigma = old_state["es"].sigma
-
-    #     # self.space_logger.info(f"Old ES Sigma  in save is: ")
-    #     # self.space_logger.info(self.es.sigma)
-    #     # are there any other curriculum values I need to add
-    #     # I don't really think so, out of hte new params I added all seem fine
-    #     # Even stuff about the problem or fitness_values, like dim fes_max etc don't really bmatter
-
-    #     ## Data Handling, evaluating the very first solution manually
-    #     first_solution = self.es.xmean.copy()       # this is the "center" at generation 0
-    #     # the xmean is the object used for the solutions
-
-    #     # Is just always here to be used as a baseline, to ensure hte success ratio is different 
-    #     first_value = self.problem(first_solution)
-    #     # This will always be the same, as it is different for each instance. 
-    #     # is this going to be different as its part of the context. I guess we're measuring the improvement vs the last one, so its fine
-    #     self.previous_best_fitness = first_value
-    #     self.space_logger.info("First value on problem: ")
-
-    #     self.space_logger.info(self.problem)
-    #     self.space_logger.info(first_value)
-
-    #     success_ratio, improvement_ratio, norm_sigma, observation, reward = self._one_generation(action=None)
-
-    #     obs = np.zeros(STATE_SIZE)
-    #     obs[0] = norm_sigma
-    #     obs[1] = success_ratio
-    #     # state[1] = self.get_reward()
-    #     # Printing confirmed its just all zeros
-    #     # Is no longer just all 0s, becuase its now after one generation
-    #     # self.space_logger.info(f"First solution: ", first_solution)
-
-    #     # TODO Therese a bug because the success ratio is always 0.2 which is the default because there is no previous generation
-    #     self.space_logger.info(f"Success Ratio: ")
-    #     self.space_logger.info(success_ratio)
-        
-
-    #     # self.set_state(old_state)
-    #     # Reset again after because don't want any problems
-    #     self.reset()
-
-
-    #     return obs, first_value
-
-    def save_state(self):
-        # save all the state
-        state = {
-            # numpy RNG state matters because ES.ask() uses it
-            "np_random_state": np.random.get_state(),
-            # ES object state
-            "es": copy.deepcopy(self.es),
-            # ES_Env Values
-            "fitness_values": None if self.fitness_values is None else self.fitness_values.copy(),
-            "current_best_fitness": self.current_best_fitness,
-            "previous_best_fitness": self.previous_best_fitness,
-            "countevals": self.countevals,
-            "cumulative_reward": self.cumulative_reward,
-            "improvement_ratios": copy.deepcopy(self.improvement_ratios),
-
-            # Problem selection, shouldn't matter but here for backwards compatibility
-            "problem_index": self.problem_index,
-            "curriculum": self.curriculum.copy(),
-            "curriculum_index": self.curriculum_index,
-        }
-        return state
-    
-    def set_state(self, state: dict) -> None:
-        # Restore the snapshotwhich was saved by save_state
-        np.random.set_state(state["np_random_state"])
-
-        # self.es = copy.deepcopy(state["es"])
-        self.es = state["es"]
-
-        self.fitness_values = None if state["fitness_values"] is None else state["fitness_values"]
-        self.current_best_fitness = state["current_best_fitness"]
-        self.previous_best_fitness = state["previous_best_fitness"]
-        self.countevals = state["countevals"]
-        self.cumulative_reward = state["cumulative_reward"]
-        self.improvement_ratios = copy.deepcopy(state["improvement_ratios"])
-
-        self.problem_index = state["problem_index"]
-        self.curriculum = state["curriculum"]
-        self.curriculum_index = state["curriculum_index"]
-
-        # restore the actual cocoex problem object from suite using index
-        # this also shouldn't actually matter
-        self.problem = self.suite.get_problem(self.problem_index - 1)
-
-        # new one
-#     def reset(self, **kwargs):
-#         # re-instantiate ES and zero internal trackers
-#         self.es = ES(self.dim, SIGMA_0, POP_SIZE)
-#         self.fitness_values = None
-#         self.current_best_fitness = None
-#         self.previous_best_fitness = None
-#         self.countevals = 0
-#         self.cumulative_reward = 0
-#         self.improvement_ratios = []
-
-#         # evaluate the center (xmean) once to expose an initial achieved_goal value
-#         # The solution is initialy set to just be all 0s for a new ES 
-#         first_solution = self.es.xmean.copy()
-#         first_value = self.problem(first_solution)   # fitness from plugging in the solution
-
-
-#         norm_sigma = float(self.norm_input())   # normalise the current ES steps size into a stable bounded scalar 
-#         success_ratio = 0.0                     # setting back to default
-
-#         # build a state vector of length STATE_SIZE (which is 2)
-#         state = np.zeros(STATE_SIZE)
-#         # Setting the first part of state to the norm_sigma 
-#         # the paper says that the state space is norm sigma and success ratio of offspring generation
-#         state[0] = norm_sigma
-#         state[1] = success_ratio
-
-#         # leave remaining entries as zeros (or fill with other signals you want)
-#         obs_dict = {
-#             'observation': state.copy().astype(np.float32),
-#             'achieved_goal': np.array([first_value], dtype=np.float32),
-#             'desired_goal': np.array([0.0], dtype=np.float32),   # placeholder target (no real 'goal' in ES)
-#             'extra_info': None,
-#             'controllable_achieved_goal': np.array([norm_sigma, success_ratio], dtype=np.float32) if STATE_SIZE >= 2 else np.array([norm_sigma, 0.0], dtype=np.float32),
-#             'full_positional_state': state.copy().astype(np.float32)
-#         }
-
-#         # Gymnasium API: return (obs, info)
-#         return obs_dict, {}
-
-# one that kinda worked before
-# # trying new reset function 
-#     def reset(self, **kwargs):
-#         self.es = ES(self.dim, SIGMA_0, POP_SIZE)
-#         self.countevals = 0
-#         self.cumulative_reward = 0
-#         self.improvement_ratios = []
-#         self.previous_best_fitness = None
-#         self.current_best_fitness = None
-
-
-#         # Same as prev reset()
-#         first_solution = self.es.xmean.copy() # iss the 'center' of the ES distribution at generation 0
-#         first_value = float(self.problem(first_solution))
-
-#         # Creates an observation vector of fixed size
-#         obs = np.zeros(STATE_SIZE, dtype=np.float32)
-#         # The current normalized step size
-#         obs[0] = self.norm_input()                   #sigma 
-#         # obs[0] = first_value
-
-#         # Problem Difficulty Signal
-#         # obs[1] = np.tanh(first_value / 100.0)        # trying with some normalizing 
-#         obs[1] = first_value
-
-#         return obs, first_value
