@@ -20,6 +20,8 @@ def run():
     parser.add_argument('--use_space', type=int, default=1, help='Weather to train with SPACE curriculum.')
     # parser.add_argument('--use_default', type=int, default=1, help='Weather to train with default behavior (just cycling through instances).')
     parser.add_argument('--num_training_instances', type=int, default=12, help='How many instances to train models on.')
+
+    parser.add_argument('--num_steps_per_rollout', type=int, default=12*400, help='How many steps there should be for each rollout, every rollout is one policy update.')
     
     # parser.add_argument('--cuda_device', type=str, default='cuda',
     #                     help='Specify the CUDA device to use (e.g., cuda:0, cuda:1)')
@@ -37,7 +39,8 @@ def run():
                          experiment_name=args.experiment_name,
                          use_space=args.use_space,
                         #  use_default=args.use_default,
-                         num_training_instances=args.num_training_instances
+                         num_training_instances=args.num_training_instances,
+                         num_steps_per_rollout=args.num_steps_per_rollout
                          )
 
 

@@ -81,7 +81,7 @@ class PPO_ES:
 
     # this contains the entire code for the PPO+ES training loop
 
-    def train_ppo_es(self):
+    def train_ppo_es(self, num_steps_per_rollout):
         self.space_logger.info(f"Starting training")
         # we try for every seed
         # we train 10 independent PPO agents (one per seed)
@@ -119,7 +119,8 @@ class PPO_ES:
                                                 # train instance is always 1 for their experiments
 
             # THE NUMBER OF STEPS TO RUN FOR EACH ENVIRONMENT PER UDPATE
-            N_STEPS = 12 * 400
+            # originally was 12 * 400, which means that its updated every 120 episodes 
+            # now that its at 12 * 40, it will update policy every 12 episodes
             
             
             # Reset the model with the new environment to ensure it's training from scratch
@@ -130,7 +131,7 @@ class PPO_ES:
                 learning_rate=3e-4,
                 verbose=1,
                 # n_steps=12 * 400,  # Number of steps to run for each environment per update
-                n_steps=N_STEPS, 
+                n_steps=num_steps_per_rollout, 
                 batch_size=64,  # Batch size for training
                 n_epochs=10,  # Number of epochs to run for each update
                 gamma=0.99,  # Discount factor for the reward function

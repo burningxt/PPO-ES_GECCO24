@@ -24,7 +24,8 @@ def comparing_algorithms(need_train=False,
                          experiment_name='base',
                          use_space=1,
                         #  use_default=0,
-                         num_training_instances=12
+                         num_training_instances=12,
+                         num_steps_per_rollout=12*400 # default is 12 * 400 which was the original value
                          ):
     
     """Print all comparison parameters to standard output."""
@@ -69,10 +70,9 @@ def comparing_algorithms(need_train=False,
         "need_test_one_fifth_es": need_test_one_fifth_es,
         "cuda_device": str(cuda_device),
         "experiment_name": experiment_name,
-
-
         "use_space": use_space,
-        "num_training_instances": num_training_instances
+        "num_training_instances": num_training_instances,
+        "num_steps_per_policy_update":num_steps_per_rollout
     }
 
     config_path = os.path.join(results_dir, "experiment_config.json")
@@ -91,7 +91,7 @@ def comparing_algorithms(need_train=False,
     # training called here and here alone
     # its only trained on the first 12 I believe 
     if need_train:
-        ppo_es.train_ppo_es()
+        ppo_es.train_ppo_es(num_steps_per_rollout)
 
     # Create new directories for each problem index
     episodes_tested_dir = os.path.join(results_dir, f'episodes_tested', f'DIM_{test_dimension}')
