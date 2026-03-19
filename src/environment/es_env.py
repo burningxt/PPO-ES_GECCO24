@@ -43,6 +43,8 @@ class ES_Env(gym.Env):
         self.curriculum = [problem_index]
         self.debug_logger = debug_logger
 
+        # self.total_state_size = 2 + self.num_training_instances
+
         self.curriculum_size = 1
         self.curriculum_index = 0
         self.space_logger = space_logger
@@ -267,7 +269,18 @@ class ES_Env(gym.Env):
         self.improvement_ratios.append(success_ratio)
         # Updated observation to include state
 
-        observation = np.array([norm_sigma,success_ratio, self.problem_index])
+        # observation = np.array([norm_sigma,success_ratio, self.problem_index])
+        
+        # Converts to a one hot encoding to prevent inaccurate trend being learned based on problem index itself
+        curr_problem_id = self.get_current_problem_id()
+        current_problem_one_hot = self.get_problem_one_hot(curr_problem_id)
+
+        observation = np.concatenate((
+            np.array([norm_sigma, success_ratio], dtype=np.float32),
+            current_problem_one_hot
+        )).astype(np.float32)
+
+
 
         self.previous_best_fitness = self.current_best_fitness
         self.countevals += POP_SIZE # Track total number of evaluations
@@ -286,7 +299,7 @@ class ES_Env(gym.Env):
         # we call reset every time when we do the instance evaluations. 
         # or we call it before each experiment, for the NUM_RUNs, which is currently 25 in hte config 
 
-        # self.space_logger.info(f"RESET IS BEING CALLED ----")
+        self.space_logger.info(f"RESET IS BEING CALLED ----")
         self.es = ES(self.dim, SIGMA_0, POP_SIZE)
         self.fitness_values = None
         self.current_best_fitness = None
@@ -299,10 +312,18 @@ class ES_Env(gym.Env):
         # Even stuff about the problem or fitness_values, like dim fes_max etc don't really bmatter
 
         ## Data Handling, evaluating the very first solution manually
-        # first_solution = self.es.xmean.copy()       # this is the "center" at generation 0
+        first_solution = self.es.xmean.copy()       # this is the "center" at generation 0
         # the xmean is the object used for the solutions
-        # first_value = self.problem(first_solution)
-        obs = np.zeros(STATE_SIZE)
+        first_value = self.problem(first_solution)
+
+        curr_prob_id = self.get_current_problem_id()
+        problem_one_hot = self.get_problem_one_hot(curr_prob_id)
+
+        # obs = np.zeros(STATE_SIZE)
+        obs = np.concatenate((
+           np.array([0.0, 0.0], dtype=np.float32), 
+           problem_one_hot
+        )).astype(np.float32)
         # thgis should be the correct problem number, its not minus 1, so index 1 will be problem 1
         # self.curriculum_index = 0
 
@@ -326,8 +347,25 @@ class ES_Env(gym.Env):
         # if self.space_logger:
         #     self.space_logger.info(f"In reset returning: {obs[2]}")
 
-        return obs
+        return obs, first_value
     # , first_value
+
+    def get_current_problem_id(self):
+        if self.use_space: 
+            if self.curriculum_index - 1 < len(self.curriculum) and self.curriculum_index - 1 >= 0:
+                return self.curriculum[self.curriculum_index - 1]
+            return self.curriculum[0]
+        else:
+            return self.problem_index - 1
+
+    def get_problem_one_hot(self, problem_idx: int):
+
+        one_hot = np.zeros(self.num_training_instances, dtype=np.float32)
+
+        # Guard just in case 
+        if 0 <= problem_idx < self.num_training_instances:
+            one_hot[problem_idx] = 1.0
+        return one_hot
 
 
 

@@ -239,13 +239,18 @@ class UpdateEnvCallback(BaseCallback):
             improvement[i] = evals[i] - self.last_evals[i]
             evals_dict[i] = evals[i]
 
-        
-        self.space_logger.info(f"improvements are: {improvement}")
+        if all(imp == 0 for imp in improvement.values()):
 
-        ordered_instances = sorted(improvement, key=improvement.get, reverse=True)
-        self.last_evals = evals_dict
+            self.space_logger.info(f"No Improvements")
+            # Don't change the curriculum if nothing improved 
+            ordered_instances = self.curriculum
+        else:
 
-        
+            self.space_logger.info(f"improvements are: {improvement}")
+            ordered_instances = sorted(improvement, key=improvement.get, reverse=True)
+            self.last_evals = evals_dict
+            
+            
         return ordered_instances
 
     # ordering by relative improvement, used for "rel-improvement"
@@ -338,6 +343,7 @@ class UpdateEnvCallback(BaseCallback):
         for i in range(n_insts):
             # obs = env.reset()
             # obs, first_val  = env.poll_env()
+            env.set_curriculum([i])
             obs, first_val = env.reset()
             # obs, info = env.env_method("poll_env", indices=0)[0]
             val = 0

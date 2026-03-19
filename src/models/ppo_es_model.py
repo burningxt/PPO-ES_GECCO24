@@ -118,7 +118,10 @@ class PPO_ES:
                                             n_envs=1)
                                                 # train instance is always 1 for their experiments
 
+            # THE NUMBER OF STEPS TO RUN FOR EACH ENVIRONMENT PER UDPATE
             N_STEPS = 12 * 400
+            
+            
             # Reset the model with the new environment to ensure it's training from scratch
             model = PPO(
                 policy='MlpPolicy',
