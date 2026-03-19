@@ -89,6 +89,10 @@ class UpdateEnvCallback(BaseCallback):
         for i in range(self.num_training_instances):
             self.last_evals[i] = 0
 
+        self.stable_streak = 0
+        self.unstable_streak = 0
+        self.stability_threshold = 3
+
 
 
 
@@ -153,6 +157,10 @@ class UpdateEnvCallback(BaseCallback):
         self.space_logger.info(f"Collected rollout:")
         self.space_logger.info(f"                  about to do update [%d] to the policy", self.update_counter)
         self.space_logger.info(f"                  at [%d] model timesteps so far", self.num_timesteps)
+
+        # Sets after the first rollout
+        self.training_env.envs[0].unwrapped.before_first_rollout = False
+
         return True
         # return super()._on_rollout_end()
 
@@ -170,16 +178,39 @@ class UpdateEnvCallback(BaseCallback):
 
         mean_q = self.get_mean_q(self.model, eval_env, curriculum)
         delta_q = np.abs(np.abs(mean_q) - np.abs(self.last_q))
-        self.last_q = mean_q
 
         # SPACE had it defined as this
         eta_const = .1
 
+        is_stable = delta_q <= eta_const * np.abs(self.last_q) 
+        # and len(curriculum) < self.num_training_instances
+        
+
         # If condition passes, then increase size by 1
-        if (delta_q <= eta_const * np.abs(self.last_q) and len(curriculum) < self.num_training_instances):
-            temp = self.curriculum_size
-            self.curriculum_size = temp + STEP_SIZE_CONST
-            self.space_logger.info(f"Updating size from: [%d] to [%d]", temp, self.curriculum_size)
+        if (is_stable):
+            self.stable_streak+=1
+            self.unstable_streak = 0
+        else:
+
+            self.stable_streak = 0
+            self.unstable_streak += 1
+
+        self.last_q = mean_q
+
+        # Don't reset streaks based on if you update, can keep streak going continually either way 
+        if self.stable_streak >= (self.stability_threshold+1): # this is equal to 4 
+            curric_size = self.curriculum_size
+            # Added guardrail, can't go outside bounds
+            self.curriculum_size = min(curric_size + STEP_SIZE_CONST, self.num_training_instances)
+            self.space_logger.info(f"Increasing size from: [%d] to [%d]", curric_size, self.curriculum_size)
+
+        elif self.unstable_streak >= (self.stability_threshold-1): # this is equal to 2)
+            curric_size = self.curriculum_size
+            # Added guardrail, can't go outside bounds
+            self.curriculum_size = max(curric_size - STEP_SIZE_CONST, 1)
+            self.space_logger.info(f"Decreasing size from: [%d] to [%d]", curric_size, self.curriculum_size)
+        
+
 
 
     def update_curriculum(self):
@@ -189,21 +220,31 @@ class UpdateEnvCallback(BaseCallback):
         NUM_FUNCTIONS  = 12 # TODO make this not hard coded
 
 
+
         # Set the env
         eval_env = self.training_env.envs[0].unwrapped 
         temp = []
 
-        if self.use_space == 1: # absolute ordering
-            temp = self.order_instances_qvals(self.model, eval_env, self.num_training_instances)
+        # The first curriculum should be randomly sampled
+        if eval_env.before_first_rollout:
 
-        elif self.use_space == 2: 
-            temp = self.order_instances_improvement(self.model, eval_env, self.num_training_instances, self.last_evals)
-        
-        elif self.use_space == 3:
-            temp = self.order_instances_relative_improvement(self.model, eval_env, self.num_training_instances, self.last_evals)
+            self.space_logger.info("Before first policy update, random sample curriculum")
+            temp = self.random_sample_of_instances()
+        else: 
+
+            self.space_logger.info("After first policy update, space generated curriculum")
+            temp = self.random_sample_of_instances()
+            if self.use_space == 1: # absolute ordering
+                temp = self.order_instances_qvals(self.model, eval_env, self.num_training_instances)
+
+            elif self.use_space == 2: 
+                temp = self.order_instances_improvement(self.model, eval_env, self.num_training_instances, self.last_evals)
+            
+            elif self.use_space == 3:
+                temp = self.order_instances_relative_improvement(self.model, eval_env, self.num_training_instances, self.last_evals)
 
         
-        self.space_logger.info(f"Temp is: ")
+        self.space_logger.info(f"New curriculum is: ")
         self.space_logger.info(temp)
 
         self.curriculum = temp
@@ -377,6 +418,14 @@ class UpdateEnvCallback(BaseCallback):
 
         
         return np.mean(qs)
+
+    def random_sample_of_instances(self):
+
+        sampled = np.random.permutation(self.num_training_instances).tolist()
+        self.space_logger.info("Random initial curriculum ordering: %s", sampled)
+        return sampled
+
+
 
 
         

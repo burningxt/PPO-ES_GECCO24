@@ -57,6 +57,7 @@ class ES_Env(gym.Env):
         # Setting the initial problem 
         self.problem = self.suite.get_problem(problem_index - 1)
         self.problem_index = problem_index
+        self.before_first_rollout = True
 
         # we make the ES here 
         # so the first evaluated population is POP_SIZE 25 samples drawn from a normal distribution sampled at sigma_0 which is .5
@@ -299,7 +300,7 @@ class ES_Env(gym.Env):
         # we call reset every time when we do the instance evaluations. 
         # or we call it before each experiment, for the NUM_RUNs, which is currently 25 in hte config 
 
-        self.space_logger.info(f"RESET IS BEING CALLED ----")
+        # self.space_logger.info(f"RESET IS BEING CALLED ----")
         self.es = ES(self.dim, SIGMA_0, POP_SIZE)
         self.fitness_values = None
         self.current_best_fitness = None
