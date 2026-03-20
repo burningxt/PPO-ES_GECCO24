@@ -36,7 +36,7 @@ python run.py \
     --dim 40 \
     --experiment_name "${EXPERIMENT_BASE}_space" \
     --use_space 3 \
-    --instance_ordering 1 \
+    --instance_ordering 2 \
     --num_training_instances 12 \
     --num_steps_per_rollout 4800 \
     > "${EXPERIMENT_BASE}_output_space.txt"

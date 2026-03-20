@@ -410,8 +410,7 @@ class UpdateEnvCallback(BaseCallback):
         env.set_curriculum(prev_set)
 
         self.space_logger.info("Collected instance evals: %s", evals)
-
-        self.space_logger.info("    And obs: %s", obs_list)
+        # self.space_logger.info("    And obs: %s", obs_list)
         return np.array(evals)
 
 
