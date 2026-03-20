@@ -1,5 +1,9 @@
 # Taken from: 
 # https://github.com/github/gitignore/blob/main/Python.gitignore
+.DS_Store
+
+# Final data is stored in final-data instead, even though data is generated in this directory
+output_data
 
 temp.txt
 training.log
@@ -159,6 +163,7 @@ activemq-data/
 .env
 .envrc
 .venv
+venv*
 env/
 venv/
 ENV/
