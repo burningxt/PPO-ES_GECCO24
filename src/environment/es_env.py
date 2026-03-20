@@ -335,19 +335,77 @@ class ES_Env(gym.Env):
 
         # Only doing this if its valid, if its not then its not going to use this anyway
         # Is -1 because, it will have just finished after an episode which would have incremented it one more time before its able to be reset 
-        if self.curriculum_index-1 < len(self.curriculum):
-            problem = self.curriculum[self.curriculum_index-1]
-        else: 
-            # gets the first entry, this is for usage 
-            problem = self.curriculum[0]
+        # if self.curriculum_index-1 < len(self.curriculum):
+        #     problem = self.curriculum[self.curriculum_index-1]
+        # else: 
+        #     # gets the first entry, this is for usage 
+        #     problem = self.curriculum[0]
         
-        obs[2] = problem
+        # obs[2] = problem
 
         # if self.space_logger:
         #     self.space_logger.info(f"In reset returning: {obs[2]}")
 
         return obs, first_value
     # , first_value
+
+    
+    # only trying with the improvement ratio and the sigma
+    def poll_env(self, **kwargs):
+
+        # we are creating anew environment just for resteing
+        # we call reset every time when we do the instance evaluations. 
+        # or we call it before each experiment, for the NUM_RUNs, which is currently 25 in hte config 
+
+        # self.space_logger.info(f"Old ES Sigma is: ")
+        # self.space_logger.info(self.es.sigma)
+
+        # old_state = self.save_state()
+
+
+        # setting sigma back as part of the environment
+        # self.es.sigma = old_state["es"].sigma
+
+        # self.space_logger.info(f"Old ES Sigma  in save is: ")
+        # self.space_logger.info(self.es.sigma)
+        # are there any other curriculum values I need to add
+        # I don't really think so, out of hte new params I added all seem fine
+        # Even stuff about the problem or fitness_values, like dim fes_max etc don't really bmatter
+
+        ## Data Handling, evaluating the very first solution manually
+        first_solution = self.es.xmean.copy()       # this is the "center" at generation 0
+        # the xmean is the object used for the solutions
+
+        # Is just always here to be used as a baseline, to ensure hte success ratio is different 
+        first_value = self.problem(first_solution)
+        # This will always be the same, as it is different for each instance. 
+        # is this going to be different as its part of the context. I guess we're measuring the improvement vs the last one, so its fine
+        self.previous_best_fitness = first_value
+
+
+        self.space_logger.info("First value on problem: ")
+
+        self.space_logger.info(self.problem)
+        self.space_logger.info(first_value)
+
+        success_ratio, improvement_ratio, norm_sigma, observation, reward = self._one_generation(action=None)
+        temp = []
+        temp.append(norm_sigma)
+        temp.append(success_ratio)
+
+        # Taking the first array in the returned tuple, which is just the observations
+        # obs = self.reset()[0] 
+        # obs[0] = temp[0]
+        # obs[1] = temp[1]
+        # state[1] = self.get_reward()
+        # Printing confirmed its just all zeros
+        # Is no longer just all 0s, becuase its now after one generation
+        # self.space_logger.info(f"First solution: ", first_solution)
+
+        # TODO Therese a bug because the success ratio is always 0.2 which is the default because there is no previous generation
+        
+        return temp 
+
 
     def get_current_problem_id(self):
         if self.use_space: 

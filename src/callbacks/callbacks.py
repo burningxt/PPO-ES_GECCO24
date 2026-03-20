@@ -374,6 +374,15 @@ class UpdateEnvCallback(BaseCallback):
             env.set_curriculum([i])
             # Rest and go to starting state for this instance
             obs, info = env.reset()
+
+            if self.use_space == space_operation.ONE_GENERATION:
+                mini_rollout = env.poll_env()
+
+                self.space_logger.info(f"Polled environment to get {mini_rollout}")
+
+                obs[0] = mini_rollout[0]
+                obs[1] = mini_rollout[1]
+            
             # obs, info = env.poll_env()]
                 
             # obs, info = env.env_method("poll_env", indices=0)[0] # indices refer to the environment, we only hav e1
@@ -438,6 +447,13 @@ class UpdateEnvCallback(BaseCallback):
             # obs, first_val  = env.poll_env()
             env.set_curriculum([i])
             obs, first_val = env.reset()
+
+            if self.use_space == space_operation.ONE_GENERATION:
+                mini_rollout = env.poll_env()
+                self.space_logger.info(f"Polled environment to get {mini_rollout}")
+                obs[0] = mini_rollout[0]
+                obs[1] = mini_rollout[1]
+
             # obs, info = env.env_method("poll_env", indices=0)[0]
             val = 0
             obs_t = obs_as_tensor(obs, learner.device)
