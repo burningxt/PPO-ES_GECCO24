@@ -15,12 +15,12 @@ def run():
     parser.add_argument('--test_models', action='store_true', help='Include model testing in the comparison.')
     parser.add_argument('--test_cma_es', action='store_true', help='Include pure CMA-ES testing in the comparison.')
     parser.add_argument('--test_one_fifth_es', action='store_true', help='Include pure CMA-ES testing in the comparison.')
-
     parser.add_argument('--experiment_name', type=str, default="", help='Include the name of your experiment.')
-    parser.add_argument('--use_space', type=int, default=1, help='Weather to train with SPACE curriculum.')
-    # parser.add_argument('--use_default', type=int, default=1, help='Weather to train with default behavior (just cycling through instances).')
-    parser.add_argument('--num_training_instances', type=int, default=12, help='How many instances to train models on.')
 
+    parser.add_argument('--use_space', type=int, default=1, help='Weather to train with SPACE curriculum.')
+    parser.add_argument('--instance_ordering', type=int, default=1, help='What instance ordering to use for SPACE')
+
+    parser.add_argument('--num_training_instances', type=int, default=12, help='How many instances to train models on.')
     parser.add_argument('--num_steps_per_rollout', type=int, default=12*400, help='How many steps there should be for each rollout, every rollout is one policy update.')
     
     # parser.add_argument('--cuda_device', type=str, default='cuda',
@@ -38,6 +38,7 @@ def run():
                          cuda_device=device, 
                          experiment_name=args.experiment_name,
                          use_space=args.use_space,
+                         instance_ordering=args.instance_ordering,
                         #  use_default=args.use_default,
                          num_training_instances=args.num_training_instances,
                          num_steps_per_rollout=args.num_steps_per_rollout

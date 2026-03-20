@@ -4,7 +4,8 @@ import os
 from stable_baselines3.common.utils import obs_as_tensor
 import torch as th
 import logging  
-
+# import space_enum
+from src.config.space_enum import space_operation, instance_ordering
 
 class LearningRateScheduler(BaseCallback):
     def __init__(self, initial_learning_rate, scheduler, verbose=0):
@@ -70,7 +71,9 @@ class SaveOnBestTrainingRewardCallback(BaseCallback):
 
 # Used to update the environment curriculum at each step 
 class UpdateEnvCallback(BaseCallback):
-    def __init__(self, algo_name: str, space_logger, use_space=1):
+    def __init__(self, algo_name: str, space_logger, use_space_val=1, instance_ordering_val=1):
+        # not using space is 0 
+        # using space is 1
         super().__init__()
         self.algo_name = algo_name
         self.last_q = 0.0
@@ -80,7 +83,9 @@ class UpdateEnvCallback(BaseCallback):
 
         # For now just training on 12 total instances
         self.num_training_instances = 12
-        self.use_space=use_space
+        self.use_space=space_operation(use_space_val)
+        self.instance_ordering=instance_ordering(instance_ordering_val)
+
         self.update_counter=0
         # self.last_evals = [0] * self.num_training_instances
 
@@ -101,11 +106,17 @@ class UpdateEnvCallback(BaseCallback):
         At the start of training, ensure that curriculum is already set.
         """
         # Just do nothing
-        if not self.use_space:
+        if self.use_space == space_operation.NO_SPACE:
             return True
 
-        # On training start, initialize the curriculum
+        # if self.use_space  == space_operation.JUST_SIZES:
+        #     self.set_static_curriculum()
+
+    # else:
+
+    # On training start, initialize the curriculum
         self.update_curriculum()
+        
 
     def _on_step(self) -> bool:
 
@@ -117,9 +128,8 @@ class UpdateEnvCallback(BaseCallback):
         :return: If the function completed successfully
         """
 
-
         # a rollout is collected every 12 * 400 steps, which is n_steps in the ppo_es_model file
-        if not self.use_space:
+        if self.use_space == space_operation.NO_SPACE:
             # Just don't do anything if space isn't being used
             return True
 
@@ -144,7 +154,8 @@ class UpdateEnvCallback(BaseCallback):
             # Update the curriculum size
             self.update_curriculum_size(curriculum)
 
-            # Update the curriculum itself
+            # if self.use_space != (space_operation.NO_SPACE):
+                # Update the curriculum itself
             self.update_curriculum()
 
         return True
@@ -221,27 +232,41 @@ class UpdateEnvCallback(BaseCallback):
 
 
 
+
         # Set the env
         eval_env = self.training_env.envs[0].unwrapped 
         temp = []
 
+        # self.space_logger.info("The things are: ")
+        # self.space_logger.info(f"use_space value: {self.use_space}")
+        # self.space_logger.info(f"use_space type: {type(self.use_space)}")
+        # self.space_logger.info(f"JUST_SIZES: {space_operation.JUST_SIZES}")
+        # self.space_logger.info(f"JUST_SIZES type: {type(space_operation.JUST_SIZES)}")
+
         # The first curriculum should be randomly sampled
-        if eval_env.before_first_rollout:
+        if self.use_space == space_operation.JUST_SIZES or self.instance_ordering == instance_ordering.NONE:
+            temp = list(range(self.num_training_instances))
+        else:
+            if eval_env.before_first_rollout:
+                self.space_logger.info("Before first policy update, random sample curriculum")
+                temp = self.random_sample_of_instances()
 
-            self.space_logger.info("Before first policy update, random sample curriculum")
-            temp = self.random_sample_of_instances()
-        else: 
+            else: 
 
-            self.space_logger.info("After first policy update, space generated curriculum")
-            temp = self.random_sample_of_instances()
-            if self.use_space == 1: # absolute ordering
-                temp = self.order_instances_qvals(self.model, eval_env, self.num_training_instances)
+                if self.instance_ordering == instance_ordering.ABSOLUTE: # absolute ordering
 
-            elif self.use_space == 2: 
-                temp = self.order_instances_improvement(self.model, eval_env, self.num_training_instances, self.last_evals)
-            
-            elif self.use_space == 3:
-                temp = self.order_instances_relative_improvement(self.model, eval_env, self.num_training_instances, self.last_evals)
+                    self.space_logger.info("After first policy update, absolute space ordering")
+                    temp = self.order_instances_qvals(self.model, eval_env, self.num_training_instances)
+
+                elif self.instance_ordering == instance_ordering.IMPROVEMENT: 
+
+                    self.space_logger.info("After first policy update, improvement space ordering")
+                    temp = self.order_instances_improvement(self.model, eval_env, self.num_training_instances, self.last_evals)
+                
+                elif self.instance_ordering == instance_ordering.RELATIVE_IMPROVEMENT:
+
+                    self.space_logger.info("After first policy update, relative improvement space ordering")
+                    temp = self.order_instances_relative_improvement(self.model, eval_env, self.num_training_instances, self.last_evals)
 
         
         self.space_logger.info(f"New curriculum is: ")
@@ -258,6 +283,12 @@ class UpdateEnvCallback(BaseCallback):
 
         # This is so that it ignores the first one, which is already set as callbacks run after the step
         self.training_env.envs[0].unwrapped.set_curriculum_index(1) 
+    
+    # def set_static_curriculum(self):
+
+    #     temp 
+    #     self.curriculum = temp
+    #     new_curriculum = self.curriculum[:self.curriculum_size]
     
 
     # Returns indices in ascending order, used for "absolute"
@@ -282,28 +313,50 @@ class UpdateEnvCallback(BaseCallback):
 
         if all(imp == 0 for imp in improvement.values()):
 
-            self.space_logger.info(f"No Improvements")
+            self.space_logger.info(f"No Improvements, keeping curriculum the same")
             # Don't change the curriculum if nothing improved 
             ordered_instances = self.curriculum
         else:
 
-            self.space_logger.info(f"improvements are: {improvement}")
+            self.space_logger.info(f"Improvements are: {improvement}")
             ordered_instances = sorted(improvement, key=improvement.get, reverse=True)
             self.last_evals = evals_dict
             
             
         return ordered_instances
 
-    # ordering by relative improvement, used for "rel-improvement"
-    # TODO need to do the same things as above
     def order_instances_relative_improvement(
         self, learner, env, num_instances, last_evals
     ):
         evals = self.get_instance_evals(learner, env, num_instances)
-        absolute_improvement = evals - last_evals
-        relative_improvement = absolute_improvement / last_evals
-        self.last_evals = evals
-        return np.argsort(relative_improvement)[::-1]
+        self.space_logger.info(f"In order instances relative improvement, old evals are: {last_evals}")
+        self.space_logger.info(f"In order instances relative improvement, current evals are: {evals}")
+
+        relative_improvement = {}
+        evals_dict = {}
+    
+        for i in range(len(evals)):
+            old_eval = self.last_evals[i]
+            new_eval = evals[i]
+            evals_dict[i] = new_eval
+
+            if old_eval == 0:
+                # Avoid division by zero
+                # Just making a very small number
+                old_eval = 0.00001
+
+            relative_improvement[i] = (new_eval - old_eval) / old_eval
+
+        if all(imp == 0 for imp in relative_improvement.values()):
+            self.space_logger.info("No relative improvements, keeping curriculum the same")
+            # Don't change the curriculum if nothing improved 
+            ordered_instances = self.curriculum
+        else:
+            self.space_logger.info(f"Relative improvements are: {relative_improvement}")
+            ordered_instances = sorted(relative_improvement,key=relative_improvement.get,reverse=True)
+            self.last_evals = evals_dict
+
+        return ordered_instances
 
 
     # Returns a numpy array of value estimates 
@@ -374,7 +427,7 @@ class UpdateEnvCallback(BaseCallback):
         # env = self.model.env
 
         # self.space_logger.info("")
-        self.space_logger.info("Call to get_mean_q to potentially adjust size")
+        # self.space_logger.info("Call to get_mean_q to potentially adjust size")
         # self.space_logger.info("")
 
         env = self.training_env.envs[0].unwrapped 
@@ -422,12 +475,4 @@ class UpdateEnvCallback(BaseCallback):
     def random_sample_of_instances(self):
 
         sampled = np.random.permutation(self.num_training_instances).tolist()
-        self.space_logger.info("Random initial curriculum ordering: %s", sampled)
         return sampled
-
-
-
-
-        
-
-

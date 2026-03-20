@@ -23,9 +23,11 @@ def comparing_algorithms(need_train=False,
                          cuda_device='cuda:0',
                          experiment_name='base',
                          use_space=1,
+                         instance_ordering=1,
                         #  use_default=0,
                          num_training_instances=12,
                          num_steps_per_rollout=12*400 # default is 12 * 400 which was the original value
+
                          ):
     
     """Print all comparison parameters to standard output."""
@@ -60,7 +62,7 @@ def comparing_algorithms(need_train=False,
 
     config = {
         "system_info": machine_info,
-        "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+        "starting timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
         "need_train": need_train,
         "test_problem_type": test_problem_type,
         "test_instance": test_instance,
@@ -71,8 +73,10 @@ def comparing_algorithms(need_train=False,
         "cuda_device": str(cuda_device),
         "experiment_name": experiment_name,
         "use_space": use_space,
+        "instance_ordering": instance_ordering,
         "num_training_instances": num_training_instances,
-        "num_steps_per_policy_update":num_steps_per_rollout
+        "num_steps_per_policy_update":num_steps_per_rollout,
+  
     }
 
     config_path = os.path.join(results_dir, "experiment_config.json")
@@ -88,58 +92,59 @@ def comparing_algorithms(need_train=False,
     ppo_es = PPO_ES(base_dir=results_dir, cuda_device=cuda_device, logger=experiment_logger, config_info=config) # cuda is for parallel computing 
     start_time = time.time()
 
-    # training called here and here alone
-    # its only trained on the first 12 I believe 
-    if need_train:
-        ppo_es.train_ppo_es(num_steps_per_rollout)
+    try: 
+        # training called here and here alone
+        # its only trained on the first 12 I believe 
+        if need_train:
+            ppo_es.train_ppo_es(num_steps_per_rollout)
 
-    # Create new directories for each problem index
-    episodes_tested_dir = os.path.join(results_dir, f'episodes_tested', f'DIM_{test_dimension}')
-    baselines_dir = os.path.join(results_dir, f'baselines', f'DIM_{test_dimension}')
-
-
-    print("creating episodes_tested_dir")
-    print(episodes_tested_dir)
-    os.makedirs(episodes_tested_dir, exist_ok=True)
-    os.makedirs(baselines_dir, exist_ok=True)
-    os.makedirs(plot_dir, exist_ok=True)
+        # Create new directories for each problem index
+        episodes_tested_dir = os.path.join(results_dir, f'episodes_tested', f'DIM_{test_dimension}')
+        baselines_dir = os.path.join(results_dir, f'baselines', f'DIM_{test_dimension}')
 
 
-
-
-    for problemIndex in range(1, 25): # iterates through 1 to 24 
-        if need_test_models:
-            
-            experiment_logger.debug(f"Calling test_ppo_es on problem_index: %d", problemIndex)
-            ppo_es.test_ppo_es(test_problem_type, test_dimension, problemIndex, test_instance, experiment_logger)
-        if need_test_cma_es:
-            test_cma_es(results_dir, test_problem_type, test_dimension, problemIndex, test_instance)
-        if need_test_one_fifth_es:
-            test_one_fifth_es(results_dir, test_problem_type, test_dimension, problemIndex, test_instance)
-        # plot convergence figure
-        Draw().plot_convergence_data_mean_ci(problemIndex, episodes_tested_dir, baselines_dir, plot_dir, test_instance)
-
-    # plot overall box figure
-    Draw().plot_standardized_performance_boxplot(episodes_tested_dir, baselines_dir, plot_dir, test_instance)
-
-    # generate Friedman test table
-    perform_friedman_test(episodes_tested_dir, baselines_dir, plot_dir, test_instance)
+        print("creating episodes_tested_dir")
+        print(episodes_tested_dir)
+        os.makedirs(episodes_tested_dir, exist_ok=True)
+        os.makedirs(baselines_dir, exist_ok=True)
+        os.makedirs(plot_dir, exist_ok=True)
 
 
 
-    end_time = time.time()
-    end_timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    total_runtime_seconds = round(end_time - start_time, 2)
 
-    # Reload config, update it
-    with open(config_path, "r") as f:
-        config = json.load(f)
+        for problemIndex in range(1, 25): # iterates through 1 to 24 
+            if need_test_models:
+                
+                experiment_logger.debug(f"Calling test_ppo_es on problem_index: %d", problemIndex)
+                ppo_es.test_ppo_es(test_problem_type, test_dimension, problemIndex, test_instance, experiment_logger)
+            if need_test_cma_es:
+                test_cma_es(results_dir, test_problem_type, test_dimension, problemIndex, test_instance)
+            if need_test_one_fifth_es:
+                test_one_fifth_es(results_dir, test_problem_type, test_dimension, problemIndex, test_instance)
+            # plot convergence figure
+            Draw().plot_convergence_data_mean_ci(problemIndex, episodes_tested_dir, baselines_dir, plot_dir, test_instance)
 
-    config["end_timestamp"] = end_timestamp
-    config["total_runtime_seconds"] = total_runtime_seconds
+        # plot overall box figure
+        Draw().plot_standardized_performance_boxplot(episodes_tested_dir, baselines_dir, plot_dir, test_instance)
 
-    with open(config_path, "w") as f:
-        json.dump(config, f, indent=4)
+        # generate Friedman test table
+        perform_friedman_test(episodes_tested_dir, baselines_dir, plot_dir, test_instance)
+    
+    finally: 
+
+        end_time = time.time()
+        end_timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        total_runtime_seconds = round(end_time - start_time, 2)
+
+        # Reload config, update it
+        with open(config_path, "r") as f:
+            config = json.load(f)
+
+        config["end_timestamp"] = end_timestamp
+        config["total_runtime_seconds"] = total_runtime_seconds
+
+        with open(config_path, "w") as f:
+            json.dump(config, f, indent=4)
 
 
 
@@ -200,54 +205,3 @@ def build_logger(experiment_dir: str):
     logger.propagate = False
 
     return logger
-
-# def build_logger(experiment_dir: str):
-#     os.makedirs(experiment_dir, exist_ok=True)
-
-#     training_log_path = os.path.join(experiment_dir, "training.log")
-#     models_log_path = os.path.join(experiment_dir, "models.log")
-#     debug_log_path = os.path.join(experiment_dir, "debug.log")
-
-#     logger = logging.getLogger("ppo_es_training")
-#     logger.setLevel(logging.INFO)
-
-#     if not logger.handlers:
-
-#         formatter = logging.Formatter(
-#             "%(asctime)s | %(levelname)s | %(name)s | %(message)s"
-#         )
-
-#     # main log
-#         training_handler = logging.FileHandler(training_log_path)
-#         training_handler.setLevel(logging.INFO)
-#         training_handler.setFormatter(formatter)
-#         training_handler.set_name("training_file")
-
-#         logger.addHandler(training_handler)
-    
-#     # debug log file
-#         debug_handler = logging.FileHandler(debug_log_path)
-#         debug_handler.setLevel(logging.DEBUG)
-#         debug_handler.setFormatter(formatter)
-#         logger.addHandler(debug_handler)
-
-#     # child log
-#         models_logger = logger.getChild("modellog")
-#         models_logger.setLevel(logging.INFO)
-
-#         models_handler = logging.FileHandler(models_log_path)
-#         models_handler.setLevel(logging.INFO)
-#         models_handler.setFormatter(formatter)
-#         models_handler.set_name("models_file")
-
-#         models_logger.addHandler(models_handler)
-
-#         # Important:
-#         # Prevent models logger from ALSO writing to training.log
-#         models_logger.propagate = False
-
-#         # Attach as attribute for convenience
-#         logger.modellog = models_logger
-
-#     logger.propagate = False
-#     return logger

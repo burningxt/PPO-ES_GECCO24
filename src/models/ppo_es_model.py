@@ -162,7 +162,7 @@ class PPO_ES:
 
             lr_scheduler_callback.total_timesteps = total_timesteps
             # only takes PPO for now
-            space_callback = UpdateEnvCallback("ppo", space_logger=self.space_logger, use_space=self.config_info["use_space"])
+            space_callback = UpdateEnvCallback("ppo", space_logger=self.space_logger, use_space_val=self.config_info["use_space"], instance_ordering_val=self.config_info["instance_ordering"])
             # model.learn 
             # model is a PPO object, so it just learns 
             # we import PPO from stable baseline 3

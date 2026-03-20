@@ -11,7 +11,6 @@ EXPERIMENT_BASE="$1"
 RESULTS_DIR="output_data/results"
 
 SPACE_DIR="${RESULTS_DIR}/${EXPERIMENT_BASE}_space"
-DEFAULT_DIR="${RESULTS_DIR}/${EXPERIMENT_BASE}_default"
 
 # Get hostname and start time
 hostname=$(hostname)
@@ -22,9 +21,8 @@ echo "Experiment base name: $EXPERIMENT_BASE"
 
 
 
-rm -rf "$SPACE_DIR" "$DEFAULT_DIR"
-mkdir -p "$SPACE_DIR" "$DEFAULT_DIR"
-
+rm -rf "$SPACE_DIR" 
+mkdir -p "$SPACE_DIR" 
 
 
 # Run the Python command for using SPACE, using space number 2which is improvement
@@ -37,29 +35,11 @@ python run.py \
     --instance 1 \
     --dim 40 \
     --experiment_name "${EXPERIMENT_BASE}_space" \
-    --use_space 2 \
+    --use_space 3 \
+    --instance_ordering 1 \
     --num_training_instances 12 \
-    --num_steps_per_rollout 480 \
+    --num_steps_per_rollout 4800 \
     > "${EXPERIMENT_BASE}_output_space.txt"
-
-
-
-# Run the Python command for not using SPACE
-python run.py \
-    --train \
-    --test_models \
-    --test_cma_es \
-    --test_one_fifth_es \
-    --type bbob \
-    --instance 1 \
-    --dim 40 \
-    --experiment_name "${EXPERIMENT_BASE}_default" \
-    --use_space 0 \
-    --num_training_instances 12 \
-    --num_steps_per_rollout 480 \
-    > "${EXPERIMENT_BASE}_output_default.txt"
-
-
 
 # Get end time and duration
 end_time=$(date +"%Y-%m-%d %H:%M:%S")
@@ -71,7 +51,6 @@ echo "Total runtime: ${duration} seconds"
 
 
 mv "${EXPERIMENT_BASE}_output_space.txt" "$SPACE_DIR/"
-mv "${EXPERIMENT_BASE}_output_default.txt" "$DEFAULT_DIR/"
 
 echo "Output files moved to:"
 echo "  $SPACE_DIR"
