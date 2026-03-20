@@ -9,7 +9,7 @@ import json
 import re
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-JSON_PATH = os.path.abspath(os.path.join(SCRIPT_DIR, "..", "..", "bbob_optima.json"))
+JSON_PATH = os.path.abspath(os.path.join(SCRIPT_DIR, "..",  "bbob_optima.json"))
 
 def get_f_opt(dim, instance, problem_index):
     with open(JSON_PATH, "r") as f:
@@ -86,6 +86,7 @@ def main():
     plt.xlabel("Number of Generations")
     plt.ylabel("Solution Quality")
 
+
     plt.title(
         f"Best Found Solution of Each Generation\n"
         f"(Problem: {problem}, Episodes: {episode}, DIM: {dim}, Instance: {instance})",
@@ -108,7 +109,6 @@ def main():
     plt.savefig(output_png, dpi=300, bbox_inches="tight")
     print(f"Saved plot to: {output_png}")
 
-    # print(f"Saved plot to: {output_png}")
 
     # plt.show()
 
