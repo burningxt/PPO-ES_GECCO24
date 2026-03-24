@@ -130,10 +130,11 @@ python graph_generation/final_value_graphs/all_problem_line_on_same_graph.py
 If you use this code, please cite:
 
 ```bibtex
-@inproceedings{your_paper_2024,
-  title={PPO-ES with SPACE Curriculum Learning},
-  author={...},
-  booktitle={...},
+@inproceedings{xu2024accelerate,
+  title={Accelerate Evolution Strategy by Proximal Policy Optimization},
+  author={Xu, Tao and Chen, Hongyang Chen and He, Jun},
+  booktitle={Proceedings of the Genetic and Evolutionary Computation Conference},
+  pages={1064--1072},
   year={2024}
 }
 ```
